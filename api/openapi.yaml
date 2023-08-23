@@ -1,0 +1,2189 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: erebe@erebe.eu
+    name: Romain GERARD
+  description: Describe the weboscket endpoints
+  license:
+    name: ""
+  title: websocket-gateway
+  version: 0.1.0
+servers:
+- url: wss://ws.qovery.com
+paths:
+  /deployment/logs:
+    get:
+      operationId: handle_deployment_logs_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: version
+        required: true
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Stream of deployment logs
+      tags:
+      - deployment
+  /deployment/status:
+    get:
+      operationId: handle_deployment_status_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: version
+        required: true
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Stream of deployment status
+      tags:
+      - deployment
+  /infra/logs:
+    get:
+      operationId: handle_infra_logs_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          format: uuid
+          nullable: true
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment
+        required: true
+        schema:
+          format: uuid
+          nullable: true
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: service
+        required: true
+        schema:
+          format: uuid
+          nullable: true
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: infra_component_type
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceInfraLogResponseDto'
+          description: Stream of infra logs
+      tags:
+      - logs
+  /service/logs:
+    get:
+      operationId: handle_service_logs_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: service
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceLogResponseDto'
+          description: Stream of services logs
+      tags:
+      - logs
+  /service/metrics:
+    get:
+      operationId: handle_metrics_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: service
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: service_type
+        required: true
+        schema:
+          $ref: '#/components/schemas/ServiceType'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceMetricsDto'
+          description: Stream of services metrics
+      tags:
+      - service_metrics
+  /service/status:
+    get:
+      operationId: handle_service_status_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          format: uuid
+          nullable: true
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment
+        required: true
+        schema:
+          format: uuid
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceStatusDto'
+          description: Stream of services status
+      tags:
+      - service_status
+components:
+  schemas:
+    ApplicationStatusDto:
+      example:
+        certificates:
+        - not_after: ""
+          dns_names:
+          - dns_names
+          - dns_names
+          not_before: ""
+          failed_issuance_attempt_count: 0
+          last_failure_issuance_time: ""
+          state: null
+          renewal_time: ""
+          state_message: state_message
+        - not_after: ""
+          dns_names:
+          - dns_names
+          - dns_names
+          not_before: ""
+          failed_issuance_attempt_count: 0
+          last_failure_issuance_time: ""
+          state: null
+          renewal_time: ""
+          state_message: state_message
+        pods:
+        - restart_count: 0
+          state_reason: state_reason
+          name: name
+          started_at: ""
+          containers:
+          - image: image
+            restart_count: 0
+            current_state: null
+            name: name
+            last_terminated_state: null
+          - image: image
+            restart_count: 0
+            current_state: null
+            name: name
+            last_terminated_state: null
+          service_version: service_version
+          state: null
+          state_message: state_message
+        - restart_count: 0
+          state_reason: state_reason
+          name: name
+          started_at: ""
+          containers:
+          - image: image
+            restart_count: 0
+            current_state: null
+            name: name
+            last_terminated_state: null
+          - image: image
+            restart_count: 0
+            current_state: null
+            name: name
+            last_terminated_state: null
+          service_version: service_version
+          state: null
+          state_message: state_message
+        id: id
+        state: null
+      properties:
+        certificates:
+          items:
+            $ref: '#/components/schemas/CertificateStatusDto'
+          type: array
+        id:
+          type: string
+        pods:
+          items:
+            $ref: '#/components/schemas/PodStatusDto'
+          type: array
+        state:
+          $ref: '#/components/schemas/ServiceStateDto'
+      required:
+      - certificates
+      - id
+      - pods
+      - state
+      type: object
+    CertificateStatusDto:
+      example:
+        not_after: ""
+        dns_names:
+        - dns_names
+        - dns_names
+        not_before: ""
+        failed_issuance_attempt_count: 0
+        last_failure_issuance_time: ""
+        state: null
+        renewal_time: ""
+        state_message: state_message
+      properties:
+        dns_names:
+          items:
+            type: string
+          type: array
+        failed_issuance_attempt_count:
+          format: int64
+          minimum: 0
+          type: integer
+        last_failure_issuance_time:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        not_after:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        not_before:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        renewal_time:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        state:
+          $ref: '#/components/schemas/ServiceStateDto'
+        state_message:
+          nullable: true
+          type: string
+      required:
+      - dns_names
+      - failed_issuance_attempt_count
+      - state
+      type: object
+    ContainerStateDto:
+      properties:
+        started_at:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        state:
+          $ref: '#/components/schemas/ServiceStateDto'
+        state_message:
+          nullable: true
+          type: string
+        state_reason:
+          nullable: true
+          type: string
+      required:
+      - state
+      type: object
+    ContainerStateTerminatedDto:
+      properties:
+        exit_code:
+          format: int32
+          type: integer
+        exit_code_message:
+          type: string
+        finished_at:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        message:
+          type: string
+        reason:
+          type: string
+        signal:
+          format: int32
+          type: integer
+        started_at:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+      required:
+      - exit_code
+      - exit_code_message
+      - message
+      - reason
+      - signal
+      type: object
+    ContainerStatusDto:
+      example:
+        image: image
+        restart_count: 0
+        current_state: null
+        name: name
+        last_terminated_state: null
+      properties:
+        current_state:
+          $ref: '#/components/schemas/ContainerStatusDto_current_state'
+        image:
+          type: string
+        last_terminated_state:
+          $ref: '#/components/schemas/ContainerStatusDto_last_terminated_state'
+        name:
+          type: string
+        restart_count:
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - image
+      - name
+      - restart_count
+      type: object
+    DatabaseStatusDto:
+      example:
+        pods:
+        - restart_count: 0
+          state_reason: state_reason
+          name: name
+          started_at: ""
+          containers:
+          - image: image
+            restart_count: 0
+            current_state: null
+            name: name
+            last_terminated_state: null
+          - image: image
+            restart_count: 0
+            current_state: null
+            name: name
+            last_terminated_state: null
+          service_version: service_version
+          state: null
+          state_message: state_message
+        - restart_count: 0
+          state_reason: state_reason
+          name: name
+          started_at: ""
+          containers:
+          - image: image
+            restart_count: 0
+            current_state: null
+            name: name
+            last_terminated_state: null
+          - image: image
+            restart_count: 0
+            current_state: null
+            name: name
+            last_terminated_state: null
+          service_version: service_version
+          state: null
+          state_message: state_message
+        id: id
+        state: null
+      properties:
+        id:
+          type: string
+        pods:
+          items:
+            $ref: '#/components/schemas/PodStatusDto'
+          type: array
+        state:
+          $ref: '#/components/schemas/ServiceStateDto'
+      required:
+      - id
+      - pods
+      - state
+      type: object
+    EnvironmentStatusDto:
+      example:
+        databases:
+        - pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          id: id
+          state: null
+        - pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          id: id
+          state: null
+        project_id: project_id
+        jobs:
+        - certificates:
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          id: id
+          state: null
+        - certificates:
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          id: id
+          state: null
+        containers:
+        - certificates:
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          id: id
+          state: null
+        - certificates:
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          id: id
+          state: null
+        id: id
+        state: null
+        applications:
+        - certificates:
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          id: id
+          state: null
+        - certificates:
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            - image: image
+              restart_count: 0
+              current_state: null
+              name: name
+              last_terminated_state: null
+            service_version: service_version
+            state: null
+            state_message: state_message
+          id: id
+          state: null
+      properties:
+        applications:
+          items:
+            $ref: '#/components/schemas/ApplicationStatusDto'
+          type: array
+        containers:
+          items:
+            $ref: '#/components/schemas/ApplicationStatusDto'
+          type: array
+        databases:
+          items:
+            $ref: '#/components/schemas/DatabaseStatusDto'
+          type: array
+        id:
+          type: string
+        jobs:
+          items:
+            $ref: '#/components/schemas/ApplicationStatusDto'
+          type: array
+        project_id:
+          type: string
+        state:
+          $ref: '#/components/schemas/ServiceStateDto'
+      required:
+      - applications
+      - containers
+      - databases
+      - id
+      - jobs
+      - project_id
+      - state
+      type: object
+    MetricDto:
+      example:
+        current_percent: 0
+        current: 0
+        unit: null
+        limit: 0
+        name: name
+        status: null
+      properties:
+        current:
+          format: int32
+          minimum: 0
+          type: integer
+        current_percent:
+          format: int32
+          minimum: 0
+          type: integer
+        limit:
+          format: int32
+          minimum: 0
+          type: integer
+        name:
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/ResourceStatusDto'
+        unit:
+          $ref: '#/components/schemas/UnitDto'
+      required:
+      - current
+      - current_percent
+      - limit
+      - status
+      - unit
+      type: object
+    PodStatusDto:
+      example:
+        restart_count: 0
+        state_reason: state_reason
+        name: name
+        started_at: ""
+        containers:
+        - image: image
+          restart_count: 0
+          current_state: null
+          name: name
+          last_terminated_state: null
+        - image: image
+          restart_count: 0
+          current_state: null
+          name: name
+          last_terminated_state: null
+        service_version: service_version
+        state: null
+        state_message: state_message
+      properties:
+        containers:
+          items:
+            $ref: '#/components/schemas/ContainerStatusDto'
+          type: array
+        name:
+          type: string
+        restart_count:
+          format: int32
+          minimum: 0
+          type: integer
+        service_version:
+          type: string
+        started_at:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        state:
+          $ref: '#/components/schemas/ServiceStateDto'
+        state_message:
+          type: string
+        state_reason:
+          type: string
+      required:
+      - containers
+      - name
+      - restart_count
+      - service_version
+      - state
+      - state_message
+      - state_reason
+      type: object
+    ResourceStatusDto:
+      enum:
+      - OK
+      - WARNING
+      - ALERT
+      type: string
+    ServiceInfraLogResponseDto:
+      example:
+        created_at: ""
+        message: message
+      properties:
+        created_at:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        message:
+          type: string
+      required:
+      - message
+      type: object
+    ServiceLogResponseDto:
+      example:
+        created_at: ""
+        message: message
+        version: version
+        pod_name: pod_name
+      properties:
+        created_at:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        message:
+          type: string
+        pod_name:
+          type: string
+        version:
+          type: string
+      required:
+      - message
+      - pod_name
+      - version
+      type: object
+    ServiceMetricsDto:
+      example:
+        storages:
+        - current_percent: 0
+          current: 0
+          unit: null
+          limit: 0
+          name: name
+          status: null
+        - current_percent: 0
+          current: 0
+          unit: null
+          limit: 0
+          name: name
+          status: null
+        memory:
+          current_percent: 0
+          current: 0
+          unit: null
+          limit: 0
+          name: name
+          status: null
+        cpu:
+          current_percent: 0
+          current: 0
+          unit: null
+          limit: 0
+          name: name
+          status: null
+        pod_name: pod_name
+      properties:
+        cpu:
+          $ref: '#/components/schemas/MetricDto'
+        memory:
+          $ref: '#/components/schemas/MetricDto'
+        pod_name:
+          type: string
+        storages:
+          items:
+            $ref: '#/components/schemas/MetricDto'
+          type: array
+      required:
+      - cpu
+      - memory
+      - pod_name
+      - storages
+      type: object
+    ServiceStateDto:
+      enum:
+      - STARTING
+      - RUNNING
+      - ERROR
+      - STOPPING
+      - STOPPED
+      - COMPLETED
+      - WARNING
+      - UNKNOWN
+      type: string
+    ServiceStatusDto:
+      example:
+        environments:
+        - databases:
+          - pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          - pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          project_id: project_id
+          jobs:
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          containers:
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          id: id
+          state: null
+          applications:
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+        - databases:
+          - pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          - pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          project_id: project_id
+          jobs:
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          containers:
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          id: id
+          state: null
+          applications:
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              - image: image
+                restart_count: 0
+                current_state: null
+                name: name
+                last_terminated_state: null
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+      properties:
+        environments:
+          items:
+            $ref: '#/components/schemas/EnvironmentStatusDto'
+          type: array
+      required:
+      - environments
+      type: object
+    ServiceType:
+      enum:
+      - APPLICATION
+      - CONTAINER
+      - DATABASE
+      - JOB
+      type: string
+    Timestamp:
+      description: Timestamp in milliseconds
+      nullable: true
+      type: integer
+    UnitDto:
+      enum:
+      - mCPU
+      - MiB
+      type: string
+    ContainerStatusDto_current_state:
+      allOf:
+      - $ref: '#/components/schemas/ContainerStateDto'
+      nullable: true
+    ContainerStatusDto_last_terminated_state:
+      allOf:
+      - $ref: '#/components/schemas/ContainerStateTerminatedDto'
+      nullable: true
