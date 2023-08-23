@@ -2171,7 +2171,7 @@ components:
       - JOB
       type: string
     Timestamp:
-      description: Timestamp in milliseconds
+      description: Unix timestamp with millisecond precision
       nullable: true
       type: integer
     UnitDto:
