@@ -1,4 +1,4 @@
-module github.com/qovery/qovery-client-go
+module github.com/qovery/qovery-client-ws-go
 
 go 1.13
 
