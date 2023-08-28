@@ -29,6 +29,7 @@ paths:
         required: true
         schema:
           format: uuid
+          nullable: true
           type: string
         style: simple
       - explode: false
@@ -82,6 +83,7 @@ paths:
         required: true
         schema:
           format: uuid
+          nullable: true
           type: string
         style: simple
       - explode: false
