@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedAt** | **NullableInt32** | Unix timestamp with millisecond precision | 
+**CreatedAt** | **int64** |  | 
 **Message** | **string** |  | 
 
 ## Methods
 
 ### NewServiceInfraLogResponseDto
 
-`func NewServiceInfraLogResponseDto(createdAt NullableInt32, message string, ) *ServiceInfraLogResponseDto`
+`func NewServiceInfraLogResponseDto(createdAt int64, message string, ) *ServiceInfraLogResponseDto`
 
 NewServiceInfraLogResponseDto instantiates a new ServiceInfraLogResponseDto object
 This constructor will assign default values to properties that have it defined,
@@ -28,34 +28,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCreatedAt
 
-`func (o *ServiceInfraLogResponseDto) GetCreatedAt() int32`
+`func (o *ServiceInfraLogResponseDto) GetCreatedAt() int64`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *ServiceInfraLogResponseDto) GetCreatedAtOk() (*int32, bool)`
+`func (o *ServiceInfraLogResponseDto) GetCreatedAtOk() (*int64, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *ServiceInfraLogResponseDto) SetCreatedAt(v int32)`
+`func (o *ServiceInfraLogResponseDto) SetCreatedAt(v int64)`
 
 SetCreatedAt sets CreatedAt field to given value.
 
 
-### SetCreatedAtNil
-
-`func (o *ServiceInfraLogResponseDto) SetCreatedAtNil(b bool)`
-
- SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-
-### UnsetCreatedAt
-`func (o *ServiceInfraLogResponseDto) UnsetCreatedAt()`
-
-UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
 ### GetMessage
 
 `func (o *ServiceInfraLogResponseDto) GetMessage() string`

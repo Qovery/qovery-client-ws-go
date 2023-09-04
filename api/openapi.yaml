@@ -1176,8 +1176,8 @@ components:
         message: message
       properties:
         created_at:
-          description: Unix timestamp with millisecond precision
-          nullable: true
+          format: int64
+          minimum: 0
           type: integer
         message:
           type: string
@@ -1193,8 +1193,8 @@ components:
         pod_name: pod_name
       properties:
         created_at:
-          description: Unix timestamp with millisecond precision
-          nullable: true
+          format: int64
+          minimum: 0
           type: integer
         message:
           type: string

@@ -17,8 +17,7 @@ import (
 
 // ServiceInfraLogResponseDto struct for ServiceInfraLogResponseDto
 type ServiceInfraLogResponseDto struct {
-	// Unix timestamp with millisecond precision
-	CreatedAt NullableInt32 `json:"created_at"`
+	CreatedAt int64 `json:"created_at"`
 	Message string `json:"message"`
 }
 
@@ -26,7 +25,7 @@ type ServiceInfraLogResponseDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceInfraLogResponseDto(createdAt NullableInt32, message string) *ServiceInfraLogResponseDto {
+func NewServiceInfraLogResponseDto(createdAt int64, message string) *ServiceInfraLogResponseDto {
 	this := ServiceInfraLogResponseDto{}
 	this.CreatedAt = createdAt
 	this.Message = message
@@ -42,29 +41,27 @@ func NewServiceInfraLogResponseDtoWithDefaults() *ServiceInfraLogResponseDto {
 }
 
 // GetCreatedAt returns the CreatedAt field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *ServiceInfraLogResponseDto) GetCreatedAt() int32 {
-	if o == nil || o.CreatedAt.Get() == nil {
-		var ret int32
+func (o *ServiceInfraLogResponseDto) GetCreatedAt() int64 {
+	if o == nil {
+		var ret int64
 		return ret
 	}
 
-	return *o.CreatedAt.Get()
+	return o.CreatedAt
 }
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ServiceInfraLogResponseDto) GetCreatedAtOk() (*int32, bool) {
+func (o *ServiceInfraLogResponseDto) GetCreatedAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.CreatedAt.Get(), o.CreatedAt.IsSet()
+	return &o.CreatedAt, true
 }
 
 // SetCreatedAt sets field value
-func (o *ServiceInfraLogResponseDto) SetCreatedAt(v int32) {
-	o.CreatedAt.Set(&v)
+func (o *ServiceInfraLogResponseDto) SetCreatedAt(v int64) {
+	o.CreatedAt = v
 }
 
 // GetMessage returns the Message field value
@@ -94,7 +91,7 @@ func (o *ServiceInfraLogResponseDto) SetMessage(v string) {
 func (o ServiceInfraLogResponseDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["created_at"] = o.CreatedAt.Get()
+		toSerialize["created_at"] = o.CreatedAt
 	}
 	if true {
 		toSerialize["message"] = o.Message
