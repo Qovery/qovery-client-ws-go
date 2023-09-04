@@ -17,7 +17,8 @@ import (
 
 // ServiceLogResponseDto struct for ServiceLogResponseDto
 type ServiceLogResponseDto struct {
-	CreatedAt int64 `json:"created_at"`
+	// Unix timestamp with millisecond precision
+	CreatedAt int32 `json:"created_at"`
 	Message string `json:"message"`
 	PodName string `json:"pod_name"`
 	Version string `json:"version"`
@@ -27,7 +28,7 @@ type ServiceLogResponseDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceLogResponseDto(createdAt int64, message string, podName string, version string) *ServiceLogResponseDto {
+func NewServiceLogResponseDto(createdAt int32, message string, podName string, version string) *ServiceLogResponseDto {
 	this := ServiceLogResponseDto{}
 	this.CreatedAt = createdAt
 	this.Message = message
@@ -45,9 +46,9 @@ func NewServiceLogResponseDtoWithDefaults() *ServiceLogResponseDto {
 }
 
 // GetCreatedAt returns the CreatedAt field value
-func (o *ServiceLogResponseDto) GetCreatedAt() int64 {
+func (o *ServiceLogResponseDto) GetCreatedAt() int32 {
 	if o == nil {
-		var ret int64
+		var ret int32
 		return ret
 	}
 
@@ -56,7 +57,7 @@ func (o *ServiceLogResponseDto) GetCreatedAt() int64 {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int64, bool) {
+func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,7 +65,7 @@ func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int64, bool) {
 }
 
 // SetCreatedAt sets field value
-func (o *ServiceLogResponseDto) SetCreatedAt(v int64) {
+func (o *ServiceLogResponseDto) SetCreatedAt(v int32) {
 	o.CreatedAt = v
 }
 

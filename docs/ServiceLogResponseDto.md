@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedAt** | **int64** |  | 
+**CreatedAt** | **int32** | Unix timestamp with millisecond precision | 
 **Message** | **string** |  | 
 **PodName** | **string** |  | 
 **Version** | **string** |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewServiceLogResponseDto
 
-`func NewServiceLogResponseDto(createdAt int64, message string, podName string, version string, ) *ServiceLogResponseDto`
+`func NewServiceLogResponseDto(createdAt int32, message string, podName string, version string, ) *ServiceLogResponseDto`
 
 NewServiceLogResponseDto instantiates a new ServiceLogResponseDto object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCreatedAt
 
-`func (o *ServiceLogResponseDto) GetCreatedAt() int64`
+`func (o *ServiceLogResponseDto) GetCreatedAt() int32`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int64, bool)`
+`func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int32, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *ServiceLogResponseDto) SetCreatedAt(v int64)`
+`func (o *ServiceLogResponseDto) SetCreatedAt(v int32)`
 
 SetCreatedAt sets CreatedAt field to given value.
 
