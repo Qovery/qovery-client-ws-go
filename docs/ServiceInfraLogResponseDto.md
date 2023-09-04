@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedAt** | Pointer to **NullableInt32** |  | [optional] 
+**CreatedAt** | **NullableInt32** | Unix timestamp with millisecond precision | 
 **Message** | **string** |  | 
 
 ## Methods
 
 ### NewServiceInfraLogResponseDto
 
-`func NewServiceInfraLogResponseDto(message string, ) *ServiceInfraLogResponseDto`
+`func NewServiceInfraLogResponseDto(createdAt NullableInt32, message string, ) *ServiceInfraLogResponseDto`
 
 NewServiceInfraLogResponseDto instantiates a new ServiceInfraLogResponseDto object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
-### HasCreatedAt
-
-`func (o *ServiceInfraLogResponseDto) HasCreatedAt() bool`
-
-HasCreatedAt returns a boolean if a field has been set.
 
 ### SetCreatedAtNil
 

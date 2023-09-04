@@ -1172,29 +1172,30 @@ components:
       type: string
     ServiceInfraLogResponseDto:
       example:
-        created_at: ""
+        created_at: 0
         message: message
       properties:
         created_at:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
+          description: Unix timestamp with millisecond precision
           nullable: true
+          type: integer
         message:
           type: string
       required:
+      - created_at
       - message
       type: object
     ServiceLogResponseDto:
       example:
-        created_at: ""
+        created_at: 0
         message: message
         version: version
         pod_name: pod_name
       properties:
         created_at:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
+          description: Unix timestamp with millisecond precision
           nullable: true
+          type: integer
         message:
           type: string
         pod_name:
@@ -1202,6 +1203,7 @@ components:
         version:
           type: string
       required:
+      - created_at
       - message
       - pod_name
       - version

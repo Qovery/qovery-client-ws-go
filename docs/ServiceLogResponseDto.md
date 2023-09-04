@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedAt** | Pointer to **NullableInt32** |  | [optional] 
+**CreatedAt** | **NullableInt32** | Unix timestamp with millisecond precision | 
 **Message** | **string** |  | 
 **PodName** | **string** |  | 
 **Version** | **string** |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewServiceLogResponseDto
 
-`func NewServiceLogResponseDto(message string, podName string, version string, ) *ServiceLogResponseDto`
+`func NewServiceLogResponseDto(createdAt NullableInt32, message string, podName string, version string, ) *ServiceLogResponseDto`
 
 NewServiceLogResponseDto instantiates a new ServiceLogResponseDto object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
-### HasCreatedAt
-
-`func (o *ServiceLogResponseDto) HasCreatedAt() bool`
-
-HasCreatedAt returns a boolean if a field has been set.
 
 ### SetCreatedAtNil
 

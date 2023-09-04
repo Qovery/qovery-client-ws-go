@@ -17,7 +17,8 @@ import (
 
 // ServiceLogResponseDto struct for ServiceLogResponseDto
 type ServiceLogResponseDto struct {
-	CreatedAt NullableInt32 `json:"created_at,omitempty"`
+	// Unix timestamp with millisecond precision
+	CreatedAt NullableInt32 `json:"created_at"`
 	Message string `json:"message"`
 	PodName string `json:"pod_name"`
 	Version string `json:"version"`
@@ -27,8 +28,9 @@ type ServiceLogResponseDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceLogResponseDto(message string, podName string, version string) *ServiceLogResponseDto {
+func NewServiceLogResponseDto(createdAt NullableInt32, message string, podName string, version string) *ServiceLogResponseDto {
 	this := ServiceLogResponseDto{}
+	this.CreatedAt = createdAt
 	this.Message = message
 	this.PodName = podName
 	this.Version = version
@@ -43,16 +45,18 @@ func NewServiceLogResponseDtoWithDefaults() *ServiceLogResponseDto {
 	return &this
 }
 
-// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatedAt returns the CreatedAt field value
+// If the value is explicit nil, the zero value for int32 will be returned
 func (o *ServiceLogResponseDto) GetCreatedAt() int32 {
 	if o == nil || o.CreatedAt.Get() == nil {
 		var ret int32
 		return ret
 	}
+
 	return *o.CreatedAt.Get()
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int32, bool) {
@@ -62,27 +66,9 @@ func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int32, bool) {
 	return o.CreatedAt.Get(), o.CreatedAt.IsSet()
 }
 
-// HasCreatedAt returns a boolean if a field has been set.
-func (o *ServiceLogResponseDto) HasCreatedAt() bool {
-	if o != nil && o.CreatedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedAt gets a reference to the given NullableInt32 and assigns it to the CreatedAt field.
+// SetCreatedAt sets field value
 func (o *ServiceLogResponseDto) SetCreatedAt(v int32) {
 	o.CreatedAt.Set(&v)
-}
-// SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
-func (o *ServiceLogResponseDto) SetCreatedAtNil() {
-	o.CreatedAt.Set(nil)
-}
-
-// UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
-func (o *ServiceLogResponseDto) UnsetCreatedAt() {
-	o.CreatedAt.Unset()
 }
 
 // GetMessage returns the Message field value
@@ -159,7 +145,7 @@ func (o *ServiceLogResponseDto) SetVersion(v string) {
 
 func (o ServiceLogResponseDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CreatedAt.IsSet() {
+	if true {
 		toSerialize["created_at"] = o.CreatedAt.Get()
 	}
 	if true {
