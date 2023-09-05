@@ -62,7 +62,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: Stream of deployment logs
+          description: Stream of deployment logs. Type API is at https://api-doc.qovery.com/#tag/Environment-Logs/operation/listEnvironmentLogs
       tags:
       - deployment
   /deployment/status:
@@ -116,7 +116,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: Stream of deployment status
+          description: Stream of deployment status. Type API is at https://api-doc.qovery.com/#tag/Environment-Main-Calls/operation/getEnvironmentStatusesWithStages
       tags:
       - deployment
   /infra/logs:
