@@ -1,10 +1,10 @@
-# \ServiceStatusApi
+# \ServiceStatusAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HandleServiceStatusRequest**](ServiceStatusApi.md#HandleServiceStatusRequest) | **Get** /service/status | 
+[**HandleServiceStatusRequest**](ServiceStatusAPI.md#HandleServiceStatusRequest) | **Get** /service/status | 
 
 
 
@@ -23,7 +23,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
@@ -34,13 +34,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ServiceStatusApi.HandleServiceStatusRequest(context.Background(), organization, cluster, project, environment).Execute()
+    resp, r, err := apiClient.ServiceStatusAPI.HandleServiceStatusRequest(context.Background(), organization, cluster, project, environment).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceStatusApi.HandleServiceStatusRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ServiceStatusAPI.HandleServiceStatusRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `HandleServiceStatusRequest`: ServiceStatusDto
-    fmt.Fprintf(os.Stdout, "Response from `ServiceStatusApi.HandleServiceStatusRequest`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ServiceStatusAPI.HandleServiceStatusRequest`: %v\n", resp)
 }
 ```
 

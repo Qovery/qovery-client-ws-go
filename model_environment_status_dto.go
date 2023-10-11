@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the EnvironmentStatusDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EnvironmentStatusDto{}
+
 // EnvironmentStatusDto struct for EnvironmentStatusDto
 type EnvironmentStatusDto struct {
 	Applications []ApplicationStatusDto `json:"applications"`
@@ -219,29 +222,23 @@ func (o *EnvironmentStatusDto) SetState(v ServiceStateDto) {
 }
 
 func (o EnvironmentStatusDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["applications"] = o.Applications
-	}
-	if true {
-		toSerialize["containers"] = o.Containers
-	}
-	if true {
-		toSerialize["databases"] = o.Databases
-	}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["jobs"] = o.Jobs
-	}
-	if true {
-		toSerialize["project_id"] = o.ProjectId
-	}
-	if true {
-		toSerialize["state"] = o.State
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EnvironmentStatusDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["applications"] = o.Applications
+	toSerialize["containers"] = o.Containers
+	toSerialize["databases"] = o.Databases
+	toSerialize["id"] = o.Id
+	toSerialize["jobs"] = o.Jobs
+	toSerialize["project_id"] = o.ProjectId
+	toSerialize["state"] = o.State
+	return toSerialize, nil
 }
 
 type NullableEnvironmentStatusDto struct {

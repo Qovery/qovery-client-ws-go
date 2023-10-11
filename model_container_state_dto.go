@@ -15,8 +15,12 @@ import (
 	"encoding/json"
 )
 
+// checks if the ContainerStateDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ContainerStateDto{}
+
 // ContainerStateDto struct for ContainerStateDto
 type ContainerStateDto struct {
+	// Unix timestamp with millisecond precision
 	StartedAt NullableInt32 `json:"started_at,omitempty"`
 	State ServiceStateDto `json:"state"`
 	StateMessage NullableString `json:"state_message,omitempty"`
@@ -43,7 +47,7 @@ func NewContainerStateDtoWithDefaults() *ContainerStateDto {
 
 // GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ContainerStateDto) GetStartedAt() int32 {
-	if o == nil || o.StartedAt.Get() == nil {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret int32
 		return ret
 	}
@@ -109,7 +113,7 @@ func (o *ContainerStateDto) SetState(v ServiceStateDto) {
 
 // GetStateMessage returns the StateMessage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ContainerStateDto) GetStateMessage() string {
-	if o == nil || o.StateMessage.Get() == nil {
+	if o == nil || IsNil(o.StateMessage.Get()) {
 		var ret string
 		return ret
 	}
@@ -151,7 +155,7 @@ func (o *ContainerStateDto) UnsetStateMessage() {
 
 // GetStateReason returns the StateReason field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ContainerStateDto) GetStateReason() string {
-	if o == nil || o.StateReason.Get() == nil {
+	if o == nil || IsNil(o.StateReason.Get()) {
 		var ret string
 		return ret
 	}
@@ -192,20 +196,26 @@ func (o *ContainerStateDto) UnsetStateReason() {
 }
 
 func (o ContainerStateDto) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ContainerStateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.StartedAt.IsSet() {
 		toSerialize["started_at"] = o.StartedAt.Get()
 	}
-	if true {
-		toSerialize["state"] = o.State
-	}
+	toSerialize["state"] = o.State
 	if o.StateMessage.IsSet() {
 		toSerialize["state_message"] = o.StateMessage.Get()
 	}
 	if o.StateReason.IsSet() {
 		toSerialize["state_reason"] = o.StateReason.Get()
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableContainerStateDto struct {

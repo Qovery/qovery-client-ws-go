@@ -15,14 +15,19 @@ import (
 	"encoding/json"
 )
 
+// checks if the ContainerStateTerminatedDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ContainerStateTerminatedDto{}
+
 // ContainerStateTerminatedDto struct for ContainerStateTerminatedDto
 type ContainerStateTerminatedDto struct {
 	ExitCode int32 `json:"exit_code"`
 	ExitCodeMessage string `json:"exit_code_message"`
+	// Unix timestamp with millisecond precision
 	FinishedAt NullableInt32 `json:"finished_at,omitempty"`
 	Message string `json:"message"`
 	Reason string `json:"reason"`
 	Signal int32 `json:"signal"`
+	// Unix timestamp with millisecond precision
 	StartedAt NullableInt32 `json:"started_at,omitempty"`
 }
 
@@ -98,7 +103,7 @@ func (o *ContainerStateTerminatedDto) SetExitCodeMessage(v string) {
 
 // GetFinishedAt returns the FinishedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ContainerStateTerminatedDto) GetFinishedAt() int32 {
-	if o == nil || o.FinishedAt.Get() == nil {
+	if o == nil || IsNil(o.FinishedAt.Get()) {
 		var ret int32
 		return ret
 	}
@@ -212,7 +217,7 @@ func (o *ContainerStateTerminatedDto) SetSignal(v int32) {
 
 // GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ContainerStateTerminatedDto) GetStartedAt() int32 {
-	if o == nil || o.StartedAt.Get() == nil {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret int32
 		return ret
 	}
@@ -253,29 +258,27 @@ func (o *ContainerStateTerminatedDto) UnsetStartedAt() {
 }
 
 func (o ContainerStateTerminatedDto) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ContainerStateTerminatedDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["exit_code"] = o.ExitCode
-	}
-	if true {
-		toSerialize["exit_code_message"] = o.ExitCodeMessage
-	}
+	toSerialize["exit_code"] = o.ExitCode
+	toSerialize["exit_code_message"] = o.ExitCodeMessage
 	if o.FinishedAt.IsSet() {
 		toSerialize["finished_at"] = o.FinishedAt.Get()
 	}
-	if true {
-		toSerialize["message"] = o.Message
-	}
-	if true {
-		toSerialize["reason"] = o.Reason
-	}
-	if true {
-		toSerialize["signal"] = o.Signal
-	}
+	toSerialize["message"] = o.Message
+	toSerialize["reason"] = o.Reason
+	toSerialize["signal"] = o.Signal
 	if o.StartedAt.IsSet() {
 		toSerialize["started_at"] = o.StartedAt.Get()
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableContainerStateTerminatedDto struct {

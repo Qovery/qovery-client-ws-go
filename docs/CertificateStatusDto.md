@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DnsNames** | **[]string** |  | 
 **FailedIssuanceAttemptCount** | **int64** |  | 
-**LastFailureIssuanceTime** | Pointer to **NullableInt32** |  | [optional] 
-**NotAfter** | Pointer to **NullableInt32** |  | [optional] 
-**NotBefore** | Pointer to **NullableInt32** |  | [optional] 
-**RenewalTime** | Pointer to **NullableInt32** |  | [optional] 
+**LastFailureIssuanceTime** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
+**NotAfter** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
+**NotBefore** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
+**RenewalTime** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
 **State** | [**ServiceStateDto**](ServiceStateDto.md) |  | 
 **StateMessage** | Pointer to **NullableString** |  | [optional] 
 

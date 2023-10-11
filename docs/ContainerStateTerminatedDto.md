@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExitCode** | **int32** |  | 
 **ExitCodeMessage** | **string** |  | 
-**FinishedAt** | Pointer to **NullableInt32** |  | [optional] 
+**FinishedAt** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
 **Message** | **string** |  | 
 **Reason** | **string** |  | 
 **Signal** | **int32** |  | 
-**StartedAt** | Pointer to **NullableInt32** |  | [optional] 
+**StartedAt** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
 
 ## Methods
 

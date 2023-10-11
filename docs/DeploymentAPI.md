@@ -1,11 +1,11 @@
-# \DeploymentApi
+# \DeploymentAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HandleDeploymentLogsRequest**](DeploymentApi.md#HandleDeploymentLogsRequest) | **Get** /deployment/logs | 
-[**HandleDeploymentStatusRequest**](DeploymentApi.md#HandleDeploymentStatusRequest) | **Get** /deployment/status | 
+[**HandleDeploymentLogsRequest**](DeploymentAPI.md#HandleDeploymentLogsRequest) | **Get** /deployment/logs | 
+[**HandleDeploymentStatusRequest**](DeploymentAPI.md#HandleDeploymentStatusRequest) | **Get** /deployment/status | 
 
 
 
@@ -24,7 +24,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentApi.HandleDeploymentLogsRequest(context.Background(), organization, cluster, project, environment, version).Execute()
+    resp, r, err := apiClient.DeploymentAPI.HandleDeploymentLogsRequest(context.Background(), organization, cluster, project, environment, version).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentApi.HandleDeploymentLogsRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentAPI.HandleDeploymentLogsRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `HandleDeploymentLogsRequest`: string
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentApi.HandleDeploymentLogsRequest`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DeploymentAPI.HandleDeploymentLogsRequest`: %v\n", resp)
 }
 ```
 
@@ -104,7 +104,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
@@ -116,13 +116,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentApi.HandleDeploymentStatusRequest(context.Background(), organization, cluster, project, environment, version).Execute()
+    resp, r, err := apiClient.DeploymentAPI.HandleDeploymentStatusRequest(context.Background(), organization, cluster, project, environment, version).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentApi.HandleDeploymentStatusRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentAPI.HandleDeploymentStatusRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `HandleDeploymentStatusRequest`: string
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentApi.HandleDeploymentStatusRequest`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DeploymentAPI.HandleDeploymentStatusRequest`: %v\n", resp)
 }
 ```
 

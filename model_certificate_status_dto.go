@@ -15,13 +15,20 @@ import (
 	"encoding/json"
 )
 
+// checks if the CertificateStatusDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CertificateStatusDto{}
+
 // CertificateStatusDto struct for CertificateStatusDto
 type CertificateStatusDto struct {
 	DnsNames []string `json:"dns_names"`
 	FailedIssuanceAttemptCount int64 `json:"failed_issuance_attempt_count"`
+	// Unix timestamp with millisecond precision
 	LastFailureIssuanceTime NullableInt32 `json:"last_failure_issuance_time,omitempty"`
+	// Unix timestamp with millisecond precision
 	NotAfter NullableInt32 `json:"not_after,omitempty"`
+	// Unix timestamp with millisecond precision
 	NotBefore NullableInt32 `json:"not_before,omitempty"`
+	// Unix timestamp with millisecond precision
 	RenewalTime NullableInt32 `json:"renewal_time,omitempty"`
 	State ServiceStateDto `json:"state"`
 	StateMessage NullableString `json:"state_message,omitempty"`
@@ -97,7 +104,7 @@ func (o *CertificateStatusDto) SetFailedIssuanceAttemptCount(v int64) {
 
 // GetLastFailureIssuanceTime returns the LastFailureIssuanceTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CertificateStatusDto) GetLastFailureIssuanceTime() int32 {
-	if o == nil || o.LastFailureIssuanceTime.Get() == nil {
+	if o == nil || IsNil(o.LastFailureIssuanceTime.Get()) {
 		var ret int32
 		return ret
 	}
@@ -139,7 +146,7 @@ func (o *CertificateStatusDto) UnsetLastFailureIssuanceTime() {
 
 // GetNotAfter returns the NotAfter field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CertificateStatusDto) GetNotAfter() int32 {
-	if o == nil || o.NotAfter.Get() == nil {
+	if o == nil || IsNil(o.NotAfter.Get()) {
 		var ret int32
 		return ret
 	}
@@ -181,7 +188,7 @@ func (o *CertificateStatusDto) UnsetNotAfter() {
 
 // GetNotBefore returns the NotBefore field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CertificateStatusDto) GetNotBefore() int32 {
-	if o == nil || o.NotBefore.Get() == nil {
+	if o == nil || IsNil(o.NotBefore.Get()) {
 		var ret int32
 		return ret
 	}
@@ -223,7 +230,7 @@ func (o *CertificateStatusDto) UnsetNotBefore() {
 
 // GetRenewalTime returns the RenewalTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CertificateStatusDto) GetRenewalTime() int32 {
-	if o == nil || o.RenewalTime.Get() == nil {
+	if o == nil || IsNil(o.RenewalTime.Get()) {
 		var ret int32
 		return ret
 	}
@@ -289,7 +296,7 @@ func (o *CertificateStatusDto) SetState(v ServiceStateDto) {
 
 // GetStateMessage returns the StateMessage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CertificateStatusDto) GetStateMessage() string {
-	if o == nil || o.StateMessage.Get() == nil {
+	if o == nil || IsNil(o.StateMessage.Get()) {
 		var ret string
 		return ret
 	}
@@ -330,13 +337,17 @@ func (o *CertificateStatusDto) UnsetStateMessage() {
 }
 
 func (o CertificateStatusDto) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CertificateStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["dns_names"] = o.DnsNames
-	}
-	if true {
-		toSerialize["failed_issuance_attempt_count"] = o.FailedIssuanceAttemptCount
-	}
+	toSerialize["dns_names"] = o.DnsNames
+	toSerialize["failed_issuance_attempt_count"] = o.FailedIssuanceAttemptCount
 	if o.LastFailureIssuanceTime.IsSet() {
 		toSerialize["last_failure_issuance_time"] = o.LastFailureIssuanceTime.Get()
 	}
@@ -349,13 +360,11 @@ func (o CertificateStatusDto) MarshalJSON() ([]byte, error) {
 	if o.RenewalTime.IsSet() {
 		toSerialize["renewal_time"] = o.RenewalTime.Get()
 	}
-	if true {
-		toSerialize["state"] = o.State
-	}
+	toSerialize["state"] = o.State
 	if o.StateMessage.IsSet() {
 		toSerialize["state_message"] = o.StateMessage.Get()
 	}
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 type NullableCertificateStatusDto struct {

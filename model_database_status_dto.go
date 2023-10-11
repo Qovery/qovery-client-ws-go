@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DatabaseStatusDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DatabaseStatusDto{}
+
 // DatabaseStatusDto struct for DatabaseStatusDto
 type DatabaseStatusDto struct {
 	Id string `json:"id"`
@@ -115,17 +118,19 @@ func (o *DatabaseStatusDto) SetState(v ServiceStateDto) {
 }
 
 func (o DatabaseStatusDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["pods"] = o.Pods
-	}
-	if true {
-		toSerialize["state"] = o.State
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o DatabaseStatusDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["id"] = o.Id
+	toSerialize["pods"] = o.Pods
+	toSerialize["state"] = o.State
+	return toSerialize, nil
 }
 
 type NullableDatabaseStatusDto struct {

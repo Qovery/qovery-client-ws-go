@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **RestartCount** | **int32** |  | 
 **ServiceVersion** | **string** |  | 
-**StartedAt** | Pointer to **NullableInt32** |  | [optional] 
+**StartedAt** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
 **State** | [**ServiceStateDto**](ServiceStateDto.md) |  | 
 **StateMessage** | **string** |  | 
 **StateReason** | **string** |  | 

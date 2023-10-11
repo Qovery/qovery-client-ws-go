@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CurrentState** | Pointer to [**NullableContainerStatusDtoCurrentState**](ContainerStatusDtoCurrentState.md) |  | [optional] 
+**CurrentState** | Pointer to [**NullableContainerStateDto**](ContainerStateDto.md) |  | [optional] 
 **Image** | **string** |  | 
-**LastTerminatedState** | Pointer to [**NullableContainerStatusDtoLastTerminatedState**](ContainerStatusDtoLastTerminatedState.md) |  | [optional] 
+**LastTerminatedState** | Pointer to [**NullableContainerStateTerminatedDto**](ContainerStateTerminatedDto.md) |  | [optional] 
 **Name** | **string** |  | 
 **RestartCount** | **int32** |  | 
 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCurrentState
 
-`func (o *ContainerStatusDto) GetCurrentState() ContainerStatusDtoCurrentState`
+`func (o *ContainerStatusDto) GetCurrentState() ContainerStateDto`
 
 GetCurrentState returns the CurrentState field if non-nil, zero value otherwise.
 
 ### GetCurrentStateOk
 
-`func (o *ContainerStatusDto) GetCurrentStateOk() (*ContainerStatusDtoCurrentState, bool)`
+`func (o *ContainerStatusDto) GetCurrentStateOk() (*ContainerStateDto, bool)`
 
 GetCurrentStateOk returns a tuple with the CurrentState field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCurrentState
 
-`func (o *ContainerStatusDto) SetCurrentState(v ContainerStatusDtoCurrentState)`
+`func (o *ContainerStatusDto) SetCurrentState(v ContainerStateDto)`
 
 SetCurrentState sets CurrentState field to given value.
 
@@ -86,20 +86,20 @@ SetImage sets Image field to given value.
 
 ### GetLastTerminatedState
 
-`func (o *ContainerStatusDto) GetLastTerminatedState() ContainerStatusDtoLastTerminatedState`
+`func (o *ContainerStatusDto) GetLastTerminatedState() ContainerStateTerminatedDto`
 
 GetLastTerminatedState returns the LastTerminatedState field if non-nil, zero value otherwise.
 
 ### GetLastTerminatedStateOk
 
-`func (o *ContainerStatusDto) GetLastTerminatedStateOk() (*ContainerStatusDtoLastTerminatedState, bool)`
+`func (o *ContainerStatusDto) GetLastTerminatedStateOk() (*ContainerStateTerminatedDto, bool)`
 
 GetLastTerminatedStateOk returns a tuple with the LastTerminatedState field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastTerminatedState
 
-`func (o *ContainerStatusDto) SetLastTerminatedState(v ContainerStatusDtoLastTerminatedState)`
+`func (o *ContainerStatusDto) SetLastTerminatedState(v ContainerStateTerminatedDto)`
 
 SetLastTerminatedState sets LastTerminatedState field to given value.
 

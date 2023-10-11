@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StartedAt** | Pointer to **NullableInt32** |  | [optional] 
+**StartedAt** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
 **State** | [**ServiceStateDto**](ServiceStateDto.md) |  | 
 **StateMessage** | Pointer to **NullableString** |  | [optional] 
 **StateReason** | Pointer to **NullableString** |  | [optional] 

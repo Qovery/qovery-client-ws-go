@@ -1,10 +1,10 @@
-# \ServiceMetricsApi
+# \ServiceMetricsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HandleMetricsRequest**](ServiceMetricsApi.md#HandleMetricsRequest) | **Get** /service/metrics | 
+[**HandleMetricsRequest**](ServiceMetricsAPI.md#HandleMetricsRequest) | **Get** /service/metrics | 
 
 
 
@@ -23,7 +23,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ServiceMetricsApi.HandleMetricsRequest(context.Background(), organization, cluster, project, environment, service, serviceType).Execute()
+    resp, r, err := apiClient.ServiceMetricsAPI.HandleMetricsRequest(context.Background(), organization, cluster, project, environment, service, serviceType).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceMetricsApi.HandleMetricsRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ServiceMetricsAPI.HandleMetricsRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `HandleMetricsRequest`: ServiceMetricsDto
-    fmt.Fprintf(os.Stdout, "Response from `ServiceMetricsApi.HandleMetricsRequest`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ServiceMetricsAPI.HandleMetricsRequest`: %v\n", resp)
 }
 ```
 

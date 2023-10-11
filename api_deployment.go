@@ -14,19 +14,19 @@ package qovery-ws
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// DeploymentApiService DeploymentApi service
-type DeploymentApiService service
+// DeploymentAPIService DeploymentAPI service
+type DeploymentAPIService service
 
 type ApiHandleDeploymentLogsRequestRequest struct {
 	ctx context.Context
-	ApiService *DeploymentApiService
+	ApiService *DeploymentAPIService
 	organization string
 	cluster string
 	project string
@@ -49,7 +49,7 @@ HandleDeploymentLogsRequest Method for HandleDeploymentLogsRequest
  @param version
  @return ApiHandleDeploymentLogsRequestRequest
 */
-func (a *DeploymentApiService) HandleDeploymentLogsRequest(ctx context.Context, organization string, cluster string, project string, environment string, version string) ApiHandleDeploymentLogsRequestRequest {
+func (a *DeploymentAPIService) HandleDeploymentLogsRequest(ctx context.Context, organization string, cluster string, project string, environment string, version string) ApiHandleDeploymentLogsRequestRequest {
 	return ApiHandleDeploymentLogsRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -63,7 +63,7 @@ func (a *DeploymentApiService) HandleDeploymentLogsRequest(ctx context.Context, 
 
 // Execute executes the request
 //  @return string
-func (a *DeploymentApiService) HandleDeploymentLogsRequestExecute(r ApiHandleDeploymentLogsRequestRequest) (string, *http.Response, error) {
+func (a *DeploymentAPIService) HandleDeploymentLogsRequestExecute(r ApiHandleDeploymentLogsRequestRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -71,17 +71,17 @@ func (a *DeploymentApiService) HandleDeploymentLogsRequestExecute(r ApiHandleDep
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentApiService.HandleDeploymentLogsRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentAPIService.HandleDeploymentLogsRequest")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/deployment/logs"
-	localVarPath = strings.Replace(localVarPath, "{"+"organization"+"}", url.PathEscape(parameterToString(r.organization, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"cluster"+"}", url.PathEscape(parameterToString(r.cluster, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"project"+"}", url.PathEscape(parameterToString(r.project, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"environment"+"}", url.PathEscape(parameterToString(r.environment, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterToString(r.version, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organization"+"}", url.PathEscape(parameterValueToString(r.organization, "organization")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"cluster"+"}", url.PathEscape(parameterValueToString(r.cluster, "cluster")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project"+"}", url.PathEscape(parameterValueToString(r.project, "project")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environment"+"}", url.PathEscape(parameterValueToString(r.environment, "environment")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -114,9 +114,9 @@ func (a *DeploymentApiService) HandleDeploymentLogsRequestExecute(r ApiHandleDep
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -143,7 +143,7 @@ func (a *DeploymentApiService) HandleDeploymentLogsRequestExecute(r ApiHandleDep
 
 type ApiHandleDeploymentStatusRequestRequest struct {
 	ctx context.Context
-	ApiService *DeploymentApiService
+	ApiService *DeploymentAPIService
 	organization string
 	cluster string
 	project string
@@ -166,7 +166,7 @@ HandleDeploymentStatusRequest Method for HandleDeploymentStatusRequest
  @param version
  @return ApiHandleDeploymentStatusRequestRequest
 */
-func (a *DeploymentApiService) HandleDeploymentStatusRequest(ctx context.Context, organization string, cluster string, project string, environment string, version string) ApiHandleDeploymentStatusRequestRequest {
+func (a *DeploymentAPIService) HandleDeploymentStatusRequest(ctx context.Context, organization string, cluster string, project string, environment string, version string) ApiHandleDeploymentStatusRequestRequest {
 	return ApiHandleDeploymentStatusRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -180,7 +180,7 @@ func (a *DeploymentApiService) HandleDeploymentStatusRequest(ctx context.Context
 
 // Execute executes the request
 //  @return string
-func (a *DeploymentApiService) HandleDeploymentStatusRequestExecute(r ApiHandleDeploymentStatusRequestRequest) (string, *http.Response, error) {
+func (a *DeploymentAPIService) HandleDeploymentStatusRequestExecute(r ApiHandleDeploymentStatusRequestRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -188,17 +188,17 @@ func (a *DeploymentApiService) HandleDeploymentStatusRequestExecute(r ApiHandleD
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentApiService.HandleDeploymentStatusRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentAPIService.HandleDeploymentStatusRequest")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/deployment/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"organization"+"}", url.PathEscape(parameterToString(r.organization, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"cluster"+"}", url.PathEscape(parameterToString(r.cluster, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"project"+"}", url.PathEscape(parameterToString(r.project, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"environment"+"}", url.PathEscape(parameterToString(r.environment, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterToString(r.version, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organization"+"}", url.PathEscape(parameterValueToString(r.organization, "organization")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"cluster"+"}", url.PathEscape(parameterValueToString(r.cluster, "cluster")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project"+"}", url.PathEscape(parameterValueToString(r.project, "project")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environment"+"}", url.PathEscape(parameterValueToString(r.environment, "environment")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -231,9 +231,9 @@ func (a *DeploymentApiService) HandleDeploymentStatusRequestExecute(r ApiHandleD
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

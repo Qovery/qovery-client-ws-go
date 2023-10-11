@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MetricDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MetricDto{}
+
 // MetricDto struct for MetricDto
 type MetricDto struct {
 	Current int32 `json:"current"`
@@ -121,7 +124,7 @@ func (o *MetricDto) SetLimit(v int32) {
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MetricDto) GetName() string {
-	if o == nil || o.Name.Get() == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
@@ -210,26 +213,24 @@ func (o *MetricDto) SetUnit(v UnitDto) {
 }
 
 func (o MetricDto) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MetricDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["current"] = o.Current
-	}
-	if true {
-		toSerialize["current_percent"] = o.CurrentPercent
-	}
-	if true {
-		toSerialize["limit"] = o.Limit
-	}
+	toSerialize["current"] = o.Current
+	toSerialize["current_percent"] = o.CurrentPercent
+	toSerialize["limit"] = o.Limit
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if true {
-		toSerialize["status"] = o.Status
-	}
-	if true {
-		toSerialize["unit"] = o.Unit
-	}
-	return json.Marshal(toSerialize)
+	toSerialize["status"] = o.Status
+	toSerialize["unit"] = o.Unit
+	return toSerialize, nil
 }
 
 type NullableMetricDto struct {

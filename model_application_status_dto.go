@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ApplicationStatusDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApplicationStatusDto{}
+
 // ApplicationStatusDto struct for ApplicationStatusDto
 type ApplicationStatusDto struct {
 	Certificates []CertificateStatusDto `json:"certificates"`
@@ -141,20 +144,20 @@ func (o *ApplicationStatusDto) SetState(v ServiceStateDto) {
 }
 
 func (o ApplicationStatusDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["certificates"] = o.Certificates
-	}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["pods"] = o.Pods
-	}
-	if true {
-		toSerialize["state"] = o.State
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ApplicationStatusDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["certificates"] = o.Certificates
+	toSerialize["id"] = o.Id
+	toSerialize["pods"] = o.Pods
+	toSerialize["state"] = o.State
+	return toSerialize, nil
 }
 
 type NullableApplicationStatusDto struct {

@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ServiceLogResponseDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ServiceLogResponseDto{}
+
 // ServiceLogResponseDto struct for ServiceLogResponseDto
 type ServiceLogResponseDto struct {
 	// Unix timestamp with millisecond precision
@@ -142,20 +145,20 @@ func (o *ServiceLogResponseDto) SetVersion(v string) {
 }
 
 func (o ServiceLogResponseDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["created_at"] = o.CreatedAt
-	}
-	if true {
-		toSerialize["message"] = o.Message
-	}
-	if true {
-		toSerialize["pod_name"] = o.PodName
-	}
-	if true {
-		toSerialize["version"] = o.Version
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ServiceLogResponseDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["created_at"] = o.CreatedAt
+	toSerialize["message"] = o.Message
+	toSerialize["pod_name"] = o.PodName
+	toSerialize["version"] = o.Version
+	return toSerialize, nil
 }
 
 type NullableServiceLogResponseDto struct {

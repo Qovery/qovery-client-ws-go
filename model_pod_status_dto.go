@@ -15,12 +15,16 @@ import (
 	"encoding/json"
 )
 
+// checks if the PodStatusDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PodStatusDto{}
+
 // PodStatusDto struct for PodStatusDto
 type PodStatusDto struct {
 	Containers []ContainerStatusDto `json:"containers"`
 	Name string `json:"name"`
 	RestartCount int32 `json:"restart_count"`
 	ServiceVersion string `json:"service_version"`
+	// Unix timestamp with millisecond precision
 	StartedAt NullableInt32 `json:"started_at,omitempty"`
 	State ServiceStateDto `json:"state"`
 	StateMessage string `json:"state_message"`
@@ -149,7 +153,7 @@ func (o *PodStatusDto) SetServiceVersion(v string) {
 
 // GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PodStatusDto) GetStartedAt() int32 {
-	if o == nil || o.StartedAt.Get() == nil {
+	if o == nil || IsNil(o.StartedAt.Get()) {
 		var ret int32
 		return ret
 	}
@@ -262,32 +266,26 @@ func (o *PodStatusDto) SetStateReason(v string) {
 }
 
 func (o PodStatusDto) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PodStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["containers"] = o.Containers
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["restart_count"] = o.RestartCount
-	}
-	if true {
-		toSerialize["service_version"] = o.ServiceVersion
-	}
+	toSerialize["containers"] = o.Containers
+	toSerialize["name"] = o.Name
+	toSerialize["restart_count"] = o.RestartCount
+	toSerialize["service_version"] = o.ServiceVersion
 	if o.StartedAt.IsSet() {
 		toSerialize["started_at"] = o.StartedAt.Get()
 	}
-	if true {
-		toSerialize["state"] = o.State
-	}
-	if true {
-		toSerialize["state_message"] = o.StateMessage
-	}
-	if true {
-		toSerialize["state_reason"] = o.StateReason
-	}
-	return json.Marshal(toSerialize)
+	toSerialize["state"] = o.State
+	toSerialize["state_message"] = o.StateMessage
+	toSerialize["state_reason"] = o.StateReason
+	return toSerialize, nil
 }
 
 type NullablePodStatusDto struct {

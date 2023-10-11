@@ -15,7 +15,6 @@ Install the following dependencies:
 
 ```shell
 go get github.com/stretchr/testify/assert
-go get golang.org/x/oauth2
 go get golang.org/x/net/context
 ```
 
@@ -61,7 +60,7 @@ Each operation can use different server URL defined using `OperationServers` map
 An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
-```
+```golang
 ctx := context.WithValue(context.Background(), qovery-ws.ContextOperationServerIndices, map[string]int{
 	"{classname}Service.{nickname}": 2,
 })
@@ -78,12 +77,12 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DeploymentApi* | [**HandleDeploymentLogsRequest**](docs/DeploymentApi.md#handledeploymentlogsrequest) | **Get** /deployment/logs | 
-*DeploymentApi* | [**HandleDeploymentStatusRequest**](docs/DeploymentApi.md#handledeploymentstatusrequest) | **Get** /deployment/status | 
-*LogsApi* | [**HandleInfraLogsRequest**](docs/LogsApi.md#handleinfralogsrequest) | **Get** /infra/logs | 
-*LogsApi* | [**HandleServiceLogsRequest**](docs/LogsApi.md#handleservicelogsrequest) | **Get** /service/logs | 
-*ServiceMetricsApi* | [**HandleMetricsRequest**](docs/ServiceMetricsApi.md#handlemetricsrequest) | **Get** /service/metrics | 
-*ServiceStatusApi* | [**HandleServiceStatusRequest**](docs/ServiceStatusApi.md#handleservicestatusrequest) | **Get** /service/status | 
+*DeploymentAPI* | [**HandleDeploymentLogsRequest**](docs/DeploymentAPI.md#handledeploymentlogsrequest) | **Get** /deployment/logs | 
+*DeploymentAPI* | [**HandleDeploymentStatusRequest**](docs/DeploymentAPI.md#handledeploymentstatusrequest) | **Get** /deployment/status | 
+*LogsAPI* | [**HandleInfraLogsRequest**](docs/LogsAPI.md#handleinfralogsrequest) | **Get** /infra/logs | 
+*LogsAPI* | [**HandleServiceLogsRequest**](docs/LogsAPI.md#handleservicelogsrequest) | **Get** /service/logs | 
+*ServiceMetricsAPI* | [**HandleMetricsRequest**](docs/ServiceMetricsAPI.md#handlemetricsrequest) | **Get** /service/metrics | 
+*ServiceStatusAPI* | [**HandleServiceStatusRequest**](docs/ServiceStatusAPI.md#handleservicestatusrequest) | **Get** /service/status | 
 
 
 ## Documentation For Models
@@ -93,8 +92,6 @@ Class | Method | HTTP request | Description
  - [ContainerStateDto](docs/ContainerStateDto.md)
  - [ContainerStateTerminatedDto](docs/ContainerStateTerminatedDto.md)
  - [ContainerStatusDto](docs/ContainerStatusDto.md)
- - [ContainerStatusDtoCurrentState](docs/ContainerStatusDtoCurrentState.md)
- - [ContainerStatusDtoLastTerminatedState](docs/ContainerStatusDtoLastTerminatedState.md)
  - [DatabaseStatusDto](docs/DatabaseStatusDto.md)
  - [EnvironmentStatusDto](docs/EnvironmentStatusDto.md)
  - [MetricDto](docs/MetricDto.md)
@@ -111,7 +108,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- Endpoints do not require authorization.
+Endpoints do not require authorization.
 
 
 ## Documentation for Utility Methods

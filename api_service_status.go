@@ -14,19 +14,19 @@ package qovery-ws
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// ServiceStatusApiService ServiceStatusApi service
-type ServiceStatusApiService service
+// ServiceStatusAPIService ServiceStatusAPI service
+type ServiceStatusAPIService service
 
 type ApiHandleServiceStatusRequestRequest struct {
 	ctx context.Context
-	ApiService *ServiceStatusApiService
+	ApiService *ServiceStatusAPIService
 	organization string
 	cluster string
 	project string
@@ -47,7 +47,7 @@ HandleServiceStatusRequest Method for HandleServiceStatusRequest
  @param environment
  @return ApiHandleServiceStatusRequestRequest
 */
-func (a *ServiceStatusApiService) HandleServiceStatusRequest(ctx context.Context, organization string, cluster string, project string, environment string) ApiHandleServiceStatusRequestRequest {
+func (a *ServiceStatusAPIService) HandleServiceStatusRequest(ctx context.Context, organization string, cluster string, project string, environment string) ApiHandleServiceStatusRequestRequest {
 	return ApiHandleServiceStatusRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *ServiceStatusApiService) HandleServiceStatusRequest(ctx context.Context
 
 // Execute executes the request
 //  @return ServiceStatusDto
-func (a *ServiceStatusApiService) HandleServiceStatusRequestExecute(r ApiHandleServiceStatusRequestRequest) (*ServiceStatusDto, *http.Response, error) {
+func (a *ServiceStatusAPIService) HandleServiceStatusRequestExecute(r ApiHandleServiceStatusRequestRequest) (*ServiceStatusDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,16 +68,16 @@ func (a *ServiceStatusApiService) HandleServiceStatusRequestExecute(r ApiHandleS
 		localVarReturnValue  *ServiceStatusDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceStatusApiService.HandleServiceStatusRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceStatusAPIService.HandleServiceStatusRequest")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/service/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"organization"+"}", url.PathEscape(parameterToString(r.organization, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"cluster"+"}", url.PathEscape(parameterToString(r.cluster, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"project"+"}", url.PathEscape(parameterToString(r.project, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"environment"+"}", url.PathEscape(parameterToString(r.environment, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organization"+"}", url.PathEscape(parameterValueToString(r.organization, "organization")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"cluster"+"}", url.PathEscape(parameterValueToString(r.cluster, "cluster")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project"+"}", url.PathEscape(parameterValueToString(r.project, "project")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environment"+"}", url.PathEscape(parameterValueToString(r.environment, "environment")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -110,9 +110,9 @@ func (a *ServiceStatusApiService) HandleServiceStatusRequestExecute(r ApiHandleS
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

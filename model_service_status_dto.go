@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ServiceStatusDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ServiceStatusDto{}
+
 // ServiceStatusDto struct for ServiceStatusDto
 type ServiceStatusDto struct {
 	Environments []EnvironmentStatusDto `json:"environments"`
@@ -63,11 +66,17 @@ func (o *ServiceStatusDto) SetEnvironments(v []EnvironmentStatusDto) {
 }
 
 func (o ServiceStatusDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["environments"] = o.Environments
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ServiceStatusDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["environments"] = o.Environments
+	return toSerialize, nil
 }
 
 type NullableServiceStatusDto struct {

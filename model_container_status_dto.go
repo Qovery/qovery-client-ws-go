@@ -15,11 +15,14 @@ import (
 	"encoding/json"
 )
 
+// checks if the ContainerStatusDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ContainerStatusDto{}
+
 // ContainerStatusDto struct for ContainerStatusDto
 type ContainerStatusDto struct {
-	CurrentState NullableContainerStatusDtoCurrentState `json:"current_state,omitempty"`
+	CurrentState NullableContainerStateDto `json:"current_state,omitempty"`
 	Image string `json:"image"`
-	LastTerminatedState NullableContainerStatusDtoLastTerminatedState `json:"last_terminated_state,omitempty"`
+	LastTerminatedState NullableContainerStateTerminatedDto `json:"last_terminated_state,omitempty"`
 	Name string `json:"name"`
 	RestartCount int32 `json:"restart_count"`
 }
@@ -45,9 +48,9 @@ func NewContainerStatusDtoWithDefaults() *ContainerStatusDto {
 }
 
 // GetCurrentState returns the CurrentState field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ContainerStatusDto) GetCurrentState() ContainerStatusDtoCurrentState {
-	if o == nil || o.CurrentState.Get() == nil {
-		var ret ContainerStatusDtoCurrentState
+func (o *ContainerStatusDto) GetCurrentState() ContainerStateDto {
+	if o == nil || IsNil(o.CurrentState.Get()) {
+		var ret ContainerStateDto
 		return ret
 	}
 	return *o.CurrentState.Get()
@@ -56,7 +59,7 @@ func (o *ContainerStatusDto) GetCurrentState() ContainerStatusDtoCurrentState {
 // GetCurrentStateOk returns a tuple with the CurrentState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ContainerStatusDto) GetCurrentStateOk() (*ContainerStatusDtoCurrentState, bool) {
+func (o *ContainerStatusDto) GetCurrentStateOk() (*ContainerStateDto, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -72,8 +75,8 @@ func (o *ContainerStatusDto) HasCurrentState() bool {
 	return false
 }
 
-// SetCurrentState gets a reference to the given NullableContainerStatusDtoCurrentState and assigns it to the CurrentState field.
-func (o *ContainerStatusDto) SetCurrentState(v ContainerStatusDtoCurrentState) {
+// SetCurrentState gets a reference to the given NullableContainerStateDto and assigns it to the CurrentState field.
+func (o *ContainerStatusDto) SetCurrentState(v ContainerStateDto) {
 	o.CurrentState.Set(&v)
 }
 // SetCurrentStateNil sets the value for CurrentState to be an explicit nil
@@ -111,9 +114,9 @@ func (o *ContainerStatusDto) SetImage(v string) {
 }
 
 // GetLastTerminatedState returns the LastTerminatedState field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ContainerStatusDto) GetLastTerminatedState() ContainerStatusDtoLastTerminatedState {
-	if o == nil || o.LastTerminatedState.Get() == nil {
-		var ret ContainerStatusDtoLastTerminatedState
+func (o *ContainerStatusDto) GetLastTerminatedState() ContainerStateTerminatedDto {
+	if o == nil || IsNil(o.LastTerminatedState.Get()) {
+		var ret ContainerStateTerminatedDto
 		return ret
 	}
 	return *o.LastTerminatedState.Get()
@@ -122,7 +125,7 @@ func (o *ContainerStatusDto) GetLastTerminatedState() ContainerStatusDtoLastTerm
 // GetLastTerminatedStateOk returns a tuple with the LastTerminatedState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ContainerStatusDto) GetLastTerminatedStateOk() (*ContainerStatusDtoLastTerminatedState, bool) {
+func (o *ContainerStatusDto) GetLastTerminatedStateOk() (*ContainerStateTerminatedDto, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -138,8 +141,8 @@ func (o *ContainerStatusDto) HasLastTerminatedState() bool {
 	return false
 }
 
-// SetLastTerminatedState gets a reference to the given NullableContainerStatusDtoLastTerminatedState and assigns it to the LastTerminatedState field.
-func (o *ContainerStatusDto) SetLastTerminatedState(v ContainerStatusDtoLastTerminatedState) {
+// SetLastTerminatedState gets a reference to the given NullableContainerStateTerminatedDto and assigns it to the LastTerminatedState field.
+func (o *ContainerStatusDto) SetLastTerminatedState(v ContainerStateTerminatedDto) {
 	o.LastTerminatedState.Set(&v)
 }
 // SetLastTerminatedStateNil sets the value for LastTerminatedState to be an explicit nil
@@ -201,23 +204,25 @@ func (o *ContainerStatusDto) SetRestartCount(v int32) {
 }
 
 func (o ContainerStatusDto) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ContainerStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.CurrentState.IsSet() {
 		toSerialize["current_state"] = o.CurrentState.Get()
 	}
-	if true {
-		toSerialize["image"] = o.Image
-	}
+	toSerialize["image"] = o.Image
 	if o.LastTerminatedState.IsSet() {
 		toSerialize["last_terminated_state"] = o.LastTerminatedState.Get()
 	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["restart_count"] = o.RestartCount
-	}
-	return json.Marshal(toSerialize)
+	toSerialize["name"] = o.Name
+	toSerialize["restart_count"] = o.RestartCount
+	return toSerialize, nil
 }
 
 type NullableContainerStatusDto struct {

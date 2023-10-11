@@ -14,19 +14,19 @@ package qovery-ws
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// ServiceMetricsApiService ServiceMetricsApi service
-type ServiceMetricsApiService service
+// ServiceMetricsAPIService ServiceMetricsAPI service
+type ServiceMetricsAPIService service
 
 type ApiHandleMetricsRequestRequest struct {
 	ctx context.Context
-	ApiService *ServiceMetricsApiService
+	ApiService *ServiceMetricsAPIService
 	organization string
 	cluster string
 	project string
@@ -51,7 +51,7 @@ HandleMetricsRequest Method for HandleMetricsRequest
  @param serviceType
  @return ApiHandleMetricsRequestRequest
 */
-func (a *ServiceMetricsApiService) HandleMetricsRequest(ctx context.Context, organization string, cluster string, project string, environment string, service string, serviceType ServiceType) ApiHandleMetricsRequestRequest {
+func (a *ServiceMetricsAPIService) HandleMetricsRequest(ctx context.Context, organization string, cluster string, project string, environment string, service string, serviceType ServiceType) ApiHandleMetricsRequestRequest {
 	return ApiHandleMetricsRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -66,7 +66,7 @@ func (a *ServiceMetricsApiService) HandleMetricsRequest(ctx context.Context, org
 
 // Execute executes the request
 //  @return ServiceMetricsDto
-func (a *ServiceMetricsApiService) HandleMetricsRequestExecute(r ApiHandleMetricsRequestRequest) (*ServiceMetricsDto, *http.Response, error) {
+func (a *ServiceMetricsAPIService) HandleMetricsRequestExecute(r ApiHandleMetricsRequestRequest) (*ServiceMetricsDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -74,18 +74,18 @@ func (a *ServiceMetricsApiService) HandleMetricsRequestExecute(r ApiHandleMetric
 		localVarReturnValue  *ServiceMetricsDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceMetricsApiService.HandleMetricsRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceMetricsAPIService.HandleMetricsRequest")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/service/metrics"
-	localVarPath = strings.Replace(localVarPath, "{"+"organization"+"}", url.PathEscape(parameterToString(r.organization, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"cluster"+"}", url.PathEscape(parameterToString(r.cluster, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"project"+"}", url.PathEscape(parameterToString(r.project, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"environment"+"}", url.PathEscape(parameterToString(r.environment, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"service"+"}", url.PathEscape(parameterToString(r.service, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"service_type"+"}", url.PathEscape(parameterToString(r.serviceType, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organization"+"}", url.PathEscape(parameterValueToString(r.organization, "organization")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"cluster"+"}", url.PathEscape(parameterValueToString(r.cluster, "cluster")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project"+"}", url.PathEscape(parameterValueToString(r.project, "project")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"environment"+"}", url.PathEscape(parameterValueToString(r.environment, "environment")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"service"+"}", url.PathEscape(parameterValueToString(r.service, "service")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"service_type"+"}", url.PathEscape(parameterValueToString(r.serviceType, "serviceType")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -118,9 +118,9 @@ func (a *ServiceMetricsApiService) HandleMetricsRequestExecute(r ApiHandleMetric
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

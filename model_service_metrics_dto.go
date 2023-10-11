@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ServiceMetricsDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ServiceMetricsDto{}
+
 // ServiceMetricsDto struct for ServiceMetricsDto
 type ServiceMetricsDto struct {
 	Cpu MetricDto `json:"cpu"`
@@ -141,20 +144,20 @@ func (o *ServiceMetricsDto) SetStorages(v []MetricDto) {
 }
 
 func (o ServiceMetricsDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["cpu"] = o.Cpu
-	}
-	if true {
-		toSerialize["memory"] = o.Memory
-	}
-	if true {
-		toSerialize["pod_name"] = o.PodName
-	}
-	if true {
-		toSerialize["storages"] = o.Storages
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ServiceMetricsDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["cpu"] = o.Cpu
+	toSerialize["memory"] = o.Memory
+	toSerialize["pod_name"] = o.PodName
+	toSerialize["storages"] = o.Storages
+	return toSerialize, nil
 }
 
 type NullableServiceMetricsDto struct {

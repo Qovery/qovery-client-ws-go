@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ServiceInfraLogResponseDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ServiceInfraLogResponseDto{}
+
 // ServiceInfraLogResponseDto struct for ServiceInfraLogResponseDto
 type ServiceInfraLogResponseDto struct {
 	// Unix timestamp with millisecond precision
@@ -90,14 +93,18 @@ func (o *ServiceInfraLogResponseDto) SetMessage(v string) {
 }
 
 func (o ServiceInfraLogResponseDto) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["created_at"] = o.CreatedAt
-	}
-	if true {
-		toSerialize["message"] = o.Message
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ServiceInfraLogResponseDto) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["created_at"] = o.CreatedAt
+	toSerialize["message"] = o.Message
+	return toSerialize, nil
 }
 
 type NullableServiceInfraLogResponseDto struct {

@@ -1,11 +1,11 @@
-# \LogsApi
+# \LogsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HandleInfraLogsRequest**](LogsApi.md#HandleInfraLogsRequest) | **Get** /infra/logs | 
-[**HandleServiceLogsRequest**](LogsApi.md#HandleServiceLogsRequest) | **Get** /service/logs | 
+[**HandleInfraLogsRequest**](LogsAPI.md#HandleInfraLogsRequest) | **Get** /infra/logs | 
+[**HandleServiceLogsRequest**](LogsAPI.md#HandleServiceLogsRequest) | **Get** /service/logs | 
 
 
 
@@ -24,7 +24,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
@@ -37,13 +37,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LogsApi.HandleInfraLogsRequest(context.Background(), organization, cluster, project, environment, service, infraComponentType).Execute()
+    resp, r, err := apiClient.LogsAPI.HandleInfraLogsRequest(context.Background(), organization, cluster, project, environment, service, infraComponentType).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LogsApi.HandleInfraLogsRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.HandleInfraLogsRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `HandleInfraLogsRequest`: ServiceInfraLogResponseDto
-    fmt.Fprintf(os.Stdout, "Response from `LogsApi.HandleInfraLogsRequest`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LogsAPI.HandleInfraLogsRequest`: %v\n", resp)
 }
 ```
 
@@ -107,7 +107,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
@@ -119,13 +119,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LogsApi.HandleServiceLogsRequest(context.Background(), organization, cluster, project, environment, service).Execute()
+    resp, r, err := apiClient.LogsAPI.HandleServiceLogsRequest(context.Background(), organization, cluster, project, environment, service).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LogsApi.HandleServiceLogsRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.HandleServiceLogsRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `HandleServiceLogsRequest`: ServiceLogResponseDto
-    fmt.Fprintf(os.Stdout, "Response from `LogsApi.HandleServiceLogsRequest`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LogsAPI.HandleServiceLogsRequest`: %v\n", resp)
 }
 ```
 
