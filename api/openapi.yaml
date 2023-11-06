@@ -2183,4 +2183,5 @@ components:
       enum:
       - mCPU
       - MiB
+      - GiB
       type: string

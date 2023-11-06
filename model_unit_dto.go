@@ -23,12 +23,14 @@ type UnitDto string
 const (
 	UNITDTO_M_CPU UnitDto = "mCPU"
 	UNITDTO_MI_B UnitDto = "MiB"
+	UNITDTO_GI_B UnitDto = "GiB"
 )
 
 // All allowed values of UnitDto enum
 var AllowedUnitDtoEnumValues = []UnitDto{
 	"mCPU",
 	"MiB",
+	"GiB",
 }
 
 func (v *UnitDto) UnmarshalJSON(src []byte) error {
