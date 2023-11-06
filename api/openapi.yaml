@@ -929,6 +929,127 @@ components:
           state: null
         id: id
         state: null
+        helms:
+        - certificates:
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: ""
+              name: name
+              last_terminated_state: ""
+            - image: image
+              restart_count: 0
+              current_state: ""
+              name: name
+              last_terminated_state: ""
+            service_version: service_version
+            state: null
+            state_message: state_message
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: ""
+              name: name
+              last_terminated_state: ""
+            - image: image
+              restart_count: 0
+              current_state: ""
+              name: name
+              last_terminated_state: ""
+            service_version: service_version
+            state: null
+            state_message: state_message
+          id: id
+          state: null
+        - certificates:
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          - not_after: ""
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: ""
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: ""
+            state: null
+            renewal_time: ""
+            state_message: state_message
+          pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: ""
+              name: name
+              last_terminated_state: ""
+            - image: image
+              restart_count: 0
+              current_state: ""
+              name: name
+              last_terminated_state: ""
+            service_version: service_version
+            state: null
+            state_message: state_message
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: ""
+            containers:
+            - image: image
+              restart_count: 0
+              current_state: ""
+              name: name
+              last_terminated_state: ""
+            - image: image
+              restart_count: 0
+              current_state: ""
+              name: name
+              last_terminated_state: ""
+            service_version: service_version
+            state: null
+            state_message: state_message
+          id: id
+          state: null
         applications:
         - certificates:
           - not_after: ""
@@ -1063,6 +1184,10 @@ components:
           items:
             $ref: '#/components/schemas/DatabaseStatusDto'
           type: array
+        helms:
+          items:
+            $ref: '#/components/schemas/ApplicationStatusDto'
+          type: array
         id:
           type: string
         jobs:
@@ -1077,6 +1202,7 @@ components:
       - applications
       - containers
       - databases
+      - helms
       - id
       - jobs
       - project_id
@@ -1595,6 +1721,127 @@ components:
             state: null
           id: id
           state: null
+          helms:
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
           applications:
           - certificates:
             - not_after: ""
@@ -2040,6 +2287,127 @@ components:
             state: null
           id: id
           state: null
+          helms:
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
+          - certificates:
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            - not_after: ""
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: ""
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: ""
+              state: null
+              renewal_time: ""
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              service_version: service_version
+              state: null
+              state_message: state_message
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: ""
+              containers:
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              - image: image
+                restart_count: 0
+                current_state: ""
+                name: name
+                last_terminated_state: ""
+              service_version: service_version
+              state: null
+              state_message: state_message
+            id: id
+            state: null
           applications:
           - certificates:
             - not_after: ""

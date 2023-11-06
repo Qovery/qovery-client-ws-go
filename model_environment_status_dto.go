@@ -23,6 +23,7 @@ type EnvironmentStatusDto struct {
 	Applications []ApplicationStatusDto `json:"applications"`
 	Containers []ApplicationStatusDto `json:"containers"`
 	Databases []DatabaseStatusDto `json:"databases"`
+	Helms []ApplicationStatusDto `json:"helms"`
 	Id string `json:"id"`
 	Jobs []ApplicationStatusDto `json:"jobs"`
 	ProjectId string `json:"project_id"`
@@ -33,11 +34,12 @@ type EnvironmentStatusDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto) *EnvironmentStatusDto {
+func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto) *EnvironmentStatusDto {
 	this := EnvironmentStatusDto{}
 	this.Applications = applications
 	this.Containers = containers
 	this.Databases = databases
+	this.Helms = helms
 	this.Id = id
 	this.Jobs = jobs
 	this.ProjectId = projectId
@@ -123,6 +125,30 @@ func (o *EnvironmentStatusDto) GetDatabasesOk() ([]DatabaseStatusDto, bool) {
 // SetDatabases sets field value
 func (o *EnvironmentStatusDto) SetDatabases(v []DatabaseStatusDto) {
 	o.Databases = v
+}
+
+// GetHelms returns the Helms field value
+func (o *EnvironmentStatusDto) GetHelms() []ApplicationStatusDto {
+	if o == nil {
+		var ret []ApplicationStatusDto
+		return ret
+	}
+
+	return o.Helms
+}
+
+// GetHelmsOk returns a tuple with the Helms field value
+// and a boolean to check if the value has been set.
+func (o *EnvironmentStatusDto) GetHelmsOk() ([]ApplicationStatusDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Helms, true
+}
+
+// SetHelms sets field value
+func (o *EnvironmentStatusDto) SetHelms(v []ApplicationStatusDto) {
+	o.Helms = v
 }
 
 // GetId returns the Id field value
@@ -234,6 +260,7 @@ func (o EnvironmentStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["applications"] = o.Applications
 	toSerialize["containers"] = o.Containers
 	toSerialize["databases"] = o.Databases
+	toSerialize["helms"] = o.Helms
 	toSerialize["id"] = o.Id
 	toSerialize["jobs"] = o.Jobs
 	toSerialize["project_id"] = o.ProjectId

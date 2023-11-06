@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Applications** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 **Containers** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 **Databases** | [**[]DatabaseStatusDto**](DatabaseStatusDto.md) |  | 
+**Helms** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 **Id** | **string** |  | 
 **Jobs** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 **ProjectId** | **string** |  | 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewEnvironmentStatusDto
 
-`func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, ) *EnvironmentStatusDto`
+`func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, ) *EnvironmentStatusDto`
 
 NewEnvironmentStatusDto instantiates a new EnvironmentStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -89,6 +90,26 @@ and a boolean to check if the value has been set.
 `func (o *EnvironmentStatusDto) SetDatabases(v []DatabaseStatusDto)`
 
 SetDatabases sets Databases field to given value.
+
+
+### GetHelms
+
+`func (o *EnvironmentStatusDto) GetHelms() []ApplicationStatusDto`
+
+GetHelms returns the Helms field if non-nil, zero value otherwise.
+
+### GetHelmsOk
+
+`func (o *EnvironmentStatusDto) GetHelmsOk() (*[]ApplicationStatusDto, bool)`
+
+GetHelmsOk returns a tuple with the Helms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHelms
+
+`func (o *EnvironmentStatusDto) SetHelms(v []ApplicationStatusDto)`
+
+SetHelms sets Helms field to given value.
 
 
 ### GetId
