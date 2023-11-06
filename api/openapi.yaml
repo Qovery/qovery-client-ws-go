@@ -2543,6 +2543,7 @@ components:
       - CONTAINER
       - DATABASE
       - JOB
+      - HELM
       type: string
     Timestamp:
       description: Unix timestamp with millisecond precision
