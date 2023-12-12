@@ -183,6 +183,35 @@ paths:
           description: Stream of infra logs
       tags:
       - logs
+  /infra/status:
+    get:
+      operationId: handle_infra_status_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfraStatusDto'
+          description: Stream of infra status
+      tags:
+      - infra_status
   /service/logs:
     get:
       operationId: handle_service_logs_request
@@ -1207,6 +1236,8 @@ components:
       - jobs
       - project_id
       - state
+      type: object
+    InfraStatusDto:
       type: object
     MetricDto:
       example:

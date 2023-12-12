@@ -52,6 +52,8 @@ type APIClient struct {
 
 	DeploymentAPI *DeploymentAPIService
 
+	InfraStatusAPI *InfraStatusAPIService
+
 	LogsAPI *LogsAPIService
 
 	ServiceMetricsAPI *ServiceMetricsAPIService
@@ -76,6 +78,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.DeploymentAPI = (*DeploymentAPIService)(&c.common)
+	c.InfraStatusAPI = (*InfraStatusAPIService)(&c.common)
 	c.LogsAPI = (*LogsAPIService)(&c.common)
 	c.ServiceMetricsAPI = (*ServiceMetricsAPIService)(&c.common)
 	c.ServiceStatusAPI = (*ServiceStatusAPIService)(&c.common)

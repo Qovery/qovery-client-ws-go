@@ -79,6 +79,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DeploymentAPI* | [**HandleDeploymentLogsRequest**](docs/DeploymentAPI.md#handledeploymentlogsrequest) | **Get** /deployment/logs | 
 *DeploymentAPI* | [**HandleDeploymentStatusRequest**](docs/DeploymentAPI.md#handledeploymentstatusrequest) | **Get** /deployment/status | 
+*InfraStatusAPI* | [**HandleInfraStatusRequest**](docs/InfraStatusAPI.md#handleinfrastatusrequest) | **Get** /infra/status | 
 *LogsAPI* | [**HandleInfraLogsRequest**](docs/LogsAPI.md#handleinfralogsrequest) | **Get** /infra/logs | 
 *LogsAPI* | [**HandleServiceLogsRequest**](docs/LogsAPI.md#handleservicelogsrequest) | **Get** /service/logs | 
 *ServiceMetricsAPI* | [**HandleMetricsRequest**](docs/ServiceMetricsAPI.md#handlemetricsrequest) | **Get** /service/metrics | 

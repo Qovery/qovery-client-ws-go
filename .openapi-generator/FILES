@@ -4,6 +4,7 @@
 README.md
 api/openapi.yaml
 api_deployment.go
+api_infra_status.go
 api_logs.go
 api_service_metrics.go
 api_service_status.go
@@ -17,6 +18,7 @@ docs/ContainerStatusDto.md
 docs/DatabaseStatusDto.md
 docs/DeploymentAPI.md
 docs/EnvironmentStatusDto.md
+docs/InfraStatusAPI.md
 docs/LogsAPI.md
 docs/MetricDto.md
 docs/PodStatusDto.md
@@ -52,6 +54,7 @@ model_service_type.go
 model_unit_dto.go
 response.go
 test/api_deployment_test.go
+test/api_infra_status_test.go
 test/api_logs_test.go
 test/api_service_metrics_test.go
 test/api_service_status_test.go
