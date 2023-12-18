@@ -23,6 +23,7 @@ type NodePodInfoDto struct {
 	CpuMilliLimit NullableInt32 `json:"cpu_milli_limit,omitempty"`
 	CpuMilliRequest NullableInt32 `json:"cpu_milli_request,omitempty"`
 	EnvironmentId NullableString `json:"environment_id,omitempty"`
+	ImagesVersion map[string]string `json:"images_version"`
 	MemoryMibLimit NullableInt32 `json:"memory_mib_limit,omitempty"`
 	MemoryMibRequest NullableInt32 `json:"memory_mib_request,omitempty"`
 	Name string `json:"name"`
@@ -35,8 +36,9 @@ type NodePodInfoDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNodePodInfoDto(name string, namespace string) *NodePodInfoDto {
+func NewNodePodInfoDto(imagesVersion map[string]string, name string, namespace string) *NodePodInfoDto {
 	this := NodePodInfoDto{}
+	this.ImagesVersion = imagesVersion
 	this.Name = name
 	this.Namespace = namespace
 	return &this
@@ -174,6 +176,30 @@ func (o *NodePodInfoDto) SetEnvironmentIdNil() {
 // UnsetEnvironmentId ensures that no value is present for EnvironmentId, not even an explicit nil
 func (o *NodePodInfoDto) UnsetEnvironmentId() {
 	o.EnvironmentId.Unset()
+}
+
+// GetImagesVersion returns the ImagesVersion field value
+func (o *NodePodInfoDto) GetImagesVersion() map[string]string {
+	if o == nil {
+		var ret map[string]string
+		return ret
+	}
+
+	return o.ImagesVersion
+}
+
+// GetImagesVersionOk returns a tuple with the ImagesVersion field value
+// and a boolean to check if the value has been set.
+func (o *NodePodInfoDto) GetImagesVersionOk() (*map[string]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ImagesVersion, true
+}
+
+// SetImagesVersion sets field value
+func (o *NodePodInfoDto) SetImagesVersion(v map[string]string) {
+	o.ImagesVersion = v
 }
 
 // GetMemoryMibLimit returns the MemoryMibLimit field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -411,6 +437,7 @@ func (o NodePodInfoDto) ToMap() (map[string]interface{}, error) {
 	if o.EnvironmentId.IsSet() {
 		toSerialize["environment_id"] = o.EnvironmentId.Get()
 	}
+	toSerialize["images_version"] = o.ImagesVersion
 	if o.MemoryMibLimit.IsSet() {
 		toSerialize["memory_mib_limit"] = o.MemoryMibLimit.Get()
 	}

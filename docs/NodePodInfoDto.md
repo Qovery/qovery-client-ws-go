@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CpuMilliLimit** | Pointer to **NullableInt32** |  | [optional] 
 **CpuMilliRequest** | Pointer to **NullableInt32** |  | [optional] 
 **EnvironmentId** | Pointer to **NullableString** |  | [optional] 
+**ImagesVersion** | **map[string]string** |  | 
 **MemoryMibLimit** | Pointer to **NullableInt32** |  | [optional] 
 **MemoryMibRequest** | Pointer to **NullableInt32** |  | [optional] 
 **Name** | **string** |  | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewNodePodInfoDto
 
-`func NewNodePodInfoDto(name string, namespace string, ) *NodePodInfoDto`
+`func NewNodePodInfoDto(imagesVersion map[string]string, name string, namespace string, ) *NodePodInfoDto`
 
 NewNodePodInfoDto instantiates a new NodePodInfoDto object
 This constructor will assign default values to properties that have it defined,
@@ -138,6 +139,26 @@ HasEnvironmentId returns a boolean if a field has been set.
 `func (o *NodePodInfoDto) UnsetEnvironmentId()`
 
 UnsetEnvironmentId ensures that no value is present for EnvironmentId, not even an explicit nil
+### GetImagesVersion
+
+`func (o *NodePodInfoDto) GetImagesVersion() map[string]string`
+
+GetImagesVersion returns the ImagesVersion field if non-nil, zero value otherwise.
+
+### GetImagesVersionOk
+
+`func (o *NodePodInfoDto) GetImagesVersionOk() (*map[string]string, bool)`
+
+GetImagesVersionOk returns a tuple with the ImagesVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImagesVersion
+
+`func (o *NodePodInfoDto) SetImagesVersion(v map[string]string)`
+
+SetImagesVersion sets ImagesVersion field to given value.
+
+
 ### GetMemoryMibLimit
 
 `func (o *NodePodInfoDto) GetMemoryMibLimit() int32`

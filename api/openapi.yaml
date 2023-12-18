@@ -531,7 +531,9 @@ components:
         name: name
         operating_system: operating_system
         pods:
-        - cpu_milli_request: 0
+        - images_version:
+            key: images_version
+          cpu_milli_request: 0
           environment_id: environment_id
           memory_mib_limit: 0
           project_id: project_id
@@ -540,7 +542,9 @@ components:
           name: name
           namespace: namespace
           cpu_milli_limit: 0
-        - cpu_milli_request: 0
+        - images_version:
+            key: images_version
+          cpu_milli_request: 0
           environment_id: environment_id
           memory_mib_limit: 0
           project_id: project_id
@@ -651,7 +655,9 @@ components:
           name: name
           operating_system: operating_system
           pods:
-          - cpu_milli_request: 0
+          - images_version:
+              key: images_version
+            cpu_milli_request: 0
             environment_id: environment_id
             memory_mib_limit: 0
             project_id: project_id
@@ -660,7 +666,9 @@ components:
             name: name
             namespace: namespace
             cpu_milli_limit: 0
-          - cpu_milli_request: 0
+          - images_version:
+              key: images_version
+            cpu_milli_request: 0
             environment_id: environment_id
             memory_mib_limit: 0
             project_id: project_id
@@ -711,7 +719,9 @@ components:
           name: name
           operating_system: operating_system
           pods:
-          - cpu_milli_request: 0
+          - images_version:
+              key: images_version
+            cpu_milli_request: 0
             environment_id: environment_id
             memory_mib_limit: 0
             project_id: project_id
@@ -720,7 +730,9 @@ components:
             name: name
             namespace: namespace
             cpu_milli_limit: 0
-          - cpu_milli_request: 0
+          - images_version:
+              key: images_version
+            cpu_milli_request: 0
             environment_id: environment_id
             memory_mib_limit: 0
             project_id: project_id
@@ -1568,6 +1580,8 @@ components:
       type: object
     NodePodInfoDto:
       example:
+        images_version:
+          key: images_version
         cpu_milli_request: 0
         environment_id: environment_id
         memory_mib_limit: 0
@@ -1591,6 +1605,10 @@ components:
         environment_id:
           nullable: true
           type: string
+        images_version:
+          additionalProperties:
+            type: string
+          type: object
         memory_mib_limit:
           format: int32
           minimum: 0
@@ -1612,6 +1630,7 @@ components:
           nullable: true
           type: string
       required:
+      - images_version
       - name
       - namespace
       type: object
