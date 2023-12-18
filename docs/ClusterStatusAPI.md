@@ -1,16 +1,16 @@
-# \InfraStatusAPI
+# \ClusterStatusAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HandleInfraStatusRequest**](InfraStatusAPI.md#HandleInfraStatusRequest) | **Get** /infra/status | 
+[**HandleClusterStatusRequest**](ClusterStatusAPI.md#HandleClusterStatusRequest) | **Get** /cluster/status | 
 
 
 
-## HandleInfraStatusRequest
+## HandleClusterStatusRequest
 
-> map[string]interface{} HandleInfraStatusRequest(ctx, organization, cluster).Execute()
+> ClusterStatusDto HandleClusterStatusRequest(ctx, organization, cluster).Execute()
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InfraStatusAPI.HandleInfraStatusRequest(context.Background(), organization, cluster).Execute()
+    resp, r, err := apiClient.ClusterStatusAPI.HandleClusterStatusRequest(context.Background(), organization, cluster).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InfraStatusAPI.HandleInfraStatusRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ClusterStatusAPI.HandleClusterStatusRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `HandleInfraStatusRequest`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `InfraStatusAPI.HandleInfraStatusRequest`: %v\n", resp)
+    // response from `HandleClusterStatusRequest`: ClusterStatusDto
+    fmt.Fprintf(os.Stdout, "Response from `ClusterStatusAPI.HandleClusterStatusRequest`: %v\n", resp)
 }
 ```
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiHandleInfraStatusRequestRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiHandleClusterStatusRequestRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**ClusterStatusDto**](ClusterStatusDto.md)
 
 ### Authorization
 

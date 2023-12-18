@@ -11,6 +11,35 @@ info:
 servers:
 - url: wss://ws.qovery.com
 paths:
+  /cluster/status:
+    get:
+      operationId: handle_cluster_status_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterStatusDto'
+          description: Stream of cluster status
+      tags:
+      - cluster_status
   /deployment/logs:
     get:
       operationId: handle_deployment_logs_request
@@ -183,35 +212,6 @@ paths:
           description: Stream of infra logs
       tags:
       - logs
-  /infra/status:
-    get:
-      operationId: handle_infra_status_request
-      parameters:
-      - explode: false
-        in: path
-        name: organization
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: cluster
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InfraStatusDto'
-          description: Stream of infra status
-      tags:
-      - infra_status
   /service/logs:
     get:
       operationId: handle_service_logs_request
@@ -501,6 +501,256 @@ components:
       - dns_names
       - failed_issuance_attempt_count
       - state
+      type: object
+    ClusterNodeDto:
+      example:
+        addresses:
+        - address: address
+          type: type
+        - address: address
+          type: type
+        os_image: os_image
+        resources_allocatable:
+          ephemeral_storage_gib: 0
+          cpu_milli: 0
+          pods: 0
+          memory_mib: 0
+        annotations:
+          key: annotations
+        kubelet_version: kubelet_version
+        taints:
+        - effect: effect
+          value: value
+          key: key
+        - effect: effect
+          value: value
+          key: key
+        labels:
+          key: labels
+        kernel_version: kernel_version
+        name: name
+        operating_system: operating_system
+        pods:
+        - cpu_milli_request: 0
+          environment_id: environment_id
+          memory_mib_limit: 0
+          project_id: project_id
+          memory_mib_request: 0
+          service_id: service_id
+          name: name
+          namespace: namespace
+          cpu_milli_limit: 0
+        - cpu_milli_request: 0
+          environment_id: environment_id
+          memory_mib_limit: 0
+          project_id: project_id
+          memory_mib_request: 0
+          service_id: service_id
+          name: name
+          namespace: namespace
+          cpu_milli_limit: 0
+        conditions:
+        - reason: reason
+          last_heartbeat_time: ""
+          last_transition_time: ""
+          message: message
+          type: type
+          status: status
+        - reason: reason
+          last_heartbeat_time: ""
+          last_transition_time: ""
+          message: message
+          type: type
+          status: status
+        unschedulable: true
+        architecture: architecture
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/NodeAddressDto'
+          type: array
+        annotations:
+          additionalProperties:
+            type: string
+          type: object
+        architecture:
+          type: string
+        conditions:
+          items:
+            $ref: '#/components/schemas/NodeConditionDto'
+          type: array
+        kernel_version:
+          type: string
+        kubelet_version:
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+        name:
+          type: string
+        operating_system:
+          type: string
+        os_image:
+          type: string
+        pods:
+          items:
+            $ref: '#/components/schemas/NodePodInfoDto'
+          type: array
+        resources_allocatable:
+          $ref: '#/components/schemas/NodeResourceDto'
+        taints:
+          items:
+            $ref: '#/components/schemas/NodeTaintDto'
+          type: array
+        unschedulable:
+          type: boolean
+      required:
+      - addresses
+      - annotations
+      - architecture
+      - conditions
+      - kernel_version
+      - kubelet_version
+      - labels
+      - name
+      - operating_system
+      - os_image
+      - pods
+      - resources_allocatable
+      - taints
+      - unschedulable
+      type: object
+    ClusterStatusDto:
+      example:
+        nodes:
+        - addresses:
+          - address: address
+            type: type
+          - address: address
+            type: type
+          os_image: os_image
+          resources_allocatable:
+            ephemeral_storage_gib: 0
+            cpu_milli: 0
+            pods: 0
+            memory_mib: 0
+          annotations:
+            key: annotations
+          kubelet_version: kubelet_version
+          taints:
+          - effect: effect
+            value: value
+            key: key
+          - effect: effect
+            value: value
+            key: key
+          labels:
+            key: labels
+          kernel_version: kernel_version
+          name: name
+          operating_system: operating_system
+          pods:
+          - cpu_milli_request: 0
+            environment_id: environment_id
+            memory_mib_limit: 0
+            project_id: project_id
+            memory_mib_request: 0
+            service_id: service_id
+            name: name
+            namespace: namespace
+            cpu_milli_limit: 0
+          - cpu_milli_request: 0
+            environment_id: environment_id
+            memory_mib_limit: 0
+            project_id: project_id
+            memory_mib_request: 0
+            service_id: service_id
+            name: name
+            namespace: namespace
+            cpu_milli_limit: 0
+          conditions:
+          - reason: reason
+            last_heartbeat_time: ""
+            last_transition_time: ""
+            message: message
+            type: type
+            status: status
+          - reason: reason
+            last_heartbeat_time: ""
+            last_transition_time: ""
+            message: message
+            type: type
+            status: status
+          unschedulable: true
+          architecture: architecture
+        - addresses:
+          - address: address
+            type: type
+          - address: address
+            type: type
+          os_image: os_image
+          resources_allocatable:
+            ephemeral_storage_gib: 0
+            cpu_milli: 0
+            pods: 0
+            memory_mib: 0
+          annotations:
+            key: annotations
+          kubelet_version: kubelet_version
+          taints:
+          - effect: effect
+            value: value
+            key: key
+          - effect: effect
+            value: value
+            key: key
+          labels:
+            key: labels
+          kernel_version: kernel_version
+          name: name
+          operating_system: operating_system
+          pods:
+          - cpu_milli_request: 0
+            environment_id: environment_id
+            memory_mib_limit: 0
+            project_id: project_id
+            memory_mib_request: 0
+            service_id: service_id
+            name: name
+            namespace: namespace
+            cpu_milli_limit: 0
+          - cpu_milli_request: 0
+            environment_id: environment_id
+            memory_mib_limit: 0
+            project_id: project_id
+            memory_mib_request: 0
+            service_id: service_id
+            name: name
+            namespace: namespace
+            cpu_milli_limit: 0
+          conditions:
+          - reason: reason
+            last_heartbeat_time: ""
+            last_transition_time: ""
+            message: message
+            type: type
+            status: status
+          - reason: reason
+            last_heartbeat_time: ""
+            last_transition_time: ""
+            message: message
+            type: type
+            status: status
+          unschedulable: true
+          architecture: architecture
+      properties:
+        nodes:
+          items:
+            $ref: '#/components/schemas/ClusterNodeDto'
+          type: array
+      required:
+      - nodes
       type: object
     ContainerStateDto:
       properties:
@@ -1237,8 +1487,6 @@ components:
       - project_id
       - state
       type: object
-    InfraStatusDto:
-      type: object
     MetricDto:
       example:
         current_percent: 0
@@ -1273,6 +1521,145 @@ components:
       - limit
       - status
       - unit
+      type: object
+    NodeAddressDto:
+      example:
+        address: address
+        type: type
+      properties:
+        address:
+          type: string
+        type:
+          type: string
+      required:
+      - address
+      - type
+      type: object
+    NodeConditionDto:
+      example:
+        reason: reason
+        last_heartbeat_time: ""
+        last_transition_time: ""
+        message: message
+        type: type
+        status: status
+      properties:
+        last_heartbeat_time:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        last_transition_time:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          nullable: true
+        message:
+          type: string
+        reason:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+      required:
+      - message
+      - reason
+      - status
+      - type
+      type: object
+    NodePodInfoDto:
+      example:
+        cpu_milli_request: 0
+        environment_id: environment_id
+        memory_mib_limit: 0
+        project_id: project_id
+        memory_mib_request: 0
+        service_id: service_id
+        name: name
+        namespace: namespace
+        cpu_milli_limit: 0
+      properties:
+        cpu_milli_limit:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        cpu_milli_request:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        environment_id:
+          nullable: true
+          type: string
+        memory_mib_limit:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        memory_mib_request:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        name:
+          type: string
+        namespace:
+          type: string
+        project_id:
+          nullable: true
+          type: string
+        service_id:
+          nullable: true
+          type: string
+      required:
+      - name
+      - namespace
+      type: object
+    NodeResourceDto:
+      example:
+        ephemeral_storage_gib: 0
+        cpu_milli: 0
+        pods: 0
+        memory_mib: 0
+      properties:
+        cpu_milli:
+          format: int64
+          minimum: 0
+          type: integer
+        ephemeral_storage_gib:
+          format: int64
+          minimum: 0
+          type: integer
+        memory_mib:
+          format: int64
+          minimum: 0
+          type: integer
+        pods:
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - cpu_milli
+      - ephemeral_storage_gib
+      - memory_mib
+      - pods
+      type: object
+    NodeTaintDto:
+      example:
+        effect: effect
+        value: value
+        key: key
+      properties:
+        effect:
+          type: string
+        key:
+          type: string
+        value:
+          type: string
+      required:
+      - effect
+      - key
+      - value
       type: object
     PodStatusDto:
       example:
@@ -1348,11 +1735,14 @@ components:
       type: object
     ServiceLogResponseDto:
       example:
+        container_name: container_name
         created_at: 0
         message: message
         version: version
         pod_name: pod_name
       properties:
+        container_name:
+          type: string
         created_at:
           description: Unix timestamp with millisecond precision
           type: integer
@@ -1363,6 +1753,7 @@ components:
         version:
           type: string
       required:
+      - container_name
       - created_at
       - message
       - pod_name

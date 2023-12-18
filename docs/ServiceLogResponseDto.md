@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ContainerName** | **string** |  | 
 **CreatedAt** | **int32** | Unix timestamp with millisecond precision | 
 **Message** | **string** |  | 
 **PodName** | **string** |  | 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewServiceLogResponseDto
 
-`func NewServiceLogResponseDto(createdAt int32, message string, podName string, version string, ) *ServiceLogResponseDto`
+`func NewServiceLogResponseDto(containerName string, createdAt int32, message string, podName string, version string, ) *ServiceLogResponseDto`
 
 NewServiceLogResponseDto instantiates a new ServiceLogResponseDto object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,26 @@ will change when the set of required properties is changed
 NewServiceLogResponseDtoWithDefaults instantiates a new ServiceLogResponseDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetContainerName
+
+`func (o *ServiceLogResponseDto) GetContainerName() string`
+
+GetContainerName returns the ContainerName field if non-nil, zero value otherwise.
+
+### GetContainerNameOk
+
+`func (o *ServiceLogResponseDto) GetContainerNameOk() (*string, bool)`
+
+GetContainerNameOk returns a tuple with the ContainerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerName
+
+`func (o *ServiceLogResponseDto) SetContainerName(v string)`
+
+SetContainerName sets ContainerName field to given value.
+
 
 ### GetCreatedAt
 

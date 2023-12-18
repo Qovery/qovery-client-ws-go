@@ -20,6 +20,7 @@ var _ MappedNullable = &ServiceLogResponseDto{}
 
 // ServiceLogResponseDto struct for ServiceLogResponseDto
 type ServiceLogResponseDto struct {
+	ContainerName string `json:"container_name"`
 	// Unix timestamp with millisecond precision
 	CreatedAt int32 `json:"created_at"`
 	Message string `json:"message"`
@@ -31,8 +32,9 @@ type ServiceLogResponseDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceLogResponseDto(createdAt int32, message string, podName string, version string) *ServiceLogResponseDto {
+func NewServiceLogResponseDto(containerName string, createdAt int32, message string, podName string, version string) *ServiceLogResponseDto {
 	this := ServiceLogResponseDto{}
+	this.ContainerName = containerName
 	this.CreatedAt = createdAt
 	this.Message = message
 	this.PodName = podName
@@ -46,6 +48,30 @@ func NewServiceLogResponseDto(createdAt int32, message string, podName string, v
 func NewServiceLogResponseDtoWithDefaults() *ServiceLogResponseDto {
 	this := ServiceLogResponseDto{}
 	return &this
+}
+
+// GetContainerName returns the ContainerName field value
+func (o *ServiceLogResponseDto) GetContainerName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ContainerName
+}
+
+// GetContainerNameOk returns a tuple with the ContainerName field value
+// and a boolean to check if the value has been set.
+func (o *ServiceLogResponseDto) GetContainerNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ContainerName, true
+}
+
+// SetContainerName sets field value
+func (o *ServiceLogResponseDto) SetContainerName(v string) {
+	o.ContainerName = v
 }
 
 // GetCreatedAt returns the CreatedAt field value
@@ -154,6 +180,7 @@ func (o ServiceLogResponseDto) MarshalJSON() ([]byte, error) {
 
 func (o ServiceLogResponseDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["container_name"] = o.ContainerName
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["message"] = o.Message
 	toSerialize["pod_name"] = o.PodName

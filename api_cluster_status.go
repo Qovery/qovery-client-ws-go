@@ -21,30 +21,30 @@ import (
 )
 
 
-// InfraStatusAPIService InfraStatusAPI service
-type InfraStatusAPIService service
+// ClusterStatusAPIService ClusterStatusAPI service
+type ClusterStatusAPIService service
 
-type ApiHandleInfraStatusRequestRequest struct {
+type ApiHandleClusterStatusRequestRequest struct {
 	ctx context.Context
-	ApiService *InfraStatusAPIService
+	ApiService *ClusterStatusAPIService
 	organization string
 	cluster string
 }
 
-func (r ApiHandleInfraStatusRequestRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.HandleInfraStatusRequestExecute(r)
+func (r ApiHandleClusterStatusRequestRequest) Execute() (*ClusterStatusDto, *http.Response, error) {
+	return r.ApiService.HandleClusterStatusRequestExecute(r)
 }
 
 /*
-HandleInfraStatusRequest Method for HandleInfraStatusRequest
+HandleClusterStatusRequest Method for HandleClusterStatusRequest
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param organization
  @param cluster
- @return ApiHandleInfraStatusRequestRequest
+ @return ApiHandleClusterStatusRequestRequest
 */
-func (a *InfraStatusAPIService) HandleInfraStatusRequest(ctx context.Context, organization string, cluster string) ApiHandleInfraStatusRequestRequest {
-	return ApiHandleInfraStatusRequestRequest{
+func (a *ClusterStatusAPIService) HandleClusterStatusRequest(ctx context.Context, organization string, cluster string) ApiHandleClusterStatusRequestRequest {
+	return ApiHandleClusterStatusRequestRequest{
 		ApiService: a,
 		ctx: ctx,
 		organization: organization,
@@ -53,21 +53,21 @@ func (a *InfraStatusAPIService) HandleInfraStatusRequest(ctx context.Context, or
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *InfraStatusAPIService) HandleInfraStatusRequestExecute(r ApiHandleInfraStatusRequestRequest) (map[string]interface{}, *http.Response, error) {
+//  @return ClusterStatusDto
+func (a *ClusterStatusAPIService) HandleClusterStatusRequestExecute(r ApiHandleClusterStatusRequestRequest) (*ClusterStatusDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *ClusterStatusDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InfraStatusAPIService.HandleInfraStatusRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClusterStatusAPIService.HandleClusterStatusRequest")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/infra/status"
+	localVarPath := localBasePath + "/cluster/status"
 	localVarPath = strings.Replace(localVarPath, "{"+"organization"+"}", url.PathEscape(parameterValueToString(r.organization, "organization")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"cluster"+"}", url.PathEscape(parameterValueToString(r.cluster, "cluster")), -1)
 

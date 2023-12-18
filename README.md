@@ -77,9 +77,9 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ClusterStatusAPI* | [**HandleClusterStatusRequest**](docs/ClusterStatusAPI.md#handleclusterstatusrequest) | **Get** /cluster/status | 
 *DeploymentAPI* | [**HandleDeploymentLogsRequest**](docs/DeploymentAPI.md#handledeploymentlogsrequest) | **Get** /deployment/logs | 
 *DeploymentAPI* | [**HandleDeploymentStatusRequest**](docs/DeploymentAPI.md#handledeploymentstatusrequest) | **Get** /deployment/status | 
-*InfraStatusAPI* | [**HandleInfraStatusRequest**](docs/InfraStatusAPI.md#handleinfrastatusrequest) | **Get** /infra/status | 
 *LogsAPI* | [**HandleInfraLogsRequest**](docs/LogsAPI.md#handleinfralogsrequest) | **Get** /infra/logs | 
 *LogsAPI* | [**HandleServiceLogsRequest**](docs/LogsAPI.md#handleservicelogsrequest) | **Get** /service/logs | 
 *ServiceMetricsAPI* | [**HandleMetricsRequest**](docs/ServiceMetricsAPI.md#handlemetricsrequest) | **Get** /service/metrics | 
@@ -90,12 +90,19 @@ Class | Method | HTTP request | Description
 
  - [ApplicationStatusDto](docs/ApplicationStatusDto.md)
  - [CertificateStatusDto](docs/CertificateStatusDto.md)
+ - [ClusterNodeDto](docs/ClusterNodeDto.md)
+ - [ClusterStatusDto](docs/ClusterStatusDto.md)
  - [ContainerStateDto](docs/ContainerStateDto.md)
  - [ContainerStateTerminatedDto](docs/ContainerStateTerminatedDto.md)
  - [ContainerStatusDto](docs/ContainerStatusDto.md)
  - [DatabaseStatusDto](docs/DatabaseStatusDto.md)
  - [EnvironmentStatusDto](docs/EnvironmentStatusDto.md)
  - [MetricDto](docs/MetricDto.md)
+ - [NodeAddressDto](docs/NodeAddressDto.md)
+ - [NodeConditionDto](docs/NodeConditionDto.md)
+ - [NodePodInfoDto](docs/NodePodInfoDto.md)
+ - [NodeResourceDto](docs/NodeResourceDto.md)
+ - [NodeTaintDto](docs/NodeTaintDto.md)
  - [PodStatusDto](docs/PodStatusDto.md)
  - [ResourceStatusDto](docs/ResourceStatusDto.md)
  - [ServiceInfraLogResponseDto](docs/ServiceInfraLogResponseDto.md)
