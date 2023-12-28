@@ -325,6 +325,59 @@ paths:
           description: Stream of services metrics
       tags:
       - service_metrics
+  /service/pods:
+    get:
+      operationId: handle_service_list_pods_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: service
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceListPodsResponseDto'
+          description: List the pods of a service
+      tags:
+      - service_list_pods
   /service/status:
     get:
       operationId: handle_service_status_request
@@ -1680,6 +1733,25 @@ components:
       - key
       - value
       type: object
+    PodDto:
+      example:
+        name: name
+        ports:
+        - 0
+        - 0
+      properties:
+        name:
+          type: string
+        ports:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          type: array
+      required:
+      - name
+      - ports
+      type: object
     PodStatusDto:
       example:
         restart_count: 0
@@ -1751,6 +1823,25 @@ components:
       required:
       - created_at
       - message
+      type: object
+    ServiceListPodsResponseDto:
+      example:
+        pods:
+        - name: name
+          ports:
+          - 0
+          - 0
+        - name: name
+          ports:
+          - 0
+          - 0
+      properties:
+        pods:
+          items:
+            $ref: '#/components/schemas/PodDto'
+          type: array
+      required:
+      - pods
       type: object
     ServiceLogResponseDto:
       example:

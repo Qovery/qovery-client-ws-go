@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
 *DeploymentAPI* | [**HandleDeploymentStatusRequest**](docs/DeploymentAPI.md#handledeploymentstatusrequest) | **Get** /deployment/status | 
 *LogsAPI* | [**HandleInfraLogsRequest**](docs/LogsAPI.md#handleinfralogsrequest) | **Get** /infra/logs | 
 *LogsAPI* | [**HandleServiceLogsRequest**](docs/LogsAPI.md#handleservicelogsrequest) | **Get** /service/logs | 
+*ServiceListPodsAPI* | [**HandleServiceListPodsRequest**](docs/ServiceListPodsAPI.md#handleservicelistpodsrequest) | **Get** /service/pods | 
 *ServiceMetricsAPI* | [**HandleMetricsRequest**](docs/ServiceMetricsAPI.md#handlemetricsrequest) | **Get** /service/metrics | 
 *ServiceStatusAPI* | [**HandleServiceStatusRequest**](docs/ServiceStatusAPI.md#handleservicestatusrequest) | **Get** /service/status | 
 
@@ -103,9 +104,11 @@ Class | Method | HTTP request | Description
  - [NodePodInfoDto](docs/NodePodInfoDto.md)
  - [NodeResourceDto](docs/NodeResourceDto.md)
  - [NodeTaintDto](docs/NodeTaintDto.md)
+ - [PodDto](docs/PodDto.md)
  - [PodStatusDto](docs/PodStatusDto.md)
  - [ResourceStatusDto](docs/ResourceStatusDto.md)
  - [ServiceInfraLogResponseDto](docs/ServiceInfraLogResponseDto.md)
+ - [ServiceListPodsResponseDto](docs/ServiceListPodsResponseDto.md)
  - [ServiceLogResponseDto](docs/ServiceLogResponseDto.md)
  - [ServiceMetricsDto](docs/ServiceMetricsDto.md)
  - [ServiceStateDto](docs/ServiceStateDto.md)
