@@ -20,27 +20,27 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/qovery/qovery-client-ws-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
-    organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ServiceStatusAPI.HandleServiceStatusRequest(context.Background(), organization, cluster, project, environment).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceStatusAPI.HandleServiceStatusRequest``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `HandleServiceStatusRequest`: ServiceStatusDto
-    fmt.Fprintf(os.Stdout, "Response from `ServiceStatusAPI.HandleServiceStatusRequest`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServiceStatusAPI.HandleServiceStatusRequest(context.Background(), organization, cluster, project, environment).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServiceStatusAPI.HandleServiceStatusRequest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `HandleServiceStatusRequest`: ServiceStatusDto
+	fmt.Fprintf(os.Stdout, "Response from `ServiceStatusAPI.HandleServiceStatusRequest`: %v\n", resp)
 }
 ```
 

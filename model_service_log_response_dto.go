@@ -13,6 +13,8 @@ package qovery-ws
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ServiceLogResponseDto type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type ServiceLogResponseDto struct {
 	PodName string `json:"pod_name"`
 	Version string `json:"version"`
 }
+
+type _ServiceLogResponseDto ServiceLogResponseDto
 
 // NewServiceLogResponseDto instantiates a new ServiceLogResponseDto object
 // This constructor will assign default values to properties that have it defined,
@@ -186,6 +190,47 @@ func (o ServiceLogResponseDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["pod_name"] = o.PodName
 	toSerialize["version"] = o.Version
 	return toSerialize, nil
+}
+
+func (o *ServiceLogResponseDto) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"container_name",
+		"created_at",
+		"message",
+		"pod_name",
+		"version",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varServiceLogResponseDto := _ServiceLogResponseDto{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varServiceLogResponseDto)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ServiceLogResponseDto(varServiceLogResponseDto)
+
+	return err
 }
 
 type NullableServiceLogResponseDto struct {

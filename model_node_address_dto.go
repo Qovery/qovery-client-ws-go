@@ -13,6 +13,8 @@ package qovery-ws
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the NodeAddressDto type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type NodeAddressDto struct {
 	Address string `json:"address"`
 	Type string `json:"type"`
 }
+
+type _NodeAddressDto NodeAddressDto
 
 // NewNodeAddressDto instantiates a new NodeAddressDto object
 // This constructor will assign default values to properties that have it defined,
@@ -104,6 +108,44 @@ func (o NodeAddressDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["address"] = o.Address
 	toSerialize["type"] = o.Type
 	return toSerialize, nil
+}
+
+func (o *NodeAddressDto) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"address",
+		"type",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varNodeAddressDto := _NodeAddressDto{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varNodeAddressDto)
+
+	if err != nil {
+		return err
+	}
+
+	*o = NodeAddressDto(varNodeAddressDto)
+
+	return err
 }
 
 type NullableNodeAddressDto struct {
