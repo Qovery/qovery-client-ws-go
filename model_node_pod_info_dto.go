@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the NodePodInfoDto type satisfies the MappedNullable interface at compile time
@@ -31,10 +30,7 @@ type NodePodInfoDto struct {
 	Namespace string `json:"namespace"`
 	ProjectId NullableString `json:"project_id,omitempty"`
 	ServiceId NullableString `json:"service_id,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _NodePodInfoDto NodePodInfoDto
 
 // NewNodePodInfoDto instantiates a new NodePodInfoDto object
 // This constructor will assign default values to properties that have it defined,
@@ -456,65 +452,7 @@ func (o NodePodInfoDto) ToMap() (map[string]interface{}, error) {
 	if o.ServiceId.IsSet() {
 		toSerialize["service_id"] = o.ServiceId.Get()
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
-}
-
-func (o *NodePodInfoDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"images_version",
-		"name",
-		"namespace",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varNodePodInfoDto := _NodePodInfoDto{}
-
-	err = json.Unmarshal(data, &varNodePodInfoDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = NodePodInfoDto(varNodePodInfoDto)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "cpu_milli_limit")
-		delete(additionalProperties, "cpu_milli_request")
-		delete(additionalProperties, "environment_id")
-		delete(additionalProperties, "images_version")
-		delete(additionalProperties, "memory_mib_limit")
-		delete(additionalProperties, "memory_mib_request")
-		delete(additionalProperties, "name")
-		delete(additionalProperties, "namespace")
-		delete(additionalProperties, "project_id")
-		delete(additionalProperties, "service_id")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullableNodePodInfoDto struct {

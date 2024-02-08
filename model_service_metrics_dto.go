@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ServiceMetricsDto type satisfies the MappedNullable interface at compile time
@@ -25,10 +24,7 @@ type ServiceMetricsDto struct {
 	Memory MetricDto `json:"memory"`
 	PodName string `json:"pod_name"`
 	Storages []MetricDto `json:"storages"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _ServiceMetricsDto ServiceMetricsDto
 
 // NewServiceMetricsDto instantiates a new ServiceMetricsDto object
 // This constructor will assign default values to properties that have it defined,
@@ -161,60 +157,7 @@ func (o ServiceMetricsDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["memory"] = o.Memory
 	toSerialize["pod_name"] = o.PodName
 	toSerialize["storages"] = o.Storages
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
-}
-
-func (o *ServiceMetricsDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"cpu",
-		"memory",
-		"pod_name",
-		"storages",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varServiceMetricsDto := _ServiceMetricsDto{}
-
-	err = json.Unmarshal(data, &varServiceMetricsDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ServiceMetricsDto(varServiceMetricsDto)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "cpu")
-		delete(additionalProperties, "memory")
-		delete(additionalProperties, "pod_name")
-		delete(additionalProperties, "storages")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullableServiceMetricsDto struct {

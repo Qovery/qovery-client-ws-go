@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the CertificateStatusDto type satisfies the MappedNullable interface at compile time
@@ -33,10 +32,7 @@ type CertificateStatusDto struct {
 	RenewalTime NullableInt32 `json:"renewal_time,omitempty"`
 	State ServiceStateDto `json:"state"`
 	StateMessage NullableString `json:"state_message,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _CertificateStatusDto CertificateStatusDto
 
 // NewCertificateStatusDto instantiates a new CertificateStatusDto object
 // This constructor will assign default values to properties that have it defined,
@@ -368,63 +364,7 @@ func (o CertificateStatusDto) ToMap() (map[string]interface{}, error) {
 	if o.StateMessage.IsSet() {
 		toSerialize["state_message"] = o.StateMessage.Get()
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
-}
-
-func (o *CertificateStatusDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"dns_names",
-		"failed_issuance_attempt_count",
-		"state",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCertificateStatusDto := _CertificateStatusDto{}
-
-	err = json.Unmarshal(data, &varCertificateStatusDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CertificateStatusDto(varCertificateStatusDto)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "dns_names")
-		delete(additionalProperties, "failed_issuance_attempt_count")
-		delete(additionalProperties, "last_failure_issuance_time")
-		delete(additionalProperties, "not_after")
-		delete(additionalProperties, "not_before")
-		delete(additionalProperties, "renewal_time")
-		delete(additionalProperties, "state")
-		delete(additionalProperties, "state_message")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullableCertificateStatusDto struct {

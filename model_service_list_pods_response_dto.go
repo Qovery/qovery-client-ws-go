@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ServiceListPodsResponseDto type satisfies the MappedNullable interface at compile time
@@ -22,10 +21,7 @@ var _ MappedNullable = &ServiceListPodsResponseDto{}
 // ServiceListPodsResponseDto struct for ServiceListPodsResponseDto
 type ServiceListPodsResponseDto struct {
 	Pods []PodDto `json:"pods"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _ServiceListPodsResponseDto ServiceListPodsResponseDto
 
 // NewServiceListPodsResponseDto instantiates a new ServiceListPodsResponseDto object
 // This constructor will assign default values to properties that have it defined,
@@ -80,54 +76,7 @@ func (o ServiceListPodsResponseDto) MarshalJSON() ([]byte, error) {
 func (o ServiceListPodsResponseDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pods"] = o.Pods
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
-}
-
-func (o *ServiceListPodsResponseDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"pods",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varServiceListPodsResponseDto := _ServiceListPodsResponseDto{}
-
-	err = json.Unmarshal(data, &varServiceListPodsResponseDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ServiceListPodsResponseDto(varServiceListPodsResponseDto)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "pods")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullableServiceListPodsResponseDto struct {

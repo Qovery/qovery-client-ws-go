@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PodStatusDto type satisfies the MappedNullable interface at compile time
@@ -30,10 +29,7 @@ type PodStatusDto struct {
 	State ServiceStateDto `json:"state"`
 	StateMessage string `json:"state_message"`
 	StateReason string `json:"state_reason"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _PodStatusDto PodStatusDto
 
 // NewPodStatusDto instantiates a new PodStatusDto object
 // This constructor will assign default values to properties that have it defined,
@@ -289,67 +285,7 @@ func (o PodStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["state"] = o.State
 	toSerialize["state_message"] = o.StateMessage
 	toSerialize["state_reason"] = o.StateReason
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
-}
-
-func (o *PodStatusDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"containers",
-		"name",
-		"restart_count",
-		"service_version",
-		"state",
-		"state_message",
-		"state_reason",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varPodStatusDto := _PodStatusDto{}
-
-	err = json.Unmarshal(data, &varPodStatusDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PodStatusDto(varPodStatusDto)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "containers")
-		delete(additionalProperties, "name")
-		delete(additionalProperties, "restart_count")
-		delete(additionalProperties, "service_version")
-		delete(additionalProperties, "started_at")
-		delete(additionalProperties, "state")
-		delete(additionalProperties, "state_message")
-		delete(additionalProperties, "state_reason")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullablePodStatusDto struct {

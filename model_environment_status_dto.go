@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the EnvironmentStatusDto type satisfies the MappedNullable interface at compile time
@@ -29,10 +28,7 @@ type EnvironmentStatusDto struct {
 	Jobs []ApplicationStatusDto `json:"jobs"`
 	ProjectId string `json:"project_id"`
 	State ServiceStateDto `json:"state"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _EnvironmentStatusDto EnvironmentStatusDto
 
 // NewEnvironmentStatusDto instantiates a new EnvironmentStatusDto object
 // This constructor will assign default values to properties that have it defined,
@@ -269,68 +265,7 @@ func (o EnvironmentStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["jobs"] = o.Jobs
 	toSerialize["project_id"] = o.ProjectId
 	toSerialize["state"] = o.State
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
-}
-
-func (o *EnvironmentStatusDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"applications",
-		"containers",
-		"databases",
-		"helms",
-		"id",
-		"jobs",
-		"project_id",
-		"state",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEnvironmentStatusDto := _EnvironmentStatusDto{}
-
-	err = json.Unmarshal(data, &varEnvironmentStatusDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EnvironmentStatusDto(varEnvironmentStatusDto)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "applications")
-		delete(additionalProperties, "containers")
-		delete(additionalProperties, "databases")
-		delete(additionalProperties, "helms")
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "jobs")
-		delete(additionalProperties, "project_id")
-		delete(additionalProperties, "state")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullableEnvironmentStatusDto struct {

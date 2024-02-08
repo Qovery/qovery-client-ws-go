@@ -21,29 +21,29 @@ Method | HTTP request | Description
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/qovery/qovery-client-ws-go"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
-	organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	service := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	infraComponentType := "infraComponentType_example" // string | 
+    organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    service := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    infraComponentType := "infraComponentType_example" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LogsAPI.HandleInfraLogsRequest(context.Background(), organization, cluster, project, environment, service, infraComponentType).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.HandleInfraLogsRequest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `HandleInfraLogsRequest`: ServiceInfraLogResponseDto
-	fmt.Fprintf(os.Stdout, "Response from `LogsAPI.HandleInfraLogsRequest`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LogsAPI.HandleInfraLogsRequest(context.Background(), organization, cluster, project, environment, service, infraComponentType).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.HandleInfraLogsRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `HandleInfraLogsRequest`: ServiceInfraLogResponseDto
+    fmt.Fprintf(os.Stdout, "Response from `LogsAPI.HandleInfraLogsRequest`: %v\n", resp)
 }
 ```
 
@@ -104,28 +104,28 @@ No authorization required
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/qovery/qovery-client-ws-go"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
-	organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	service := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    service := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LogsAPI.HandleServiceLogsRequest(context.Background(), organization, cluster, project, environment, service).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.HandleServiceLogsRequest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `HandleServiceLogsRequest`: ServiceLogResponseDto
-	fmt.Fprintf(os.Stdout, "Response from `LogsAPI.HandleServiceLogsRequest`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LogsAPI.HandleServiceLogsRequest(context.Background(), organization, cluster, project, environment, service).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.HandleServiceLogsRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `HandleServiceLogsRequest`: ServiceLogResponseDto
+    fmt.Fprintf(os.Stdout, "Response from `LogsAPI.HandleServiceLogsRequest`: %v\n", resp)
 }
 ```
 

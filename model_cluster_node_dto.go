@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ClusterNodeDto type satisfies the MappedNullable interface at compile time
@@ -35,10 +34,7 @@ type ClusterNodeDto struct {
 	ResourcesAllocatable NodeResourceDto `json:"resources_allocatable"`
 	Taints []NodeTaintDto `json:"taints"`
 	Unschedulable bool `json:"unschedulable"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _ClusterNodeDto ClusterNodeDto
 
 // NewClusterNodeDto instantiates a new ClusterNodeDto object
 // This constructor will assign default values to properties that have it defined,
@@ -431,80 +427,7 @@ func (o ClusterNodeDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["resources_allocatable"] = o.ResourcesAllocatable
 	toSerialize["taints"] = o.Taints
 	toSerialize["unschedulable"] = o.Unschedulable
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
-}
-
-func (o *ClusterNodeDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"addresses",
-		"annotations",
-		"architecture",
-		"conditions",
-		"kernel_version",
-		"kubelet_version",
-		"labels",
-		"name",
-		"operating_system",
-		"os_image",
-		"pods",
-		"resources_allocatable",
-		"taints",
-		"unschedulable",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varClusterNodeDto := _ClusterNodeDto{}
-
-	err = json.Unmarshal(data, &varClusterNodeDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ClusterNodeDto(varClusterNodeDto)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "addresses")
-		delete(additionalProperties, "annotations")
-		delete(additionalProperties, "architecture")
-		delete(additionalProperties, "conditions")
-		delete(additionalProperties, "kernel_version")
-		delete(additionalProperties, "kubelet_version")
-		delete(additionalProperties, "labels")
-		delete(additionalProperties, "name")
-		delete(additionalProperties, "operating_system")
-		delete(additionalProperties, "os_image")
-		delete(additionalProperties, "pods")
-		delete(additionalProperties, "resources_allocatable")
-		delete(additionalProperties, "taints")
-		delete(additionalProperties, "unschedulable")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullableClusterNodeDto struct {

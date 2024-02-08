@@ -21,28 +21,28 @@ Method | HTTP request | Description
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/qovery/qovery-client-ws-go"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
-	organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	version := "version_example" // string | 
+    organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    version := "version_example" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DeploymentAPI.HandleDeploymentLogsRequest(context.Background(), organization, cluster, project, environment, version).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentAPI.HandleDeploymentLogsRequest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `HandleDeploymentLogsRequest`: string
-	fmt.Fprintf(os.Stdout, "Response from `DeploymentAPI.HandleDeploymentLogsRequest`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DeploymentAPI.HandleDeploymentLogsRequest(context.Background(), organization, cluster, project, environment, version).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentAPI.HandleDeploymentLogsRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `HandleDeploymentLogsRequest`: string
+    fmt.Fprintf(os.Stdout, "Response from `DeploymentAPI.HandleDeploymentLogsRequest`: %v\n", resp)
 }
 ```
 
@@ -101,28 +101,28 @@ No authorization required
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/qovery/qovery-client-ws-go"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
-	organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	version := "version_example" // string | 
+    organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    version := "version_example" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DeploymentAPI.HandleDeploymentStatusRequest(context.Background(), organization, cluster, project, environment, version).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentAPI.HandleDeploymentStatusRequest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `HandleDeploymentStatusRequest`: string
-	fmt.Fprintf(os.Stdout, "Response from `DeploymentAPI.HandleDeploymentStatusRequest`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DeploymentAPI.HandleDeploymentStatusRequest(context.Background(), organization, cluster, project, environment, version).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentAPI.HandleDeploymentStatusRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `HandleDeploymentStatusRequest`: string
+    fmt.Fprintf(os.Stdout, "Response from `DeploymentAPI.HandleDeploymentStatusRequest`: %v\n", resp)
 }
 ```
 

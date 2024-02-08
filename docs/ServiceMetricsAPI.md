@@ -20,29 +20,29 @@ Method | HTTP request | Description
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/qovery/qovery-client-ws-go"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/qovery/qovery-client-ws-go"
 )
 
 func main() {
-	organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	service := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	serviceType := openapiclient.ServiceType("APPLICATION") // ServiceType | 
+    organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    service := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    serviceType := openapiclient.ServiceType("APPLICATION") // ServiceType | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ServiceMetricsAPI.HandleMetricsRequest(context.Background(), organization, cluster, project, environment, service, serviceType).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ServiceMetricsAPI.HandleMetricsRequest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `HandleMetricsRequest`: ServiceMetricsDto
-	fmt.Fprintf(os.Stdout, "Response from `ServiceMetricsAPI.HandleMetricsRequest`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ServiceMetricsAPI.HandleMetricsRequest(context.Background(), organization, cluster, project, environment, service, serviceType).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ServiceMetricsAPI.HandleMetricsRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `HandleMetricsRequest`: ServiceMetricsDto
+    fmt.Fprintf(os.Stdout, "Response from `ServiceMetricsAPI.HandleMetricsRequest`: %v\n", resp)
 }
 ```
 

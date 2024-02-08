@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ContainerStateDto type satisfies the MappedNullable interface at compile time
@@ -26,10 +25,7 @@ type ContainerStateDto struct {
 	State ServiceStateDto `json:"state"`
 	StateMessage NullableString `json:"state_message,omitempty"`
 	StateReason NullableString `json:"state_reason,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _ContainerStateDto ContainerStateDto
 
 // NewContainerStateDto instantiates a new ContainerStateDto object
 // This constructor will assign default values to properties that have it defined,
@@ -219,57 +215,7 @@ func (o ContainerStateDto) ToMap() (map[string]interface{}, error) {
 	if o.StateReason.IsSet() {
 		toSerialize["state_reason"] = o.StateReason.Get()
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
-}
-
-func (o *ContainerStateDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"state",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varContainerStateDto := _ContainerStateDto{}
-
-	err = json.Unmarshal(data, &varContainerStateDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ContainerStateDto(varContainerStateDto)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "started_at")
-		delete(additionalProperties, "state")
-		delete(additionalProperties, "state_message")
-		delete(additionalProperties, "state_reason")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullableContainerStateDto struct {

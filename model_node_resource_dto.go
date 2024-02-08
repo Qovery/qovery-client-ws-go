@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the NodeResourceDto type satisfies the MappedNullable interface at compile time
@@ -25,10 +24,7 @@ type NodeResourceDto struct {
 	EphemeralStorageGib int64 `json:"ephemeral_storage_gib"`
 	MemoryMib int64 `json:"memory_mib"`
 	Pods int64 `json:"pods"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _NodeResourceDto NodeResourceDto
 
 // NewNodeResourceDto instantiates a new NodeResourceDto object
 // This constructor will assign default values to properties that have it defined,
@@ -161,60 +157,7 @@ func (o NodeResourceDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["ephemeral_storage_gib"] = o.EphemeralStorageGib
 	toSerialize["memory_mib"] = o.MemoryMib
 	toSerialize["pods"] = o.Pods
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
-}
-
-func (o *NodeResourceDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"cpu_milli",
-		"ephemeral_storage_gib",
-		"memory_mib",
-		"pods",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varNodeResourceDto := _NodeResourceDto{}
-
-	err = json.Unmarshal(data, &varNodeResourceDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = NodeResourceDto(varNodeResourceDto)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "cpu_milli")
-		delete(additionalProperties, "ephemeral_storage_gib")
-		delete(additionalProperties, "memory_mib")
-		delete(additionalProperties, "pods")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullableNodeResourceDto struct {

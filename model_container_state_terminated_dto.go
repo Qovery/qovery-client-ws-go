@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ContainerStateTerminatedDto type satisfies the MappedNullable interface at compile time
@@ -30,10 +29,7 @@ type ContainerStateTerminatedDto struct {
 	Signal int32 `json:"signal"`
 	// Unix timestamp with millisecond precision
 	StartedAt NullableInt32 `json:"started_at,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _ContainerStateTerminatedDto ContainerStateTerminatedDto
 
 // NewContainerStateTerminatedDto instantiates a new ContainerStateTerminatedDto object
 // This constructor will assign default values to properties that have it defined,
@@ -282,64 +278,7 @@ func (o ContainerStateTerminatedDto) ToMap() (map[string]interface{}, error) {
 	if o.StartedAt.IsSet() {
 		toSerialize["started_at"] = o.StartedAt.Get()
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
-}
-
-func (o *ContainerStateTerminatedDto) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"exit_code",
-		"exit_code_message",
-		"message",
-		"reason",
-		"signal",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varContainerStateTerminatedDto := _ContainerStateTerminatedDto{}
-
-	err = json.Unmarshal(data, &varContainerStateTerminatedDto)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ContainerStateTerminatedDto(varContainerStateTerminatedDto)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "exit_code")
-		delete(additionalProperties, "exit_code_message")
-		delete(additionalProperties, "finished_at")
-		delete(additionalProperties, "message")
-		delete(additionalProperties, "reason")
-		delete(additionalProperties, "signal")
-		delete(additionalProperties, "started_at")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullableContainerStateTerminatedDto struct {
