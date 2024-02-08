@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -28,6 +27,7 @@ type MetricDto struct {
 	Name NullableString `json:"name,omitempty"`
 	Status ResourceStatusDto `json:"status"`
 	Unit UnitDto `json:"unit"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _MetricDto MetricDto
@@ -234,6 +234,11 @@ func (o MetricDto) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["status"] = o.Status
 	toSerialize["unit"] = o.Unit
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -265,15 +270,25 @@ func (o *MetricDto) UnmarshalJSON(data []byte) (err error) {
 
 	varMetricDto := _MetricDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varMetricDto)
+	err = json.Unmarshal(data, &varMetricDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = MetricDto(varMetricDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "current")
+		delete(additionalProperties, "current_percent")
+		delete(additionalProperties, "limit")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "unit")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

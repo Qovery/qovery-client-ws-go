@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ServiceListPodsResponseDto{}
 // ServiceListPodsResponseDto struct for ServiceListPodsResponseDto
 type ServiceListPodsResponseDto struct {
 	Pods []PodDto `json:"pods"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceListPodsResponseDto ServiceListPodsResponseDto
@@ -80,6 +80,11 @@ func (o ServiceListPodsResponseDto) MarshalJSON() ([]byte, error) {
 func (o ServiceListPodsResponseDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pods"] = o.Pods
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ServiceListPodsResponseDto) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceListPodsResponseDto := _ServiceListPodsResponseDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceListPodsResponseDto)
+	err = json.Unmarshal(data, &varServiceListPodsResponseDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceListPodsResponseDto(varServiceListPodsResponseDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "pods")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

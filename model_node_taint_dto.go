@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type NodeTaintDto struct {
 	Effect string `json:"effect"`
 	Key string `json:"key"`
 	Value string `json:"value"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _NodeTaintDto NodeTaintDto
@@ -134,6 +134,11 @@ func (o NodeTaintDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["effect"] = o.Effect
 	toSerialize["key"] = o.Key
 	toSerialize["value"] = o.Value
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -163,15 +168,22 @@ func (o *NodeTaintDto) UnmarshalJSON(data []byte) (err error) {
 
 	varNodeTaintDto := _NodeTaintDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varNodeTaintDto)
+	err = json.Unmarshal(data, &varNodeTaintDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = NodeTaintDto(varNodeTaintDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "effect")
+		delete(additionalProperties, "key")
+		delete(additionalProperties, "value")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

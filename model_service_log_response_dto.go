@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -28,6 +27,7 @@ type ServiceLogResponseDto struct {
 	Message string `json:"message"`
 	PodName string `json:"pod_name"`
 	Version string `json:"version"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceLogResponseDto ServiceLogResponseDto
@@ -189,6 +189,11 @@ func (o ServiceLogResponseDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["message"] = o.Message
 	toSerialize["pod_name"] = o.PodName
 	toSerialize["version"] = o.Version
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -220,15 +225,24 @@ func (o *ServiceLogResponseDto) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceLogResponseDto := _ServiceLogResponseDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceLogResponseDto)
+	err = json.Unmarshal(data, &varServiceLogResponseDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceLogResponseDto(varServiceLogResponseDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "container_name")
+		delete(additionalProperties, "created_at")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "pod_name")
+		delete(additionalProperties, "version")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

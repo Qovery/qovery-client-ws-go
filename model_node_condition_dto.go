@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -30,6 +29,7 @@ type NodeConditionDto struct {
 	Reason string `json:"reason"`
 	Status string `json:"status"`
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _NodeConditionDto NodeConditionDto
@@ -255,6 +255,11 @@ func (o NodeConditionDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["reason"] = o.Reason
 	toSerialize["status"] = o.Status
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -285,15 +290,25 @@ func (o *NodeConditionDto) UnmarshalJSON(data []byte) (err error) {
 
 	varNodeConditionDto := _NodeConditionDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varNodeConditionDto)
+	err = json.Unmarshal(data, &varNodeConditionDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = NodeConditionDto(varNodeConditionDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "last_heartbeat_time")
+		delete(additionalProperties, "last_transition_time")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "reason")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

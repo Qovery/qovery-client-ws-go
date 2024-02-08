@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type PodStatusDto struct {
 	State ServiceStateDto `json:"state"`
 	StateMessage string `json:"state_message"`
 	StateReason string `json:"state_reason"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PodStatusDto PodStatusDto
@@ -289,6 +289,11 @@ func (o PodStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["state"] = o.State
 	toSerialize["state_message"] = o.StateMessage
 	toSerialize["state_reason"] = o.StateReason
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -322,15 +327,27 @@ func (o *PodStatusDto) UnmarshalJSON(data []byte) (err error) {
 
 	varPodStatusDto := _PodStatusDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPodStatusDto)
+	err = json.Unmarshal(data, &varPodStatusDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = PodStatusDto(varPodStatusDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "containers")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "restart_count")
+		delete(additionalProperties, "service_version")
+		delete(additionalProperties, "started_at")
+		delete(additionalProperties, "state")
+		delete(additionalProperties, "state_message")
+		delete(additionalProperties, "state_reason")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

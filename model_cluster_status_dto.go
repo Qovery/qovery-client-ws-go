@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ClusterStatusDto{}
 // ClusterStatusDto struct for ClusterStatusDto
 type ClusterStatusDto struct {
 	Nodes []ClusterNodeDto `json:"nodes"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ClusterStatusDto ClusterStatusDto
@@ -80,6 +80,11 @@ func (o ClusterStatusDto) MarshalJSON() ([]byte, error) {
 func (o ClusterStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["nodes"] = o.Nodes
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ClusterStatusDto) UnmarshalJSON(data []byte) (err error) {
 
 	varClusterStatusDto := _ClusterStatusDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varClusterStatusDto)
+	err = json.Unmarshal(data, &varClusterStatusDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ClusterStatusDto(varClusterStatusDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "nodes")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

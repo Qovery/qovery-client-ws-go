@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type ContainerStatusDto struct {
 	LastTerminatedState NullableContainerStateTerminatedDto `json:"last_terminated_state,omitempty"`
 	Name string `json:"name"`
 	RestartCount int32 `json:"restart_count"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ContainerStatusDto ContainerStatusDto
@@ -226,6 +226,11 @@ func (o ContainerStatusDto) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["name"] = o.Name
 	toSerialize["restart_count"] = o.RestartCount
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -255,15 +260,24 @@ func (o *ContainerStatusDto) UnmarshalJSON(data []byte) (err error) {
 
 	varContainerStatusDto := _ContainerStatusDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varContainerStatusDto)
+	err = json.Unmarshal(data, &varContainerStatusDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ContainerStatusDto(varContainerStatusDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "current_state")
+		delete(additionalProperties, "image")
+		delete(additionalProperties, "last_terminated_state")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "restart_count")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

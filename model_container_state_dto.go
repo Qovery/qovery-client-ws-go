@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type ContainerStateDto struct {
 	State ServiceStateDto `json:"state"`
 	StateMessage NullableString `json:"state_message,omitempty"`
 	StateReason NullableString `json:"state_reason,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ContainerStateDto ContainerStateDto
@@ -219,6 +219,11 @@ func (o ContainerStateDto) ToMap() (map[string]interface{}, error) {
 	if o.StateReason.IsSet() {
 		toSerialize["state_reason"] = o.StateReason.Get()
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -246,15 +251,23 @@ func (o *ContainerStateDto) UnmarshalJSON(data []byte) (err error) {
 
 	varContainerStateDto := _ContainerStateDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varContainerStateDto)
+	err = json.Unmarshal(data, &varContainerStateDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ContainerStateDto(varContainerStateDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "started_at")
+		delete(additionalProperties, "state")
+		delete(additionalProperties, "state_message")
+		delete(additionalProperties, "state_reason")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

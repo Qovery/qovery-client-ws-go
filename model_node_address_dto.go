@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ var _ MappedNullable = &NodeAddressDto{}
 type NodeAddressDto struct {
 	Address string `json:"address"`
 	Type string `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _NodeAddressDto NodeAddressDto
@@ -107,6 +107,11 @@ func (o NodeAddressDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["address"] = o.Address
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *NodeAddressDto) UnmarshalJSON(data []byte) (err error) {
 
 	varNodeAddressDto := _NodeAddressDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varNodeAddressDto)
+	err = json.Unmarshal(data, &varNodeAddressDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = NodeAddressDto(varNodeAddressDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "address")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

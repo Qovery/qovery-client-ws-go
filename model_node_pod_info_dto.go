@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -32,6 +31,7 @@ type NodePodInfoDto struct {
 	Namespace string `json:"namespace"`
 	ProjectId NullableString `json:"project_id,omitempty"`
 	ServiceId NullableString `json:"service_id,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _NodePodInfoDto NodePodInfoDto
@@ -456,6 +456,11 @@ func (o NodePodInfoDto) ToMap() (map[string]interface{}, error) {
 	if o.ServiceId.IsSet() {
 		toSerialize["service_id"] = o.ServiceId.Get()
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -485,15 +490,29 @@ func (o *NodePodInfoDto) UnmarshalJSON(data []byte) (err error) {
 
 	varNodePodInfoDto := _NodePodInfoDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varNodePodInfoDto)
+	err = json.Unmarshal(data, &varNodePodInfoDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = NodePodInfoDto(varNodePodInfoDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cpu_milli_limit")
+		delete(additionalProperties, "cpu_milli_request")
+		delete(additionalProperties, "environment_id")
+		delete(additionalProperties, "images_version")
+		delete(additionalProperties, "memory_mib_limit")
+		delete(additionalProperties, "memory_mib_request")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "namespace")
+		delete(additionalProperties, "project_id")
+		delete(additionalProperties, "service_id")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

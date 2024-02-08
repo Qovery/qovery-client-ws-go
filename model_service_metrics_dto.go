@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -26,6 +25,7 @@ type ServiceMetricsDto struct {
 	Memory MetricDto `json:"memory"`
 	PodName string `json:"pod_name"`
 	Storages []MetricDto `json:"storages"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceMetricsDto ServiceMetricsDto
@@ -161,6 +161,11 @@ func (o ServiceMetricsDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["memory"] = o.Memory
 	toSerialize["pod_name"] = o.PodName
 	toSerialize["storages"] = o.Storages
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -191,15 +196,23 @@ func (o *ServiceMetricsDto) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceMetricsDto := _ServiceMetricsDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceMetricsDto)
+	err = json.Unmarshal(data, &varServiceMetricsDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceMetricsDto(varServiceMetricsDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "cpu")
+		delete(additionalProperties, "memory")
+		delete(additionalProperties, "pod_name")
+		delete(additionalProperties, "storages")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

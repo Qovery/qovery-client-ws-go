@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ServiceInfraLogResponseDto struct {
 	// Unix timestamp with millisecond precision
 	CreatedAt int32 `json:"created_at"`
 	Message string `json:"message"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceInfraLogResponseDto ServiceInfraLogResponseDto
@@ -108,6 +108,11 @@ func (o ServiceInfraLogResponseDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["message"] = o.Message
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -136,15 +141,21 @@ func (o *ServiceInfraLogResponseDto) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceInfraLogResponseDto := _ServiceInfraLogResponseDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceInfraLogResponseDto)
+	err = json.Unmarshal(data, &varServiceInfraLogResponseDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceInfraLogResponseDto(varServiceInfraLogResponseDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "created_at")
+		delete(additionalProperties, "message")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

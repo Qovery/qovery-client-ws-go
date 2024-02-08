@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -31,6 +30,7 @@ type ContainerStateTerminatedDto struct {
 	Signal int32 `json:"signal"`
 	// Unix timestamp with millisecond precision
 	StartedAt NullableInt32 `json:"started_at,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ContainerStateTerminatedDto ContainerStateTerminatedDto
@@ -282,6 +282,11 @@ func (o ContainerStateTerminatedDto) ToMap() (map[string]interface{}, error) {
 	if o.StartedAt.IsSet() {
 		toSerialize["started_at"] = o.StartedAt.Get()
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -313,15 +318,26 @@ func (o *ContainerStateTerminatedDto) UnmarshalJSON(data []byte) (err error) {
 
 	varContainerStateTerminatedDto := _ContainerStateTerminatedDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varContainerStateTerminatedDto)
+	err = json.Unmarshal(data, &varContainerStateTerminatedDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ContainerStateTerminatedDto(varContainerStateTerminatedDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "exit_code")
+		delete(additionalProperties, "exit_code_message")
+		delete(additionalProperties, "finished_at")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "reason")
+		delete(additionalProperties, "signal")
+		delete(additionalProperties, "started_at")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

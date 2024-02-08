@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -26,6 +25,7 @@ type ApplicationStatusDto struct {
 	Id string `json:"id"`
 	Pods []PodStatusDto `json:"pods"`
 	State ServiceStateDto `json:"state"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ApplicationStatusDto ApplicationStatusDto
@@ -161,6 +161,11 @@ func (o ApplicationStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["pods"] = o.Pods
 	toSerialize["state"] = o.State
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -191,15 +196,23 @@ func (o *ApplicationStatusDto) UnmarshalJSON(data []byte) (err error) {
 
 	varApplicationStatusDto := _ApplicationStatusDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varApplicationStatusDto)
+	err = json.Unmarshal(data, &varApplicationStatusDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ApplicationStatusDto(varApplicationStatusDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "certificates")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "pods")
+		delete(additionalProperties, "state")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

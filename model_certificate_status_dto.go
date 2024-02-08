@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -34,6 +33,7 @@ type CertificateStatusDto struct {
 	RenewalTime NullableInt32 `json:"renewal_time,omitempty"`
 	State ServiceStateDto `json:"state"`
 	StateMessage NullableString `json:"state_message,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _CertificateStatusDto CertificateStatusDto
@@ -368,6 +368,11 @@ func (o CertificateStatusDto) ToMap() (map[string]interface{}, error) {
 	if o.StateMessage.IsSet() {
 		toSerialize["state_message"] = o.StateMessage.Get()
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -397,15 +402,27 @@ func (o *CertificateStatusDto) UnmarshalJSON(data []byte) (err error) {
 
 	varCertificateStatusDto := _CertificateStatusDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCertificateStatusDto)
+	err = json.Unmarshal(data, &varCertificateStatusDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = CertificateStatusDto(varCertificateStatusDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "dns_names")
+		delete(additionalProperties, "failed_issuance_attempt_count")
+		delete(additionalProperties, "last_failure_issuance_time")
+		delete(additionalProperties, "not_after")
+		delete(additionalProperties, "not_before")
+		delete(additionalProperties, "renewal_time")
+		delete(additionalProperties, "state")
+		delete(additionalProperties, "state_message")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

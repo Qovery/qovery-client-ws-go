@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ var _ MappedNullable = &PodDto{}
 type PodDto struct {
 	Name string `json:"name"`
 	Ports []int32 `json:"ports"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PodDto PodDto
@@ -107,6 +107,11 @@ func (o PodDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	toSerialize["ports"] = o.Ports
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,15 +140,21 @@ func (o *PodDto) UnmarshalJSON(data []byte) (err error) {
 
 	varPodDto := _PodDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPodDto)
+	err = json.Unmarshal(data, &varPodDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = PodDto(varPodDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "ports")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

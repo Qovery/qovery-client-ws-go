@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &ServiceStatusDto{}
 // ServiceStatusDto struct for ServiceStatusDto
 type ServiceStatusDto struct {
 	Environments []EnvironmentStatusDto `json:"environments"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ServiceStatusDto ServiceStatusDto
@@ -80,6 +80,11 @@ func (o ServiceStatusDto) MarshalJSON() ([]byte, error) {
 func (o ServiceStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["environments"] = o.Environments
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -107,15 +112,20 @@ func (o *ServiceStatusDto) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceStatusDto := _ServiceStatusDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varServiceStatusDto)
+	err = json.Unmarshal(data, &varServiceStatusDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceStatusDto(varServiceStatusDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "environments")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

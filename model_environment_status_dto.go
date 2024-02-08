@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -30,6 +29,7 @@ type EnvironmentStatusDto struct {
 	Jobs []ApplicationStatusDto `json:"jobs"`
 	ProjectId string `json:"project_id"`
 	State ServiceStateDto `json:"state"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _EnvironmentStatusDto EnvironmentStatusDto
@@ -269,6 +269,11 @@ func (o EnvironmentStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["jobs"] = o.Jobs
 	toSerialize["project_id"] = o.ProjectId
 	toSerialize["state"] = o.State
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -303,15 +308,27 @@ func (o *EnvironmentStatusDto) UnmarshalJSON(data []byte) (err error) {
 
 	varEnvironmentStatusDto := _EnvironmentStatusDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEnvironmentStatusDto)
+	err = json.Unmarshal(data, &varEnvironmentStatusDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = EnvironmentStatusDto(varEnvironmentStatusDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "applications")
+		delete(additionalProperties, "containers")
+		delete(additionalProperties, "databases")
+		delete(additionalProperties, "helms")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "jobs")
+		delete(additionalProperties, "project_id")
+		delete(additionalProperties, "state")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

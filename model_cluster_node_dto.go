@@ -13,7 +13,6 @@ package qovery-ws
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -36,6 +35,7 @@ type ClusterNodeDto struct {
 	ResourcesAllocatable NodeResourceDto `json:"resources_allocatable"`
 	Taints []NodeTaintDto `json:"taints"`
 	Unschedulable bool `json:"unschedulable"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ClusterNodeDto ClusterNodeDto
@@ -431,6 +431,11 @@ func (o ClusterNodeDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["resources_allocatable"] = o.ResourcesAllocatable
 	toSerialize["taints"] = o.Taints
 	toSerialize["unschedulable"] = o.Unschedulable
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -471,15 +476,33 @@ func (o *ClusterNodeDto) UnmarshalJSON(data []byte) (err error) {
 
 	varClusterNodeDto := _ClusterNodeDto{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varClusterNodeDto)
+	err = json.Unmarshal(data, &varClusterNodeDto)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ClusterNodeDto(varClusterNodeDto)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "addresses")
+		delete(additionalProperties, "annotations")
+		delete(additionalProperties, "architecture")
+		delete(additionalProperties, "conditions")
+		delete(additionalProperties, "kernel_version")
+		delete(additionalProperties, "kubelet_version")
+		delete(additionalProperties, "labels")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "operating_system")
+		delete(additionalProperties, "os_image")
+		delete(additionalProperties, "pods")
+		delete(additionalProperties, "resources_allocatable")
+		delete(additionalProperties, "taints")
+		delete(additionalProperties, "unschedulable")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }
