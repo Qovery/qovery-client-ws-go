@@ -9,6 +9,7 @@ api_logs.go
 api_service_list_pods.go
 api_service_metrics.go
 api_service_status.go
+api_shell.go
 client.go
 configuration.go
 docs/ApplicationStatusDto.md
@@ -42,6 +43,7 @@ docs/ServiceStateDto.md
 docs/ServiceStatusAPI.md
 docs/ServiceStatusDto.md
 docs/ServiceType.md
+docs/ShellAPI.md
 docs/UnitDto.md
 git_push.sh
 go.mod
@@ -79,4 +81,5 @@ test/api_logs_test.go
 test/api_service_list_pods_test.go
 test/api_service_metrics_test.go
 test/api_service_status_test.go
+test/api_shell_test.go
 utils.go

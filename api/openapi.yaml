@@ -425,6 +425,102 @@ paths:
           description: Stream of services status
       tags:
       - service_status
+  /shell/exec:
+    get:
+      operationId: handle_shell_exec
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: service
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: pod_name
+        required: true
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: container_name
+        required: true
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: command
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: simple
+      - explode: false
+        in: path
+        name: tty_width
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: tty_height
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Allow to shell into your container/pod
+      tags:
+      - shell
 components:
   schemas:
     ApplicationStatusDto:

@@ -61,6 +61,8 @@ type APIClient struct {
 	ServiceMetricsAPI *ServiceMetricsAPIService
 
 	ServiceStatusAPI *ServiceStatusAPIService
+
+	ShellAPI *ShellAPIService
 }
 
 type service struct {
@@ -85,6 +87,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ServiceListPodsAPI = (*ServiceListPodsAPIService)(&c.common)
 	c.ServiceMetricsAPI = (*ServiceMetricsAPIService)(&c.common)
 	c.ServiceStatusAPI = (*ServiceStatusAPIService)(&c.common)
+	c.ShellAPI = (*ShellAPIService)(&c.common)
 
 	return c
 }

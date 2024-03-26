@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *ServiceListPodsAPI* | [**HandleServiceListPodsRequest**](docs/ServiceListPodsAPI.md#handleservicelistpodsrequest) | **Get** /service/pods | 
 *ServiceMetricsAPI* | [**HandleMetricsRequest**](docs/ServiceMetricsAPI.md#handlemetricsrequest) | **Get** /service/metrics | 
 *ServiceStatusAPI* | [**HandleServiceStatusRequest**](docs/ServiceStatusAPI.md#handleservicestatusrequest) | **Get** /service/status | 
+*ShellAPI* | [**HandleShellExec**](docs/ShellAPI.md#handleshellexec) | **Get** /shell/exec | 
 
 
 ## Documentation For Models
