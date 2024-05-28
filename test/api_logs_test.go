@@ -50,8 +50,9 @@ func Test_qovery-ws_LogsAPIService(t *testing.T) {
 		var project string
 		var environment string
 		var service string
+		var podName string
 
-		resp, httpRes, err := apiClient.LogsAPI.HandleServiceLogsRequest(context.Background(), organization, cluster, project, environment, service).Execute()
+		resp, httpRes, err := apiClient.LogsAPI.HandleServiceLogsRequest(context.Background(), organization, cluster, project, environment, service, podName).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
