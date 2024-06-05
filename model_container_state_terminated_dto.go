@@ -13,6 +13,8 @@ package qovery-ws
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ContainerStateTerminatedDto type satisfies the MappedNullable interface at compile time
@@ -30,6 +32,8 @@ type ContainerStateTerminatedDto struct {
 	// Unix timestamp with millisecond precision
 	StartedAt NullableInt32 `json:"started_at,omitempty"`
 }
+
+type _ContainerStateTerminatedDto ContainerStateTerminatedDto
 
 // NewContainerStateTerminatedDto instantiates a new ContainerStateTerminatedDto object
 // This constructor will assign default values to properties that have it defined,
@@ -279,6 +283,47 @@ func (o ContainerStateTerminatedDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["started_at"] = o.StartedAt.Get()
 	}
 	return toSerialize, nil
+}
+
+func (o *ContainerStateTerminatedDto) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"exit_code",
+		"exit_code_message",
+		"message",
+		"reason",
+		"signal",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varContainerStateTerminatedDto := _ContainerStateTerminatedDto{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varContainerStateTerminatedDto)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ContainerStateTerminatedDto(varContainerStateTerminatedDto)
+
+	return err
 }
 
 type NullableContainerStateTerminatedDto struct {

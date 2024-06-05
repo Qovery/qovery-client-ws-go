@@ -541,7 +541,7 @@ components:
           not_before: ""
           failed_issuance_attempt_count: 0
           last_failure_issuance_time: ""
-          state: null
+          state: STARTING
           renewal_time: ""
           state_message: state_message
         - not_after: ""
@@ -551,7 +551,7 @@ components:
           not_before: ""
           failed_issuance_attempt_count: 0
           last_failure_issuance_time: ""
-          state: null
+          state: STARTING
           renewal_time: ""
           state_message: state_message
         pods:
@@ -621,7 +621,7 @@ components:
         not_before: ""
         failed_issuance_attempt_count: 0
         last_failure_issuance_time: ""
-        state: null
+        state: STARTING
         renewal_time: ""
         state_message: state_message
       properties:
@@ -1142,7 +1142,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           - not_after: ""
@@ -1152,7 +1152,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           pods:
@@ -1202,7 +1202,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           - not_after: ""
@@ -1212,7 +1212,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           pods:
@@ -1263,7 +1263,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           - not_after: ""
@@ -1273,7 +1273,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           pods:
@@ -1323,7 +1323,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           - not_after: ""
@@ -1333,7 +1333,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           pods:
@@ -1386,7 +1386,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           - not_after: ""
@@ -1396,7 +1396,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           pods:
@@ -1446,7 +1446,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           - not_after: ""
@@ -1456,7 +1456,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           pods:
@@ -1507,7 +1507,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           - not_after: ""
@@ -1517,7 +1517,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           pods:
@@ -1567,7 +1567,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           - not_after: ""
@@ -1577,7 +1577,7 @@ components:
             not_before: ""
             failed_issuance_attempt_count: 0
             last_failure_issuance_time: ""
-            state: null
+            state: STARTING
             renewal_time: ""
             state_message: state_message
           pods:
@@ -1660,10 +1660,10 @@ components:
       example:
         current_percent: 0
         current: 0
-        unit: null
+        unit: mCPU
         limit: 0
         name: name
-        status: null
+        status: OK
       properties:
         current:
           format: int32
@@ -1978,30 +1978,30 @@ components:
         storages:
         - current_percent: 0
           current: 0
-          unit: null
+          unit: mCPU
           limit: 0
           name: name
-          status: null
+          status: OK
         - current_percent: 0
           current: 0
-          unit: null
+          unit: mCPU
           limit: 0
           name: name
-          status: null
+          status: OK
         memory:
           current_percent: 0
           current: 0
-          unit: null
+          unit: mCPU
           limit: 0
           name: name
-          status: null
+          status: OK
         cpu:
           current_percent: 0
           current: 0
-          unit: null
+          unit: mCPU
           limit: 0
           name: name
-          status: null
+          status: OK
         pod_name: pod_name
       properties:
         cpu:
@@ -2122,7 +2122,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2132,7 +2132,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2182,7 +2182,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2192,7 +2192,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2243,7 +2243,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2253,7 +2253,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2303,7 +2303,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2313,7 +2313,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2366,7 +2366,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2376,7 +2376,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2426,7 +2426,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2436,7 +2436,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2487,7 +2487,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2497,7 +2497,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2547,7 +2547,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2557,7 +2557,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2688,7 +2688,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2698,7 +2698,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2748,7 +2748,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2758,7 +2758,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2809,7 +2809,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2819,7 +2819,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2869,7 +2869,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2879,7 +2879,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2932,7 +2932,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -2942,7 +2942,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -2992,7 +2992,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -3002,7 +3002,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -3053,7 +3053,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -3063,7 +3063,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:
@@ -3113,7 +3113,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             - not_after: ""
@@ -3123,7 +3123,7 @@ components:
               not_before: ""
               failed_issuance_attempt_count: 0
               last_failure_issuance_time: ""
-              state: null
+              state: STARTING
               renewal_time: ""
               state_message: state_message
             pods:

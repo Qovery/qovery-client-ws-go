@@ -13,6 +13,8 @@ package qovery-ws
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ContainerStatusDto type satisfies the MappedNullable interface at compile time
@@ -26,6 +28,8 @@ type ContainerStatusDto struct {
 	Name string `json:"name"`
 	RestartCount int32 `json:"restart_count"`
 }
+
+type _ContainerStatusDto ContainerStatusDto
 
 // NewContainerStatusDto instantiates a new ContainerStatusDto object
 // This constructor will assign default values to properties that have it defined,
@@ -223,6 +227,45 @@ func (o ContainerStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["restart_count"] = o.RestartCount
 	return toSerialize, nil
+}
+
+func (o *ContainerStatusDto) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"image",
+		"name",
+		"restart_count",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varContainerStatusDto := _ContainerStatusDto{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varContainerStatusDto)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ContainerStatusDto(varContainerStatusDto)
+
+	return err
 }
 
 type NullableContainerStatusDto struct {

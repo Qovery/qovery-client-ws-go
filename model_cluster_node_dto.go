@@ -13,6 +13,8 @@ package qovery-ws
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ClusterNodeDto type satisfies the MappedNullable interface at compile time
@@ -35,6 +37,8 @@ type ClusterNodeDto struct {
 	Taints []NodeTaintDto `json:"taints"`
 	Unschedulable bool `json:"unschedulable"`
 }
+
+type _ClusterNodeDto ClusterNodeDto
 
 // NewClusterNodeDto instantiates a new ClusterNodeDto object
 // This constructor will assign default values to properties that have it defined,
@@ -428,6 +432,56 @@ func (o ClusterNodeDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["taints"] = o.Taints
 	toSerialize["unschedulable"] = o.Unschedulable
 	return toSerialize, nil
+}
+
+func (o *ClusterNodeDto) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"addresses",
+		"annotations",
+		"architecture",
+		"conditions",
+		"kernel_version",
+		"kubelet_version",
+		"labels",
+		"name",
+		"operating_system",
+		"os_image",
+		"pods",
+		"resources_allocatable",
+		"taints",
+		"unschedulable",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varClusterNodeDto := _ClusterNodeDto{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varClusterNodeDto)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ClusterNodeDto(varClusterNodeDto)
+
+	return err
 }
 
 type NullableClusterNodeDto struct {
