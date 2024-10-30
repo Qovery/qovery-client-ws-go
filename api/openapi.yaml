@@ -531,6 +531,76 @@ paths:
       - shell
 components:
   schemas:
+    QoveryPodInErrorComponentInFailure:
+      example:
+        reason: reason
+        container_name: container_name
+        level: ERROR
+        component_name: component_name
+        message: message
+        pod_name: pod_name
+      properties:
+        component_name:
+          type: string
+        pod_name:
+          type: string
+        container_name:
+          type: string
+        level:
+          enum:
+          - ERROR
+          - WARNING
+          type: string
+        reason:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+      required:
+      - component_name
+      - container_name
+      - pod_name
+      type: object
+    QoveryMissingComponentInFailure:
+      properties:
+        component_name:
+          type: string
+      required:
+      - component_name
+      type: object
+    NodeInWarning:
+      example:
+        reason: reason
+        message: message
+      properties:
+        reason:
+          type: string
+        message:
+          type: string
+      required:
+      - message
+      - reason
+      type: object
+    QoveryOkKubeVersion:
+      example:
+        kube_version: kube_version
+      properties:
+        kube_version:
+          type: string
+      required:
+      - kube_version
+      type: object
+    QoveryDriftKubeVersion:
+      properties:
+        kube_version:
+          type: string
+        expected_kube_version:
+          type: string
+      required:
+      - expected_kube_version
+      - kube_version
+      type: object
     ApplicationStatusDto:
       example:
         certificates:
@@ -784,6 +854,28 @@ components:
       type: object
     ClusterStatusDto:
       example:
+        computed_status:
+          global_status: RUNNING
+          qovery_components_in_failure:
+          - reason: reason
+            container_name: container_name
+            level: ERROR
+            component_name: component_name
+            message: message
+            pod_name: pod_name
+          - reason: reason
+            container_name: container_name
+            level: ERROR
+            component_name: component_name
+            message: message
+            pod_name: pod_name
+          kube_version_status:
+            kube_version: kube_version
+          is_max_nodes_size_reached: true
+          node_warnings:
+            key:
+              reason: reason
+              message: message
         nodes:
         - addresses:
           - address: address
@@ -914,11 +1006,14 @@ components:
           unschedulable: true
           architecture: architecture
       properties:
+        computed_status:
+          $ref: '#/components/schemas/ClusterStatusDto_computed_status'
         nodes:
           items:
             $ref: '#/components/schemas/ClusterNodeDto'
           type: array
       required:
+      - computed_status
       - nodes
       type: object
     ContainerStateDto:
@@ -3190,3 +3285,66 @@ components:
       - MiB
       - GiB
       type: string
+    ClusterStatusDto_computed_status_qovery_components_in_failure_inner:
+      discriminator:
+        mapping:
+          POD_IN_ERROR: '#/components/schemas/QoveryPodInErrorComponentInFailure'
+          MISSING_COMPONENT: '#/components/schemas/QoveryMissingComponentInFailure'
+        propertyName: type
+      oneOf:
+      - $ref: '#/components/schemas/QoveryPodInErrorComponentInFailure'
+      - $ref: '#/components/schemas/QoveryMissingComponentInFailure'
+    ClusterStatusDto_computed_status_kube_version_status:
+      discriminator:
+        mapping:
+          OK: '#/components/schemas/QoveryOkKubeVersion'
+          DRIFT: '#/components/schemas/QoveryDriftKubeVersion'
+        propertyName: type
+      oneOf:
+      - $ref: '#/components/schemas/QoveryOkKubeVersion'
+      - $ref: '#/components/schemas/QoveryDriftKubeVersion'
+      type: object
+    ClusterStatusDto_computed_status:
+      example:
+        global_status: RUNNING
+        qovery_components_in_failure:
+        - reason: reason
+          container_name: container_name
+          level: ERROR
+          component_name: component_name
+          message: message
+          pod_name: pod_name
+        - reason: reason
+          container_name: container_name
+          level: ERROR
+          component_name: component_name
+          message: message
+          pod_name: pod_name
+        kube_version_status:
+          kube_version: kube_version
+        is_max_nodes_size_reached: true
+        node_warnings:
+          key:
+            reason: reason
+            message: message
+      properties:
+        global_status:
+          enum:
+          - RUNNING
+          - WARNING
+          - ERROR
+          nullable: true
+          type: string
+        qovery_components_in_failure:
+          items:
+            $ref: '#/components/schemas/ClusterStatusDto_computed_status_qovery_components_in_failure_inner'
+          type: array
+        node_warnings:
+          additionalProperties:
+            $ref: '#/components/schemas/NodeInWarning'
+          type: object
+        is_max_nodes_size_reached:
+          type: boolean
+        kube_version_status:
+          $ref: '#/components/schemas/ClusterStatusDto_computed_status_kube_version_status'
+      type: object
