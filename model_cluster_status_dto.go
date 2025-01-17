@@ -22,7 +22,7 @@ var _ MappedNullable = &ClusterStatusDto{}
 
 // ClusterStatusDto struct for ClusterStatusDto
 type ClusterStatusDto struct {
-	ComputedStatus ClusterStatusDtoComputedStatus `json:"computed_status"`
+	ComputedStatus ClusterComputedStatusDto `json:"computed_status"`
 	Nodes []ClusterNodeDto `json:"nodes"`
 }
 
@@ -32,7 +32,7 @@ type _ClusterStatusDto ClusterStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClusterStatusDto(computedStatus ClusterStatusDtoComputedStatus, nodes []ClusterNodeDto) *ClusterStatusDto {
+func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodes []ClusterNodeDto) *ClusterStatusDto {
 	this := ClusterStatusDto{}
 	this.ComputedStatus = computedStatus
 	this.Nodes = nodes
@@ -48,9 +48,9 @@ func NewClusterStatusDtoWithDefaults() *ClusterStatusDto {
 }
 
 // GetComputedStatus returns the ComputedStatus field value
-func (o *ClusterStatusDto) GetComputedStatus() ClusterStatusDtoComputedStatus {
+func (o *ClusterStatusDto) GetComputedStatus() ClusterComputedStatusDto {
 	if o == nil {
-		var ret ClusterStatusDtoComputedStatus
+		var ret ClusterComputedStatusDto
 		return ret
 	}
 
@@ -59,7 +59,7 @@ func (o *ClusterStatusDto) GetComputedStatus() ClusterStatusDtoComputedStatus {
 
 // GetComputedStatusOk returns a tuple with the ComputedStatus field value
 // and a boolean to check if the value has been set.
-func (o *ClusterStatusDto) GetComputedStatusOk() (*ClusterStatusDtoComputedStatus, bool) {
+func (o *ClusterStatusDto) GetComputedStatusOk() (*ClusterComputedStatusDto, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *ClusterStatusDto) GetComputedStatusOk() (*ClusterStatusDtoComputedStatu
 }
 
 // SetComputedStatus sets field value
-func (o *ClusterStatusDto) SetComputedStatus(v ClusterStatusDtoComputedStatus) {
+func (o *ClusterStatusDto) SetComputedStatus(v ClusterComputedStatusDto) {
 	o.ComputedStatus = v
 }
 
