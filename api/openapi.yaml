@@ -463,6 +463,68 @@ paths:
           description: Stream of services status
       tags:
       - service_status
+  /shell/debug:
+    get:
+      operationId: handle_shell_remote_debug
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: flavor
+        required: true
+        schema:
+          $ref: '#/components/schemas/DebugFlavor'
+        style: simple
+      - explode: false
+        in: path
+        name: tty_width
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: tty_height
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: node_selector
+        required: true
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Allow to start a debug pod and shell into-it
+      tags:
+      - remote_debug
   /shell/exec:
     get:
       operationId: handle_shell_exec
@@ -1283,6 +1345,11 @@ components:
       - id
       - pods
       - state
+    DebugFlavor:
+      enum:
+      - REGULAR_PRIVILEGE
+      - FULL_PRIVILEGE
+      type: string
     EnvironmentStatusDto:
       example:
         databases:

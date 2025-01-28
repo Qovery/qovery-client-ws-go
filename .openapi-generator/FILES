@@ -7,6 +7,7 @@ api_cluster_list_nodes.go
 api_cluster_status.go
 api_deployment.go
 api_logs.go
+api_remote_debug.go
 api_service_list_pods.go
 api_service_metrics.go
 api_service_status.go
@@ -26,6 +27,7 @@ docs/ContainerStateDto.md
 docs/ContainerStateTerminatedDto.md
 docs/ContainerStatusDto.md
 docs/DatabaseStatusDto.md
+docs/DebugFlavor.md
 docs/DeploymentAPI.md
 docs/EnvironmentStatusDto.md
 docs/LogsAPI.md
@@ -48,6 +50,7 @@ docs/QoveryComponentInFailure.md
 docs/QoveryComponentInFailureOneOf.md
 docs/QoveryComponentInFailureOneOf1.md
 docs/QoveryNodeFailure.md
+docs/RemoteDebugAPI.md
 docs/ResourceStatusDto.md
 docs/ServiceInfraLogResponseDto.md
 docs/ServiceListPodsAPI.md
@@ -75,6 +78,7 @@ model_container_state_dto.go
 model_container_state_terminated_dto.go
 model_container_status_dto.go
 model_database_status_dto.go
+model_debug_flavor.go
 model_environment_status_dto.go
 model_metric_dto.go
 model_node_address_dto.go
@@ -109,6 +113,7 @@ test/api_cluster_list_nodes_test.go
 test/api_cluster_status_test.go
 test/api_deployment_test.go
 test/api_logs_test.go
+test/api_remote_debug_test.go
 test/api_service_list_pods_test.go
 test/api_service_metrics_test.go
 test/api_service_status_test.go

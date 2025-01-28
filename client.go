@@ -58,6 +58,8 @@ type APIClient struct {
 
 	LogsAPI *LogsAPIService
 
+	RemoteDebugAPI *RemoteDebugAPIService
+
 	ServiceListPodsAPI *ServiceListPodsAPIService
 
 	ServiceMetricsAPI *ServiceMetricsAPIService
@@ -87,6 +89,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ClusterStatusAPI = (*ClusterStatusAPIService)(&c.common)
 	c.DeploymentAPI = (*DeploymentAPIService)(&c.common)
 	c.LogsAPI = (*LogsAPIService)(&c.common)
+	c.RemoteDebugAPI = (*RemoteDebugAPIService)(&c.common)
 	c.ServiceListPodsAPI = (*ServiceListPodsAPIService)(&c.common)
 	c.ServiceMetricsAPI = (*ServiceMetricsAPIService)(&c.common)
 	c.ServiceStatusAPI = (*ServiceStatusAPIService)(&c.common)

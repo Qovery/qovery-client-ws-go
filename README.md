@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *DeploymentAPI* | [**HandleDeploymentStatusRequest**](docs/DeploymentAPI.md#handledeploymentstatusrequest) | **Get** /deployment/status | 
 *LogsAPI* | [**HandleInfraLogsRequest**](docs/LogsAPI.md#handleinfralogsrequest) | **Get** /infra/logs | 
 *LogsAPI* | [**HandleServiceLogsRequest**](docs/LogsAPI.md#handleservicelogsrequest) | **Get** /service/logs | 
+*RemoteDebugAPI* | [**HandleShellRemoteDebug**](docs/RemoteDebugAPI.md#handleshellremotedebug) | **Get** /shell/debug | 
 *ServiceListPodsAPI* | [**HandleServiceListPodsRequest**](docs/ServiceListPodsAPI.md#handleservicelistpodsrequest) | **Get** /service/pods | 
 *ServiceMetricsAPI* | [**HandleMetricsRequest**](docs/ServiceMetricsAPI.md#handlemetricsrequest) | **Get** /service/metrics | 
 *ServiceStatusAPI* | [**HandleServiceStatusRequest**](docs/ServiceStatusAPI.md#handleservicestatusrequest) | **Get** /service/status | 
@@ -103,6 +104,7 @@ Class | Method | HTTP request | Description
  - [ContainerStateTerminatedDto](docs/ContainerStateTerminatedDto.md)
  - [ContainerStatusDto](docs/ContainerStatusDto.md)
  - [DatabaseStatusDto](docs/DatabaseStatusDto.md)
+ - [DebugFlavor](docs/DebugFlavor.md)
  - [EnvironmentStatusDto](docs/EnvironmentStatusDto.md)
  - [MetricDto](docs/MetricDto.md)
  - [NodeAddressDto](docs/NodeAddressDto.md)
