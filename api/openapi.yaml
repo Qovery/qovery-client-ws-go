@@ -3,7 +3,7 @@ info:
   contact:
     email: erebe@erebe.eu
     name: Romain GERARD
-  description: Describe the weboscket endpoints
+  description: Describe the websocket endpoints of Qovery
   license:
     name: apache-2.0
     url: https://www.apache.org/licenses/LICENSE-2.0

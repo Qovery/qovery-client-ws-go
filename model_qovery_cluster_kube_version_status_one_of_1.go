@@ -1,7 +1,7 @@
 /*
 websocket-gateway
 
-Describe the weboscket endpoints
+Describe the websocket endpoints of Qovery
 
 API version: 0.1.0
 Contact: erebe@erebe.eu
