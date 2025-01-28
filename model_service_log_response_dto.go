@@ -23,8 +23,7 @@ var _ MappedNullable = &ServiceLogResponseDto{}
 // ServiceLogResponseDto struct for ServiceLogResponseDto
 type ServiceLogResponseDto struct {
 	ContainerName string `json:"container_name"`
-	// Unix timestamp with millisecond precision
-	CreatedAt int32 `json:"created_at"`
+	CreatedAt int64 `json:"created_at"`
 	Message string `json:"message"`
 	PodName string `json:"pod_name"`
 	Version string `json:"version"`
@@ -36,7 +35,7 @@ type _ServiceLogResponseDto ServiceLogResponseDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceLogResponseDto(containerName string, createdAt int32, message string, podName string, version string) *ServiceLogResponseDto {
+func NewServiceLogResponseDto(containerName string, createdAt int64, message string, podName string, version string) *ServiceLogResponseDto {
 	this := ServiceLogResponseDto{}
 	this.ContainerName = containerName
 	this.CreatedAt = createdAt
@@ -79,9 +78,9 @@ func (o *ServiceLogResponseDto) SetContainerName(v string) {
 }
 
 // GetCreatedAt returns the CreatedAt field value
-func (o *ServiceLogResponseDto) GetCreatedAt() int32 {
+func (o *ServiceLogResponseDto) GetCreatedAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -90,7 +89,7 @@ func (o *ServiceLogResponseDto) GetCreatedAt() int32 {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int32, bool) {
+func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,7 +97,7 @@ func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int32, bool) {
 }
 
 // SetCreatedAt sets field value
-func (o *ServiceLogResponseDto) SetCreatedAt(v int32) {
+func (o *ServiceLogResponseDto) SetCreatedAt(v int64) {
 	o.CreatedAt = v
 }
 

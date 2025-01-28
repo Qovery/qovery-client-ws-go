@@ -194,11 +194,11 @@ func (o *NodePodInfoDto) GetImagesVersion() map[string]string {
 
 // GetImagesVersionOk returns a tuple with the ImagesVersion field value
 // and a boolean to check if the value has been set.
-func (o *NodePodInfoDto) GetImagesVersionOk() (*map[string]string, bool) {
+func (o *NodePodInfoDto) GetImagesVersionOk() (map[string]string, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]string{}, false
 	}
-	return &o.ImagesVersion, true
+	return o.ImagesVersion, true
 }
 
 // SetImagesVersion sets field value

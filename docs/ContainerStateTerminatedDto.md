@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExitCode** | **int32** |  | 
 **ExitCodeMessage** | **string** |  | 
-**FinishedAt** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
+**FinishedAt** | **int64** |  | 
 **Message** | **string** |  | 
 **Reason** | **string** |  | 
 **Signal** | **int32** |  | 
-**StartedAt** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
+**StartedAt** | **int64** |  | 
 
 ## Methods
 
 ### NewContainerStateTerminatedDto
 
-`func NewContainerStateTerminatedDto(exitCode int32, exitCodeMessage string, message string, reason string, signal int32, ) *ContainerStateTerminatedDto`
+`func NewContainerStateTerminatedDto(exitCode int32, exitCodeMessage string, finishedAt int64, message string, reason string, signal int32, startedAt int64, ) *ContainerStateTerminatedDto`
 
 NewContainerStateTerminatedDto instantiates a new ContainerStateTerminatedDto object
 This constructor will assign default values to properties that have it defined,
@@ -73,39 +73,24 @@ SetExitCodeMessage sets ExitCodeMessage field to given value.
 
 ### GetFinishedAt
 
-`func (o *ContainerStateTerminatedDto) GetFinishedAt() int32`
+`func (o *ContainerStateTerminatedDto) GetFinishedAt() int64`
 
 GetFinishedAt returns the FinishedAt field if non-nil, zero value otherwise.
 
 ### GetFinishedAtOk
 
-`func (o *ContainerStateTerminatedDto) GetFinishedAtOk() (*int32, bool)`
+`func (o *ContainerStateTerminatedDto) GetFinishedAtOk() (*int64, bool)`
 
 GetFinishedAtOk returns a tuple with the FinishedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFinishedAt
 
-`func (o *ContainerStateTerminatedDto) SetFinishedAt(v int32)`
+`func (o *ContainerStateTerminatedDto) SetFinishedAt(v int64)`
 
 SetFinishedAt sets FinishedAt field to given value.
 
-### HasFinishedAt
 
-`func (o *ContainerStateTerminatedDto) HasFinishedAt() bool`
-
-HasFinishedAt returns a boolean if a field has been set.
-
-### SetFinishedAtNil
-
-`func (o *ContainerStateTerminatedDto) SetFinishedAtNil(b bool)`
-
- SetFinishedAtNil sets the value for FinishedAt to be an explicit nil
-
-### UnsetFinishedAt
-`func (o *ContainerStateTerminatedDto) UnsetFinishedAt()`
-
-UnsetFinishedAt ensures that no value is present for FinishedAt, not even an explicit nil
 ### GetMessage
 
 `func (o *ContainerStateTerminatedDto) GetMessage() string`
@@ -168,39 +153,24 @@ SetSignal sets Signal field to given value.
 
 ### GetStartedAt
 
-`func (o *ContainerStateTerminatedDto) GetStartedAt() int32`
+`func (o *ContainerStateTerminatedDto) GetStartedAt() int64`
 
 GetStartedAt returns the StartedAt field if non-nil, zero value otherwise.
 
 ### GetStartedAtOk
 
-`func (o *ContainerStateTerminatedDto) GetStartedAtOk() (*int32, bool)`
+`func (o *ContainerStateTerminatedDto) GetStartedAtOk() (*int64, bool)`
 
 GetStartedAtOk returns a tuple with the StartedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStartedAt
 
-`func (o *ContainerStateTerminatedDto) SetStartedAt(v int32)`
+`func (o *ContainerStateTerminatedDto) SetStartedAt(v int64)`
 
 SetStartedAt sets StartedAt field to given value.
 
-### HasStartedAt
 
-`func (o *ContainerStateTerminatedDto) HasStartedAt() bool`
-
-HasStartedAt returns a boolean if a field has been set.
-
-### SetStartedAtNil
-
-`func (o *ContainerStateTerminatedDto) SetStartedAtNil(b bool)`
-
- SetStartedAtNil sets the value for StartedAt to be an explicit nil
-
-### UnsetStartedAt
-`func (o *ContainerStateTerminatedDto) UnsetStartedAt()`
-
-UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

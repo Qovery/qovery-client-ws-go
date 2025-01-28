@@ -22,8 +22,7 @@ var _ MappedNullable = &ServiceInfraLogResponseDto{}
 
 // ServiceInfraLogResponseDto struct for ServiceInfraLogResponseDto
 type ServiceInfraLogResponseDto struct {
-	// Unix timestamp with millisecond precision
-	CreatedAt int32 `json:"created_at"`
+	CreatedAt int64 `json:"created_at"`
 	Message string `json:"message"`
 }
 
@@ -33,7 +32,7 @@ type _ServiceInfraLogResponseDto ServiceInfraLogResponseDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceInfraLogResponseDto(createdAt int32, message string) *ServiceInfraLogResponseDto {
+func NewServiceInfraLogResponseDto(createdAt int64, message string) *ServiceInfraLogResponseDto {
 	this := ServiceInfraLogResponseDto{}
 	this.CreatedAt = createdAt
 	this.Message = message
@@ -49,9 +48,9 @@ func NewServiceInfraLogResponseDtoWithDefaults() *ServiceInfraLogResponseDto {
 }
 
 // GetCreatedAt returns the CreatedAt field value
-func (o *ServiceInfraLogResponseDto) GetCreatedAt() int32 {
+func (o *ServiceInfraLogResponseDto) GetCreatedAt() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +59,7 @@ func (o *ServiceInfraLogResponseDto) GetCreatedAt() int32 {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ServiceInfraLogResponseDto) GetCreatedAtOk() (*int32, bool) {
+func (o *ServiceInfraLogResponseDto) GetCreatedAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +67,7 @@ func (o *ServiceInfraLogResponseDto) GetCreatedAtOk() (*int32, bool) {
 }
 
 // SetCreatedAt sets field value
-func (o *ServiceInfraLogResponseDto) SetCreatedAt(v int32) {
+func (o *ServiceInfraLogResponseDto) SetCreatedAt(v int64) {
 	o.CreatedAt = v
 }
 

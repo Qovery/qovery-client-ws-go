@@ -22,10 +22,8 @@ var _ MappedNullable = &NodeConditionDto{}
 
 // NodeConditionDto struct for NodeConditionDto
 type NodeConditionDto struct {
-	// Unix timestamp with millisecond precision
-	LastHeartbeatTime NullableInt32 `json:"last_heartbeat_time,omitempty"`
-	// Unix timestamp with millisecond precision
-	LastTransitionTime NullableInt32 `json:"last_transition_time,omitempty"`
+	LastHeartbeatTime int64 `json:"last_heartbeat_time"`
+	LastTransitionTime int64 `json:"last_transition_time"`
 	Message string `json:"message"`
 	Reason string `json:"reason"`
 	Status string `json:"status"`
@@ -38,8 +36,10 @@ type _NodeConditionDto NodeConditionDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNodeConditionDto(message string, reason string, status string, type_ string) *NodeConditionDto {
+func NewNodeConditionDto(lastHeartbeatTime int64, lastTransitionTime int64, message string, reason string, status string, type_ string) *NodeConditionDto {
 	this := NodeConditionDto{}
+	this.LastHeartbeatTime = lastHeartbeatTime
+	this.LastTransitionTime = lastTransitionTime
 	this.Message = message
 	this.Reason = reason
 	this.Status = status
@@ -55,88 +55,52 @@ func NewNodeConditionDtoWithDefaults() *NodeConditionDto {
 	return &this
 }
 
-// GetLastHeartbeatTime returns the LastHeartbeatTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NodeConditionDto) GetLastHeartbeatTime() int32 {
-	if o == nil || IsNil(o.LastHeartbeatTime.Get()) {
-		var ret int32
+// GetLastHeartbeatTime returns the LastHeartbeatTime field value
+func (o *NodeConditionDto) GetLastHeartbeatTime() int64 {
+	if o == nil {
+		var ret int64
 		return ret
 	}
-	return *o.LastHeartbeatTime.Get()
+
+	return o.LastHeartbeatTime
 }
 
-// GetLastHeartbeatTimeOk returns a tuple with the LastHeartbeatTime field value if set, nil otherwise
+// GetLastHeartbeatTimeOk returns a tuple with the LastHeartbeatTime field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NodeConditionDto) GetLastHeartbeatTimeOk() (*int32, bool) {
+func (o *NodeConditionDto) GetLastHeartbeatTimeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LastHeartbeatTime.Get(), o.LastHeartbeatTime.IsSet()
+	return &o.LastHeartbeatTime, true
 }
 
-// HasLastHeartbeatTime returns a boolean if a field has been set.
-func (o *NodeConditionDto) HasLastHeartbeatTime() bool {
-	if o != nil && o.LastHeartbeatTime.IsSet() {
-		return true
-	}
-
-	return false
+// SetLastHeartbeatTime sets field value
+func (o *NodeConditionDto) SetLastHeartbeatTime(v int64) {
+	o.LastHeartbeatTime = v
 }
 
-// SetLastHeartbeatTime gets a reference to the given NullableInt32 and assigns it to the LastHeartbeatTime field.
-func (o *NodeConditionDto) SetLastHeartbeatTime(v int32) {
-	o.LastHeartbeatTime.Set(&v)
-}
-// SetLastHeartbeatTimeNil sets the value for LastHeartbeatTime to be an explicit nil
-func (o *NodeConditionDto) SetLastHeartbeatTimeNil() {
-	o.LastHeartbeatTime.Set(nil)
-}
-
-// UnsetLastHeartbeatTime ensures that no value is present for LastHeartbeatTime, not even an explicit nil
-func (o *NodeConditionDto) UnsetLastHeartbeatTime() {
-	o.LastHeartbeatTime.Unset()
-}
-
-// GetLastTransitionTime returns the LastTransitionTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NodeConditionDto) GetLastTransitionTime() int32 {
-	if o == nil || IsNil(o.LastTransitionTime.Get()) {
-		var ret int32
+// GetLastTransitionTime returns the LastTransitionTime field value
+func (o *NodeConditionDto) GetLastTransitionTime() int64 {
+	if o == nil {
+		var ret int64
 		return ret
 	}
-	return *o.LastTransitionTime.Get()
+
+	return o.LastTransitionTime
 }
 
-// GetLastTransitionTimeOk returns a tuple with the LastTransitionTime field value if set, nil otherwise
+// GetLastTransitionTimeOk returns a tuple with the LastTransitionTime field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NodeConditionDto) GetLastTransitionTimeOk() (*int32, bool) {
+func (o *NodeConditionDto) GetLastTransitionTimeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LastTransitionTime.Get(), o.LastTransitionTime.IsSet()
+	return &o.LastTransitionTime, true
 }
 
-// HasLastTransitionTime returns a boolean if a field has been set.
-func (o *NodeConditionDto) HasLastTransitionTime() bool {
-	if o != nil && o.LastTransitionTime.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLastTransitionTime gets a reference to the given NullableInt32 and assigns it to the LastTransitionTime field.
-func (o *NodeConditionDto) SetLastTransitionTime(v int32) {
-	o.LastTransitionTime.Set(&v)
-}
-// SetLastTransitionTimeNil sets the value for LastTransitionTime to be an explicit nil
-func (o *NodeConditionDto) SetLastTransitionTimeNil() {
-	o.LastTransitionTime.Set(nil)
-}
-
-// UnsetLastTransitionTime ensures that no value is present for LastTransitionTime, not even an explicit nil
-func (o *NodeConditionDto) UnsetLastTransitionTime() {
-	o.LastTransitionTime.Unset()
+// SetLastTransitionTime sets field value
+func (o *NodeConditionDto) SetLastTransitionTime(v int64) {
+	o.LastTransitionTime = v
 }
 
 // GetMessage returns the Message field value
@@ -245,12 +209,8 @@ func (o NodeConditionDto) MarshalJSON() ([]byte, error) {
 
 func (o NodeConditionDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.LastHeartbeatTime.IsSet() {
-		toSerialize["last_heartbeat_time"] = o.LastHeartbeatTime.Get()
-	}
-	if o.LastTransitionTime.IsSet() {
-		toSerialize["last_transition_time"] = o.LastTransitionTime.Get()
-	}
+	toSerialize["last_heartbeat_time"] = o.LastHeartbeatTime
+	toSerialize["last_transition_time"] = o.LastTransitionTime
 	toSerialize["message"] = o.Message
 	toSerialize["reason"] = o.Reason
 	toSerialize["status"] = o.Status
@@ -263,6 +223,8 @@ func (o *NodeConditionDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"last_heartbeat_time",
+		"last_transition_time",
 		"message",
 		"reason",
 		"status",

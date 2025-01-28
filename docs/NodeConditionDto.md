@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LastHeartbeatTime** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
-**LastTransitionTime** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
+**LastHeartbeatTime** | **int64** |  | 
+**LastTransitionTime** | **int64** |  | 
 **Message** | **string** |  | 
 **Reason** | **string** |  | 
 **Status** | **string** |  | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewNodeConditionDto
 
-`func NewNodeConditionDto(message string, reason string, status string, type_ string, ) *NodeConditionDto`
+`func NewNodeConditionDto(lastHeartbeatTime int64, lastTransitionTime int64, message string, reason string, status string, type_ string, ) *NodeConditionDto`
 
 NewNodeConditionDto instantiates a new NodeConditionDto object
 This constructor will assign default values to properties that have it defined,
@@ -32,74 +32,44 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLastHeartbeatTime
 
-`func (o *NodeConditionDto) GetLastHeartbeatTime() int32`
+`func (o *NodeConditionDto) GetLastHeartbeatTime() int64`
 
 GetLastHeartbeatTime returns the LastHeartbeatTime field if non-nil, zero value otherwise.
 
 ### GetLastHeartbeatTimeOk
 
-`func (o *NodeConditionDto) GetLastHeartbeatTimeOk() (*int32, bool)`
+`func (o *NodeConditionDto) GetLastHeartbeatTimeOk() (*int64, bool)`
 
 GetLastHeartbeatTimeOk returns a tuple with the LastHeartbeatTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastHeartbeatTime
 
-`func (o *NodeConditionDto) SetLastHeartbeatTime(v int32)`
+`func (o *NodeConditionDto) SetLastHeartbeatTime(v int64)`
 
 SetLastHeartbeatTime sets LastHeartbeatTime field to given value.
 
-### HasLastHeartbeatTime
 
-`func (o *NodeConditionDto) HasLastHeartbeatTime() bool`
-
-HasLastHeartbeatTime returns a boolean if a field has been set.
-
-### SetLastHeartbeatTimeNil
-
-`func (o *NodeConditionDto) SetLastHeartbeatTimeNil(b bool)`
-
- SetLastHeartbeatTimeNil sets the value for LastHeartbeatTime to be an explicit nil
-
-### UnsetLastHeartbeatTime
-`func (o *NodeConditionDto) UnsetLastHeartbeatTime()`
-
-UnsetLastHeartbeatTime ensures that no value is present for LastHeartbeatTime, not even an explicit nil
 ### GetLastTransitionTime
 
-`func (o *NodeConditionDto) GetLastTransitionTime() int32`
+`func (o *NodeConditionDto) GetLastTransitionTime() int64`
 
 GetLastTransitionTime returns the LastTransitionTime field if non-nil, zero value otherwise.
 
 ### GetLastTransitionTimeOk
 
-`func (o *NodeConditionDto) GetLastTransitionTimeOk() (*int32, bool)`
+`func (o *NodeConditionDto) GetLastTransitionTimeOk() (*int64, bool)`
 
 GetLastTransitionTimeOk returns a tuple with the LastTransitionTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastTransitionTime
 
-`func (o *NodeConditionDto) SetLastTransitionTime(v int32)`
+`func (o *NodeConditionDto) SetLastTransitionTime(v int64)`
 
 SetLastTransitionTime sets LastTransitionTime field to given value.
 
-### HasLastTransitionTime
 
-`func (o *NodeConditionDto) HasLastTransitionTime() bool`
-
-HasLastTransitionTime returns a boolean if a field has been set.
-
-### SetLastTransitionTimeNil
-
-`func (o *NodeConditionDto) SetLastTransitionTimeNil(b bool)`
-
- SetLastTransitionTimeNil sets the value for LastTransitionTime to be an explicit nil
-
-### UnsetLastTransitionTime
-`func (o *NodeConditionDto) UnsetLastTransitionTime()`
-
-UnsetLastTransitionTime ensures that no value is present for LastTransitionTime, not even an explicit nil
 ### GetMessage
 
 `func (o *NodeConditionDto) GetMessage() string`

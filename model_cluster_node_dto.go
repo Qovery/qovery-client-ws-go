@@ -107,11 +107,11 @@ func (o *ClusterNodeDto) GetAnnotations() map[string]string {
 
 // GetAnnotationsOk returns a tuple with the Annotations field value
 // and a boolean to check if the value has been set.
-func (o *ClusterNodeDto) GetAnnotationsOk() (*map[string]string, bool) {
+func (o *ClusterNodeDto) GetAnnotationsOk() (map[string]string, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]string{}, false
 	}
-	return &o.Annotations, true
+	return o.Annotations, true
 }
 
 // SetAnnotations sets field value
@@ -227,11 +227,11 @@ func (o *ClusterNodeDto) GetLabels() map[string]string {
 
 // GetLabelsOk returns a tuple with the Labels field value
 // and a boolean to check if the value has been set.
-func (o *ClusterNodeDto) GetLabelsOk() (*map[string]string, bool) {
+func (o *ClusterNodeDto) GetLabelsOk() (map[string]string, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]string{}, false
 	}
-	return &o.Labels, true
+	return o.Labels, true
 }
 
 // SetLabels sets field value

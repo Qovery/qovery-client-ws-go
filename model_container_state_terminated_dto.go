@@ -24,13 +24,11 @@ var _ MappedNullable = &ContainerStateTerminatedDto{}
 type ContainerStateTerminatedDto struct {
 	ExitCode int32 `json:"exit_code"`
 	ExitCodeMessage string `json:"exit_code_message"`
-	// Unix timestamp with millisecond precision
-	FinishedAt NullableInt32 `json:"finished_at,omitempty"`
+	FinishedAt int64 `json:"finished_at"`
 	Message string `json:"message"`
 	Reason string `json:"reason"`
 	Signal int32 `json:"signal"`
-	// Unix timestamp with millisecond precision
-	StartedAt NullableInt32 `json:"started_at,omitempty"`
+	StartedAt int64 `json:"started_at"`
 }
 
 type _ContainerStateTerminatedDto ContainerStateTerminatedDto
@@ -39,13 +37,15 @@ type _ContainerStateTerminatedDto ContainerStateTerminatedDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContainerStateTerminatedDto(exitCode int32, exitCodeMessage string, message string, reason string, signal int32) *ContainerStateTerminatedDto {
+func NewContainerStateTerminatedDto(exitCode int32, exitCodeMessage string, finishedAt int64, message string, reason string, signal int32, startedAt int64) *ContainerStateTerminatedDto {
 	this := ContainerStateTerminatedDto{}
 	this.ExitCode = exitCode
 	this.ExitCodeMessage = exitCodeMessage
+	this.FinishedAt = finishedAt
 	this.Message = message
 	this.Reason = reason
 	this.Signal = signal
+	this.StartedAt = startedAt
 	return &this
 }
 
@@ -105,46 +105,28 @@ func (o *ContainerStateTerminatedDto) SetExitCodeMessage(v string) {
 	o.ExitCodeMessage = v
 }
 
-// GetFinishedAt returns the FinishedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ContainerStateTerminatedDto) GetFinishedAt() int32 {
-	if o == nil || IsNil(o.FinishedAt.Get()) {
-		var ret int32
+// GetFinishedAt returns the FinishedAt field value
+func (o *ContainerStateTerminatedDto) GetFinishedAt() int64 {
+	if o == nil {
+		var ret int64
 		return ret
 	}
-	return *o.FinishedAt.Get()
+
+	return o.FinishedAt
 }
 
-// GetFinishedAtOk returns a tuple with the FinishedAt field value if set, nil otherwise
+// GetFinishedAtOk returns a tuple with the FinishedAt field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ContainerStateTerminatedDto) GetFinishedAtOk() (*int32, bool) {
+func (o *ContainerStateTerminatedDto) GetFinishedAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.FinishedAt.Get(), o.FinishedAt.IsSet()
+	return &o.FinishedAt, true
 }
 
-// HasFinishedAt returns a boolean if a field has been set.
-func (o *ContainerStateTerminatedDto) HasFinishedAt() bool {
-	if o != nil && o.FinishedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFinishedAt gets a reference to the given NullableInt32 and assigns it to the FinishedAt field.
-func (o *ContainerStateTerminatedDto) SetFinishedAt(v int32) {
-	o.FinishedAt.Set(&v)
-}
-// SetFinishedAtNil sets the value for FinishedAt to be an explicit nil
-func (o *ContainerStateTerminatedDto) SetFinishedAtNil() {
-	o.FinishedAt.Set(nil)
-}
-
-// UnsetFinishedAt ensures that no value is present for FinishedAt, not even an explicit nil
-func (o *ContainerStateTerminatedDto) UnsetFinishedAt() {
-	o.FinishedAt.Unset()
+// SetFinishedAt sets field value
+func (o *ContainerStateTerminatedDto) SetFinishedAt(v int64) {
+	o.FinishedAt = v
 }
 
 // GetMessage returns the Message field value
@@ -219,46 +201,28 @@ func (o *ContainerStateTerminatedDto) SetSignal(v int32) {
 	o.Signal = v
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ContainerStateTerminatedDto) GetStartedAt() int32 {
-	if o == nil || IsNil(o.StartedAt.Get()) {
-		var ret int32
+// GetStartedAt returns the StartedAt field value
+func (o *ContainerStateTerminatedDto) GetStartedAt() int64 {
+	if o == nil {
+		var ret int64
 		return ret
 	}
-	return *o.StartedAt.Get()
+
+	return o.StartedAt
 }
 
-// GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
+// GetStartedAtOk returns a tuple with the StartedAt field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ContainerStateTerminatedDto) GetStartedAtOk() (*int32, bool) {
+func (o *ContainerStateTerminatedDto) GetStartedAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt.Get(), o.StartedAt.IsSet()
+	return &o.StartedAt, true
 }
 
-// HasStartedAt returns a boolean if a field has been set.
-func (o *ContainerStateTerminatedDto) HasStartedAt() bool {
-	if o != nil && o.StartedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetStartedAt gets a reference to the given NullableInt32 and assigns it to the StartedAt field.
-func (o *ContainerStateTerminatedDto) SetStartedAt(v int32) {
-	o.StartedAt.Set(&v)
-}
-// SetStartedAtNil sets the value for StartedAt to be an explicit nil
-func (o *ContainerStateTerminatedDto) SetStartedAtNil() {
-	o.StartedAt.Set(nil)
-}
-
-// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
-func (o *ContainerStateTerminatedDto) UnsetStartedAt() {
-	o.StartedAt.Unset()
+// SetStartedAt sets field value
+func (o *ContainerStateTerminatedDto) SetStartedAt(v int64) {
+	o.StartedAt = v
 }
 
 func (o ContainerStateTerminatedDto) MarshalJSON() ([]byte, error) {
@@ -273,15 +237,11 @@ func (o ContainerStateTerminatedDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["exit_code"] = o.ExitCode
 	toSerialize["exit_code_message"] = o.ExitCodeMessage
-	if o.FinishedAt.IsSet() {
-		toSerialize["finished_at"] = o.FinishedAt.Get()
-	}
+	toSerialize["finished_at"] = o.FinishedAt
 	toSerialize["message"] = o.Message
 	toSerialize["reason"] = o.Reason
 	toSerialize["signal"] = o.Signal
-	if o.StartedAt.IsSet() {
-		toSerialize["started_at"] = o.StartedAt.Get()
-	}
+	toSerialize["started_at"] = o.StartedAt
 	return toSerialize, nil
 }
 
@@ -292,9 +252,11 @@ func (o *ContainerStateTerminatedDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"exit_code",
 		"exit_code_message",
+		"finished_at",
 		"message",
 		"reason",
 		"signal",
+		"started_at",
 	}
 
 	allProperties := make(map[string]interface{})

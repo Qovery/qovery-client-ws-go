@@ -22,8 +22,7 @@ var _ MappedNullable = &ContainerStateDto{}
 
 // ContainerStateDto struct for ContainerStateDto
 type ContainerStateDto struct {
-	// Unix timestamp with millisecond precision
-	StartedAt NullableInt32 `json:"started_at,omitempty"`
+	StartedAt int64 `json:"started_at"`
 	State ServiceStateDto `json:"state"`
 	StateMessage NullableString `json:"state_message,omitempty"`
 	StateReason NullableString `json:"state_reason,omitempty"`
@@ -35,8 +34,9 @@ type _ContainerStateDto ContainerStateDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContainerStateDto(state ServiceStateDto) *ContainerStateDto {
+func NewContainerStateDto(startedAt int64, state ServiceStateDto) *ContainerStateDto {
 	this := ContainerStateDto{}
+	this.StartedAt = startedAt
 	this.State = state
 	return &this
 }
@@ -49,46 +49,28 @@ func NewContainerStateDtoWithDefaults() *ContainerStateDto {
 	return &this
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ContainerStateDto) GetStartedAt() int32 {
-	if o == nil || IsNil(o.StartedAt.Get()) {
-		var ret int32
+// GetStartedAt returns the StartedAt field value
+func (o *ContainerStateDto) GetStartedAt() int64 {
+	if o == nil {
+		var ret int64
 		return ret
 	}
-	return *o.StartedAt.Get()
+
+	return o.StartedAt
 }
 
-// GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
+// GetStartedAtOk returns a tuple with the StartedAt field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ContainerStateDto) GetStartedAtOk() (*int32, bool) {
+func (o *ContainerStateDto) GetStartedAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt.Get(), o.StartedAt.IsSet()
+	return &o.StartedAt, true
 }
 
-// HasStartedAt returns a boolean if a field has been set.
-func (o *ContainerStateDto) HasStartedAt() bool {
-	if o != nil && o.StartedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetStartedAt gets a reference to the given NullableInt32 and assigns it to the StartedAt field.
-func (o *ContainerStateDto) SetStartedAt(v int32) {
-	o.StartedAt.Set(&v)
-}
-// SetStartedAtNil sets the value for StartedAt to be an explicit nil
-func (o *ContainerStateDto) SetStartedAtNil() {
-	o.StartedAt.Set(nil)
-}
-
-// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
-func (o *ContainerStateDto) UnsetStartedAt() {
-	o.StartedAt.Unset()
+// SetStartedAt sets field value
+func (o *ContainerStateDto) SetStartedAt(v int64) {
+	o.StartedAt = v
 }
 
 // GetState returns the State field value
@@ -209,9 +191,7 @@ func (o ContainerStateDto) MarshalJSON() ([]byte, error) {
 
 func (o ContainerStateDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.StartedAt.IsSet() {
-		toSerialize["started_at"] = o.StartedAt.Get()
-	}
+	toSerialize["started_at"] = o.StartedAt
 	toSerialize["state"] = o.State
 	if o.StateMessage.IsSet() {
 		toSerialize["state_message"] = o.StateMessage.Get()
@@ -227,6 +207,7 @@ func (o *ContainerStateDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"started_at",
 		"state",
 	}
 

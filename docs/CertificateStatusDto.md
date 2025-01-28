@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DnsNames** | **[]string** |  | 
 **FailedIssuanceAttemptCount** | **int64** |  | 
-**LastFailureIssuanceTime** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
-**NotAfter** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
-**NotBefore** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
-**RenewalTime** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
+**LastFailureIssuanceTime** | **int64** |  | 
+**NotAfter** | **int64** |  | 
+**NotBefore** | **int64** |  | 
+**RenewalTime** | **int64** |  | 
 **State** | [**ServiceStateDto**](ServiceStateDto.md) |  | 
 **StateMessage** | Pointer to **NullableString** |  | [optional] 
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCertificateStatusDto
 
-`func NewCertificateStatusDto(dnsNames []string, failedIssuanceAttemptCount int64, state ServiceStateDto, ) *CertificateStatusDto`
+`func NewCertificateStatusDto(dnsNames []string, failedIssuanceAttemptCount int64, lastFailureIssuanceTime int64, notAfter int64, notBefore int64, renewalTime int64, state ServiceStateDto, ) *CertificateStatusDto`
 
 NewCertificateStatusDto instantiates a new CertificateStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -74,144 +74,84 @@ SetFailedIssuanceAttemptCount sets FailedIssuanceAttemptCount field to given val
 
 ### GetLastFailureIssuanceTime
 
-`func (o *CertificateStatusDto) GetLastFailureIssuanceTime() int32`
+`func (o *CertificateStatusDto) GetLastFailureIssuanceTime() int64`
 
 GetLastFailureIssuanceTime returns the LastFailureIssuanceTime field if non-nil, zero value otherwise.
 
 ### GetLastFailureIssuanceTimeOk
 
-`func (o *CertificateStatusDto) GetLastFailureIssuanceTimeOk() (*int32, bool)`
+`func (o *CertificateStatusDto) GetLastFailureIssuanceTimeOk() (*int64, bool)`
 
 GetLastFailureIssuanceTimeOk returns a tuple with the LastFailureIssuanceTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastFailureIssuanceTime
 
-`func (o *CertificateStatusDto) SetLastFailureIssuanceTime(v int32)`
+`func (o *CertificateStatusDto) SetLastFailureIssuanceTime(v int64)`
 
 SetLastFailureIssuanceTime sets LastFailureIssuanceTime field to given value.
 
-### HasLastFailureIssuanceTime
 
-`func (o *CertificateStatusDto) HasLastFailureIssuanceTime() bool`
-
-HasLastFailureIssuanceTime returns a boolean if a field has been set.
-
-### SetLastFailureIssuanceTimeNil
-
-`func (o *CertificateStatusDto) SetLastFailureIssuanceTimeNil(b bool)`
-
- SetLastFailureIssuanceTimeNil sets the value for LastFailureIssuanceTime to be an explicit nil
-
-### UnsetLastFailureIssuanceTime
-`func (o *CertificateStatusDto) UnsetLastFailureIssuanceTime()`
-
-UnsetLastFailureIssuanceTime ensures that no value is present for LastFailureIssuanceTime, not even an explicit nil
 ### GetNotAfter
 
-`func (o *CertificateStatusDto) GetNotAfter() int32`
+`func (o *CertificateStatusDto) GetNotAfter() int64`
 
 GetNotAfter returns the NotAfter field if non-nil, zero value otherwise.
 
 ### GetNotAfterOk
 
-`func (o *CertificateStatusDto) GetNotAfterOk() (*int32, bool)`
+`func (o *CertificateStatusDto) GetNotAfterOk() (*int64, bool)`
 
 GetNotAfterOk returns a tuple with the NotAfter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotAfter
 
-`func (o *CertificateStatusDto) SetNotAfter(v int32)`
+`func (o *CertificateStatusDto) SetNotAfter(v int64)`
 
 SetNotAfter sets NotAfter field to given value.
 
-### HasNotAfter
 
-`func (o *CertificateStatusDto) HasNotAfter() bool`
-
-HasNotAfter returns a boolean if a field has been set.
-
-### SetNotAfterNil
-
-`func (o *CertificateStatusDto) SetNotAfterNil(b bool)`
-
- SetNotAfterNil sets the value for NotAfter to be an explicit nil
-
-### UnsetNotAfter
-`func (o *CertificateStatusDto) UnsetNotAfter()`
-
-UnsetNotAfter ensures that no value is present for NotAfter, not even an explicit nil
 ### GetNotBefore
 
-`func (o *CertificateStatusDto) GetNotBefore() int32`
+`func (o *CertificateStatusDto) GetNotBefore() int64`
 
 GetNotBefore returns the NotBefore field if non-nil, zero value otherwise.
 
 ### GetNotBeforeOk
 
-`func (o *CertificateStatusDto) GetNotBeforeOk() (*int32, bool)`
+`func (o *CertificateStatusDto) GetNotBeforeOk() (*int64, bool)`
 
 GetNotBeforeOk returns a tuple with the NotBefore field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotBefore
 
-`func (o *CertificateStatusDto) SetNotBefore(v int32)`
+`func (o *CertificateStatusDto) SetNotBefore(v int64)`
 
 SetNotBefore sets NotBefore field to given value.
 
-### HasNotBefore
 
-`func (o *CertificateStatusDto) HasNotBefore() bool`
-
-HasNotBefore returns a boolean if a field has been set.
-
-### SetNotBeforeNil
-
-`func (o *CertificateStatusDto) SetNotBeforeNil(b bool)`
-
- SetNotBeforeNil sets the value for NotBefore to be an explicit nil
-
-### UnsetNotBefore
-`func (o *CertificateStatusDto) UnsetNotBefore()`
-
-UnsetNotBefore ensures that no value is present for NotBefore, not even an explicit nil
 ### GetRenewalTime
 
-`func (o *CertificateStatusDto) GetRenewalTime() int32`
+`func (o *CertificateStatusDto) GetRenewalTime() int64`
 
 GetRenewalTime returns the RenewalTime field if non-nil, zero value otherwise.
 
 ### GetRenewalTimeOk
 
-`func (o *CertificateStatusDto) GetRenewalTimeOk() (*int32, bool)`
+`func (o *CertificateStatusDto) GetRenewalTimeOk() (*int64, bool)`
 
 GetRenewalTimeOk returns a tuple with the RenewalTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRenewalTime
 
-`func (o *CertificateStatusDto) SetRenewalTime(v int32)`
+`func (o *CertificateStatusDto) SetRenewalTime(v int64)`
 
 SetRenewalTime sets RenewalTime field to given value.
 
-### HasRenewalTime
 
-`func (o *CertificateStatusDto) HasRenewalTime() bool`
-
-HasRenewalTime returns a boolean if a field has been set.
-
-### SetRenewalTimeNil
-
-`func (o *CertificateStatusDto) SetRenewalTimeNil(b bool)`
-
- SetRenewalTimeNil sets the value for RenewalTime to be an explicit nil
-
-### UnsetRenewalTime
-`func (o *CertificateStatusDto) UnsetRenewalTime()`
-
-UnsetRenewalTime ensures that no value is present for RenewalTime, not even an explicit nil
 ### GetState
 
 `func (o *CertificateStatusDto) GetState() ServiceStateDto`

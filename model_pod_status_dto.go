@@ -26,8 +26,7 @@ type PodStatusDto struct {
 	Name string `json:"name"`
 	RestartCount int32 `json:"restart_count"`
 	ServiceVersion string `json:"service_version"`
-	// Unix timestamp with millisecond precision
-	StartedAt NullableInt32 `json:"started_at,omitempty"`
+	StartedAt int64 `json:"started_at"`
 	State ServiceStateDto `json:"state"`
 	StateMessage string `json:"state_message"`
 	StateReason string `json:"state_reason"`
@@ -39,12 +38,13 @@ type _PodStatusDto PodStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPodStatusDto(containers []ContainerStatusDto, name string, restartCount int32, serviceVersion string, state ServiceStateDto, stateMessage string, stateReason string) *PodStatusDto {
+func NewPodStatusDto(containers []ContainerStatusDto, name string, restartCount int32, serviceVersion string, startedAt int64, state ServiceStateDto, stateMessage string, stateReason string) *PodStatusDto {
 	this := PodStatusDto{}
 	this.Containers = containers
 	this.Name = name
 	this.RestartCount = restartCount
 	this.ServiceVersion = serviceVersion
+	this.StartedAt = startedAt
 	this.State = state
 	this.StateMessage = stateMessage
 	this.StateReason = stateReason
@@ -155,46 +155,28 @@ func (o *PodStatusDto) SetServiceVersion(v string) {
 	o.ServiceVersion = v
 }
 
-// GetStartedAt returns the StartedAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PodStatusDto) GetStartedAt() int32 {
-	if o == nil || IsNil(o.StartedAt.Get()) {
-		var ret int32
+// GetStartedAt returns the StartedAt field value
+func (o *PodStatusDto) GetStartedAt() int64 {
+	if o == nil {
+		var ret int64
 		return ret
 	}
-	return *o.StartedAt.Get()
+
+	return o.StartedAt
 }
 
-// GetStartedAtOk returns a tuple with the StartedAt field value if set, nil otherwise
+// GetStartedAtOk returns a tuple with the StartedAt field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PodStatusDto) GetStartedAtOk() (*int32, bool) {
+func (o *PodStatusDto) GetStartedAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.StartedAt.Get(), o.StartedAt.IsSet()
+	return &o.StartedAt, true
 }
 
-// HasStartedAt returns a boolean if a field has been set.
-func (o *PodStatusDto) HasStartedAt() bool {
-	if o != nil && o.StartedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetStartedAt gets a reference to the given NullableInt32 and assigns it to the StartedAt field.
-func (o *PodStatusDto) SetStartedAt(v int32) {
-	o.StartedAt.Set(&v)
-}
-// SetStartedAtNil sets the value for StartedAt to be an explicit nil
-func (o *PodStatusDto) SetStartedAtNil() {
-	o.StartedAt.Set(nil)
-}
-
-// UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
-func (o *PodStatusDto) UnsetStartedAt() {
-	o.StartedAt.Unset()
+// SetStartedAt sets field value
+func (o *PodStatusDto) SetStartedAt(v int64) {
+	o.StartedAt = v
 }
 
 // GetState returns the State field value
@@ -283,9 +265,7 @@ func (o PodStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["restart_count"] = o.RestartCount
 	toSerialize["service_version"] = o.ServiceVersion
-	if o.StartedAt.IsSet() {
-		toSerialize["started_at"] = o.StartedAt.Get()
-	}
+	toSerialize["started_at"] = o.StartedAt
 	toSerialize["state"] = o.State
 	toSerialize["state_message"] = o.StateMessage
 	toSerialize["state_reason"] = o.StateReason
@@ -301,6 +281,7 @@ func (o *PodStatusDto) UnmarshalJSON(data []byte) (err error) {
 		"name",
 		"restart_count",
 		"service_version",
+		"started_at",
 		"state",
 		"state_message",
 		"state_reason",

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StartedAt** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
+**StartedAt** | **int64** |  | 
 **State** | [**ServiceStateDto**](ServiceStateDto.md) |  | 
 **StateMessage** | Pointer to **NullableString** |  | [optional] 
 **StateReason** | Pointer to **NullableString** |  | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewContainerStateDto
 
-`func NewContainerStateDto(state ServiceStateDto, ) *ContainerStateDto`
+`func NewContainerStateDto(startedAt int64, state ServiceStateDto, ) *ContainerStateDto`
 
 NewContainerStateDto instantiates a new ContainerStateDto object
 This constructor will assign default values to properties that have it defined,
@@ -30,39 +30,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStartedAt
 
-`func (o *ContainerStateDto) GetStartedAt() int32`
+`func (o *ContainerStateDto) GetStartedAt() int64`
 
 GetStartedAt returns the StartedAt field if non-nil, zero value otherwise.
 
 ### GetStartedAtOk
 
-`func (o *ContainerStateDto) GetStartedAtOk() (*int32, bool)`
+`func (o *ContainerStateDto) GetStartedAtOk() (*int64, bool)`
 
 GetStartedAtOk returns a tuple with the StartedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStartedAt
 
-`func (o *ContainerStateDto) SetStartedAt(v int32)`
+`func (o *ContainerStateDto) SetStartedAt(v int64)`
 
 SetStartedAt sets StartedAt field to given value.
 
-### HasStartedAt
 
-`func (o *ContainerStateDto) HasStartedAt() bool`
-
-HasStartedAt returns a boolean if a field has been set.
-
-### SetStartedAtNil
-
-`func (o *ContainerStateDto) SetStartedAtNil(b bool)`
-
- SetStartedAtNil sets the value for StartedAt to be an explicit nil
-
-### UnsetStartedAt
-`func (o *ContainerStateDto) UnsetStartedAt()`
-
-UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetState
 
 `func (o *ContainerStateDto) GetState() ServiceStateDto`

@@ -137,11 +137,11 @@ func (o *ClusterComputedStatusDto) GetNodeWarnings() map[string][]QoveryNodeFail
 
 // GetNodeWarningsOk returns a tuple with the NodeWarnings field value
 // and a boolean to check if the value has been set.
-func (o *ClusterComputedStatusDto) GetNodeWarningsOk() (*map[string][]QoveryNodeFailure, bool) {
+func (o *ClusterComputedStatusDto) GetNodeWarningsOk() (map[string][]QoveryNodeFailure, bool) {
 	if o == nil {
-		return nil, false
+		return map[string][]QoveryNodeFailure{}, false
 	}
-	return &o.NodeWarnings, true
+	return o.NodeWarnings, true
 }
 
 // SetNodeWarnings sets field value

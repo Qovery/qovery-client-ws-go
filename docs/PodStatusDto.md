@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **RestartCount** | **int32** |  | 
 **ServiceVersion** | **string** |  | 
-**StartedAt** | Pointer to **NullableInt32** | Unix timestamp with millisecond precision | [optional] 
+**StartedAt** | **int64** |  | 
 **State** | [**ServiceStateDto**](ServiceStateDto.md) |  | 
 **StateMessage** | **string** |  | 
 **StateReason** | **string** |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewPodStatusDto
 
-`func NewPodStatusDto(containers []ContainerStatusDto, name string, restartCount int32, serviceVersion string, state ServiceStateDto, stateMessage string, stateReason string, ) *PodStatusDto`
+`func NewPodStatusDto(containers []ContainerStatusDto, name string, restartCount int32, serviceVersion string, startedAt int64, state ServiceStateDto, stateMessage string, stateReason string, ) *PodStatusDto`
 
 NewPodStatusDto instantiates a new PodStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -114,39 +114,24 @@ SetServiceVersion sets ServiceVersion field to given value.
 
 ### GetStartedAt
 
-`func (o *PodStatusDto) GetStartedAt() int32`
+`func (o *PodStatusDto) GetStartedAt() int64`
 
 GetStartedAt returns the StartedAt field if non-nil, zero value otherwise.
 
 ### GetStartedAtOk
 
-`func (o *PodStatusDto) GetStartedAtOk() (*int32, bool)`
+`func (o *PodStatusDto) GetStartedAtOk() (*int64, bool)`
 
 GetStartedAtOk returns a tuple with the StartedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStartedAt
 
-`func (o *PodStatusDto) SetStartedAt(v int32)`
+`func (o *PodStatusDto) SetStartedAt(v int64)`
 
 SetStartedAt sets StartedAt field to given value.
 
-### HasStartedAt
 
-`func (o *PodStatusDto) HasStartedAt() bool`
-
-HasStartedAt returns a boolean if a field has been set.
-
-### SetStartedAtNil
-
-`func (o *PodStatusDto) SetStartedAtNil(b bool)`
-
- SetStartedAtNil sets the value for StartedAt to be an explicit nil
-
-### UnsetStartedAt
-`func (o *PodStatusDto) UnsetStartedAt()`
-
-UnsetStartedAt ensures that no value is present for StartedAt, not even an explicit nil
 ### GetState
 
 `func (o *PodStatusDto) GetState() ServiceStateDto`
