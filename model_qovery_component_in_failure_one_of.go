@@ -22,13 +22,7 @@ var _ MappedNullable = &QoveryComponentInFailureOneOf{}
 
 // QoveryComponentInFailureOneOf struct for QoveryComponentInFailureOneOf
 type QoveryComponentInFailureOneOf struct {
-	ComponentName string `json:"component_name"`
-	ContainerName string `json:"container_name"`
-	Level QoveryComponentContainerStatusLevel `json:"level"`
-	Message NullableString `json:"message,omitempty"`
-	PodName string `json:"pod_name"`
-	Reason NullableString `json:"reason,omitempty"`
-	Type string `json:"type"`
+	POD_IN_ERROR QoveryComponentInFailureOneOfPODINERROR `json:"POD_IN_ERROR"`
 }
 
 type _QoveryComponentInFailureOneOf QoveryComponentInFailureOneOf
@@ -37,13 +31,9 @@ type _QoveryComponentInFailureOneOf QoveryComponentInFailureOneOf
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewQoveryComponentInFailureOneOf(componentName string, containerName string, level QoveryComponentContainerStatusLevel, podName string, type_ string) *QoveryComponentInFailureOneOf {
+func NewQoveryComponentInFailureOneOf(pODINERROR QoveryComponentInFailureOneOfPODINERROR) *QoveryComponentInFailureOneOf {
 	this := QoveryComponentInFailureOneOf{}
-	this.ComponentName = componentName
-	this.ContainerName = containerName
-	this.Level = level
-	this.PodName = podName
-	this.Type = type_
+	this.POD_IN_ERROR = pODINERROR
 	return &this
 }
 
@@ -55,208 +45,28 @@ func NewQoveryComponentInFailureOneOfWithDefaults() *QoveryComponentInFailureOne
 	return &this
 }
 
-// GetComponentName returns the ComponentName field value
-func (o *QoveryComponentInFailureOneOf) GetComponentName() string {
+// GetPOD_IN_ERROR returns the POD_IN_ERROR field value
+func (o *QoveryComponentInFailureOneOf) GetPOD_IN_ERROR() QoveryComponentInFailureOneOfPODINERROR {
 	if o == nil {
-		var ret string
+		var ret QoveryComponentInFailureOneOfPODINERROR
 		return ret
 	}
 
-	return o.ComponentName
+	return o.POD_IN_ERROR
 }
 
-// GetComponentNameOk returns a tuple with the ComponentName field value
+// GetPOD_IN_ERROROk returns a tuple with the POD_IN_ERROR field value
 // and a boolean to check if the value has been set.
-func (o *QoveryComponentInFailureOneOf) GetComponentNameOk() (*string, bool) {
+func (o *QoveryComponentInFailureOneOf) GetPOD_IN_ERROROk() (*QoveryComponentInFailureOneOfPODINERROR, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ComponentName, true
+	return &o.POD_IN_ERROR, true
 }
 
-// SetComponentName sets field value
-func (o *QoveryComponentInFailureOneOf) SetComponentName(v string) {
-	o.ComponentName = v
-}
-
-// GetContainerName returns the ContainerName field value
-func (o *QoveryComponentInFailureOneOf) GetContainerName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ContainerName
-}
-
-// GetContainerNameOk returns a tuple with the ContainerName field value
-// and a boolean to check if the value has been set.
-func (o *QoveryComponentInFailureOneOf) GetContainerNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ContainerName, true
-}
-
-// SetContainerName sets field value
-func (o *QoveryComponentInFailureOneOf) SetContainerName(v string) {
-	o.ContainerName = v
-}
-
-// GetLevel returns the Level field value
-func (o *QoveryComponentInFailureOneOf) GetLevel() QoveryComponentContainerStatusLevel {
-	if o == nil {
-		var ret QoveryComponentContainerStatusLevel
-		return ret
-	}
-
-	return o.Level
-}
-
-// GetLevelOk returns a tuple with the Level field value
-// and a boolean to check if the value has been set.
-func (o *QoveryComponentInFailureOneOf) GetLevelOk() (*QoveryComponentContainerStatusLevel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Level, true
-}
-
-// SetLevel sets field value
-func (o *QoveryComponentInFailureOneOf) SetLevel(v QoveryComponentContainerStatusLevel) {
-	o.Level = v
-}
-
-// GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *QoveryComponentInFailureOneOf) GetMessage() string {
-	if o == nil || IsNil(o.Message.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Message.Get()
-}
-
-// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *QoveryComponentInFailureOneOf) GetMessageOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Message.Get(), o.Message.IsSet()
-}
-
-// HasMessage returns a boolean if a field has been set.
-func (o *QoveryComponentInFailureOneOf) HasMessage() bool {
-	if o != nil && o.Message.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMessage gets a reference to the given NullableString and assigns it to the Message field.
-func (o *QoveryComponentInFailureOneOf) SetMessage(v string) {
-	o.Message.Set(&v)
-}
-// SetMessageNil sets the value for Message to be an explicit nil
-func (o *QoveryComponentInFailureOneOf) SetMessageNil() {
-	o.Message.Set(nil)
-}
-
-// UnsetMessage ensures that no value is present for Message, not even an explicit nil
-func (o *QoveryComponentInFailureOneOf) UnsetMessage() {
-	o.Message.Unset()
-}
-
-// GetPodName returns the PodName field value
-func (o *QoveryComponentInFailureOneOf) GetPodName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.PodName
-}
-
-// GetPodNameOk returns a tuple with the PodName field value
-// and a boolean to check if the value has been set.
-func (o *QoveryComponentInFailureOneOf) GetPodNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PodName, true
-}
-
-// SetPodName sets field value
-func (o *QoveryComponentInFailureOneOf) SetPodName(v string) {
-	o.PodName = v
-}
-
-// GetReason returns the Reason field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *QoveryComponentInFailureOneOf) GetReason() string {
-	if o == nil || IsNil(o.Reason.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Reason.Get()
-}
-
-// GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *QoveryComponentInFailureOneOf) GetReasonOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Reason.Get(), o.Reason.IsSet()
-}
-
-// HasReason returns a boolean if a field has been set.
-func (o *QoveryComponentInFailureOneOf) HasReason() bool {
-	if o != nil && o.Reason.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetReason gets a reference to the given NullableString and assigns it to the Reason field.
-func (o *QoveryComponentInFailureOneOf) SetReason(v string) {
-	o.Reason.Set(&v)
-}
-// SetReasonNil sets the value for Reason to be an explicit nil
-func (o *QoveryComponentInFailureOneOf) SetReasonNil() {
-	o.Reason.Set(nil)
-}
-
-// UnsetReason ensures that no value is present for Reason, not even an explicit nil
-func (o *QoveryComponentInFailureOneOf) UnsetReason() {
-	o.Reason.Unset()
-}
-
-// GetType returns the Type field value
-func (o *QoveryComponentInFailureOneOf) GetType() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value
-// and a boolean to check if the value has been set.
-func (o *QoveryComponentInFailureOneOf) GetTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Type, true
-}
-
-// SetType sets field value
-func (o *QoveryComponentInFailureOneOf) SetType(v string) {
-	o.Type = v
+// SetPOD_IN_ERROR sets field value
+func (o *QoveryComponentInFailureOneOf) SetPOD_IN_ERROR(v QoveryComponentInFailureOneOfPODINERROR) {
+	o.POD_IN_ERROR = v
 }
 
 func (o QoveryComponentInFailureOneOf) MarshalJSON() ([]byte, error) {
@@ -269,17 +79,7 @@ func (o QoveryComponentInFailureOneOf) MarshalJSON() ([]byte, error) {
 
 func (o QoveryComponentInFailureOneOf) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["component_name"] = o.ComponentName
-	toSerialize["container_name"] = o.ContainerName
-	toSerialize["level"] = o.Level
-	if o.Message.IsSet() {
-		toSerialize["message"] = o.Message.Get()
-	}
-	toSerialize["pod_name"] = o.PodName
-	if o.Reason.IsSet() {
-		toSerialize["reason"] = o.Reason.Get()
-	}
-	toSerialize["type"] = o.Type
+	toSerialize["POD_IN_ERROR"] = o.POD_IN_ERROR
 	return toSerialize, nil
 }
 
@@ -288,11 +88,7 @@ func (o *QoveryComponentInFailureOneOf) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"component_name",
-		"container_name",
-		"level",
-		"pod_name",
-		"type",
+		"POD_IN_ERROR",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -22,8 +22,7 @@ var _ MappedNullable = &QoveryClusterKubeVersionStatusOneOf{}
 
 // QoveryClusterKubeVersionStatusOneOf struct for QoveryClusterKubeVersionStatusOneOf
 type QoveryClusterKubeVersionStatusOneOf struct {
-	KubeVersion string `json:"kube_version"`
-	Type string `json:"type"`
+	Ok QoveryClusterKubeVersionStatusOneOfOk `json:"Ok"`
 }
 
 type _QoveryClusterKubeVersionStatusOneOf QoveryClusterKubeVersionStatusOneOf
@@ -32,10 +31,9 @@ type _QoveryClusterKubeVersionStatusOneOf QoveryClusterKubeVersionStatusOneOf
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewQoveryClusterKubeVersionStatusOneOf(kubeVersion string, type_ string) *QoveryClusterKubeVersionStatusOneOf {
+func NewQoveryClusterKubeVersionStatusOneOf(ok QoveryClusterKubeVersionStatusOneOfOk) *QoveryClusterKubeVersionStatusOneOf {
 	this := QoveryClusterKubeVersionStatusOneOf{}
-	this.KubeVersion = kubeVersion
-	this.Type = type_
+	this.Ok = ok
 	return &this
 }
 
@@ -47,52 +45,28 @@ func NewQoveryClusterKubeVersionStatusOneOfWithDefaults() *QoveryClusterKubeVers
 	return &this
 }
 
-// GetKubeVersion returns the KubeVersion field value
-func (o *QoveryClusterKubeVersionStatusOneOf) GetKubeVersion() string {
+// GetOk returns the Ok field value
+func (o *QoveryClusterKubeVersionStatusOneOf) GetOk() QoveryClusterKubeVersionStatusOneOfOk {
 	if o == nil {
-		var ret string
+		var ret QoveryClusterKubeVersionStatusOneOfOk
 		return ret
 	}
 
-	return o.KubeVersion
+	return o.Ok
 }
 
-// GetKubeVersionOk returns a tuple with the KubeVersion field value
+// GetOkOk returns a tuple with the Ok field value
 // and a boolean to check if the value has been set.
-func (o *QoveryClusterKubeVersionStatusOneOf) GetKubeVersionOk() (*string, bool) {
+func (o *QoveryClusterKubeVersionStatusOneOf) GetOkOk() (*QoveryClusterKubeVersionStatusOneOfOk, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.KubeVersion, true
+	return &o.Ok, true
 }
 
-// SetKubeVersion sets field value
-func (o *QoveryClusterKubeVersionStatusOneOf) SetKubeVersion(v string) {
-	o.KubeVersion = v
-}
-
-// GetType returns the Type field value
-func (o *QoveryClusterKubeVersionStatusOneOf) GetType() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value
-// and a boolean to check if the value has been set.
-func (o *QoveryClusterKubeVersionStatusOneOf) GetTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Type, true
-}
-
-// SetType sets field value
-func (o *QoveryClusterKubeVersionStatusOneOf) SetType(v string) {
-	o.Type = v
+// SetOk sets field value
+func (o *QoveryClusterKubeVersionStatusOneOf) SetOk(v QoveryClusterKubeVersionStatusOneOfOk) {
+	o.Ok = v
 }
 
 func (o QoveryClusterKubeVersionStatusOneOf) MarshalJSON() ([]byte, error) {
@@ -105,8 +79,7 @@ func (o QoveryClusterKubeVersionStatusOneOf) MarshalJSON() ([]byte, error) {
 
 func (o QoveryClusterKubeVersionStatusOneOf) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["kube_version"] = o.KubeVersion
-	toSerialize["type"] = o.Type
+	toSerialize["Ok"] = o.Ok
 	return toSerialize, nil
 }
 
@@ -115,8 +88,7 @@ func (o *QoveryClusterKubeVersionStatusOneOf) UnmarshalJSON(data []byte) (err er
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"kube_version",
-		"type",
+		"Ok",
 	}
 
 	allProperties := make(map[string]interface{})

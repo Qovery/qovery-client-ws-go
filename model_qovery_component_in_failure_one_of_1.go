@@ -22,8 +22,7 @@ var _ MappedNullable = &QoveryComponentInFailureOneOf1{}
 
 // QoveryComponentInFailureOneOf1 struct for QoveryComponentInFailureOneOf1
 type QoveryComponentInFailureOneOf1 struct {
-	ComponentName string `json:"component_name"`
-	Type string `json:"type"`
+	MISSING_COMPONENT QoveryComponentInFailureOneOf1MISSINGCOMPONENT `json:"MISSING_COMPONENT"`
 }
 
 type _QoveryComponentInFailureOneOf1 QoveryComponentInFailureOneOf1
@@ -32,10 +31,9 @@ type _QoveryComponentInFailureOneOf1 QoveryComponentInFailureOneOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewQoveryComponentInFailureOneOf1(componentName string, type_ string) *QoveryComponentInFailureOneOf1 {
+func NewQoveryComponentInFailureOneOf1(mISSINGCOMPONENT QoveryComponentInFailureOneOf1MISSINGCOMPONENT) *QoveryComponentInFailureOneOf1 {
 	this := QoveryComponentInFailureOneOf1{}
-	this.ComponentName = componentName
-	this.Type = type_
+	this.MISSING_COMPONENT = mISSINGCOMPONENT
 	return &this
 }
 
@@ -47,52 +45,28 @@ func NewQoveryComponentInFailureOneOf1WithDefaults() *QoveryComponentInFailureOn
 	return &this
 }
 
-// GetComponentName returns the ComponentName field value
-func (o *QoveryComponentInFailureOneOf1) GetComponentName() string {
+// GetMISSING_COMPONENT returns the MISSING_COMPONENT field value
+func (o *QoveryComponentInFailureOneOf1) GetMISSING_COMPONENT() QoveryComponentInFailureOneOf1MISSINGCOMPONENT {
 	if o == nil {
-		var ret string
+		var ret QoveryComponentInFailureOneOf1MISSINGCOMPONENT
 		return ret
 	}
 
-	return o.ComponentName
+	return o.MISSING_COMPONENT
 }
 
-// GetComponentNameOk returns a tuple with the ComponentName field value
+// GetMISSING_COMPONENTOk returns a tuple with the MISSING_COMPONENT field value
 // and a boolean to check if the value has been set.
-func (o *QoveryComponentInFailureOneOf1) GetComponentNameOk() (*string, bool) {
+func (o *QoveryComponentInFailureOneOf1) GetMISSING_COMPONENTOk() (*QoveryComponentInFailureOneOf1MISSINGCOMPONENT, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ComponentName, true
+	return &o.MISSING_COMPONENT, true
 }
 
-// SetComponentName sets field value
-func (o *QoveryComponentInFailureOneOf1) SetComponentName(v string) {
-	o.ComponentName = v
-}
-
-// GetType returns the Type field value
-func (o *QoveryComponentInFailureOneOf1) GetType() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value
-// and a boolean to check if the value has been set.
-func (o *QoveryComponentInFailureOneOf1) GetTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Type, true
-}
-
-// SetType sets field value
-func (o *QoveryComponentInFailureOneOf1) SetType(v string) {
-	o.Type = v
+// SetMISSING_COMPONENT sets field value
+func (o *QoveryComponentInFailureOneOf1) SetMISSING_COMPONENT(v QoveryComponentInFailureOneOf1MISSINGCOMPONENT) {
+	o.MISSING_COMPONENT = v
 }
 
 func (o QoveryComponentInFailureOneOf1) MarshalJSON() ([]byte, error) {
@@ -105,8 +79,7 @@ func (o QoveryComponentInFailureOneOf1) MarshalJSON() ([]byte, error) {
 
 func (o QoveryComponentInFailureOneOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["component_name"] = o.ComponentName
-	toSerialize["type"] = o.Type
+	toSerialize["MISSING_COMPONENT"] = o.MISSING_COMPONENT
 	return toSerialize, nil
 }
 
@@ -115,8 +88,7 @@ func (o *QoveryComponentInFailureOneOf1) UnmarshalJSON(data []byte) (err error) 
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"component_name",
-		"type",
+		"MISSING_COMPONENT",
 	}
 
 	allProperties := make(map[string]interface{})

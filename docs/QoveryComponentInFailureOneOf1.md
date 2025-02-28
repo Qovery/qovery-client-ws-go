@@ -4,14 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ComponentName** | **string** |  | 
-**Type** | **string** |  | 
+**MISSING_COMPONENT** | [**QoveryComponentInFailureOneOf1MISSINGCOMPONENT**](QoveryComponentInFailureOneOf1MISSINGCOMPONENT.md) |  | 
 
 ## Methods
 
 ### NewQoveryComponentInFailureOneOf1
 
-`func NewQoveryComponentInFailureOneOf1(componentName string, type_ string, ) *QoveryComponentInFailureOneOf1`
+`func NewQoveryComponentInFailureOneOf1(mISSINGCOMPONENT QoveryComponentInFailureOneOf1MISSINGCOMPONENT, ) *QoveryComponentInFailureOneOf1`
 
 NewQoveryComponentInFailureOneOf1 instantiates a new QoveryComponentInFailureOneOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -26,44 +25,24 @@ NewQoveryComponentInFailureOneOf1WithDefaults instantiates a new QoveryComponent
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetComponentName
+### GetMISSING_COMPONENT
 
-`func (o *QoveryComponentInFailureOneOf1) GetComponentName() string`
+`func (o *QoveryComponentInFailureOneOf1) GetMISSING_COMPONENT() QoveryComponentInFailureOneOf1MISSINGCOMPONENT`
 
-GetComponentName returns the ComponentName field if non-nil, zero value otherwise.
+GetMISSING_COMPONENT returns the MISSING_COMPONENT field if non-nil, zero value otherwise.
 
-### GetComponentNameOk
+### GetMISSING_COMPONENTOk
 
-`func (o *QoveryComponentInFailureOneOf1) GetComponentNameOk() (*string, bool)`
+`func (o *QoveryComponentInFailureOneOf1) GetMISSING_COMPONENTOk() (*QoveryComponentInFailureOneOf1MISSINGCOMPONENT, bool)`
 
-GetComponentNameOk returns a tuple with the ComponentName field if it's non-nil, zero value otherwise
+GetMISSING_COMPONENTOk returns a tuple with the MISSING_COMPONENT field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetComponentName
+### SetMISSING_COMPONENT
 
-`func (o *QoveryComponentInFailureOneOf1) SetComponentName(v string)`
+`func (o *QoveryComponentInFailureOneOf1) SetMISSING_COMPONENT(v QoveryComponentInFailureOneOf1MISSINGCOMPONENT)`
 
-SetComponentName sets ComponentName field to given value.
-
-
-### GetType
-
-`func (o *QoveryComponentInFailureOneOf1) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *QoveryComponentInFailureOneOf1) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *QoveryComponentInFailureOneOf1) SetType(v string)`
-
-SetType sets Type field to given value.
+SetMISSING_COMPONENT sets MISSING_COMPONENT field to given value.
 
 
 
