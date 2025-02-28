@@ -867,12 +867,13 @@ components:
           type: type
         os_image: os_image
         resources_allocatable:
-          ephemeral_storage_gib: 0
           cpu_milli: 0
           pods: 0
+          ephemeral_storage_mib: 0
           memory_mib: 0
         annotations:
           key: annotations
+        created_at: 0
         kubelet_version: kubelet_version
         taints:
         - effect: effect
@@ -883,32 +884,88 @@ components:
           key: key
         labels:
           key: labels
+        metrics_usage:
+          memory_percent_working_set_usage: 0
+          cpu_percent_usage: 0
+          disk_percent_usage: 0
+          cpu_milli_usage: 0
+          memory_percent_rss_usage: 0
+          memory_mib_working_set_usage: 0
+          memory_mib_rss_usage: 0
+          disk_mib_usage: 0
+        resources_allocated:
+          cpu_milli: 0
+          memory_mib: 0
         kernel_version: kernel_version
         name: name
         operating_system: operating_system
         pods:
         - images_version:
             key: images_version
+          restart_count: 0
           cpu_milli_request: 0
-          environment_id: environment_id
           memory_mib_limit: 0
-          project_id: project_id
+          error_container_statuses:
+          - reason: reason
+            container_name: container_name
+            message: message
+          - reason: reason
+            container_name: container_name
+            message: message
           memory_mib_request: 0
-          service_id: service_id
           name: name
           namespace: namespace
           cpu_milli_limit: 0
+          created_at: 0
+          qovery_service_info:
+            environment_id: environment_id
+            project_id: project_id
+            service_name: service_name
+            service_id: service_id
+            project_name: project_name
+            environment_name: environment_name
+          metrics_usage:
+            memory_percent_working_set_usage: 0
+            cpu_percent_usage: 0
+            disk_percent_usage: 0
+            cpu_milli_usage: 0
+            memory_percent_rss_usage: 0
+            memory_mib_working_set_usage: 0
+            memory_mib_rss_usage: 0
+            disk_mib_usage: 0
         - images_version:
             key: images_version
+          restart_count: 0
           cpu_milli_request: 0
-          environment_id: environment_id
           memory_mib_limit: 0
-          project_id: project_id
+          error_container_statuses:
+          - reason: reason
+            container_name: container_name
+            message: message
+          - reason: reason
+            container_name: container_name
+            message: message
           memory_mib_request: 0
-          service_id: service_id
           name: name
           namespace: namespace
           cpu_milli_limit: 0
+          created_at: 0
+          qovery_service_info:
+            environment_id: environment_id
+            project_id: project_id
+            service_name: service_name
+            service_id: service_id
+            project_name: project_name
+            environment_name: environment_name
+          metrics_usage:
+            memory_percent_working_set_usage: 0
+            cpu_percent_usage: 0
+            disk_percent_usage: 0
+            cpu_milli_usage: 0
+            memory_percent_rss_usage: 0
+            memory_mib_working_set_usage: 0
+            memory_mib_rss_usage: 0
+            disk_mib_usage: 0
         conditions:
         - reason: reason
           last_heartbeat_time: 0
@@ -923,6 +980,7 @@ components:
           type: type
           status: status
         unschedulable: true
+        instance_type: instance_type
         architecture: architecture
       properties:
         addresses:
@@ -938,6 +996,13 @@ components:
           items:
             $ref: '#/components/schemas/NodeConditionDto'
           type: array
+        created_at:
+          format: int64
+          minimum: 0
+          type: integer
+        instance_type:
+          nullable: true
+          type: string
         kernel_version:
           type: string
         kubelet_version:
@@ -945,6 +1010,8 @@ components:
         labels:
           additionalProperties:
             type: string
+        metrics_usage:
+          $ref: '#/components/schemas/MetricsUsageDto'
         name:
           type: string
         operating_system:
@@ -957,6 +1024,8 @@ components:
           type: array
         resources_allocatable:
           $ref: '#/components/schemas/NodeResourceDto'
+        resources_allocated:
+          $ref: '#/components/schemas/NodeResourceAllocatedDto'
         taints:
           items:
             $ref: '#/components/schemas/NodeTaintDto'
@@ -968,14 +1037,17 @@ components:
       - annotations
       - architecture
       - conditions
+      - created_at
       - kernel_version
       - kubelet_version
       - labels
+      - metrics_usage
       - name
       - operating_system
       - os_image
       - pods
       - resources_allocatable
+      - resources_allocated
       - taints
       - unschedulable
     ClusterStatusDto:
@@ -1007,6 +1079,33 @@ components:
               message: message
             - reason: reason
               message: message
+        pvcs:
+        - disk_percent_usage: 0
+          name: name
+          namespace: namespace
+          qovery_service_info:
+            environment_id: environment_id
+            project_id: project_id
+            service_name: service_name
+            service_id: service_id
+            project_name: project_name
+            environment_name: environment_name
+          disk_mib_capacity: 0
+          disk_mib_usage: 0
+          pod_name: pod_name
+        - disk_percent_usage: 0
+          name: name
+          namespace: namespace
+          qovery_service_info:
+            environment_id: environment_id
+            project_id: project_id
+            service_name: service_name
+            service_id: service_id
+            project_name: project_name
+            environment_name: environment_name
+          disk_mib_capacity: 0
+          disk_mib_usage: 0
+          pod_name: pod_name
         nodes:
         - addresses:
           - address: address
@@ -1015,12 +1114,13 @@ components:
             type: type
           os_image: os_image
           resources_allocatable:
-            ephemeral_storage_gib: 0
             cpu_milli: 0
             pods: 0
+            ephemeral_storage_mib: 0
             memory_mib: 0
           annotations:
             key: annotations
+          created_at: 0
           kubelet_version: kubelet_version
           taints:
           - effect: effect
@@ -1031,32 +1131,88 @@ components:
             key: key
           labels:
             key: labels
+          metrics_usage:
+            memory_percent_working_set_usage: 0
+            cpu_percent_usage: 0
+            disk_percent_usage: 0
+            cpu_milli_usage: 0
+            memory_percent_rss_usage: 0
+            memory_mib_working_set_usage: 0
+            memory_mib_rss_usage: 0
+            disk_mib_usage: 0
+          resources_allocated:
+            cpu_milli: 0
+            memory_mib: 0
           kernel_version: kernel_version
           name: name
           operating_system: operating_system
           pods:
           - images_version:
               key: images_version
+            restart_count: 0
             cpu_milli_request: 0
-            environment_id: environment_id
             memory_mib_limit: 0
-            project_id: project_id
+            error_container_statuses:
+            - reason: reason
+              container_name: container_name
+              message: message
+            - reason: reason
+              container_name: container_name
+              message: message
             memory_mib_request: 0
-            service_id: service_id
             name: name
             namespace: namespace
             cpu_milli_limit: 0
+            created_at: 0
+            qovery_service_info:
+              environment_id: environment_id
+              project_id: project_id
+              service_name: service_name
+              service_id: service_id
+              project_name: project_name
+              environment_name: environment_name
+            metrics_usage:
+              memory_percent_working_set_usage: 0
+              cpu_percent_usage: 0
+              disk_percent_usage: 0
+              cpu_milli_usage: 0
+              memory_percent_rss_usage: 0
+              memory_mib_working_set_usage: 0
+              memory_mib_rss_usage: 0
+              disk_mib_usage: 0
           - images_version:
               key: images_version
+            restart_count: 0
             cpu_milli_request: 0
-            environment_id: environment_id
             memory_mib_limit: 0
-            project_id: project_id
+            error_container_statuses:
+            - reason: reason
+              container_name: container_name
+              message: message
+            - reason: reason
+              container_name: container_name
+              message: message
             memory_mib_request: 0
-            service_id: service_id
             name: name
             namespace: namespace
             cpu_milli_limit: 0
+            created_at: 0
+            qovery_service_info:
+              environment_id: environment_id
+              project_id: project_id
+              service_name: service_name
+              service_id: service_id
+              project_name: project_name
+              environment_name: environment_name
+            metrics_usage:
+              memory_percent_working_set_usage: 0
+              cpu_percent_usage: 0
+              disk_percent_usage: 0
+              cpu_milli_usage: 0
+              memory_percent_rss_usage: 0
+              memory_mib_working_set_usage: 0
+              memory_mib_rss_usage: 0
+              disk_mib_usage: 0
           conditions:
           - reason: reason
             last_heartbeat_time: 0
@@ -1071,6 +1227,7 @@ components:
             type: type
             status: status
           unschedulable: true
+          instance_type: instance_type
           architecture: architecture
         - addresses:
           - address: address
@@ -1079,12 +1236,13 @@ components:
             type: type
           os_image: os_image
           resources_allocatable:
-            ephemeral_storage_gib: 0
             cpu_milli: 0
             pods: 0
+            ephemeral_storage_mib: 0
             memory_mib: 0
           annotations:
             key: annotations
+          created_at: 0
           kubelet_version: kubelet_version
           taints:
           - effect: effect
@@ -1095,32 +1253,88 @@ components:
             key: key
           labels:
             key: labels
+          metrics_usage:
+            memory_percent_working_set_usage: 0
+            cpu_percent_usage: 0
+            disk_percent_usage: 0
+            cpu_milli_usage: 0
+            memory_percent_rss_usage: 0
+            memory_mib_working_set_usage: 0
+            memory_mib_rss_usage: 0
+            disk_mib_usage: 0
+          resources_allocated:
+            cpu_milli: 0
+            memory_mib: 0
           kernel_version: kernel_version
           name: name
           operating_system: operating_system
           pods:
           - images_version:
               key: images_version
+            restart_count: 0
             cpu_milli_request: 0
-            environment_id: environment_id
             memory_mib_limit: 0
-            project_id: project_id
+            error_container_statuses:
+            - reason: reason
+              container_name: container_name
+              message: message
+            - reason: reason
+              container_name: container_name
+              message: message
             memory_mib_request: 0
-            service_id: service_id
             name: name
             namespace: namespace
             cpu_milli_limit: 0
+            created_at: 0
+            qovery_service_info:
+              environment_id: environment_id
+              project_id: project_id
+              service_name: service_name
+              service_id: service_id
+              project_name: project_name
+              environment_name: environment_name
+            metrics_usage:
+              memory_percent_working_set_usage: 0
+              cpu_percent_usage: 0
+              disk_percent_usage: 0
+              cpu_milli_usage: 0
+              memory_percent_rss_usage: 0
+              memory_mib_working_set_usage: 0
+              memory_mib_rss_usage: 0
+              disk_mib_usage: 0
           - images_version:
               key: images_version
+            restart_count: 0
             cpu_milli_request: 0
-            environment_id: environment_id
             memory_mib_limit: 0
-            project_id: project_id
+            error_container_statuses:
+            - reason: reason
+              container_name: container_name
+              message: message
+            - reason: reason
+              container_name: container_name
+              message: message
             memory_mib_request: 0
-            service_id: service_id
             name: name
             namespace: namespace
             cpu_milli_limit: 0
+            created_at: 0
+            qovery_service_info:
+              environment_id: environment_id
+              project_id: project_id
+              service_name: service_name
+              service_id: service_id
+              project_name: project_name
+              environment_name: environment_name
+            metrics_usage:
+              memory_percent_working_set_usage: 0
+              cpu_percent_usage: 0
+              disk_percent_usage: 0
+              cpu_milli_usage: 0
+              memory_percent_rss_usage: 0
+              memory_mib_working_set_usage: 0
+              memory_mib_rss_usage: 0
+              disk_mib_usage: 0
           conditions:
           - reason: reason
             last_heartbeat_time: 0
@@ -1135,6 +1349,7 @@ components:
             type: type
             status: status
           unschedulable: true
+          instance_type: instance_type
           architecture: architecture
       properties:
         computed_status:
@@ -1143,9 +1358,14 @@ components:
           items:
             $ref: '#/components/schemas/ClusterNodeDto'
           type: array
+        pvcs:
+          items:
+            $ref: '#/components/schemas/PvcInfoDto'
+          type: array
       required:
       - computed_status
       - nodes
+      - pvcs
     ClusterStatusGlobalStatus:
       enum:
       - RUNNING
@@ -2428,6 +2648,57 @@ components:
       - limit
       - status
       - unit
+    MetricsUsageDto:
+      example:
+        memory_percent_working_set_usage: 0
+        cpu_percent_usage: 0
+        disk_percent_usage: 0
+        cpu_milli_usage: 0
+        memory_percent_rss_usage: 0
+        memory_mib_working_set_usage: 0
+        memory_mib_rss_usage: 0
+        disk_mib_usage: 0
+      properties:
+        cpu_milli_usage:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        cpu_percent_usage:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        disk_mib_usage:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        disk_percent_usage:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        memory_mib_rss_usage:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        memory_mib_working_set_usage:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        memory_percent_rss_usage:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        memory_percent_working_set_usage:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
     NodeAddressDto:
       example:
         address: address
@@ -2480,19 +2751,57 @@ components:
           type: string
       required:
       - name
+    NodePodErrorStatusDto:
+      example:
+        reason: reason
+        container_name: container_name
+        message: message
+      properties:
+        container_name:
+          type: string
+        message:
+          nullable: true
+          type: string
+        reason:
+          nullable: true
+          type: string
+      required:
+      - container_name
     NodePodInfoDto:
       example:
         images_version:
           key: images_version
+        restart_count: 0
         cpu_milli_request: 0
-        environment_id: environment_id
         memory_mib_limit: 0
-        project_id: project_id
+        error_container_statuses:
+        - reason: reason
+          container_name: container_name
+          message: message
+        - reason: reason
+          container_name: container_name
+          message: message
         memory_mib_request: 0
-        service_id: service_id
         name: name
         namespace: namespace
         cpu_milli_limit: 0
+        created_at: 0
+        qovery_service_info:
+          environment_id: environment_id
+          project_id: project_id
+          service_name: service_name
+          service_id: service_id
+          project_name: project_name
+          environment_name: environment_name
+        metrics_usage:
+          memory_percent_working_set_usage: 0
+          cpu_percent_usage: 0
+          disk_percent_usage: 0
+          cpu_milli_usage: 0
+          memory_percent_rss_usage: 0
+          memory_mib_working_set_usage: 0
+          memory_mib_rss_usage: 0
+          disk_mib_usage: 0
       properties:
         cpu_milli_limit:
           format: int32
@@ -2504,9 +2813,14 @@ components:
           minimum: 0
           nullable: true
           type: integer
-        environment_id:
-          nullable: true
-          type: string
+        created_at:
+          format: int64
+          minimum: 0
+          type: integer
+        error_container_statuses:
+          items:
+            $ref: '#/components/schemas/NodePodErrorStatusDto'
+          type: array
         images_version:
           additionalProperties:
             type: string
@@ -2520,32 +2834,54 @@ components:
           minimum: 0
           nullable: true
           type: integer
+        metrics_usage:
+          $ref: '#/components/schemas/MetricsUsageDto'
         name:
           type: string
         namespace:
           type: string
-        project_id:
-          nullable: true
-          type: string
-        service_id:
-          nullable: true
-          type: string
+        qovery_service_info:
+          $ref: '#/components/schemas/PodQoveryServiceInfoDto'
+        restart_count:
+          format: int32
+          minimum: 0
+          type: integer
       required:
+      - created_at
+      - error_container_statuses
       - images_version
+      - metrics_usage
       - name
       - namespace
+      - restart_count
+    NodeResourceAllocatedDto:
+      example:
+        cpu_milli: 0
+        memory_mib: 0
+      properties:
+        cpu_milli:
+          format: int32
+          minimum: 0
+          type: integer
+        memory_mib:
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - cpu_milli
+      - memory_mib
     NodeResourceDto:
       example:
-        ephemeral_storage_gib: 0
         cpu_milli: 0
         pods: 0
+        ephemeral_storage_mib: 0
         memory_mib: 0
       properties:
         cpu_milli:
           format: int64
           minimum: 0
           type: integer
-        ephemeral_storage_gib:
+        ephemeral_storage_mib:
           format: int64
           minimum: 0
           type: integer
@@ -2559,7 +2895,7 @@ components:
           type: integer
       required:
       - cpu_milli
-      - ephemeral_storage_gib
+      - ephemeral_storage_mib
       - memory_mib
       - pods
     NodeTaintDto:
@@ -2596,6 +2932,34 @@ components:
       required:
       - name
       - ports
+    PodQoveryServiceInfoDto:
+      example:
+        environment_id: environment_id
+        project_id: project_id
+        service_name: service_name
+        service_id: service_id
+        project_name: project_name
+        environment_name: environment_name
+      properties:
+        environment_id:
+          type: string
+        environment_name:
+          type: string
+        project_id:
+          type: string
+        project_name:
+          type: string
+        service_id:
+          type: string
+        service_name:
+          type: string
+      required:
+      - environment_id
+      - environment_name
+      - project_id
+      - project_name
+      - service_id
+      - service_name
     PodStatusDto:
       example:
         restart_count: 0
@@ -2670,6 +3034,49 @@ components:
       - state
       - state_message
       - state_reason
+    PvcInfoDto:
+      example:
+        disk_percent_usage: 0
+        name: name
+        namespace: namespace
+        qovery_service_info:
+          environment_id: environment_id
+          project_id: project_id
+          service_name: service_name
+          service_id: service_id
+          project_name: project_name
+          environment_name: environment_name
+        disk_mib_capacity: 0
+        disk_mib_usage: 0
+        pod_name: pod_name
+      properties:
+        disk_mib_capacity:
+          format: int32
+          minimum: 0
+          type: integer
+        disk_mib_usage:
+          format: int32
+          minimum: 0
+          type: integer
+        disk_percent_usage:
+          format: int32
+          minimum: 0
+          type: integer
+        name:
+          type: string
+        namespace:
+          type: string
+        pod_name:
+          type: string
+        qovery_service_info:
+          $ref: '#/components/schemas/PodQoveryServiceInfoDto'
+      required:
+      - disk_mib_capacity
+      - disk_mib_usage
+      - disk_percent_usage
+      - name
+      - namespace
+      - pod_name
     QoveryClusterKubeVersionStatus:
       oneOf:
       - $ref: '#/components/schemas/QoveryClusterKubeVersionStatus_oneOf'

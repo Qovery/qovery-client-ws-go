@@ -8,14 +8,18 @@ Name | Type | Description | Notes
 **Annotations** | **map[string]string** |  | 
 **Architecture** | **string** |  | 
 **Conditions** | [**[]NodeConditionDto**](NodeConditionDto.md) |  | 
+**CreatedAt** | **int64** |  | 
+**InstanceType** | Pointer to **NullableString** |  | [optional] 
 **KernelVersion** | **string** |  | 
 **KubeletVersion** | **string** |  | 
 **Labels** | **map[string]string** |  | 
+**MetricsUsage** | [**MetricsUsageDto**](MetricsUsageDto.md) |  | 
 **Name** | **string** |  | 
 **OperatingSystem** | **string** |  | 
 **OsImage** | **string** |  | 
 **Pods** | [**[]NodePodInfoDto**](NodePodInfoDto.md) |  | 
 **ResourcesAllocatable** | [**NodeResourceDto**](NodeResourceDto.md) |  | 
+**ResourcesAllocated** | [**NodeResourceAllocatedDto**](NodeResourceAllocatedDto.md) |  | 
 **Taints** | [**[]NodeTaintDto**](NodeTaintDto.md) |  | 
 **Unschedulable** | **bool** |  | 
 
@@ -23,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewClusterNodeDto
 
-`func NewClusterNodeDto(addresses []NodeAddressDto, annotations map[string]string, architecture string, conditions []NodeConditionDto, kernelVersion string, kubeletVersion string, labels map[string]string, name string, operatingSystem string, osImage string, pods []NodePodInfoDto, resourcesAllocatable NodeResourceDto, taints []NodeTaintDto, unschedulable bool, ) *ClusterNodeDto`
+`func NewClusterNodeDto(addresses []NodeAddressDto, annotations map[string]string, architecture string, conditions []NodeConditionDto, createdAt int64, kernelVersion string, kubeletVersion string, labels map[string]string, metricsUsage MetricsUsageDto, name string, operatingSystem string, osImage string, pods []NodePodInfoDto, resourcesAllocatable NodeResourceDto, resourcesAllocated NodeResourceAllocatedDto, taints []NodeTaintDto, unschedulable bool, ) *ClusterNodeDto`
 
 NewClusterNodeDto instantiates a new ClusterNodeDto object
 This constructor will assign default values to properties that have it defined,
@@ -118,6 +122,61 @@ and a boolean to check if the value has been set.
 SetConditions sets Conditions field to given value.
 
 
+### GetCreatedAt
+
+`func (o *ClusterNodeDto) GetCreatedAt() int64`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *ClusterNodeDto) GetCreatedAtOk() (*int64, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *ClusterNodeDto) SetCreatedAt(v int64)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
+
+### GetInstanceType
+
+`func (o *ClusterNodeDto) GetInstanceType() string`
+
+GetInstanceType returns the InstanceType field if non-nil, zero value otherwise.
+
+### GetInstanceTypeOk
+
+`func (o *ClusterNodeDto) GetInstanceTypeOk() (*string, bool)`
+
+GetInstanceTypeOk returns a tuple with the InstanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceType
+
+`func (o *ClusterNodeDto) SetInstanceType(v string)`
+
+SetInstanceType sets InstanceType field to given value.
+
+### HasInstanceType
+
+`func (o *ClusterNodeDto) HasInstanceType() bool`
+
+HasInstanceType returns a boolean if a field has been set.
+
+### SetInstanceTypeNil
+
+`func (o *ClusterNodeDto) SetInstanceTypeNil(b bool)`
+
+ SetInstanceTypeNil sets the value for InstanceType to be an explicit nil
+
+### UnsetInstanceType
+`func (o *ClusterNodeDto) UnsetInstanceType()`
+
+UnsetInstanceType ensures that no value is present for InstanceType, not even an explicit nil
 ### GetKernelVersion
 
 `func (o *ClusterNodeDto) GetKernelVersion() string`
@@ -176,6 +235,26 @@ and a boolean to check if the value has been set.
 `func (o *ClusterNodeDto) SetLabels(v map[string]string)`
 
 SetLabels sets Labels field to given value.
+
+
+### GetMetricsUsage
+
+`func (o *ClusterNodeDto) GetMetricsUsage() MetricsUsageDto`
+
+GetMetricsUsage returns the MetricsUsage field if non-nil, zero value otherwise.
+
+### GetMetricsUsageOk
+
+`func (o *ClusterNodeDto) GetMetricsUsageOk() (*MetricsUsageDto, bool)`
+
+GetMetricsUsageOk returns a tuple with the MetricsUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetricsUsage
+
+`func (o *ClusterNodeDto) SetMetricsUsage(v MetricsUsageDto)`
+
+SetMetricsUsage sets MetricsUsage field to given value.
 
 
 ### GetName
@@ -276,6 +355,26 @@ and a boolean to check if the value has been set.
 `func (o *ClusterNodeDto) SetResourcesAllocatable(v NodeResourceDto)`
 
 SetResourcesAllocatable sets ResourcesAllocatable field to given value.
+
+
+### GetResourcesAllocated
+
+`func (o *ClusterNodeDto) GetResourcesAllocated() NodeResourceAllocatedDto`
+
+GetResourcesAllocated returns the ResourcesAllocated field if non-nil, zero value otherwise.
+
+### GetResourcesAllocatedOk
+
+`func (o *ClusterNodeDto) GetResourcesAllocatedOk() (*NodeResourceAllocatedDto, bool)`
+
+GetResourcesAllocatedOk returns a tuple with the ResourcesAllocated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourcesAllocated
+
+`func (o *ClusterNodeDto) SetResourcesAllocated(v NodeResourceAllocatedDto)`
+
+SetResourcesAllocated sets ResourcesAllocated field to given value.
 
 
 ### GetTaints

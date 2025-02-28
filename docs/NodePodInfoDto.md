@@ -6,20 +6,22 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CpuMilliLimit** | Pointer to **NullableInt32** |  | [optional] 
 **CpuMilliRequest** | Pointer to **NullableInt32** |  | [optional] 
-**EnvironmentId** | Pointer to **NullableString** |  | [optional] 
+**CreatedAt** | **int64** |  | 
+**ErrorContainerStatuses** | [**[]NodePodErrorStatusDto**](NodePodErrorStatusDto.md) |  | 
 **ImagesVersion** | **map[string]string** |  | 
 **MemoryMibLimit** | Pointer to **NullableInt32** |  | [optional] 
 **MemoryMibRequest** | Pointer to **NullableInt32** |  | [optional] 
+**MetricsUsage** | [**MetricsUsageDto**](MetricsUsageDto.md) |  | 
 **Name** | **string** |  | 
 **Namespace** | **string** |  | 
-**ProjectId** | Pointer to **NullableString** |  | [optional] 
-**ServiceId** | Pointer to **NullableString** |  | [optional] 
+**QoveryServiceInfo** | Pointer to [**NullablePodQoveryServiceInfoDto**](PodQoveryServiceInfoDto.md) |  | [optional] 
+**RestartCount** | **int32** |  | 
 
 ## Methods
 
 ### NewNodePodInfoDto
 
-`func NewNodePodInfoDto(imagesVersion map[string]string, name string, namespace string, ) *NodePodInfoDto`
+`func NewNodePodInfoDto(createdAt int64, errorContainerStatuses []NodePodErrorStatusDto, imagesVersion map[string]string, metricsUsage MetricsUsageDto, name string, namespace string, restartCount int32, ) *NodePodInfoDto`
 
 NewNodePodInfoDto instantiates a new NodePodInfoDto object
 This constructor will assign default values to properties that have it defined,
@@ -104,41 +106,46 @@ HasCpuMilliRequest returns a boolean if a field has been set.
 `func (o *NodePodInfoDto) UnsetCpuMilliRequest()`
 
 UnsetCpuMilliRequest ensures that no value is present for CpuMilliRequest, not even an explicit nil
-### GetEnvironmentId
+### GetCreatedAt
 
-`func (o *NodePodInfoDto) GetEnvironmentId() string`
+`func (o *NodePodInfoDto) GetCreatedAt() int64`
 
-GetEnvironmentId returns the EnvironmentId field if non-nil, zero value otherwise.
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
-### GetEnvironmentIdOk
+### GetCreatedAtOk
 
-`func (o *NodePodInfoDto) GetEnvironmentIdOk() (*string, bool)`
+`func (o *NodePodInfoDto) GetCreatedAtOk() (*int64, bool)`
 
-GetEnvironmentIdOk returns a tuple with the EnvironmentId field if it's non-nil, zero value otherwise
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEnvironmentId
+### SetCreatedAt
 
-`func (o *NodePodInfoDto) SetEnvironmentId(v string)`
+`func (o *NodePodInfoDto) SetCreatedAt(v int64)`
 
-SetEnvironmentId sets EnvironmentId field to given value.
+SetCreatedAt sets CreatedAt field to given value.
 
-### HasEnvironmentId
 
-`func (o *NodePodInfoDto) HasEnvironmentId() bool`
+### GetErrorContainerStatuses
 
-HasEnvironmentId returns a boolean if a field has been set.
+`func (o *NodePodInfoDto) GetErrorContainerStatuses() []NodePodErrorStatusDto`
 
-### SetEnvironmentIdNil
+GetErrorContainerStatuses returns the ErrorContainerStatuses field if non-nil, zero value otherwise.
 
-`func (o *NodePodInfoDto) SetEnvironmentIdNil(b bool)`
+### GetErrorContainerStatusesOk
 
- SetEnvironmentIdNil sets the value for EnvironmentId to be an explicit nil
+`func (o *NodePodInfoDto) GetErrorContainerStatusesOk() (*[]NodePodErrorStatusDto, bool)`
 
-### UnsetEnvironmentId
-`func (o *NodePodInfoDto) UnsetEnvironmentId()`
+GetErrorContainerStatusesOk returns a tuple with the ErrorContainerStatuses field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
 
-UnsetEnvironmentId ensures that no value is present for EnvironmentId, not even an explicit nil
+### SetErrorContainerStatuses
+
+`func (o *NodePodInfoDto) SetErrorContainerStatuses(v []NodePodErrorStatusDto)`
+
+SetErrorContainerStatuses sets ErrorContainerStatuses field to given value.
+
+
 ### GetImagesVersion
 
 `func (o *NodePodInfoDto) GetImagesVersion() map[string]string`
@@ -229,6 +236,26 @@ HasMemoryMibRequest returns a boolean if a field has been set.
 `func (o *NodePodInfoDto) UnsetMemoryMibRequest()`
 
 UnsetMemoryMibRequest ensures that no value is present for MemoryMibRequest, not even an explicit nil
+### GetMetricsUsage
+
+`func (o *NodePodInfoDto) GetMetricsUsage() MetricsUsageDto`
+
+GetMetricsUsage returns the MetricsUsage field if non-nil, zero value otherwise.
+
+### GetMetricsUsageOk
+
+`func (o *NodePodInfoDto) GetMetricsUsageOk() (*MetricsUsageDto, bool)`
+
+GetMetricsUsageOk returns a tuple with the MetricsUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetricsUsage
+
+`func (o *NodePodInfoDto) SetMetricsUsage(v MetricsUsageDto)`
+
+SetMetricsUsage sets MetricsUsage field to given value.
+
+
 ### GetName
 
 `func (o *NodePodInfoDto) GetName() string`
@@ -269,76 +296,61 @@ and a boolean to check if the value has been set.
 SetNamespace sets Namespace field to given value.
 
 
-### GetProjectId
+### GetQoveryServiceInfo
 
-`func (o *NodePodInfoDto) GetProjectId() string`
+`func (o *NodePodInfoDto) GetQoveryServiceInfo() PodQoveryServiceInfoDto`
 
-GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
+GetQoveryServiceInfo returns the QoveryServiceInfo field if non-nil, zero value otherwise.
 
-### GetProjectIdOk
+### GetQoveryServiceInfoOk
 
-`func (o *NodePodInfoDto) GetProjectIdOk() (*string, bool)`
+`func (o *NodePodInfoDto) GetQoveryServiceInfoOk() (*PodQoveryServiceInfoDto, bool)`
 
-GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
+GetQoveryServiceInfoOk returns a tuple with the QoveryServiceInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProjectId
+### SetQoveryServiceInfo
 
-`func (o *NodePodInfoDto) SetProjectId(v string)`
+`func (o *NodePodInfoDto) SetQoveryServiceInfo(v PodQoveryServiceInfoDto)`
 
-SetProjectId sets ProjectId field to given value.
+SetQoveryServiceInfo sets QoveryServiceInfo field to given value.
 
-### HasProjectId
+### HasQoveryServiceInfo
 
-`func (o *NodePodInfoDto) HasProjectId() bool`
+`func (o *NodePodInfoDto) HasQoveryServiceInfo() bool`
 
-HasProjectId returns a boolean if a field has been set.
+HasQoveryServiceInfo returns a boolean if a field has been set.
 
-### SetProjectIdNil
+### SetQoveryServiceInfoNil
 
-`func (o *NodePodInfoDto) SetProjectIdNil(b bool)`
+`func (o *NodePodInfoDto) SetQoveryServiceInfoNil(b bool)`
 
- SetProjectIdNil sets the value for ProjectId to be an explicit nil
+ SetQoveryServiceInfoNil sets the value for QoveryServiceInfo to be an explicit nil
 
-### UnsetProjectId
-`func (o *NodePodInfoDto) UnsetProjectId()`
+### UnsetQoveryServiceInfo
+`func (o *NodePodInfoDto) UnsetQoveryServiceInfo()`
 
-UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
-### GetServiceId
+UnsetQoveryServiceInfo ensures that no value is present for QoveryServiceInfo, not even an explicit nil
+### GetRestartCount
 
-`func (o *NodePodInfoDto) GetServiceId() string`
+`func (o *NodePodInfoDto) GetRestartCount() int32`
 
-GetServiceId returns the ServiceId field if non-nil, zero value otherwise.
+GetRestartCount returns the RestartCount field if non-nil, zero value otherwise.
 
-### GetServiceIdOk
+### GetRestartCountOk
 
-`func (o *NodePodInfoDto) GetServiceIdOk() (*string, bool)`
+`func (o *NodePodInfoDto) GetRestartCountOk() (*int32, bool)`
 
-GetServiceIdOk returns a tuple with the ServiceId field if it's non-nil, zero value otherwise
+GetRestartCountOk returns a tuple with the RestartCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetServiceId
+### SetRestartCount
 
-`func (o *NodePodInfoDto) SetServiceId(v string)`
+`func (o *NodePodInfoDto) SetRestartCount(v int32)`
 
-SetServiceId sets ServiceId field to given value.
+SetRestartCount sets RestartCount field to given value.
 
-### HasServiceId
 
-`func (o *NodePodInfoDto) HasServiceId() bool`
-
-HasServiceId returns a boolean if a field has been set.
-
-### SetServiceIdNil
-
-`func (o *NodePodInfoDto) SetServiceIdNil(b bool)`
-
- SetServiceIdNil sets the value for ServiceId to be an explicit nil
-
-### UnsetServiceId
-`func (o *NodePodInfoDto) UnsetServiceId()`
-
-UnsetServiceId ensures that no value is present for ServiceId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

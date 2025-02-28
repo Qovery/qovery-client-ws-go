@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ComputedStatus** | [**ClusterComputedStatusDto**](ClusterComputedStatusDto.md) |  | 
 **Nodes** | [**[]ClusterNodeDto**](ClusterNodeDto.md) |  | 
+**Pvcs** | [**[]PvcInfoDto**](PvcInfoDto.md) |  | 
 
 ## Methods
 
 ### NewClusterStatusDto
 
-`func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodes []ClusterNodeDto, ) *ClusterStatusDto`
+`func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodes []ClusterNodeDto, pvcs []PvcInfoDto, ) *ClusterStatusDto`
 
 NewClusterStatusDto instantiates a new ClusterStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *ClusterStatusDto) SetNodes(v []ClusterNodeDto)`
 
 SetNodes sets Nodes field to given value.
+
+
+### GetPvcs
+
+`func (o *ClusterStatusDto) GetPvcs() []PvcInfoDto`
+
+GetPvcs returns the Pvcs field if non-nil, zero value otherwise.
+
+### GetPvcsOk
+
+`func (o *ClusterStatusDto) GetPvcsOk() (*[]PvcInfoDto, bool)`
+
+GetPvcsOk returns a tuple with the Pvcs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPvcs
+
+`func (o *ClusterStatusDto) SetPvcs(v []PvcInfoDto)`
+
+SetPvcs sets Pvcs field to given value.
 
 
 

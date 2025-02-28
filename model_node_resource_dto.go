@@ -23,7 +23,7 @@ var _ MappedNullable = &NodeResourceDto{}
 // NodeResourceDto struct for NodeResourceDto
 type NodeResourceDto struct {
 	CpuMilli int64 `json:"cpu_milli"`
-	EphemeralStorageGib int64 `json:"ephemeral_storage_gib"`
+	EphemeralStorageMib int64 `json:"ephemeral_storage_mib"`
 	MemoryMib int64 `json:"memory_mib"`
 	Pods int64 `json:"pods"`
 }
@@ -34,10 +34,10 @@ type _NodeResourceDto NodeResourceDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNodeResourceDto(cpuMilli int64, ephemeralStorageGib int64, memoryMib int64, pods int64) *NodeResourceDto {
+func NewNodeResourceDto(cpuMilli int64, ephemeralStorageMib int64, memoryMib int64, pods int64) *NodeResourceDto {
 	this := NodeResourceDto{}
 	this.CpuMilli = cpuMilli
-	this.EphemeralStorageGib = ephemeralStorageGib
+	this.EphemeralStorageMib = ephemeralStorageMib
 	this.MemoryMib = memoryMib
 	this.Pods = pods
 	return &this
@@ -75,28 +75,28 @@ func (o *NodeResourceDto) SetCpuMilli(v int64) {
 	o.CpuMilli = v
 }
 
-// GetEphemeralStorageGib returns the EphemeralStorageGib field value
-func (o *NodeResourceDto) GetEphemeralStorageGib() int64 {
+// GetEphemeralStorageMib returns the EphemeralStorageMib field value
+func (o *NodeResourceDto) GetEphemeralStorageMib() int64 {
 	if o == nil {
 		var ret int64
 		return ret
 	}
 
-	return o.EphemeralStorageGib
+	return o.EphemeralStorageMib
 }
 
-// GetEphemeralStorageGibOk returns a tuple with the EphemeralStorageGib field value
+// GetEphemeralStorageMibOk returns a tuple with the EphemeralStorageMib field value
 // and a boolean to check if the value has been set.
-func (o *NodeResourceDto) GetEphemeralStorageGibOk() (*int64, bool) {
+func (o *NodeResourceDto) GetEphemeralStorageMibOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.EphemeralStorageGib, true
+	return &o.EphemeralStorageMib, true
 }
 
-// SetEphemeralStorageGib sets field value
-func (o *NodeResourceDto) SetEphemeralStorageGib(v int64) {
-	o.EphemeralStorageGib = v
+// SetEphemeralStorageMib sets field value
+func (o *NodeResourceDto) SetEphemeralStorageMib(v int64) {
+	o.EphemeralStorageMib = v
 }
 
 // GetMemoryMib returns the MemoryMib field value
@@ -158,7 +158,7 @@ func (o NodeResourceDto) MarshalJSON() ([]byte, error) {
 func (o NodeResourceDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["cpu_milli"] = o.CpuMilli
-	toSerialize["ephemeral_storage_gib"] = o.EphemeralStorageGib
+	toSerialize["ephemeral_storage_mib"] = o.EphemeralStorageMib
 	toSerialize["memory_mib"] = o.MemoryMib
 	toSerialize["pods"] = o.Pods
 	return toSerialize, nil
@@ -170,7 +170,7 @@ func (o *NodeResourceDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"cpu_milli",
-		"ephemeral_storage_gib",
+		"ephemeral_storage_mib",
 		"memory_mib",
 		"pods",
 	}

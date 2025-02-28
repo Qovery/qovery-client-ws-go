@@ -26,14 +26,18 @@ type ClusterNodeDto struct {
 	Annotations map[string]string `json:"annotations"`
 	Architecture string `json:"architecture"`
 	Conditions []NodeConditionDto `json:"conditions"`
+	CreatedAt int64 `json:"created_at"`
+	InstanceType NullableString `json:"instance_type,omitempty"`
 	KernelVersion string `json:"kernel_version"`
 	KubeletVersion string `json:"kubelet_version"`
 	Labels map[string]string `json:"labels"`
+	MetricsUsage MetricsUsageDto `json:"metrics_usage"`
 	Name string `json:"name"`
 	OperatingSystem string `json:"operating_system"`
 	OsImage string `json:"os_image"`
 	Pods []NodePodInfoDto `json:"pods"`
 	ResourcesAllocatable NodeResourceDto `json:"resources_allocatable"`
+	ResourcesAllocated NodeResourceAllocatedDto `json:"resources_allocated"`
 	Taints []NodeTaintDto `json:"taints"`
 	Unschedulable bool `json:"unschedulable"`
 }
@@ -44,20 +48,23 @@ type _ClusterNodeDto ClusterNodeDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClusterNodeDto(addresses []NodeAddressDto, annotations map[string]string, architecture string, conditions []NodeConditionDto, kernelVersion string, kubeletVersion string, labels map[string]string, name string, operatingSystem string, osImage string, pods []NodePodInfoDto, resourcesAllocatable NodeResourceDto, taints []NodeTaintDto, unschedulable bool) *ClusterNodeDto {
+func NewClusterNodeDto(addresses []NodeAddressDto, annotations map[string]string, architecture string, conditions []NodeConditionDto, createdAt int64, kernelVersion string, kubeletVersion string, labels map[string]string, metricsUsage MetricsUsageDto, name string, operatingSystem string, osImage string, pods []NodePodInfoDto, resourcesAllocatable NodeResourceDto, resourcesAllocated NodeResourceAllocatedDto, taints []NodeTaintDto, unschedulable bool) *ClusterNodeDto {
 	this := ClusterNodeDto{}
 	this.Addresses = addresses
 	this.Annotations = annotations
 	this.Architecture = architecture
 	this.Conditions = conditions
+	this.CreatedAt = createdAt
 	this.KernelVersion = kernelVersion
 	this.KubeletVersion = kubeletVersion
 	this.Labels = labels
+	this.MetricsUsage = metricsUsage
 	this.Name = name
 	this.OperatingSystem = operatingSystem
 	this.OsImage = osImage
 	this.Pods = pods
 	this.ResourcesAllocatable = resourcesAllocatable
+	this.ResourcesAllocated = resourcesAllocated
 	this.Taints = taints
 	this.Unschedulable = unschedulable
 	return &this
@@ -167,6 +174,72 @@ func (o *ClusterNodeDto) SetConditions(v []NodeConditionDto) {
 	o.Conditions = v
 }
 
+// GetCreatedAt returns the CreatedAt field value
+func (o *ClusterNodeDto) GetCreatedAt() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// and a boolean to check if the value has been set.
+func (o *ClusterNodeDto) GetCreatedAtOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedAt, true
+}
+
+// SetCreatedAt sets field value
+func (o *ClusterNodeDto) SetCreatedAt(v int64) {
+	o.CreatedAt = v
+}
+
+// GetInstanceType returns the InstanceType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ClusterNodeDto) GetInstanceType() string {
+	if o == nil || IsNil(o.InstanceType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.InstanceType.Get()
+}
+
+// GetInstanceTypeOk returns a tuple with the InstanceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ClusterNodeDto) GetInstanceTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.InstanceType.Get(), o.InstanceType.IsSet()
+}
+
+// HasInstanceType returns a boolean if a field has been set.
+func (o *ClusterNodeDto) HasInstanceType() bool {
+	if o != nil && o.InstanceType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceType gets a reference to the given NullableString and assigns it to the InstanceType field.
+func (o *ClusterNodeDto) SetInstanceType(v string) {
+	o.InstanceType.Set(&v)
+}
+// SetInstanceTypeNil sets the value for InstanceType to be an explicit nil
+func (o *ClusterNodeDto) SetInstanceTypeNil() {
+	o.InstanceType.Set(nil)
+}
+
+// UnsetInstanceType ensures that no value is present for InstanceType, not even an explicit nil
+func (o *ClusterNodeDto) UnsetInstanceType() {
+	o.InstanceType.Unset()
+}
+
 // GetKernelVersion returns the KernelVersion field value
 func (o *ClusterNodeDto) GetKernelVersion() string {
 	if o == nil {
@@ -237,6 +310,30 @@ func (o *ClusterNodeDto) GetLabelsOk() (map[string]string, bool) {
 // SetLabels sets field value
 func (o *ClusterNodeDto) SetLabels(v map[string]string) {
 	o.Labels = v
+}
+
+// GetMetricsUsage returns the MetricsUsage field value
+func (o *ClusterNodeDto) GetMetricsUsage() MetricsUsageDto {
+	if o == nil {
+		var ret MetricsUsageDto
+		return ret
+	}
+
+	return o.MetricsUsage
+}
+
+// GetMetricsUsageOk returns a tuple with the MetricsUsage field value
+// and a boolean to check if the value has been set.
+func (o *ClusterNodeDto) GetMetricsUsageOk() (*MetricsUsageDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MetricsUsage, true
+}
+
+// SetMetricsUsage sets field value
+func (o *ClusterNodeDto) SetMetricsUsage(v MetricsUsageDto) {
+	o.MetricsUsage = v
 }
 
 // GetName returns the Name field value
@@ -359,6 +456,30 @@ func (o *ClusterNodeDto) SetResourcesAllocatable(v NodeResourceDto) {
 	o.ResourcesAllocatable = v
 }
 
+// GetResourcesAllocated returns the ResourcesAllocated field value
+func (o *ClusterNodeDto) GetResourcesAllocated() NodeResourceAllocatedDto {
+	if o == nil {
+		var ret NodeResourceAllocatedDto
+		return ret
+	}
+
+	return o.ResourcesAllocated
+}
+
+// GetResourcesAllocatedOk returns a tuple with the ResourcesAllocated field value
+// and a boolean to check if the value has been set.
+func (o *ClusterNodeDto) GetResourcesAllocatedOk() (*NodeResourceAllocatedDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ResourcesAllocated, true
+}
+
+// SetResourcesAllocated sets field value
+func (o *ClusterNodeDto) SetResourcesAllocated(v NodeResourceAllocatedDto) {
+	o.ResourcesAllocated = v
+}
+
 // GetTaints returns the Taints field value
 func (o *ClusterNodeDto) GetTaints() []NodeTaintDto {
 	if o == nil {
@@ -421,14 +542,20 @@ func (o ClusterNodeDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["annotations"] = o.Annotations
 	toSerialize["architecture"] = o.Architecture
 	toSerialize["conditions"] = o.Conditions
+	toSerialize["created_at"] = o.CreatedAt
+	if o.InstanceType.IsSet() {
+		toSerialize["instance_type"] = o.InstanceType.Get()
+	}
 	toSerialize["kernel_version"] = o.KernelVersion
 	toSerialize["kubelet_version"] = o.KubeletVersion
 	toSerialize["labels"] = o.Labels
+	toSerialize["metrics_usage"] = o.MetricsUsage
 	toSerialize["name"] = o.Name
 	toSerialize["operating_system"] = o.OperatingSystem
 	toSerialize["os_image"] = o.OsImage
 	toSerialize["pods"] = o.Pods
 	toSerialize["resources_allocatable"] = o.ResourcesAllocatable
+	toSerialize["resources_allocated"] = o.ResourcesAllocated
 	toSerialize["taints"] = o.Taints
 	toSerialize["unschedulable"] = o.Unschedulable
 	return toSerialize, nil
@@ -443,14 +570,17 @@ func (o *ClusterNodeDto) UnmarshalJSON(data []byte) (err error) {
 		"annotations",
 		"architecture",
 		"conditions",
+		"created_at",
 		"kernel_version",
 		"kubelet_version",
 		"labels",
+		"metrics_usage",
 		"name",
 		"operating_system",
 		"os_image",
 		"pods",
 		"resources_allocatable",
+		"resources_allocated",
 		"taints",
 		"unschedulable",
 	}

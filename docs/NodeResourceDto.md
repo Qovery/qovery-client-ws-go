@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CpuMilli** | **int64** |  | 
-**EphemeralStorageGib** | **int64** |  | 
+**EphemeralStorageMib** | **int64** |  | 
 **MemoryMib** | **int64** |  | 
 **Pods** | **int64** |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewNodeResourceDto
 
-`func NewNodeResourceDto(cpuMilli int64, ephemeralStorageGib int64, memoryMib int64, pods int64, ) *NodeResourceDto`
+`func NewNodeResourceDto(cpuMilli int64, ephemeralStorageMib int64, memoryMib int64, pods int64, ) *NodeResourceDto`
 
 NewNodeResourceDto instantiates a new NodeResourceDto object
 This constructor will assign default values to properties that have it defined,
@@ -48,24 +48,24 @@ and a boolean to check if the value has been set.
 SetCpuMilli sets CpuMilli field to given value.
 
 
-### GetEphemeralStorageGib
+### GetEphemeralStorageMib
 
-`func (o *NodeResourceDto) GetEphemeralStorageGib() int64`
+`func (o *NodeResourceDto) GetEphemeralStorageMib() int64`
 
-GetEphemeralStorageGib returns the EphemeralStorageGib field if non-nil, zero value otherwise.
+GetEphemeralStorageMib returns the EphemeralStorageMib field if non-nil, zero value otherwise.
 
-### GetEphemeralStorageGibOk
+### GetEphemeralStorageMibOk
 
-`func (o *NodeResourceDto) GetEphemeralStorageGibOk() (*int64, bool)`
+`func (o *NodeResourceDto) GetEphemeralStorageMibOk() (*int64, bool)`
 
-GetEphemeralStorageGibOk returns a tuple with the EphemeralStorageGib field if it's non-nil, zero value otherwise
+GetEphemeralStorageMibOk returns a tuple with the EphemeralStorageMib field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEphemeralStorageGib
+### SetEphemeralStorageMib
 
-`func (o *NodeResourceDto) SetEphemeralStorageGib(v int64)`
+`func (o *NodeResourceDto) SetEphemeralStorageMib(v int64)`
 
-SetEphemeralStorageGib sets EphemeralStorageGib field to given value.
+SetEphemeralStorageMib sets EphemeralStorageMib field to given value.
 
 
 ### GetMemoryMib

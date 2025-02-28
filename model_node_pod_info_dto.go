@@ -24,14 +24,16 @@ var _ MappedNullable = &NodePodInfoDto{}
 type NodePodInfoDto struct {
 	CpuMilliLimit NullableInt32 `json:"cpu_milli_limit,omitempty"`
 	CpuMilliRequest NullableInt32 `json:"cpu_milli_request,omitempty"`
-	EnvironmentId NullableString `json:"environment_id,omitempty"`
+	CreatedAt int64 `json:"created_at"`
+	ErrorContainerStatuses []NodePodErrorStatusDto `json:"error_container_statuses"`
 	ImagesVersion map[string]string `json:"images_version"`
 	MemoryMibLimit NullableInt32 `json:"memory_mib_limit,omitempty"`
 	MemoryMibRequest NullableInt32 `json:"memory_mib_request,omitempty"`
+	MetricsUsage MetricsUsageDto `json:"metrics_usage"`
 	Name string `json:"name"`
 	Namespace string `json:"namespace"`
-	ProjectId NullableString `json:"project_id,omitempty"`
-	ServiceId NullableString `json:"service_id,omitempty"`
+	QoveryServiceInfo NullablePodQoveryServiceInfoDto `json:"qovery_service_info,omitempty"`
+	RestartCount int32 `json:"restart_count"`
 }
 
 type _NodePodInfoDto NodePodInfoDto
@@ -40,11 +42,15 @@ type _NodePodInfoDto NodePodInfoDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNodePodInfoDto(imagesVersion map[string]string, name string, namespace string) *NodePodInfoDto {
+func NewNodePodInfoDto(createdAt int64, errorContainerStatuses []NodePodErrorStatusDto, imagesVersion map[string]string, metricsUsage MetricsUsageDto, name string, namespace string, restartCount int32) *NodePodInfoDto {
 	this := NodePodInfoDto{}
+	this.CreatedAt = createdAt
+	this.ErrorContainerStatuses = errorContainerStatuses
 	this.ImagesVersion = imagesVersion
+	this.MetricsUsage = metricsUsage
 	this.Name = name
 	this.Namespace = namespace
+	this.RestartCount = restartCount
 	return &this
 }
 
@@ -140,46 +146,52 @@ func (o *NodePodInfoDto) UnsetCpuMilliRequest() {
 	o.CpuMilliRequest.Unset()
 }
 
-// GetEnvironmentId returns the EnvironmentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NodePodInfoDto) GetEnvironmentId() string {
-	if o == nil || IsNil(o.EnvironmentId.Get()) {
-		var ret string
+// GetCreatedAt returns the CreatedAt field value
+func (o *NodePodInfoDto) GetCreatedAt() int64 {
+	if o == nil {
+		var ret int64
 		return ret
 	}
-	return *o.EnvironmentId.Get()
+
+	return o.CreatedAt
 }
 
-// GetEnvironmentIdOk returns a tuple with the EnvironmentId field value if set, nil otherwise
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NodePodInfoDto) GetEnvironmentIdOk() (*string, bool) {
+func (o *NodePodInfoDto) GetCreatedAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.EnvironmentId.Get(), o.EnvironmentId.IsSet()
+	return &o.CreatedAt, true
 }
 
-// HasEnvironmentId returns a boolean if a field has been set.
-func (o *NodePodInfoDto) HasEnvironmentId() bool {
-	if o != nil && o.EnvironmentId.IsSet() {
-		return true
+// SetCreatedAt sets field value
+func (o *NodePodInfoDto) SetCreatedAt(v int64) {
+	o.CreatedAt = v
+}
+
+// GetErrorContainerStatuses returns the ErrorContainerStatuses field value
+func (o *NodePodInfoDto) GetErrorContainerStatuses() []NodePodErrorStatusDto {
+	if o == nil {
+		var ret []NodePodErrorStatusDto
+		return ret
 	}
 
-	return false
+	return o.ErrorContainerStatuses
 }
 
-// SetEnvironmentId gets a reference to the given NullableString and assigns it to the EnvironmentId field.
-func (o *NodePodInfoDto) SetEnvironmentId(v string) {
-	o.EnvironmentId.Set(&v)
-}
-// SetEnvironmentIdNil sets the value for EnvironmentId to be an explicit nil
-func (o *NodePodInfoDto) SetEnvironmentIdNil() {
-	o.EnvironmentId.Set(nil)
+// GetErrorContainerStatusesOk returns a tuple with the ErrorContainerStatuses field value
+// and a boolean to check if the value has been set.
+func (o *NodePodInfoDto) GetErrorContainerStatusesOk() ([]NodePodErrorStatusDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ErrorContainerStatuses, true
 }
 
-// UnsetEnvironmentId ensures that no value is present for EnvironmentId, not even an explicit nil
-func (o *NodePodInfoDto) UnsetEnvironmentId() {
-	o.EnvironmentId.Unset()
+// SetErrorContainerStatuses sets field value
+func (o *NodePodInfoDto) SetErrorContainerStatuses(v []NodePodErrorStatusDto) {
+	o.ErrorContainerStatuses = v
 }
 
 // GetImagesVersion returns the ImagesVersion field value
@@ -290,6 +302,30 @@ func (o *NodePodInfoDto) UnsetMemoryMibRequest() {
 	o.MemoryMibRequest.Unset()
 }
 
+// GetMetricsUsage returns the MetricsUsage field value
+func (o *NodePodInfoDto) GetMetricsUsage() MetricsUsageDto {
+	if o == nil {
+		var ret MetricsUsageDto
+		return ret
+	}
+
+	return o.MetricsUsage
+}
+
+// GetMetricsUsageOk returns a tuple with the MetricsUsage field value
+// and a boolean to check if the value has been set.
+func (o *NodePodInfoDto) GetMetricsUsageOk() (*MetricsUsageDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MetricsUsage, true
+}
+
+// SetMetricsUsage sets field value
+func (o *NodePodInfoDto) SetMetricsUsage(v MetricsUsageDto) {
+	o.MetricsUsage = v
+}
+
 // GetName returns the Name field value
 func (o *NodePodInfoDto) GetName() string {
 	if o == nil {
@@ -338,88 +374,70 @@ func (o *NodePodInfoDto) SetNamespace(v string) {
 	o.Namespace = v
 }
 
-// GetProjectId returns the ProjectId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NodePodInfoDto) GetProjectId() string {
-	if o == nil || IsNil(o.ProjectId.Get()) {
-		var ret string
+// GetQoveryServiceInfo returns the QoveryServiceInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NodePodInfoDto) GetQoveryServiceInfo() PodQoveryServiceInfoDto {
+	if o == nil || IsNil(o.QoveryServiceInfo.Get()) {
+		var ret PodQoveryServiceInfoDto
 		return ret
 	}
-	return *o.ProjectId.Get()
+	return *o.QoveryServiceInfo.Get()
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
+// GetQoveryServiceInfoOk returns a tuple with the QoveryServiceInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NodePodInfoDto) GetProjectIdOk() (*string, bool) {
+func (o *NodePodInfoDto) GetQoveryServiceInfoOk() (*PodQoveryServiceInfoDto, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ProjectId.Get(), o.ProjectId.IsSet()
+	return o.QoveryServiceInfo.Get(), o.QoveryServiceInfo.IsSet()
 }
 
-// HasProjectId returns a boolean if a field has been set.
-func (o *NodePodInfoDto) HasProjectId() bool {
-	if o != nil && o.ProjectId.IsSet() {
+// HasQoveryServiceInfo returns a boolean if a field has been set.
+func (o *NodePodInfoDto) HasQoveryServiceInfo() bool {
+	if o != nil && o.QoveryServiceInfo.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetProjectId gets a reference to the given NullableString and assigns it to the ProjectId field.
-func (o *NodePodInfoDto) SetProjectId(v string) {
-	o.ProjectId.Set(&v)
+// SetQoveryServiceInfo gets a reference to the given NullablePodQoveryServiceInfoDto and assigns it to the QoveryServiceInfo field.
+func (o *NodePodInfoDto) SetQoveryServiceInfo(v PodQoveryServiceInfoDto) {
+	o.QoveryServiceInfo.Set(&v)
 }
-// SetProjectIdNil sets the value for ProjectId to be an explicit nil
-func (o *NodePodInfoDto) SetProjectIdNil() {
-	o.ProjectId.Set(nil)
-}
-
-// UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
-func (o *NodePodInfoDto) UnsetProjectId() {
-	o.ProjectId.Unset()
+// SetQoveryServiceInfoNil sets the value for QoveryServiceInfo to be an explicit nil
+func (o *NodePodInfoDto) SetQoveryServiceInfoNil() {
+	o.QoveryServiceInfo.Set(nil)
 }
 
-// GetServiceId returns the ServiceId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NodePodInfoDto) GetServiceId() string {
-	if o == nil || IsNil(o.ServiceId.Get()) {
-		var ret string
+// UnsetQoveryServiceInfo ensures that no value is present for QoveryServiceInfo, not even an explicit nil
+func (o *NodePodInfoDto) UnsetQoveryServiceInfo() {
+	o.QoveryServiceInfo.Unset()
+}
+
+// GetRestartCount returns the RestartCount field value
+func (o *NodePodInfoDto) GetRestartCount() int32 {
+	if o == nil {
+		var ret int32
 		return ret
 	}
-	return *o.ServiceId.Get()
+
+	return o.RestartCount
 }
 
-// GetServiceIdOk returns a tuple with the ServiceId field value if set, nil otherwise
+// GetRestartCountOk returns a tuple with the RestartCount field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NodePodInfoDto) GetServiceIdOk() (*string, bool) {
+func (o *NodePodInfoDto) GetRestartCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ServiceId.Get(), o.ServiceId.IsSet()
+	return &o.RestartCount, true
 }
 
-// HasServiceId returns a boolean if a field has been set.
-func (o *NodePodInfoDto) HasServiceId() bool {
-	if o != nil && o.ServiceId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetServiceId gets a reference to the given NullableString and assigns it to the ServiceId field.
-func (o *NodePodInfoDto) SetServiceId(v string) {
-	o.ServiceId.Set(&v)
-}
-// SetServiceIdNil sets the value for ServiceId to be an explicit nil
-func (o *NodePodInfoDto) SetServiceIdNil() {
-	o.ServiceId.Set(nil)
-}
-
-// UnsetServiceId ensures that no value is present for ServiceId, not even an explicit nil
-func (o *NodePodInfoDto) UnsetServiceId() {
-	o.ServiceId.Unset()
+// SetRestartCount sets field value
+func (o *NodePodInfoDto) SetRestartCount(v int32) {
+	o.RestartCount = v
 }
 
 func (o NodePodInfoDto) MarshalJSON() ([]byte, error) {
@@ -438,9 +456,8 @@ func (o NodePodInfoDto) ToMap() (map[string]interface{}, error) {
 	if o.CpuMilliRequest.IsSet() {
 		toSerialize["cpu_milli_request"] = o.CpuMilliRequest.Get()
 	}
-	if o.EnvironmentId.IsSet() {
-		toSerialize["environment_id"] = o.EnvironmentId.Get()
-	}
+	toSerialize["created_at"] = o.CreatedAt
+	toSerialize["error_container_statuses"] = o.ErrorContainerStatuses
 	toSerialize["images_version"] = o.ImagesVersion
 	if o.MemoryMibLimit.IsSet() {
 		toSerialize["memory_mib_limit"] = o.MemoryMibLimit.Get()
@@ -448,14 +465,13 @@ func (o NodePodInfoDto) ToMap() (map[string]interface{}, error) {
 	if o.MemoryMibRequest.IsSet() {
 		toSerialize["memory_mib_request"] = o.MemoryMibRequest.Get()
 	}
+	toSerialize["metrics_usage"] = o.MetricsUsage
 	toSerialize["name"] = o.Name
 	toSerialize["namespace"] = o.Namespace
-	if o.ProjectId.IsSet() {
-		toSerialize["project_id"] = o.ProjectId.Get()
+	if o.QoveryServiceInfo.IsSet() {
+		toSerialize["qovery_service_info"] = o.QoveryServiceInfo.Get()
 	}
-	if o.ServiceId.IsSet() {
-		toSerialize["service_id"] = o.ServiceId.Get()
-	}
+	toSerialize["restart_count"] = o.RestartCount
 	return toSerialize, nil
 }
 
@@ -464,9 +480,13 @@ func (o *NodePodInfoDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"created_at",
+		"error_container_statuses",
 		"images_version",
+		"metrics_usage",
 		"name",
 		"namespace",
+		"restart_count",
 	}
 
 	allProperties := make(map[string]interface{})

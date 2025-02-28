@@ -24,6 +24,7 @@ var _ MappedNullable = &ClusterStatusDto{}
 type ClusterStatusDto struct {
 	ComputedStatus ClusterComputedStatusDto `json:"computed_status"`
 	Nodes []ClusterNodeDto `json:"nodes"`
+	Pvcs []PvcInfoDto `json:"pvcs"`
 }
 
 type _ClusterStatusDto ClusterStatusDto
@@ -32,10 +33,11 @@ type _ClusterStatusDto ClusterStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodes []ClusterNodeDto) *ClusterStatusDto {
+func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodes []ClusterNodeDto, pvcs []PvcInfoDto) *ClusterStatusDto {
 	this := ClusterStatusDto{}
 	this.ComputedStatus = computedStatus
 	this.Nodes = nodes
+	this.Pvcs = pvcs
 	return &this
 }
 
@@ -95,6 +97,30 @@ func (o *ClusterStatusDto) SetNodes(v []ClusterNodeDto) {
 	o.Nodes = v
 }
 
+// GetPvcs returns the Pvcs field value
+func (o *ClusterStatusDto) GetPvcs() []PvcInfoDto {
+	if o == nil {
+		var ret []PvcInfoDto
+		return ret
+	}
+
+	return o.Pvcs
+}
+
+// GetPvcsOk returns a tuple with the Pvcs field value
+// and a boolean to check if the value has been set.
+func (o *ClusterStatusDto) GetPvcsOk() ([]PvcInfoDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Pvcs, true
+}
+
+// SetPvcs sets field value
+func (o *ClusterStatusDto) SetPvcs(v []PvcInfoDto) {
+	o.Pvcs = v
+}
+
 func (o ClusterStatusDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -107,6 +133,7 @@ func (o ClusterStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["computed_status"] = o.ComputedStatus
 	toSerialize["nodes"] = o.Nodes
+	toSerialize["pvcs"] = o.Pvcs
 	return toSerialize, nil
 }
 
@@ -117,6 +144,7 @@ func (o *ClusterStatusDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"computed_status",
 		"nodes",
+		"pvcs",
 	}
 
 	allProperties := make(map[string]interface{})
