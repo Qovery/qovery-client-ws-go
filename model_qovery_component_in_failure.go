@@ -18,21 +18,21 @@ import (
 
 // QoveryComponentInFailure - struct for QoveryComponentInFailure
 type QoveryComponentInFailure struct {
-	QoveryComponentInFailureOneOf *QoveryComponentInFailureOneOf
-	QoveryComponentInFailureOneOf1 *QoveryComponentInFailureOneOf1
+	MissingComponentValue *MissingComponentValue
+	PodInErrorValue *PodInErrorValue
 }
 
-// QoveryComponentInFailureOneOfAsQoveryComponentInFailure is a convenience function that returns QoveryComponentInFailureOneOf wrapped in QoveryComponentInFailure
-func QoveryComponentInFailureOneOfAsQoveryComponentInFailure(v *QoveryComponentInFailureOneOf) QoveryComponentInFailure {
+// MissingComponentValueAsQoveryComponentInFailure is a convenience function that returns MissingComponentValue wrapped in QoveryComponentInFailure
+func MissingComponentValueAsQoveryComponentInFailure(v *MissingComponentValue) QoveryComponentInFailure {
 	return QoveryComponentInFailure{
-		QoveryComponentInFailureOneOf: v,
+		MissingComponentValue: v,
 	}
 }
 
-// QoveryComponentInFailureOneOf1AsQoveryComponentInFailure is a convenience function that returns QoveryComponentInFailureOneOf1 wrapped in QoveryComponentInFailure
-func QoveryComponentInFailureOneOf1AsQoveryComponentInFailure(v *QoveryComponentInFailureOneOf1) QoveryComponentInFailure {
+// PodInErrorValueAsQoveryComponentInFailure is a convenience function that returns PodInErrorValue wrapped in QoveryComponentInFailure
+func PodInErrorValueAsQoveryComponentInFailure(v *PodInErrorValue) QoveryComponentInFailure {
 	return QoveryComponentInFailure{
-		QoveryComponentInFailureOneOf1: v,
+		PodInErrorValue: v,
 	}
 }
 
@@ -41,36 +41,36 @@ func QoveryComponentInFailureOneOf1AsQoveryComponentInFailure(v *QoveryComponent
 func (dst *QoveryComponentInFailure) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into QoveryComponentInFailureOneOf
-	err = newStrictDecoder(data).Decode(&dst.QoveryComponentInFailureOneOf)
+	// try to unmarshal data into MissingComponentValue
+	err = newStrictDecoder(data).Decode(&dst.MissingComponentValue)
 	if err == nil {
-		jsonQoveryComponentInFailureOneOf, _ := json.Marshal(dst.QoveryComponentInFailureOneOf)
-		if string(jsonQoveryComponentInFailureOneOf) == "{}" { // empty struct
-			dst.QoveryComponentInFailureOneOf = nil
+		jsonMissingComponentValue, _ := json.Marshal(dst.MissingComponentValue)
+		if string(jsonMissingComponentValue) == "{}" { // empty struct
+			dst.MissingComponentValue = nil
 		} else {
 			match++
 		}
 	} else {
-		dst.QoveryComponentInFailureOneOf = nil
+		dst.MissingComponentValue = nil
 	}
 
-	// try to unmarshal data into QoveryComponentInFailureOneOf1
-	err = newStrictDecoder(data).Decode(&dst.QoveryComponentInFailureOneOf1)
+	// try to unmarshal data into PodInErrorValue
+	err = newStrictDecoder(data).Decode(&dst.PodInErrorValue)
 	if err == nil {
-		jsonQoveryComponentInFailureOneOf1, _ := json.Marshal(dst.QoveryComponentInFailureOneOf1)
-		if string(jsonQoveryComponentInFailureOneOf1) == "{}" { // empty struct
-			dst.QoveryComponentInFailureOneOf1 = nil
+		jsonPodInErrorValue, _ := json.Marshal(dst.PodInErrorValue)
+		if string(jsonPodInErrorValue) == "{}" { // empty struct
+			dst.PodInErrorValue = nil
 		} else {
 			match++
 		}
 	} else {
-		dst.QoveryComponentInFailureOneOf1 = nil
+		dst.PodInErrorValue = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.QoveryComponentInFailureOneOf = nil
-		dst.QoveryComponentInFailureOneOf1 = nil
+		dst.MissingComponentValue = nil
+		dst.PodInErrorValue = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(QoveryComponentInFailure)")
 	} else if match == 1 {
@@ -82,12 +82,12 @@ func (dst *QoveryComponentInFailure) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src QoveryComponentInFailure) MarshalJSON() ([]byte, error) {
-	if src.QoveryComponentInFailureOneOf != nil {
-		return json.Marshal(&src.QoveryComponentInFailureOneOf)
+	if src.MissingComponentValue != nil {
+		return json.Marshal(&src.MissingComponentValue)
 	}
 
-	if src.QoveryComponentInFailureOneOf1 != nil {
-		return json.Marshal(&src.QoveryComponentInFailureOneOf1)
+	if src.PodInErrorValue != nil {
+		return json.Marshal(&src.PodInErrorValue)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -98,12 +98,12 @@ func (obj *QoveryComponentInFailure) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.QoveryComponentInFailureOneOf != nil {
-		return obj.QoveryComponentInFailureOneOf
+	if obj.MissingComponentValue != nil {
+		return obj.MissingComponentValue
 	}
 
-	if obj.QoveryComponentInFailureOneOf1 != nil {
-		return obj.QoveryComponentInFailureOneOf1
+	if obj.PodInErrorValue != nil {
+		return obj.PodInErrorValue
 	}
 
 	// all schemas are nil

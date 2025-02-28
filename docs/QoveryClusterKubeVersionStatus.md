@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ok** | [**QoveryClusterKubeVersionStatusOneOfOk**](QoveryClusterKubeVersionStatusOneOfOk.md) |  | 
-**Drift** | [**QoveryClusterKubeVersionStatusOneOf1Drift**](QoveryClusterKubeVersionStatusOneOf1Drift.md) |  | 
+**KubeVersion** | **string** |  | 
+**Type** | **string** |  | 
+**ExpectedKubeVersion** | **string** |  | 
 
 ## Methods
 
 ### NewQoveryClusterKubeVersionStatus
 
-`func NewQoveryClusterKubeVersionStatus(ok QoveryClusterKubeVersionStatusOneOfOk, drift QoveryClusterKubeVersionStatusOneOf1Drift, ) *QoveryClusterKubeVersionStatus`
+`func NewQoveryClusterKubeVersionStatus(kubeVersion string, type_ string, expectedKubeVersion string, ) *QoveryClusterKubeVersionStatus`
 
 NewQoveryClusterKubeVersionStatus instantiates a new QoveryClusterKubeVersionStatus object
 This constructor will assign default values to properties that have it defined,
@@ -26,44 +27,64 @@ NewQoveryClusterKubeVersionStatusWithDefaults instantiates a new QoveryClusterKu
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetOk
+### GetKubeVersion
 
-`func (o *QoveryClusterKubeVersionStatus) GetOk() QoveryClusterKubeVersionStatusOneOfOk`
+`func (o *QoveryClusterKubeVersionStatus) GetKubeVersion() string`
 
-GetOk returns the Ok field if non-nil, zero value otherwise.
+GetKubeVersion returns the KubeVersion field if non-nil, zero value otherwise.
 
-### GetOkOk
+### GetKubeVersionOk
 
-`func (o *QoveryClusterKubeVersionStatus) GetOkOk() (*QoveryClusterKubeVersionStatusOneOfOk, bool)`
+`func (o *QoveryClusterKubeVersionStatus) GetKubeVersionOk() (*string, bool)`
 
-GetOkOk returns a tuple with the Ok field if it's non-nil, zero value otherwise
+GetKubeVersionOk returns a tuple with the KubeVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOk
+### SetKubeVersion
 
-`func (o *QoveryClusterKubeVersionStatus) SetOk(v QoveryClusterKubeVersionStatusOneOfOk)`
+`func (o *QoveryClusterKubeVersionStatus) SetKubeVersion(v string)`
 
-SetOk sets Ok field to given value.
+SetKubeVersion sets KubeVersion field to given value.
 
 
-### GetDrift
+### GetType
 
-`func (o *QoveryClusterKubeVersionStatus) GetDrift() QoveryClusterKubeVersionStatusOneOf1Drift`
+`func (o *QoveryClusterKubeVersionStatus) GetType() string`
 
-GetDrift returns the Drift field if non-nil, zero value otherwise.
+GetType returns the Type field if non-nil, zero value otherwise.
 
-### GetDriftOk
+### GetTypeOk
 
-`func (o *QoveryClusterKubeVersionStatus) GetDriftOk() (*QoveryClusterKubeVersionStatusOneOf1Drift, bool)`
+`func (o *QoveryClusterKubeVersionStatus) GetTypeOk() (*string, bool)`
 
-GetDriftOk returns a tuple with the Drift field if it's non-nil, zero value otherwise
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDrift
+### SetType
 
-`func (o *QoveryClusterKubeVersionStatus) SetDrift(v QoveryClusterKubeVersionStatusOneOf1Drift)`
+`func (o *QoveryClusterKubeVersionStatus) SetType(v string)`
 
-SetDrift sets Drift field to given value.
+SetType sets Type field to given value.
+
+
+### GetExpectedKubeVersion
+
+`func (o *QoveryClusterKubeVersionStatus) GetExpectedKubeVersion() string`
+
+GetExpectedKubeVersion returns the ExpectedKubeVersion field if non-nil, zero value otherwise.
+
+### GetExpectedKubeVersionOk
+
+`func (o *QoveryClusterKubeVersionStatus) GetExpectedKubeVersionOk() (*string, bool)`
+
+GetExpectedKubeVersionOk returns a tuple with the ExpectedKubeVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpectedKubeVersion
+
+`func (o *QoveryClusterKubeVersionStatus) SetExpectedKubeVersion(v string)`
+
+SetExpectedKubeVersion sets ExpectedKubeVersion field to given value.
 
 
 

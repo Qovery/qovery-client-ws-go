@@ -18,29 +18,29 @@ import (
 
 // QoveryClusterKubeVersionStatus - struct for QoveryClusterKubeVersionStatus
 type QoveryClusterKubeVersionStatus struct {
-	QoveryClusterKubeVersionStatusOneOf *QoveryClusterKubeVersionStatusOneOf
-	QoveryClusterKubeVersionStatusOneOf1 *QoveryClusterKubeVersionStatusOneOf1
-	String *string
+	KubeVersionStatusDriftValue *KubeVersionStatusDriftValue
+	KubeVersionStatusOkValue *KubeVersionStatusOkValue
+	KubeVersionStatusUnknownValue *KubeVersionStatusUnknownValue
 }
 
-// QoveryClusterKubeVersionStatusOneOfAsQoveryClusterKubeVersionStatus is a convenience function that returns QoveryClusterKubeVersionStatusOneOf wrapped in QoveryClusterKubeVersionStatus
-func QoveryClusterKubeVersionStatusOneOfAsQoveryClusterKubeVersionStatus(v *QoveryClusterKubeVersionStatusOneOf) QoveryClusterKubeVersionStatus {
+// KubeVersionStatusDriftValueAsQoveryClusterKubeVersionStatus is a convenience function that returns KubeVersionStatusDriftValue wrapped in QoveryClusterKubeVersionStatus
+func KubeVersionStatusDriftValueAsQoveryClusterKubeVersionStatus(v *KubeVersionStatusDriftValue) QoveryClusterKubeVersionStatus {
 	return QoveryClusterKubeVersionStatus{
-		QoveryClusterKubeVersionStatusOneOf: v,
+		KubeVersionStatusDriftValue: v,
 	}
 }
 
-// QoveryClusterKubeVersionStatusOneOf1AsQoveryClusterKubeVersionStatus is a convenience function that returns QoveryClusterKubeVersionStatusOneOf1 wrapped in QoveryClusterKubeVersionStatus
-func QoveryClusterKubeVersionStatusOneOf1AsQoveryClusterKubeVersionStatus(v *QoveryClusterKubeVersionStatusOneOf1) QoveryClusterKubeVersionStatus {
+// KubeVersionStatusOkValueAsQoveryClusterKubeVersionStatus is a convenience function that returns KubeVersionStatusOkValue wrapped in QoveryClusterKubeVersionStatus
+func KubeVersionStatusOkValueAsQoveryClusterKubeVersionStatus(v *KubeVersionStatusOkValue) QoveryClusterKubeVersionStatus {
 	return QoveryClusterKubeVersionStatus{
-		QoveryClusterKubeVersionStatusOneOf1: v,
+		KubeVersionStatusOkValue: v,
 	}
 }
 
-// stringAsQoveryClusterKubeVersionStatus is a convenience function that returns string wrapped in QoveryClusterKubeVersionStatus
-func StringAsQoveryClusterKubeVersionStatus(v *string) QoveryClusterKubeVersionStatus {
+// KubeVersionStatusUnknownValueAsQoveryClusterKubeVersionStatus is a convenience function that returns KubeVersionStatusUnknownValue wrapped in QoveryClusterKubeVersionStatus
+func KubeVersionStatusUnknownValueAsQoveryClusterKubeVersionStatus(v *KubeVersionStatusUnknownValue) QoveryClusterKubeVersionStatus {
 	return QoveryClusterKubeVersionStatus{
-		String: v,
+		KubeVersionStatusUnknownValue: v,
 	}
 }
 
@@ -49,50 +49,50 @@ func StringAsQoveryClusterKubeVersionStatus(v *string) QoveryClusterKubeVersionS
 func (dst *QoveryClusterKubeVersionStatus) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into QoveryClusterKubeVersionStatusOneOf
-	err = newStrictDecoder(data).Decode(&dst.QoveryClusterKubeVersionStatusOneOf)
+	// try to unmarshal data into KubeVersionStatusDriftValue
+	err = newStrictDecoder(data).Decode(&dst.KubeVersionStatusDriftValue)
 	if err == nil {
-		jsonQoveryClusterKubeVersionStatusOneOf, _ := json.Marshal(dst.QoveryClusterKubeVersionStatusOneOf)
-		if string(jsonQoveryClusterKubeVersionStatusOneOf) == "{}" { // empty struct
-			dst.QoveryClusterKubeVersionStatusOneOf = nil
+		jsonKubeVersionStatusDriftValue, _ := json.Marshal(dst.KubeVersionStatusDriftValue)
+		if string(jsonKubeVersionStatusDriftValue) == "{}" { // empty struct
+			dst.KubeVersionStatusDriftValue = nil
 		} else {
 			match++
 		}
 	} else {
-		dst.QoveryClusterKubeVersionStatusOneOf = nil
+		dst.KubeVersionStatusDriftValue = nil
 	}
 
-	// try to unmarshal data into QoveryClusterKubeVersionStatusOneOf1
-	err = newStrictDecoder(data).Decode(&dst.QoveryClusterKubeVersionStatusOneOf1)
+	// try to unmarshal data into KubeVersionStatusOkValue
+	err = newStrictDecoder(data).Decode(&dst.KubeVersionStatusOkValue)
 	if err == nil {
-		jsonQoveryClusterKubeVersionStatusOneOf1, _ := json.Marshal(dst.QoveryClusterKubeVersionStatusOneOf1)
-		if string(jsonQoveryClusterKubeVersionStatusOneOf1) == "{}" { // empty struct
-			dst.QoveryClusterKubeVersionStatusOneOf1 = nil
+		jsonKubeVersionStatusOkValue, _ := json.Marshal(dst.KubeVersionStatusOkValue)
+		if string(jsonKubeVersionStatusOkValue) == "{}" { // empty struct
+			dst.KubeVersionStatusOkValue = nil
 		} else {
 			match++
 		}
 	} else {
-		dst.QoveryClusterKubeVersionStatusOneOf1 = nil
+		dst.KubeVersionStatusOkValue = nil
 	}
 
-	// try to unmarshal data into String
-	err = newStrictDecoder(data).Decode(&dst.String)
+	// try to unmarshal data into KubeVersionStatusUnknownValue
+	err = newStrictDecoder(data).Decode(&dst.KubeVersionStatusUnknownValue)
 	if err == nil {
-		jsonString, _ := json.Marshal(dst.String)
-		if string(jsonString) == "{}" { // empty struct
-			dst.String = nil
+		jsonKubeVersionStatusUnknownValue, _ := json.Marshal(dst.KubeVersionStatusUnknownValue)
+		if string(jsonKubeVersionStatusUnknownValue) == "{}" { // empty struct
+			dst.KubeVersionStatusUnknownValue = nil
 		} else {
 			match++
 		}
 	} else {
-		dst.String = nil
+		dst.KubeVersionStatusUnknownValue = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.QoveryClusterKubeVersionStatusOneOf = nil
-		dst.QoveryClusterKubeVersionStatusOneOf1 = nil
-		dst.String = nil
+		dst.KubeVersionStatusDriftValue = nil
+		dst.KubeVersionStatusOkValue = nil
+		dst.KubeVersionStatusUnknownValue = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(QoveryClusterKubeVersionStatus)")
 	} else if match == 1 {
@@ -104,16 +104,16 @@ func (dst *QoveryClusterKubeVersionStatus) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src QoveryClusterKubeVersionStatus) MarshalJSON() ([]byte, error) {
-	if src.QoveryClusterKubeVersionStatusOneOf != nil {
-		return json.Marshal(&src.QoveryClusterKubeVersionStatusOneOf)
+	if src.KubeVersionStatusDriftValue != nil {
+		return json.Marshal(&src.KubeVersionStatusDriftValue)
 	}
 
-	if src.QoveryClusterKubeVersionStatusOneOf1 != nil {
-		return json.Marshal(&src.QoveryClusterKubeVersionStatusOneOf1)
+	if src.KubeVersionStatusOkValue != nil {
+		return json.Marshal(&src.KubeVersionStatusOkValue)
 	}
 
-	if src.String != nil {
-		return json.Marshal(&src.String)
+	if src.KubeVersionStatusUnknownValue != nil {
+		return json.Marshal(&src.KubeVersionStatusUnknownValue)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -124,16 +124,16 @@ func (obj *QoveryClusterKubeVersionStatus) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.QoveryClusterKubeVersionStatusOneOf != nil {
-		return obj.QoveryClusterKubeVersionStatusOneOf
+	if obj.KubeVersionStatusDriftValue != nil {
+		return obj.KubeVersionStatusDriftValue
 	}
 
-	if obj.QoveryClusterKubeVersionStatusOneOf1 != nil {
-		return obj.QoveryClusterKubeVersionStatusOneOf1
+	if obj.KubeVersionStatusOkValue != nil {
+		return obj.KubeVersionStatusOkValue
 	}
 
-	if obj.String != nil {
-		return obj.String
+	if obj.KubeVersionStatusUnknownValue != nil {
+		return obj.KubeVersionStatusUnknownValue
 	}
 
 	// all schemas are nil

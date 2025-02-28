@@ -801,23 +801,23 @@ components:
       example:
         global_status: RUNNING
         qovery_components_in_failure:
-        - POD_IN_ERROR:
-            reason: reason
-            container_name: container_name
-            level: ERROR
-            component_name: component_name
-            message: message
-            pod_name: pod_name
-        - POD_IN_ERROR:
-            reason: reason
-            container_name: container_name
-            level: ERROR
-            component_name: component_name
-            message: message
-            pod_name: pod_name
+        - reason: reason
+          container_name: container_name
+          level: ERROR
+          component_name: component_name
+          message: message
+          type: type
+          pod_name: pod_name
+        - reason: reason
+          container_name: container_name
+          level: ERROR
+          component_name: component_name
+          message: message
+          type: type
+          pod_name: pod_name
         kube_version_status:
-          Ok:
-            kube_version: kube_version
+          kube_version: kube_version
+          type: type
         is_max_nodes_size_reached: true
         node_warnings:
           key:
@@ -1055,23 +1055,23 @@ components:
         computed_status:
           global_status: RUNNING
           qovery_components_in_failure:
-          - POD_IN_ERROR:
-              reason: reason
-              container_name: container_name
-              level: ERROR
-              component_name: component_name
-              message: message
-              pod_name: pod_name
-          - POD_IN_ERROR:
-              reason: reason
-              container_name: container_name
-              level: ERROR
-              component_name: component_name
-              message: message
-              pod_name: pod_name
+          - reason: reason
+            container_name: container_name
+            level: ERROR
+            component_name: component_name
+            message: message
+            type: type
+            pod_name: pod_name
+          - reason: reason
+            container_name: container_name
+            level: ERROR
+            component_name: component_name
+            message: message
+            type: type
+            pod_name: pod_name
           kube_version_status:
-            Ok:
-              kube_version: kube_version
+            kube_version: kube_version
+            type: type
           is_max_nodes_size_reached: true
           node_warnings:
             key:
@@ -2614,6 +2614,36 @@ components:
       - jobs
       - project_id
       - state
+    KubeVersionStatusDriftValue:
+      properties:
+        expected_kube_version:
+          type: string
+        kube_version:
+          type: string
+        type:
+          type: string
+      required:
+      - expected_kube_version
+      - kube_version
+      - type
+    KubeVersionStatusOkValue:
+      example:
+        kube_version: kube_version
+        type: type
+      properties:
+        kube_version:
+          type: string
+        type:
+          type: string
+      required:
+      - kube_version
+      - type
+    KubeVersionStatusUnknownValue:
+      properties:
+        type:
+          type: string
+      required:
+      - type
     MetricDto:
       example:
         current_percent: 0
@@ -2699,6 +2729,15 @@ components:
           minimum: 0
           nullable: true
           type: integer
+    MissingComponentValue:
+      properties:
+        component_name:
+          type: string
+        type:
+          type: string
+      required:
+      - component_name
+      - type
     NodeAddressDto:
       example:
         address: address
@@ -2932,6 +2971,38 @@ components:
       required:
       - name
       - ports
+    PodInErrorValue:
+      example:
+        reason: reason
+        container_name: container_name
+        level: ERROR
+        component_name: component_name
+        message: message
+        type: type
+        pod_name: pod_name
+      properties:
+        component_name:
+          type: string
+        container_name:
+          type: string
+        level:
+          $ref: '#/components/schemas/QoveryComponentContainerStatusLevel'
+        message:
+          nullable: true
+          type: string
+        pod_name:
+          type: string
+        reason:
+          nullable: true
+          type: string
+        type:
+          type: string
+      required:
+      - component_name
+      - container_name
+      - level
+      - pod_name
+      - type
     PodQoveryServiceInfoDto:
       example:
         environment_id: environment_id
@@ -3078,12 +3149,16 @@ components:
       - namespace
       - pod_name
     QoveryClusterKubeVersionStatus:
+      discriminator:
+        mapping:
+          DRIFT: '#/components/schemas/KubeVersionStatusDriftValue'
+          OK: '#/components/schemas/KubeVersionStatusOkValue'
+          UNKNOWN: '#/components/schemas/KubeVersionStatusUnknownValue'
+        propertyName: type
       oneOf:
-      - $ref: '#/components/schemas/QoveryClusterKubeVersionStatus_oneOf'
-      - $ref: '#/components/schemas/QoveryClusterKubeVersionStatus_oneOf_1'
-      - enum:
-        - Unknown
-        type: string
+      - $ref: '#/components/schemas/KubeVersionStatusOkValue'
+      - $ref: '#/components/schemas/KubeVersionStatusDriftValue'
+      - $ref: '#/components/schemas/KubeVersionStatusUnknownValue'
     QoveryComponentContainerStatusIssue:
       properties:
         level:
@@ -3102,9 +3177,14 @@ components:
       - WARNING
       type: string
     QoveryComponentInFailure:
+      discriminator:
+        mapping:
+          MISSING_COMPONENT: '#/components/schemas/MissingComponentValue'
+          POD_IN_ERROR: '#/components/schemas/PodInErrorValue'
+        propertyName: type
       oneOf:
-      - $ref: '#/components/schemas/QoveryComponentInFailure_oneOf'
-      - $ref: '#/components/schemas/QoveryComponentInFailure_oneOf_1'
+      - $ref: '#/components/schemas/PodInErrorValue'
+      - $ref: '#/components/schemas/MissingComponentValue'
     QoveryNodeFailure:
       example:
         reason: reason
@@ -5273,89 +5353,3 @@ components:
       - MiB
       - GiB
       type: string
-    QoveryClusterKubeVersionStatus_oneOf_Ok:
-      example:
-        kube_version: kube_version
-      properties:
-        kube_version:
-          type: string
-      required:
-      - kube_version
-    QoveryClusterKubeVersionStatus_oneOf:
-      example:
-        Ok:
-          kube_version: kube_version
-      properties:
-        Ok:
-          $ref: '#/components/schemas/QoveryClusterKubeVersionStatus_oneOf_Ok'
-      required:
-      - Ok
-    QoveryClusterKubeVersionStatus_oneOf_1_Drift:
-      properties:
-        expected_kube_version:
-          type: string
-        kube_version:
-          type: string
-      required:
-      - expected_kube_version
-      - kube_version
-    QoveryClusterKubeVersionStatus_oneOf_1:
-      properties:
-        Drift:
-          $ref: '#/components/schemas/QoveryClusterKubeVersionStatus_oneOf_1_Drift'
-      required:
-      - Drift
-    QoveryComponentInFailure_oneOf_POD_IN_ERROR:
-      example:
-        reason: reason
-        container_name: container_name
-        level: ERROR
-        component_name: component_name
-        message: message
-        pod_name: pod_name
-      properties:
-        component_name:
-          type: string
-        container_name:
-          type: string
-        level:
-          $ref: '#/components/schemas/QoveryComponentContainerStatusLevel'
-        message:
-          nullable: true
-          type: string
-        pod_name:
-          type: string
-        reason:
-          nullable: true
-          type: string
-      required:
-      - component_name
-      - container_name
-      - level
-      - pod_name
-    QoveryComponentInFailure_oneOf:
-      example:
-        POD_IN_ERROR:
-          reason: reason
-          container_name: container_name
-          level: ERROR
-          component_name: component_name
-          message: message
-          pod_name: pod_name
-      properties:
-        POD_IN_ERROR:
-          $ref: '#/components/schemas/QoveryComponentInFailure_oneOf_POD_IN_ERROR'
-      required:
-      - POD_IN_ERROR
-    QoveryComponentInFailure_oneOf_1_MISSING_COMPONENT:
-      properties:
-        component_name:
-          type: string
-      required:
-      - component_name
-    QoveryComponentInFailure_oneOf_1:
-      properties:
-        MISSING_COMPONENT:
-          $ref: '#/components/schemas/QoveryComponentInFailure_oneOf_1_MISSING_COMPONENT'
-      required:
-      - MISSING_COMPONENT
