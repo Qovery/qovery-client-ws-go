@@ -1083,6 +1083,7 @@ components:
         - disk_percent_usage: 0
           name: name
           namespace: namespace
+          created_at: 0
           qovery_service_info:
             environment_id: environment_id
             project_id: project_id
@@ -1093,9 +1094,11 @@ components:
           disk_mib_capacity: 0
           disk_mib_usage: 0
           pod_name: pod_name
+          status: status
         - disk_percent_usage: 0
           name: name
           namespace: namespace
+          created_at: 0
           qovery_service_info:
             environment_id: environment_id
             project_id: project_id
@@ -1106,6 +1109,7 @@ components:
           disk_mib_capacity: 0
           disk_mib_usage: 0
           pod_name: pod_name
+          status: status
         nodes:
         - addresses:
           - address: address
@@ -3110,6 +3114,7 @@ components:
         disk_percent_usage: 0
         name: name
         namespace: namespace
+        created_at: 0
         qovery_service_info:
           environment_id: environment_id
           project_id: project_id
@@ -3120,7 +3125,12 @@ components:
         disk_mib_capacity: 0
         disk_mib_usage: 0
         pod_name: pod_name
+        status: status
       properties:
+        created_at:
+          format: int64
+          minimum: 0
+          type: integer
         disk_mib_capacity:
           format: int32
           minimum: 0
@@ -3141,7 +3151,11 @@ components:
           type: string
         qovery_service_info:
           $ref: '#/components/schemas/PodQoveryServiceInfoDto'
+        status:
+          nullable: true
+          type: string
       required:
+      - created_at
       - disk_mib_capacity
       - disk_mib_usage
       - disk_percent_usage

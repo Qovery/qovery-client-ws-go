@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CreatedAt** | **int64** |  | 
 **DiskMibCapacity** | **int32** |  | 
 **DiskMibUsage** | **int32** |  | 
 **DiskPercentUsage** | **int32** |  | 
@@ -11,12 +12,13 @@ Name | Type | Description | Notes
 **Namespace** | **string** |  | 
 **PodName** | **string** |  | 
 **QoveryServiceInfo** | Pointer to [**NullablePodQoveryServiceInfoDto**](PodQoveryServiceInfoDto.md) |  | [optional] 
+**Status** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewPvcInfoDto
 
-`func NewPvcInfoDto(diskMibCapacity int32, diskMibUsage int32, diskPercentUsage int32, name string, namespace string, podName string, ) *PvcInfoDto`
+`func NewPvcInfoDto(createdAt int64, diskMibCapacity int32, diskMibUsage int32, diskPercentUsage int32, name string, namespace string, podName string, ) *PvcInfoDto`
 
 NewPvcInfoDto instantiates a new PvcInfoDto object
 This constructor will assign default values to properties that have it defined,
@@ -30,6 +32,26 @@ will change when the set of required properties is changed
 NewPvcInfoDtoWithDefaults instantiates a new PvcInfoDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCreatedAt
+
+`func (o *PvcInfoDto) GetCreatedAt() int64`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *PvcInfoDto) GetCreatedAtOk() (*int64, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *PvcInfoDto) SetCreatedAt(v int64)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
 
 ### GetDiskMibCapacity
 
@@ -186,6 +208,41 @@ HasQoveryServiceInfo returns a boolean if a field has been set.
 `func (o *PvcInfoDto) UnsetQoveryServiceInfo()`
 
 UnsetQoveryServiceInfo ensures that no value is present for QoveryServiceInfo, not even an explicit nil
+### GetStatus
+
+`func (o *PvcInfoDto) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *PvcInfoDto) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *PvcInfoDto) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *PvcInfoDto) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
+### SetStatusNil
+
+`func (o *PvcInfoDto) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *PvcInfoDto) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

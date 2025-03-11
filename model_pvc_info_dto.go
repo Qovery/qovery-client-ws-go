@@ -22,6 +22,7 @@ var _ MappedNullable = &PvcInfoDto{}
 
 // PvcInfoDto struct for PvcInfoDto
 type PvcInfoDto struct {
+	CreatedAt int64 `json:"created_at"`
 	DiskMibCapacity int32 `json:"disk_mib_capacity"`
 	DiskMibUsage int32 `json:"disk_mib_usage"`
 	DiskPercentUsage int32 `json:"disk_percent_usage"`
@@ -29,6 +30,7 @@ type PvcInfoDto struct {
 	Namespace string `json:"namespace"`
 	PodName string `json:"pod_name"`
 	QoveryServiceInfo NullablePodQoveryServiceInfoDto `json:"qovery_service_info,omitempty"`
+	Status NullableString `json:"status,omitempty"`
 }
 
 type _PvcInfoDto PvcInfoDto
@@ -37,8 +39,9 @@ type _PvcInfoDto PvcInfoDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPvcInfoDto(diskMibCapacity int32, diskMibUsage int32, diskPercentUsage int32, name string, namespace string, podName string) *PvcInfoDto {
+func NewPvcInfoDto(createdAt int64, diskMibCapacity int32, diskMibUsage int32, diskPercentUsage int32, name string, namespace string, podName string) *PvcInfoDto {
 	this := PvcInfoDto{}
+	this.CreatedAt = createdAt
 	this.DiskMibCapacity = diskMibCapacity
 	this.DiskMibUsage = diskMibUsage
 	this.DiskPercentUsage = diskPercentUsage
@@ -54,6 +57,30 @@ func NewPvcInfoDto(diskMibCapacity int32, diskMibUsage int32, diskPercentUsage i
 func NewPvcInfoDtoWithDefaults() *PvcInfoDto {
 	this := PvcInfoDto{}
 	return &this
+}
+
+// GetCreatedAt returns the CreatedAt field value
+func (o *PvcInfoDto) GetCreatedAt() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// and a boolean to check if the value has been set.
+func (o *PvcInfoDto) GetCreatedAtOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedAt, true
+}
+
+// SetCreatedAt sets field value
+func (o *PvcInfoDto) SetCreatedAt(v int64) {
+	o.CreatedAt = v
 }
 
 // GetDiskMibCapacity returns the DiskMibCapacity field value
@@ -242,6 +269,48 @@ func (o *PvcInfoDto) UnsetQoveryServiceInfo() {
 	o.QoveryServiceInfo.Unset()
 }
 
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PvcInfoDto) GetStatus() string {
+	if o == nil || IsNil(o.Status.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Status.Get()
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PvcInfoDto) GetStatusOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Status.Get(), o.Status.IsSet()
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *PvcInfoDto) HasStatus() bool {
+	if o != nil && o.Status.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
+func (o *PvcInfoDto) SetStatus(v string) {
+	o.Status.Set(&v)
+}
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *PvcInfoDto) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *PvcInfoDto) UnsetStatus() {
+	o.Status.Unset()
+}
+
 func (o PvcInfoDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -252,6 +321,7 @@ func (o PvcInfoDto) MarshalJSON() ([]byte, error) {
 
 func (o PvcInfoDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["disk_mib_capacity"] = o.DiskMibCapacity
 	toSerialize["disk_mib_usage"] = o.DiskMibUsage
 	toSerialize["disk_percent_usage"] = o.DiskPercentUsage
@@ -261,6 +331,9 @@ func (o PvcInfoDto) ToMap() (map[string]interface{}, error) {
 	if o.QoveryServiceInfo.IsSet() {
 		toSerialize["qovery_service_info"] = o.QoveryServiceInfo.Get()
 	}
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
+	}
 	return toSerialize, nil
 }
 
@@ -269,6 +342,7 @@ func (o *PvcInfoDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"created_at",
 		"disk_mib_capacity",
 		"disk_mib_usage",
 		"disk_percent_usage",
