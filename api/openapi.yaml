@@ -3007,6 +3007,57 @@ components:
       - level
       - pod_name
       - type
+    PodInfoDto:
+      properties:
+        cpu_milli_limit:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        cpu_milli_request:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        created_at:
+          format: int64
+          minimum: 0
+          type: integer
+        error_container_statuses:
+          items:
+            $ref: '#/components/schemas/NodePodErrorStatusDto'
+          type: array
+        images_version:
+          additionalProperties:
+            type: string
+        memory_mib_limit:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        memory_mib_request:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        metrics_usage:
+          $ref: '#/components/schemas/MetricsUsageDto'
+        name:
+          type: string
+        namespace:
+          type: string
+        restart_count:
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - created_at
+      - error_container_statuses
+      - images_version
+      - metrics_usage
+      - name
+      - namespace
+      - restart_count
     PodQoveryServiceInfoDto:
       example:
         environment_id: environment_id
@@ -3321,6 +3372,19 @@ components:
       - memory
       - pod_name
       - storages
+    ServiceMetricsV2Dto:
+      properties:
+        pods:
+          items:
+            $ref: '#/components/schemas/PodInfoDto'
+          type: array
+        pvcs:
+          items:
+            $ref: '#/components/schemas/PvcInfoDto'
+          type: array
+      required:
+      - pods
+      - pvcs
     ServiceStateDto:
       enum:
       - STARTING

@@ -47,6 +47,7 @@ docs/NodeResourceDto.md
 docs/NodeTaintDto.md
 docs/PodDto.md
 docs/PodInErrorValue.md
+docs/PodInfoDto.md
 docs/PodQoveryServiceInfoDto.md
 docs/PodStatusDto.md
 docs/PvcInfoDto.md
@@ -63,6 +64,7 @@ docs/ServiceListPodsResponseDto.md
 docs/ServiceLogResponseDto.md
 docs/ServiceMetricsAPI.md
 docs/ServiceMetricsDto.md
+docs/ServiceMetricsV2Dto.md
 docs/ServiceStateDto.md
 docs/ServiceStatusAPI.md
 docs/ServiceStatusDto.md
@@ -101,6 +103,7 @@ model_node_resource_dto.go
 model_node_taint_dto.go
 model_pod_dto.go
 model_pod_in_error_value.go
+model_pod_info_dto.go
 model_pod_qovery_service_info_dto.go
 model_pod_status_dto.go
 model_pvc_info_dto.go
@@ -114,6 +117,7 @@ model_service_infra_log_response_dto.go
 model_service_list_pods_response_dto.go
 model_service_log_response_dto.go
 model_service_metrics_dto.go
+model_service_metrics_v2_dto.go
 model_service_state_dto.go
 model_service_status_dto.go
 model_service_type.go
