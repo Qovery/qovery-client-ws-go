@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ComputedStatus** | [**ClusterComputedStatusDto**](ClusterComputedStatusDto.md) |  | 
+**NodePools** | [**[]NodePoolInfoDto**](NodePoolInfoDto.md) |  | 
 **Nodes** | [**[]ClusterNodeDto**](ClusterNodeDto.md) |  | 
 **Pvcs** | [**[]PvcInfoDto**](PvcInfoDto.md) |  | 
 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewClusterStatusDto
 
-`func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodes []ClusterNodeDto, pvcs []PvcInfoDto, ) *ClusterStatusDto`
+`func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodePools []NodePoolInfoDto, nodes []ClusterNodeDto, pvcs []PvcInfoDto, ) *ClusterStatusDto`
 
 NewClusterStatusDto instantiates a new ClusterStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +46,26 @@ and a boolean to check if the value has been set.
 `func (o *ClusterStatusDto) SetComputedStatus(v ClusterComputedStatusDto)`
 
 SetComputedStatus sets ComputedStatus field to given value.
+
+
+### GetNodePools
+
+`func (o *ClusterStatusDto) GetNodePools() []NodePoolInfoDto`
+
+GetNodePools returns the NodePools field if non-nil, zero value otherwise.
+
+### GetNodePoolsOk
+
+`func (o *ClusterStatusDto) GetNodePoolsOk() (*[]NodePoolInfoDto, bool)`
+
+GetNodePoolsOk returns a tuple with the NodePools field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodePools
+
+`func (o *ClusterStatusDto) SetNodePools(v []NodePoolInfoDto)`
+
+SetNodePools sets NodePools field to given value.
 
 
 ### GetNodes

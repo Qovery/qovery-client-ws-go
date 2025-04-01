@@ -1355,9 +1355,26 @@ components:
           unschedulable: true
           instance_type: instance_type
           architecture: architecture
+        node_pools:
+        - memory_mib_limit: 0
+          cpu_milli: 0
+          name: name
+          cpu_milli_limit: 0
+          nodes_count: 0
+          memory_mib: 0
+        - memory_mib_limit: 0
+          cpu_milli: 0
+          name: name
+          cpu_milli_limit: 0
+          nodes_count: 0
+          memory_mib: 0
       properties:
         computed_status:
           $ref: '#/components/schemas/ClusterComputedStatusDto'
+        node_pools:
+          items:
+            $ref: '#/components/schemas/NodePoolInfoDto'
+          type: array
         nodes:
           items:
             $ref: '#/components/schemas/ClusterNodeDto'
@@ -1368,6 +1385,7 @@ components:
           type: array
       required:
       - computed_status
+      - node_pools
       - nodes
       - pvcs
     ClusterStatusGlobalStatus:
@@ -2897,6 +2915,44 @@ components:
       - name
       - namespace
       - restart_count
+    NodePoolInfoDto:
+      example:
+        memory_mib_limit: 0
+        cpu_milli: 0
+        name: name
+        cpu_milli_limit: 0
+        nodes_count: 0
+        memory_mib: 0
+      properties:
+        cpu_milli:
+          format: int64
+          minimum: 0
+          type: integer
+        cpu_milli_limit:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        memory_mib:
+          format: int64
+          minimum: 0
+          type: integer
+        memory_mib_limit:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        name:
+          type: string
+        nodes_count:
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - cpu_milli
+      - memory_mib
+      - name
+      - nodes_count
     NodeResourceAllocatedDto:
       example:
         cpu_milli: 0

@@ -23,6 +23,7 @@ var _ MappedNullable = &ClusterStatusDto{}
 // ClusterStatusDto struct for ClusterStatusDto
 type ClusterStatusDto struct {
 	ComputedStatus ClusterComputedStatusDto `json:"computed_status"`
+	NodePools []NodePoolInfoDto `json:"node_pools"`
 	Nodes []ClusterNodeDto `json:"nodes"`
 	Pvcs []PvcInfoDto `json:"pvcs"`
 }
@@ -33,9 +34,10 @@ type _ClusterStatusDto ClusterStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodes []ClusterNodeDto, pvcs []PvcInfoDto) *ClusterStatusDto {
+func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodePools []NodePoolInfoDto, nodes []ClusterNodeDto, pvcs []PvcInfoDto) *ClusterStatusDto {
 	this := ClusterStatusDto{}
 	this.ComputedStatus = computedStatus
+	this.NodePools = nodePools
 	this.Nodes = nodes
 	this.Pvcs = pvcs
 	return &this
@@ -71,6 +73,30 @@ func (o *ClusterStatusDto) GetComputedStatusOk() (*ClusterComputedStatusDto, boo
 // SetComputedStatus sets field value
 func (o *ClusterStatusDto) SetComputedStatus(v ClusterComputedStatusDto) {
 	o.ComputedStatus = v
+}
+
+// GetNodePools returns the NodePools field value
+func (o *ClusterStatusDto) GetNodePools() []NodePoolInfoDto {
+	if o == nil {
+		var ret []NodePoolInfoDto
+		return ret
+	}
+
+	return o.NodePools
+}
+
+// GetNodePoolsOk returns a tuple with the NodePools field value
+// and a boolean to check if the value has been set.
+func (o *ClusterStatusDto) GetNodePoolsOk() ([]NodePoolInfoDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NodePools, true
+}
+
+// SetNodePools sets field value
+func (o *ClusterStatusDto) SetNodePools(v []NodePoolInfoDto) {
+	o.NodePools = v
 }
 
 // GetNodes returns the Nodes field value
@@ -132,6 +158,7 @@ func (o ClusterStatusDto) MarshalJSON() ([]byte, error) {
 func (o ClusterStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["computed_status"] = o.ComputedStatus
+	toSerialize["node_pools"] = o.NodePools
 	toSerialize["nodes"] = o.Nodes
 	toSerialize["pvcs"] = o.Pvcs
 	return toSerialize, nil
@@ -143,6 +170,7 @@ func (o *ClusterStatusDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"computed_status",
+		"node_pools",
 		"nodes",
 		"pvcs",
 	}

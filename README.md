@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
  - [NodeDto](docs/NodeDto.md)
  - [NodePodErrorStatusDto](docs/NodePodErrorStatusDto.md)
  - [NodePodInfoDto](docs/NodePodInfoDto.md)
+ - [NodePoolInfoDto](docs/NodePoolInfoDto.md)
  - [NodeResourceAllocatedDto](docs/NodeResourceAllocatedDto.md)
  - [NodeResourceDto](docs/NodeResourceDto.md)
  - [NodeTaintDto](docs/NodeTaintDto.md)

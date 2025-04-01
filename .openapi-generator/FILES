@@ -42,6 +42,7 @@ docs/NodeConditionDto.md
 docs/NodeDto.md
 docs/NodePodErrorStatusDto.md
 docs/NodePodInfoDto.md
+docs/NodePoolInfoDto.md
 docs/NodeResourceAllocatedDto.md
 docs/NodeResourceDto.md
 docs/NodeTaintDto.md
@@ -98,6 +99,7 @@ model_node_condition_dto.go
 model_node_dto.go
 model_node_pod_error_status_dto.go
 model_node_pod_info_dto.go
+model_node_pool_info_dto.go
 model_node_resource_allocated_dto.go
 model_node_resource_dto.go
 model_node_taint_dto.go
