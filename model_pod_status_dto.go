@@ -23,6 +23,7 @@ var _ MappedNullable = &PodStatusDto{}
 // PodStatusDto struct for PodStatusDto
 type PodStatusDto struct {
 	Containers []ContainerStatusDto `json:"containers"`
+	LastEvents []PodKubernetesEventDto `json:"last_events"`
 	Name string `json:"name"`
 	RestartCount int32 `json:"restart_count"`
 	ServiceVersion string `json:"service_version"`
@@ -38,9 +39,10 @@ type _PodStatusDto PodStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPodStatusDto(containers []ContainerStatusDto, name string, restartCount int32, serviceVersion string, startedAt int64, state ServiceStateDto, stateMessage string, stateReason string) *PodStatusDto {
+func NewPodStatusDto(containers []ContainerStatusDto, lastEvents []PodKubernetesEventDto, name string, restartCount int32, serviceVersion string, startedAt int64, state ServiceStateDto, stateMessage string, stateReason string) *PodStatusDto {
 	this := PodStatusDto{}
 	this.Containers = containers
+	this.LastEvents = lastEvents
 	this.Name = name
 	this.RestartCount = restartCount
 	this.ServiceVersion = serviceVersion
@@ -81,6 +83,30 @@ func (o *PodStatusDto) GetContainersOk() ([]ContainerStatusDto, bool) {
 // SetContainers sets field value
 func (o *PodStatusDto) SetContainers(v []ContainerStatusDto) {
 	o.Containers = v
+}
+
+// GetLastEvents returns the LastEvents field value
+func (o *PodStatusDto) GetLastEvents() []PodKubernetesEventDto {
+	if o == nil {
+		var ret []PodKubernetesEventDto
+		return ret
+	}
+
+	return o.LastEvents
+}
+
+// GetLastEventsOk returns a tuple with the LastEvents field value
+// and a boolean to check if the value has been set.
+func (o *PodStatusDto) GetLastEventsOk() ([]PodKubernetesEventDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LastEvents, true
+}
+
+// SetLastEvents sets field value
+func (o *PodStatusDto) SetLastEvents(v []PodKubernetesEventDto) {
+	o.LastEvents = v
 }
 
 // GetName returns the Name field value
@@ -262,6 +288,7 @@ func (o PodStatusDto) MarshalJSON() ([]byte, error) {
 func (o PodStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["containers"] = o.Containers
+	toSerialize["last_events"] = o.LastEvents
 	toSerialize["name"] = o.Name
 	toSerialize["restart_count"] = o.RestartCount
 	toSerialize["service_version"] = o.ServiceVersion
@@ -278,6 +305,7 @@ func (o *PodStatusDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"containers",
+		"last_events",
 		"name",
 		"restart_count",
 		"service_version",

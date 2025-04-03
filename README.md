@@ -124,6 +124,7 @@ Class | Method | HTTP request | Description
  - [PodDto](docs/PodDto.md)
  - [PodInErrorValue](docs/PodInErrorValue.md)
  - [PodInfoDto](docs/PodInfoDto.md)
+ - [PodKubernetesEventDto](docs/PodKubernetesEventDto.md)
  - [PodQoveryServiceInfoDto](docs/PodQoveryServiceInfoDto.md)
  - [PodStatusDto](docs/PodStatusDto.md)
  - [PvcInfoDto](docs/PvcInfoDto.md)

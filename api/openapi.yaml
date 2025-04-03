@@ -687,6 +687,15 @@ components:
           service_version: service_version
           state: null
           state_message: state_message
+          last_events:
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
         - restart_count: 0
           state_reason: state_reason
           name: name
@@ -727,6 +736,15 @@ components:
           service_version: service_version
           state: null
           state_message: state_message
+          last_events:
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
         id: id
         state: null
       properties:
@@ -1532,6 +1550,15 @@ components:
           service_version: service_version
           state: null
           state_message: state_message
+          last_events:
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
         - restart_count: 0
           state_reason: state_reason
           name: name
@@ -1572,6 +1599,15 @@ components:
           service_version: service_version
           state: null
           state_message: state_message
+          last_events:
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
         id: id
         state: null
       properties:
@@ -1636,6 +1672,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           - restart_count: 0
             state_reason: state_reason
             name: name
@@ -1676,6 +1721,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           id: id
           state: null
         - pods:
@@ -1719,6 +1773,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           - restart_count: 0
             state_reason: state_reason
             name: name
@@ -1759,6 +1822,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           id: id
           state: null
         project_id: project_id
@@ -1825,6 +1897,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           - restart_count: 0
             state_reason: state_reason
             name: name
@@ -1865,6 +1946,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           id: id
           state: null
         - certificates:
@@ -1929,6 +2019,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           - restart_count: 0
             state_reason: state_reason
             name: name
@@ -1969,6 +2068,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           id: id
           state: null
         containers:
@@ -2034,6 +2142,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           - restart_count: 0
             state_reason: state_reason
             name: name
@@ -2074,6 +2191,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           id: id
           state: null
         - certificates:
@@ -2138,6 +2264,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           - restart_count: 0
             state_reason: state_reason
             name: name
@@ -2178,6 +2313,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           id: id
           state: null
         id: id
@@ -2245,6 +2389,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           - restart_count: 0
             state_reason: state_reason
             name: name
@@ -2285,6 +2438,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           id: id
           state: null
         - certificates:
@@ -2349,6 +2511,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           - restart_count: 0
             state_reason: state_reason
             name: name
@@ -2389,6 +2560,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           id: id
           state: null
         applications:
@@ -2454,6 +2634,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           - restart_count: 0
             state_reason: state_reason
             name: name
@@ -2494,6 +2683,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           id: id
           state: null
         - certificates:
@@ -2558,6 +2756,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           - restart_count: 0
             state_reason: state_reason
             name: name
@@ -2598,6 +2805,15 @@ components:
             service_version: service_version
             state: null
             state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
           id: id
           state: null
       properties:
@@ -3114,6 +3330,28 @@ components:
       - name
       - namespace
       - restart_count
+    PodKubernetesEventDto:
+      example:
+        reason: reason
+        created_at: 0
+        message: message
+        type: type
+      properties:
+        created_at:
+          format: int64
+          minimum: 0
+          type: integer
+        message:
+          type: string
+        reason:
+          type: string
+        type:
+          type: string
+      required:
+      - created_at
+      - message
+      - reason
+      - type
     PodQoveryServiceInfoDto:
       example:
         environment_id: environment_id
@@ -3184,10 +3422,23 @@ components:
         service_version: service_version
         state: null
         state_message: state_message
+        last_events:
+        - reason: reason
+          created_at: 0
+          message: message
+          type: type
+        - reason: reason
+          created_at: 0
+          message: message
+          type: type
       properties:
         containers:
           items:
             $ref: '#/components/schemas/ContainerStatusDto'
+          type: array
+        last_events:
+          items:
+            $ref: '#/components/schemas/PodKubernetesEventDto'
           type: array
         name:
           type: string
@@ -3209,6 +3460,7 @@ components:
           type: string
       required:
       - containers
+      - last_events
       - name
       - restart_count
       - service_version
@@ -3496,6 +3748,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -3536,6 +3797,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           - pods:
@@ -3579,6 +3849,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -3619,6 +3898,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           project_id: project_id
@@ -3685,6 +3973,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -3725,6 +4022,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           - certificates:
@@ -3789,6 +4095,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -3829,6 +4144,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           containers:
@@ -3894,6 +4218,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -3934,6 +4267,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           - certificates:
@@ -3998,6 +4340,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -4038,6 +4389,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           id: id
@@ -4105,6 +4465,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -4145,6 +4514,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           - certificates:
@@ -4209,6 +4587,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -4249,6 +4636,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           applications:
@@ -4314,6 +4710,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -4354,6 +4759,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           - certificates:
@@ -4418,6 +4832,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -4458,6 +4881,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
         - databases:
@@ -4502,6 +4934,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -4542,6 +4983,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           - pods:
@@ -4585,6 +5035,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -4625,6 +5084,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           project_id: project_id
@@ -4691,6 +5159,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -4731,6 +5208,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           - certificates:
@@ -4795,6 +5281,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -4835,6 +5330,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           containers:
@@ -4900,6 +5404,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -4940,6 +5453,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           - certificates:
@@ -5004,6 +5526,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -5044,6 +5575,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           id: id
@@ -5111,6 +5651,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -5151,6 +5700,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           - certificates:
@@ -5215,6 +5773,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -5255,6 +5822,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           applications:
@@ -5320,6 +5896,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -5360,6 +5945,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
           - certificates:
@@ -5424,6 +6018,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             - restart_count: 0
               state_reason: state_reason
               name: name
@@ -5464,6 +6067,15 @@ components:
               service_version: service_version
               state: null
               state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
             id: id
             state: null
       properties:

@@ -49,6 +49,7 @@ docs/NodeTaintDto.md
 docs/PodDto.md
 docs/PodInErrorValue.md
 docs/PodInfoDto.md
+docs/PodKubernetesEventDto.md
 docs/PodQoveryServiceInfoDto.md
 docs/PodStatusDto.md
 docs/PvcInfoDto.md
@@ -106,6 +107,7 @@ model_node_taint_dto.go
 model_pod_dto.go
 model_pod_in_error_value.go
 model_pod_info_dto.go
+model_pod_kubernetes_event_dto.go
 model_pod_qovery_service_info_dto.go
 model_pod_status_dto.go
 model_pvc_info_dto.go

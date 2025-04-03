@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Containers** | [**[]ContainerStatusDto**](ContainerStatusDto.md) |  | 
+**LastEvents** | [**[]PodKubernetesEventDto**](PodKubernetesEventDto.md) |  | 
 **Name** | **string** |  | 
 **RestartCount** | **int32** |  | 
 **ServiceVersion** | **string** |  | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewPodStatusDto
 
-`func NewPodStatusDto(containers []ContainerStatusDto, name string, restartCount int32, serviceVersion string, startedAt int64, state ServiceStateDto, stateMessage string, stateReason string, ) *PodStatusDto`
+`func NewPodStatusDto(containers []ContainerStatusDto, lastEvents []PodKubernetesEventDto, name string, restartCount int32, serviceVersion string, startedAt int64, state ServiceStateDto, stateMessage string, stateReason string, ) *PodStatusDto`
 
 NewPodStatusDto instantiates a new PodStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +51,26 @@ and a boolean to check if the value has been set.
 `func (o *PodStatusDto) SetContainers(v []ContainerStatusDto)`
 
 SetContainers sets Containers field to given value.
+
+
+### GetLastEvents
+
+`func (o *PodStatusDto) GetLastEvents() []PodKubernetesEventDto`
+
+GetLastEvents returns the LastEvents field if non-nil, zero value otherwise.
+
+### GetLastEventsOk
+
+`func (o *PodStatusDto) GetLastEventsOk() (*[]PodKubernetesEventDto, bool)`
+
+GetLastEventsOk returns a tuple with the LastEvents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastEvents
+
+`func (o *PodStatusDto) SetLastEvents(v []PodKubernetesEventDto)`
+
+SetLastEvents sets LastEvents field to given value.
 
 
 ### GetName
