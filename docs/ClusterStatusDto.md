@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **NodePools** | [**[]NodePoolInfoDto**](NodePoolInfoDto.md) |  | 
 **Nodes** | [**[]ClusterNodeDto**](ClusterNodeDto.md) |  | 
 **Pvcs** | [**[]PvcInfoDto**](PvcInfoDto.md) |  | 
+**TlsCertificate** | Pointer to [**NullableCertificateStatusDto**](CertificateStatusDto.md) |  | [optional] 
 
 ## Methods
 
@@ -108,6 +109,41 @@ and a boolean to check if the value has been set.
 SetPvcs sets Pvcs field to given value.
 
 
+### GetTlsCertificate
+
+`func (o *ClusterStatusDto) GetTlsCertificate() CertificateStatusDto`
+
+GetTlsCertificate returns the TlsCertificate field if non-nil, zero value otherwise.
+
+### GetTlsCertificateOk
+
+`func (o *ClusterStatusDto) GetTlsCertificateOk() (*CertificateStatusDto, bool)`
+
+GetTlsCertificateOk returns a tuple with the TlsCertificate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTlsCertificate
+
+`func (o *ClusterStatusDto) SetTlsCertificate(v CertificateStatusDto)`
+
+SetTlsCertificate sets TlsCertificate field to given value.
+
+### HasTlsCertificate
+
+`func (o *ClusterStatusDto) HasTlsCertificate() bool`
+
+HasTlsCertificate returns a boolean if a field has been set.
+
+### SetTlsCertificateNil
+
+`func (o *ClusterStatusDto) SetTlsCertificateNil(b bool)`
+
+ SetTlsCertificateNil sets the value for TlsCertificate to be an explicit nil
+
+### UnsetTlsCertificate
+`func (o *ClusterStatusDto) UnsetTlsCertificate()`
+
+UnsetTlsCertificate ensures that no value is present for TlsCertificate, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

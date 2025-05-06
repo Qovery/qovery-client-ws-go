@@ -26,6 +26,7 @@ type ClusterStatusDto struct {
 	NodePools []NodePoolInfoDto `json:"node_pools"`
 	Nodes []ClusterNodeDto `json:"nodes"`
 	Pvcs []PvcInfoDto `json:"pvcs"`
+	TlsCertificate NullableCertificateStatusDto `json:"tls_certificate,omitempty"`
 }
 
 type _ClusterStatusDto ClusterStatusDto
@@ -147,6 +148,48 @@ func (o *ClusterStatusDto) SetPvcs(v []PvcInfoDto) {
 	o.Pvcs = v
 }
 
+// GetTlsCertificate returns the TlsCertificate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ClusterStatusDto) GetTlsCertificate() CertificateStatusDto {
+	if o == nil || IsNil(o.TlsCertificate.Get()) {
+		var ret CertificateStatusDto
+		return ret
+	}
+	return *o.TlsCertificate.Get()
+}
+
+// GetTlsCertificateOk returns a tuple with the TlsCertificate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ClusterStatusDto) GetTlsCertificateOk() (*CertificateStatusDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TlsCertificate.Get(), o.TlsCertificate.IsSet()
+}
+
+// HasTlsCertificate returns a boolean if a field has been set.
+func (o *ClusterStatusDto) HasTlsCertificate() bool {
+	if o != nil && o.TlsCertificate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTlsCertificate gets a reference to the given NullableCertificateStatusDto and assigns it to the TlsCertificate field.
+func (o *ClusterStatusDto) SetTlsCertificate(v CertificateStatusDto) {
+	o.TlsCertificate.Set(&v)
+}
+// SetTlsCertificateNil sets the value for TlsCertificate to be an explicit nil
+func (o *ClusterStatusDto) SetTlsCertificateNil() {
+	o.TlsCertificate.Set(nil)
+}
+
+// UnsetTlsCertificate ensures that no value is present for TlsCertificate, not even an explicit nil
+func (o *ClusterStatusDto) UnsetTlsCertificate() {
+	o.TlsCertificate.Unset()
+}
+
 func (o ClusterStatusDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -161,6 +204,9 @@ func (o ClusterStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["node_pools"] = o.NodePools
 	toSerialize["nodes"] = o.Nodes
 	toSerialize["pvcs"] = o.Pvcs
+	if o.TlsCertificate.IsSet() {
+		toSerialize["tls_certificate"] = o.TlsCertificate.Get()
+	}
 	return toSerialize, nil
 }
 
