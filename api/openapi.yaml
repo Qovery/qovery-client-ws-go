@@ -3583,6 +3583,7 @@ components:
       required:
       - message
       - reason
+      title: ""
     ResourceStatusDto:
       enum:
       - OK
