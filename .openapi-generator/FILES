@@ -56,7 +56,9 @@ docs/PvcInfoDto.md
 docs/QoveryClusterKubeVersionStatus.md
 docs/QoveryComponentContainerStatusIssue.md
 docs/QoveryComponentContainerStatusLevel.md
+docs/QoveryComponentDto.md
 docs/QoveryComponentInFailure.md
+docs/QoveryComponentStatus.md
 docs/QoveryNodeFailure.md
 docs/RemoteDebugAPI.md
 docs/ResourceStatusDto.md
@@ -114,7 +116,9 @@ model_pvc_info_dto.go
 model_qovery_cluster_kube_version_status.go
 model_qovery_component_container_status_issue.go
 model_qovery_component_container_status_level.go
+model_qovery_component_dto.go
 model_qovery_component_in_failure.go
+model_qovery_component_status.go
 model_qovery_node_failure.go
 model_resource_status_dto.go
 model_service_infra_log_response_dto.go

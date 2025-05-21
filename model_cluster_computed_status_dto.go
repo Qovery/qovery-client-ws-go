@@ -26,6 +26,7 @@ type ClusterComputedStatusDto struct {
 	IsMaxNodesSizeReached bool `json:"is_max_nodes_size_reached"`
 	KubeVersionStatus QoveryClusterKubeVersionStatus `json:"kube_version_status"`
 	NodeWarnings map[string][]QoveryNodeFailure `json:"node_warnings"`
+	QoveryComponents []QoveryComponentDto `json:"qovery_components"`
 	QoveryComponentsInFailure []QoveryComponentInFailure `json:"qovery_components_in_failure"`
 }
 
@@ -35,12 +36,13 @@ type _ClusterComputedStatusDto ClusterComputedStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClusterComputedStatusDto(globalStatus ClusterStatusGlobalStatus, isMaxNodesSizeReached bool, kubeVersionStatus QoveryClusterKubeVersionStatus, nodeWarnings map[string][]QoveryNodeFailure, qoveryComponentsInFailure []QoveryComponentInFailure) *ClusterComputedStatusDto {
+func NewClusterComputedStatusDto(globalStatus ClusterStatusGlobalStatus, isMaxNodesSizeReached bool, kubeVersionStatus QoveryClusterKubeVersionStatus, nodeWarnings map[string][]QoveryNodeFailure, qoveryComponents []QoveryComponentDto, qoveryComponentsInFailure []QoveryComponentInFailure) *ClusterComputedStatusDto {
 	this := ClusterComputedStatusDto{}
 	this.GlobalStatus = globalStatus
 	this.IsMaxNodesSizeReached = isMaxNodesSizeReached
 	this.KubeVersionStatus = kubeVersionStatus
 	this.NodeWarnings = nodeWarnings
+	this.QoveryComponents = qoveryComponents
 	this.QoveryComponentsInFailure = qoveryComponentsInFailure
 	return &this
 }
@@ -149,6 +151,30 @@ func (o *ClusterComputedStatusDto) SetNodeWarnings(v map[string][]QoveryNodeFail
 	o.NodeWarnings = v
 }
 
+// GetQoveryComponents returns the QoveryComponents field value
+func (o *ClusterComputedStatusDto) GetQoveryComponents() []QoveryComponentDto {
+	if o == nil {
+		var ret []QoveryComponentDto
+		return ret
+	}
+
+	return o.QoveryComponents
+}
+
+// GetQoveryComponentsOk returns a tuple with the QoveryComponents field value
+// and a boolean to check if the value has been set.
+func (o *ClusterComputedStatusDto) GetQoveryComponentsOk() ([]QoveryComponentDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.QoveryComponents, true
+}
+
+// SetQoveryComponents sets field value
+func (o *ClusterComputedStatusDto) SetQoveryComponents(v []QoveryComponentDto) {
+	o.QoveryComponents = v
+}
+
 // GetQoveryComponentsInFailure returns the QoveryComponentsInFailure field value
 func (o *ClusterComputedStatusDto) GetQoveryComponentsInFailure() []QoveryComponentInFailure {
 	if o == nil {
@@ -187,6 +213,7 @@ func (o ClusterComputedStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["is_max_nodes_size_reached"] = o.IsMaxNodesSizeReached
 	toSerialize["kube_version_status"] = o.KubeVersionStatus
 	toSerialize["node_warnings"] = o.NodeWarnings
+	toSerialize["qovery_components"] = o.QoveryComponents
 	toSerialize["qovery_components_in_failure"] = o.QoveryComponentsInFailure
 	return toSerialize, nil
 }
@@ -200,6 +227,7 @@ func (o *ClusterComputedStatusDto) UnmarshalJSON(data []byte) (err error) {
 		"is_max_nodes_size_reached",
 		"kube_version_status",
 		"node_warnings",
+		"qovery_components",
 		"qovery_components_in_failure",
 	}
 

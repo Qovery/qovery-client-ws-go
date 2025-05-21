@@ -817,22 +817,53 @@ components:
       - state
     ClusterComputedStatusDto:
       example:
+        qovery_components:
+        - images_version:
+          - images_version
+          - images_version
+          error_detail:
+          - reason: reason
+            container_name: container_name
+            level: ERROR
+            component_name: component_name
+            message: message
+            type: type
+            pod_name: pod_name
+          - reason: reason
+            container_name: container_name
+            level: ERROR
+            component_name: component_name
+            message: message
+            type: type
+            pod_name: pod_name
+          name: name
+          namespace: namespace
+          status: RUNNING
+        - images_version:
+          - images_version
+          - images_version
+          error_detail:
+          - reason: reason
+            container_name: container_name
+            level: ERROR
+            component_name: component_name
+            message: message
+            type: type
+            pod_name: pod_name
+          - reason: reason
+            container_name: container_name
+            level: ERROR
+            component_name: component_name
+            message: message
+            type: type
+            pod_name: pod_name
+          name: name
+          namespace: namespace
+          status: RUNNING
         global_status: RUNNING
         qovery_components_in_failure:
-        - reason: reason
-          container_name: container_name
-          level: ERROR
-          component_name: component_name
-          message: message
-          type: type
-          pod_name: pod_name
-        - reason: reason
-          container_name: container_name
-          level: ERROR
-          component_name: component_name
-          message: message
-          type: type
-          pod_name: pod_name
+        - null
+        - null
         kube_version_status:
           kube_version: kube_version
           type: type
@@ -854,6 +885,10 @@ components:
           additionalProperties:
             items:
               $ref: '#/components/schemas/QoveryNodeFailure'
+        qovery_components:
+          items:
+            $ref: '#/components/schemas/QoveryComponentDto'
+          type: array
         qovery_components_in_failure:
           items:
             $ref: '#/components/schemas/QoveryComponentInFailure'
@@ -863,6 +898,7 @@ components:
       - is_max_nodes_size_reached
       - kube_version_status
       - node_warnings
+      - qovery_components
       - qovery_components_in_failure
     ClusterListNodesResponseDto:
       example:
@@ -1071,22 +1107,53 @@ components:
     ClusterStatusDto:
       example:
         computed_status:
+          qovery_components:
+          - images_version:
+            - images_version
+            - images_version
+            error_detail:
+            - reason: reason
+              container_name: container_name
+              level: ERROR
+              component_name: component_name
+              message: message
+              type: type
+              pod_name: pod_name
+            - reason: reason
+              container_name: container_name
+              level: ERROR
+              component_name: component_name
+              message: message
+              type: type
+              pod_name: pod_name
+            name: name
+            namespace: namespace
+            status: RUNNING
+          - images_version:
+            - images_version
+            - images_version
+            error_detail:
+            - reason: reason
+              container_name: container_name
+              level: ERROR
+              component_name: component_name
+              message: message
+              type: type
+              pod_name: pod_name
+            - reason: reason
+              container_name: container_name
+              level: ERROR
+              component_name: component_name
+              message: message
+              type: type
+              pod_name: pod_name
+            name: name
+            namespace: namespace
+            status: RUNNING
           global_status: RUNNING
           qovery_components_in_failure:
-          - reason: reason
-            container_name: container_name
-            level: ERROR
-            component_name: component_name
-            message: message
-            type: type
-            pod_name: pod_name
-          - reason: reason
-            container_name: container_name
-            level: ERROR
-            component_name: component_name
-            message: message
-            type: type
-            pod_name: pod_name
+          - null
+          - null
           kube_version_status:
             kube_version: kube_version
             type: type
@@ -3562,6 +3629,50 @@ components:
       - ERROR
       - WARNING
       type: string
+    QoveryComponentDto:
+      example:
+        images_version:
+        - images_version
+        - images_version
+        error_detail:
+        - reason: reason
+          container_name: container_name
+          level: ERROR
+          component_name: component_name
+          message: message
+          type: type
+          pod_name: pod_name
+        - reason: reason
+          container_name: container_name
+          level: ERROR
+          component_name: component_name
+          message: message
+          type: type
+          pod_name: pod_name
+        name: name
+        namespace: namespace
+        status: RUNNING
+      properties:
+        error_detail:
+          items:
+            $ref: '#/components/schemas/QoveryComponentInFailure'
+          type: array
+        images_version:
+          items:
+            type: string
+          type: array
+        name:
+          type: string
+        namespace:
+          type: string
+        status:
+          $ref: '#/components/schemas/QoveryComponentStatus'
+      required:
+      - error_detail
+      - images_version
+      - name
+      - namespace
+      - status
     QoveryComponentInFailure:
       discriminator:
         mapping:
@@ -3571,6 +3682,11 @@ components:
       oneOf:
       - $ref: '#/components/schemas/PodInErrorValue'
       - $ref: '#/components/schemas/MissingComponentValue'
+    QoveryComponentStatus:
+      enum:
+      - RUNNING
+      - ERROR
+      type: string
     QoveryNodeFailure:
       example:
         reason: reason

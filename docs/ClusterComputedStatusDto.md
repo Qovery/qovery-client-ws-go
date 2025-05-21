@@ -8,13 +8,14 @@ Name | Type | Description | Notes
 **IsMaxNodesSizeReached** | **bool** |  | 
 **KubeVersionStatus** | [**QoveryClusterKubeVersionStatus**](QoveryClusterKubeVersionStatus.md) |  | 
 **NodeWarnings** | [**map[string][]QoveryNodeFailure**](array.md) |  | 
+**QoveryComponents** | [**[]QoveryComponentDto**](QoveryComponentDto.md) |  | 
 **QoveryComponentsInFailure** | [**[]QoveryComponentInFailure**](QoveryComponentInFailure.md) |  | 
 
 ## Methods
 
 ### NewClusterComputedStatusDto
 
-`func NewClusterComputedStatusDto(globalStatus ClusterStatusGlobalStatus, isMaxNodesSizeReached bool, kubeVersionStatus QoveryClusterKubeVersionStatus, nodeWarnings map[string][]QoveryNodeFailure, qoveryComponentsInFailure []QoveryComponentInFailure, ) *ClusterComputedStatusDto`
+`func NewClusterComputedStatusDto(globalStatus ClusterStatusGlobalStatus, isMaxNodesSizeReached bool, kubeVersionStatus QoveryClusterKubeVersionStatus, nodeWarnings map[string][]QoveryNodeFailure, qoveryComponents []QoveryComponentDto, qoveryComponentsInFailure []QoveryComponentInFailure, ) *ClusterComputedStatusDto`
 
 NewClusterComputedStatusDto instantiates a new ClusterComputedStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -107,6 +108,26 @@ and a boolean to check if the value has been set.
 `func (o *ClusterComputedStatusDto) SetNodeWarnings(v map[string][]QoveryNodeFailure)`
 
 SetNodeWarnings sets NodeWarnings field to given value.
+
+
+### GetQoveryComponents
+
+`func (o *ClusterComputedStatusDto) GetQoveryComponents() []QoveryComponentDto`
+
+GetQoveryComponents returns the QoveryComponents field if non-nil, zero value otherwise.
+
+### GetQoveryComponentsOk
+
+`func (o *ClusterComputedStatusDto) GetQoveryComponentsOk() (*[]QoveryComponentDto, bool)`
+
+GetQoveryComponentsOk returns a tuple with the QoveryComponents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQoveryComponents
+
+`func (o *ClusterComputedStatusDto) SetQoveryComponents(v []QoveryComponentDto)`
+
+SetQoveryComponents sets QoveryComponents field to given value.
 
 
 ### GetQoveryComponentsInFailure
