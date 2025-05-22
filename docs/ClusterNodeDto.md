@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **Pods** | [**[]NodePodInfoDto**](NodePodInfoDto.md) |  | 
 **ResourcesAllocatable** | [**NodeResourceDto**](NodeResourceDto.md) |  | 
 **ResourcesAllocated** | [**NodeResourceAllocatedDto**](NodeResourceAllocatedDto.md) |  | 
+**ResourcesCapacity** | [**NodeResourceDto**](NodeResourceDto.md) |  | 
 **Taints** | [**[]NodeTaintDto**](NodeTaintDto.md) |  | 
 **Unschedulable** | **bool** |  | 
 
@@ -27,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewClusterNodeDto
 
-`func NewClusterNodeDto(addresses []NodeAddressDto, annotations map[string]string, architecture string, conditions []NodeConditionDto, createdAt int64, kernelVersion string, kubeletVersion string, labels map[string]string, metricsUsage MetricsUsageDto, name string, operatingSystem string, osImage string, pods []NodePodInfoDto, resourcesAllocatable NodeResourceDto, resourcesAllocated NodeResourceAllocatedDto, taints []NodeTaintDto, unschedulable bool, ) *ClusterNodeDto`
+`func NewClusterNodeDto(addresses []NodeAddressDto, annotations map[string]string, architecture string, conditions []NodeConditionDto, createdAt int64, kernelVersion string, kubeletVersion string, labels map[string]string, metricsUsage MetricsUsageDto, name string, operatingSystem string, osImage string, pods []NodePodInfoDto, resourcesAllocatable NodeResourceDto, resourcesAllocated NodeResourceAllocatedDto, resourcesCapacity NodeResourceDto, taints []NodeTaintDto, unschedulable bool, ) *ClusterNodeDto`
 
 NewClusterNodeDto instantiates a new ClusterNodeDto object
 This constructor will assign default values to properties that have it defined,
@@ -375,6 +376,26 @@ and a boolean to check if the value has been set.
 `func (o *ClusterNodeDto) SetResourcesAllocated(v NodeResourceAllocatedDto)`
 
 SetResourcesAllocated sets ResourcesAllocated field to given value.
+
+
+### GetResourcesCapacity
+
+`func (o *ClusterNodeDto) GetResourcesCapacity() NodeResourceDto`
+
+GetResourcesCapacity returns the ResourcesCapacity field if non-nil, zero value otherwise.
+
+### GetResourcesCapacityOk
+
+`func (o *ClusterNodeDto) GetResourcesCapacityOk() (*NodeResourceDto, bool)`
+
+GetResourcesCapacityOk returns a tuple with the ResourcesCapacity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourcesCapacity
+
+`func (o *ClusterNodeDto) SetResourcesCapacity(v NodeResourceDto)`
+
+SetResourcesCapacity sets ResourcesCapacity field to given value.
 
 
 ### GetTaints

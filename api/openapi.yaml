@@ -948,9 +948,16 @@ components:
           memory_mib_rss_usage: 0
           disk_mib_usage: 0
         resources_allocated:
-          cpu_milli: 0
-          memory_mib: 0
+          limit_cpu_milli: 0
+          limit_memory_mib: 0
+          request_cpu_milli: 0
+          request_memory_mib: 0
         kernel_version: kernel_version
+        resources_capacity:
+          cpu_milli: 0
+          pods: 0
+          ephemeral_storage_mib: 0
+          memory_mib: 0
         name: name
         operating_system: operating_system
         pods:
@@ -1080,6 +1087,8 @@ components:
           $ref: '#/components/schemas/NodeResourceDto'
         resources_allocated:
           $ref: '#/components/schemas/NodeResourceAllocatedDto'
+        resources_capacity:
+          $ref: '#/components/schemas/NodeResourceDto'
         taints:
           items:
             $ref: '#/components/schemas/NodeTaintDto'
@@ -1102,6 +1111,7 @@ components:
       - pods
       - resources_allocatable
       - resources_allocated
+      - resources_capacity
       - taints
       - unschedulable
     ClusterStatusDto:
@@ -1230,9 +1240,16 @@ components:
             memory_mib_rss_usage: 0
             disk_mib_usage: 0
           resources_allocated:
-            cpu_milli: 0
-            memory_mib: 0
+            limit_cpu_milli: 0
+            limit_memory_mib: 0
+            request_cpu_milli: 0
+            request_memory_mib: 0
           kernel_version: kernel_version
+          resources_capacity:
+            cpu_milli: 0
+            pods: 0
+            ephemeral_storage_mib: 0
+            memory_mib: 0
           name: name
           operating_system: operating_system
           pods:
@@ -1352,9 +1369,16 @@ components:
             memory_mib_rss_usage: 0
             disk_mib_usage: 0
           resources_allocated:
-            cpu_milli: 0
-            memory_mib: 0
+            limit_cpu_milli: 0
+            limit_memory_mib: 0
+            request_cpu_milli: 0
+            request_memory_mib: 0
           kernel_version: kernel_version
+          resources_capacity:
+            cpu_milli: 0
+            pods: 0
+            ephemeral_storage_mib: 0
+            memory_mib: 0
           name: name
           operating_system: operating_system
           pods:
@@ -3251,20 +3275,32 @@ components:
       - nodes_count
     NodeResourceAllocatedDto:
       example:
-        cpu_milli: 0
-        memory_mib: 0
+        limit_cpu_milli: 0
+        limit_memory_mib: 0
+        request_cpu_milli: 0
+        request_memory_mib: 0
       properties:
-        cpu_milli:
+        limit_cpu_milli:
           format: int32
           minimum: 0
           type: integer
-        memory_mib:
+        limit_memory_mib:
+          format: int32
+          minimum: 0
+          type: integer
+        request_cpu_milli:
+          format: int32
+          minimum: 0
+          type: integer
+        request_memory_mib:
           format: int32
           minimum: 0
           type: integer
       required:
-      - cpu_milli
-      - memory_mib
+      - limit_cpu_milli
+      - limit_memory_mib
+      - request_cpu_milli
+      - request_memory_mib
     NodeResourceDto:
       example:
         cpu_milli: 0

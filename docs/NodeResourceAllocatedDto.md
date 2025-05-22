@@ -4,14 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CpuMilli** | **int32** |  | 
-**MemoryMib** | **int32** |  | 
+**LimitCpuMilli** | **int32** |  | 
+**LimitMemoryMib** | **int32** |  | 
+**RequestCpuMilli** | **int32** |  | 
+**RequestMemoryMib** | **int32** |  | 
 
 ## Methods
 
 ### NewNodeResourceAllocatedDto
 
-`func NewNodeResourceAllocatedDto(cpuMilli int32, memoryMib int32, ) *NodeResourceAllocatedDto`
+`func NewNodeResourceAllocatedDto(limitCpuMilli int32, limitMemoryMib int32, requestCpuMilli int32, requestMemoryMib int32, ) *NodeResourceAllocatedDto`
 
 NewNodeResourceAllocatedDto instantiates a new NodeResourceAllocatedDto object
 This constructor will assign default values to properties that have it defined,
@@ -26,44 +28,84 @@ NewNodeResourceAllocatedDtoWithDefaults instantiates a new NodeResourceAllocated
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCpuMilli
+### GetLimitCpuMilli
 
-`func (o *NodeResourceAllocatedDto) GetCpuMilli() int32`
+`func (o *NodeResourceAllocatedDto) GetLimitCpuMilli() int32`
 
-GetCpuMilli returns the CpuMilli field if non-nil, zero value otherwise.
+GetLimitCpuMilli returns the LimitCpuMilli field if non-nil, zero value otherwise.
 
-### GetCpuMilliOk
+### GetLimitCpuMilliOk
 
-`func (o *NodeResourceAllocatedDto) GetCpuMilliOk() (*int32, bool)`
+`func (o *NodeResourceAllocatedDto) GetLimitCpuMilliOk() (*int32, bool)`
 
-GetCpuMilliOk returns a tuple with the CpuMilli field if it's non-nil, zero value otherwise
+GetLimitCpuMilliOk returns a tuple with the LimitCpuMilli field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCpuMilli
+### SetLimitCpuMilli
 
-`func (o *NodeResourceAllocatedDto) SetCpuMilli(v int32)`
+`func (o *NodeResourceAllocatedDto) SetLimitCpuMilli(v int32)`
 
-SetCpuMilli sets CpuMilli field to given value.
+SetLimitCpuMilli sets LimitCpuMilli field to given value.
 
 
-### GetMemoryMib
+### GetLimitMemoryMib
 
-`func (o *NodeResourceAllocatedDto) GetMemoryMib() int32`
+`func (o *NodeResourceAllocatedDto) GetLimitMemoryMib() int32`
 
-GetMemoryMib returns the MemoryMib field if non-nil, zero value otherwise.
+GetLimitMemoryMib returns the LimitMemoryMib field if non-nil, zero value otherwise.
 
-### GetMemoryMibOk
+### GetLimitMemoryMibOk
 
-`func (o *NodeResourceAllocatedDto) GetMemoryMibOk() (*int32, bool)`
+`func (o *NodeResourceAllocatedDto) GetLimitMemoryMibOk() (*int32, bool)`
 
-GetMemoryMibOk returns a tuple with the MemoryMib field if it's non-nil, zero value otherwise
+GetLimitMemoryMibOk returns a tuple with the LimitMemoryMib field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMemoryMib
+### SetLimitMemoryMib
 
-`func (o *NodeResourceAllocatedDto) SetMemoryMib(v int32)`
+`func (o *NodeResourceAllocatedDto) SetLimitMemoryMib(v int32)`
 
-SetMemoryMib sets MemoryMib field to given value.
+SetLimitMemoryMib sets LimitMemoryMib field to given value.
+
+
+### GetRequestCpuMilli
+
+`func (o *NodeResourceAllocatedDto) GetRequestCpuMilli() int32`
+
+GetRequestCpuMilli returns the RequestCpuMilli field if non-nil, zero value otherwise.
+
+### GetRequestCpuMilliOk
+
+`func (o *NodeResourceAllocatedDto) GetRequestCpuMilliOk() (*int32, bool)`
+
+GetRequestCpuMilliOk returns a tuple with the RequestCpuMilli field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestCpuMilli
+
+`func (o *NodeResourceAllocatedDto) SetRequestCpuMilli(v int32)`
+
+SetRequestCpuMilli sets RequestCpuMilli field to given value.
+
+
+### GetRequestMemoryMib
+
+`func (o *NodeResourceAllocatedDto) GetRequestMemoryMib() int32`
+
+GetRequestMemoryMib returns the RequestMemoryMib field if non-nil, zero value otherwise.
+
+### GetRequestMemoryMibOk
+
+`func (o *NodeResourceAllocatedDto) GetRequestMemoryMibOk() (*int32, bool)`
+
+GetRequestMemoryMibOk returns a tuple with the RequestMemoryMib field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestMemoryMib
+
+`func (o *NodeResourceAllocatedDto) SetRequestMemoryMib(v int32)`
+
+SetRequestMemoryMib sets RequestMemoryMib field to given value.
 
 
 

@@ -22,8 +22,10 @@ var _ MappedNullable = &NodeResourceAllocatedDto{}
 
 // NodeResourceAllocatedDto struct for NodeResourceAllocatedDto
 type NodeResourceAllocatedDto struct {
-	CpuMilli int32 `json:"cpu_milli"`
-	MemoryMib int32 `json:"memory_mib"`
+	LimitCpuMilli int32 `json:"limit_cpu_milli"`
+	LimitMemoryMib int32 `json:"limit_memory_mib"`
+	RequestCpuMilli int32 `json:"request_cpu_milli"`
+	RequestMemoryMib int32 `json:"request_memory_mib"`
 }
 
 type _NodeResourceAllocatedDto NodeResourceAllocatedDto
@@ -32,10 +34,12 @@ type _NodeResourceAllocatedDto NodeResourceAllocatedDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNodeResourceAllocatedDto(cpuMilli int32, memoryMib int32) *NodeResourceAllocatedDto {
+func NewNodeResourceAllocatedDto(limitCpuMilli int32, limitMemoryMib int32, requestCpuMilli int32, requestMemoryMib int32) *NodeResourceAllocatedDto {
 	this := NodeResourceAllocatedDto{}
-	this.CpuMilli = cpuMilli
-	this.MemoryMib = memoryMib
+	this.LimitCpuMilli = limitCpuMilli
+	this.LimitMemoryMib = limitMemoryMib
+	this.RequestCpuMilli = requestCpuMilli
+	this.RequestMemoryMib = requestMemoryMib
 	return &this
 }
 
@@ -47,52 +51,100 @@ func NewNodeResourceAllocatedDtoWithDefaults() *NodeResourceAllocatedDto {
 	return &this
 }
 
-// GetCpuMilli returns the CpuMilli field value
-func (o *NodeResourceAllocatedDto) GetCpuMilli() int32 {
+// GetLimitCpuMilli returns the LimitCpuMilli field value
+func (o *NodeResourceAllocatedDto) GetLimitCpuMilli() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.CpuMilli
+	return o.LimitCpuMilli
 }
 
-// GetCpuMilliOk returns a tuple with the CpuMilli field value
+// GetLimitCpuMilliOk returns a tuple with the LimitCpuMilli field value
 // and a boolean to check if the value has been set.
-func (o *NodeResourceAllocatedDto) GetCpuMilliOk() (*int32, bool) {
+func (o *NodeResourceAllocatedDto) GetLimitCpuMilliOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.CpuMilli, true
+	return &o.LimitCpuMilli, true
 }
 
-// SetCpuMilli sets field value
-func (o *NodeResourceAllocatedDto) SetCpuMilli(v int32) {
-	o.CpuMilli = v
+// SetLimitCpuMilli sets field value
+func (o *NodeResourceAllocatedDto) SetLimitCpuMilli(v int32) {
+	o.LimitCpuMilli = v
 }
 
-// GetMemoryMib returns the MemoryMib field value
-func (o *NodeResourceAllocatedDto) GetMemoryMib() int32 {
+// GetLimitMemoryMib returns the LimitMemoryMib field value
+func (o *NodeResourceAllocatedDto) GetLimitMemoryMib() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.MemoryMib
+	return o.LimitMemoryMib
 }
 
-// GetMemoryMibOk returns a tuple with the MemoryMib field value
+// GetLimitMemoryMibOk returns a tuple with the LimitMemoryMib field value
 // and a boolean to check if the value has been set.
-func (o *NodeResourceAllocatedDto) GetMemoryMibOk() (*int32, bool) {
+func (o *NodeResourceAllocatedDto) GetLimitMemoryMibOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MemoryMib, true
+	return &o.LimitMemoryMib, true
 }
 
-// SetMemoryMib sets field value
-func (o *NodeResourceAllocatedDto) SetMemoryMib(v int32) {
-	o.MemoryMib = v
+// SetLimitMemoryMib sets field value
+func (o *NodeResourceAllocatedDto) SetLimitMemoryMib(v int32) {
+	o.LimitMemoryMib = v
+}
+
+// GetRequestCpuMilli returns the RequestCpuMilli field value
+func (o *NodeResourceAllocatedDto) GetRequestCpuMilli() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.RequestCpuMilli
+}
+
+// GetRequestCpuMilliOk returns a tuple with the RequestCpuMilli field value
+// and a boolean to check if the value has been set.
+func (o *NodeResourceAllocatedDto) GetRequestCpuMilliOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RequestCpuMilli, true
+}
+
+// SetRequestCpuMilli sets field value
+func (o *NodeResourceAllocatedDto) SetRequestCpuMilli(v int32) {
+	o.RequestCpuMilli = v
+}
+
+// GetRequestMemoryMib returns the RequestMemoryMib field value
+func (o *NodeResourceAllocatedDto) GetRequestMemoryMib() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.RequestMemoryMib
+}
+
+// GetRequestMemoryMibOk returns a tuple with the RequestMemoryMib field value
+// and a boolean to check if the value has been set.
+func (o *NodeResourceAllocatedDto) GetRequestMemoryMibOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RequestMemoryMib, true
+}
+
+// SetRequestMemoryMib sets field value
+func (o *NodeResourceAllocatedDto) SetRequestMemoryMib(v int32) {
+	o.RequestMemoryMib = v
 }
 
 func (o NodeResourceAllocatedDto) MarshalJSON() ([]byte, error) {
@@ -105,8 +157,10 @@ func (o NodeResourceAllocatedDto) MarshalJSON() ([]byte, error) {
 
 func (o NodeResourceAllocatedDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["cpu_milli"] = o.CpuMilli
-	toSerialize["memory_mib"] = o.MemoryMib
+	toSerialize["limit_cpu_milli"] = o.LimitCpuMilli
+	toSerialize["limit_memory_mib"] = o.LimitMemoryMib
+	toSerialize["request_cpu_milli"] = o.RequestCpuMilli
+	toSerialize["request_memory_mib"] = o.RequestMemoryMib
 	return toSerialize, nil
 }
 
@@ -115,8 +169,10 @@ func (o *NodeResourceAllocatedDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"cpu_milli",
-		"memory_mib",
+		"limit_cpu_milli",
+		"limit_memory_mib",
+		"request_cpu_milli",
+		"request_memory_mib",
 	}
 
 	allProperties := make(map[string]interface{})

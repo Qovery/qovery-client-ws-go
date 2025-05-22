@@ -38,6 +38,7 @@ type ClusterNodeDto struct {
 	Pods []NodePodInfoDto `json:"pods"`
 	ResourcesAllocatable NodeResourceDto `json:"resources_allocatable"`
 	ResourcesAllocated NodeResourceAllocatedDto `json:"resources_allocated"`
+	ResourcesCapacity NodeResourceDto `json:"resources_capacity"`
 	Taints []NodeTaintDto `json:"taints"`
 	Unschedulable bool `json:"unschedulable"`
 }
@@ -48,7 +49,7 @@ type _ClusterNodeDto ClusterNodeDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClusterNodeDto(addresses []NodeAddressDto, annotations map[string]string, architecture string, conditions []NodeConditionDto, createdAt int64, kernelVersion string, kubeletVersion string, labels map[string]string, metricsUsage MetricsUsageDto, name string, operatingSystem string, osImage string, pods []NodePodInfoDto, resourcesAllocatable NodeResourceDto, resourcesAllocated NodeResourceAllocatedDto, taints []NodeTaintDto, unschedulable bool) *ClusterNodeDto {
+func NewClusterNodeDto(addresses []NodeAddressDto, annotations map[string]string, architecture string, conditions []NodeConditionDto, createdAt int64, kernelVersion string, kubeletVersion string, labels map[string]string, metricsUsage MetricsUsageDto, name string, operatingSystem string, osImage string, pods []NodePodInfoDto, resourcesAllocatable NodeResourceDto, resourcesAllocated NodeResourceAllocatedDto, resourcesCapacity NodeResourceDto, taints []NodeTaintDto, unschedulable bool) *ClusterNodeDto {
 	this := ClusterNodeDto{}
 	this.Addresses = addresses
 	this.Annotations = annotations
@@ -65,6 +66,7 @@ func NewClusterNodeDto(addresses []NodeAddressDto, annotations map[string]string
 	this.Pods = pods
 	this.ResourcesAllocatable = resourcesAllocatable
 	this.ResourcesAllocated = resourcesAllocated
+	this.ResourcesCapacity = resourcesCapacity
 	this.Taints = taints
 	this.Unschedulable = unschedulable
 	return &this
@@ -480,6 +482,30 @@ func (o *ClusterNodeDto) SetResourcesAllocated(v NodeResourceAllocatedDto) {
 	o.ResourcesAllocated = v
 }
 
+// GetResourcesCapacity returns the ResourcesCapacity field value
+func (o *ClusterNodeDto) GetResourcesCapacity() NodeResourceDto {
+	if o == nil {
+		var ret NodeResourceDto
+		return ret
+	}
+
+	return o.ResourcesCapacity
+}
+
+// GetResourcesCapacityOk returns a tuple with the ResourcesCapacity field value
+// and a boolean to check if the value has been set.
+func (o *ClusterNodeDto) GetResourcesCapacityOk() (*NodeResourceDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ResourcesCapacity, true
+}
+
+// SetResourcesCapacity sets field value
+func (o *ClusterNodeDto) SetResourcesCapacity(v NodeResourceDto) {
+	o.ResourcesCapacity = v
+}
+
 // GetTaints returns the Taints field value
 func (o *ClusterNodeDto) GetTaints() []NodeTaintDto {
 	if o == nil {
@@ -556,6 +582,7 @@ func (o ClusterNodeDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["pods"] = o.Pods
 	toSerialize["resources_allocatable"] = o.ResourcesAllocatable
 	toSerialize["resources_allocated"] = o.ResourcesAllocated
+	toSerialize["resources_capacity"] = o.ResourcesCapacity
 	toSerialize["taints"] = o.Taints
 	toSerialize["unschedulable"] = o.Unschedulable
 	return toSerialize, nil
@@ -581,6 +608,7 @@ func (o *ClusterNodeDto) UnmarshalJSON(data []byte) (err error) {
 		"pods",
 		"resources_allocatable",
 		"resources_allocated",
+		"resources_capacity",
 		"taints",
 		"unschedulable",
 	}
