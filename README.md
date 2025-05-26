@@ -134,6 +134,7 @@ Class | Method | HTTP request | Description
  - [QoveryComponentDto](docs/QoveryComponentDto.md)
  - [QoveryComponentInFailure](docs/QoveryComponentInFailure.md)
  - [QoveryComponentStatus](docs/QoveryComponentStatus.md)
+ - [QoveryNodeAttributes](docs/QoveryNodeAttributes.md)
  - [QoveryNodeFailure](docs/QoveryNodeFailure.md)
  - [ResourceStatusDto](docs/ResourceStatusDto.md)
  - [ServiceInfraLogResponseDto](docs/ServiceInfraLogResponseDto.md)

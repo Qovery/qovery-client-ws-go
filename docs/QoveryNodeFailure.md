@@ -5,13 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Message** | **string** |  | 
+**NodeAttributes** | [**QoveryNodeAttributes**](QoveryNodeAttributes.md) |  | 
 **Reason** | **string** |  | 
+**Type** | **string** |  | 
 
 ## Methods
 
 ### NewQoveryNodeFailure
 
-`func NewQoveryNodeFailure(message string, reason string, ) *QoveryNodeFailure`
+`func NewQoveryNodeFailure(message string, nodeAttributes QoveryNodeAttributes, reason string, type_ string, ) *QoveryNodeFailure`
 
 NewQoveryNodeFailure instantiates a new QoveryNodeFailure object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +48,26 @@ and a boolean to check if the value has been set.
 SetMessage sets Message field to given value.
 
 
+### GetNodeAttributes
+
+`func (o *QoveryNodeFailure) GetNodeAttributes() QoveryNodeAttributes`
+
+GetNodeAttributes returns the NodeAttributes field if non-nil, zero value otherwise.
+
+### GetNodeAttributesOk
+
+`func (o *QoveryNodeFailure) GetNodeAttributesOk() (*QoveryNodeAttributes, bool)`
+
+GetNodeAttributesOk returns a tuple with the NodeAttributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeAttributes
+
+`func (o *QoveryNodeFailure) SetNodeAttributes(v QoveryNodeAttributes)`
+
+SetNodeAttributes sets NodeAttributes field to given value.
+
+
 ### GetReason
 
 `func (o *QoveryNodeFailure) GetReason() string`
@@ -64,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *QoveryNodeFailure) SetReason(v string)`
 
 SetReason sets Reason field to given value.
+
+
+### GetType
+
+`func (o *QoveryNodeFailure) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *QoveryNodeFailure) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *QoveryNodeFailure) SetType(v string)`
+
+SetType sets Type field to given value.
 
 
 

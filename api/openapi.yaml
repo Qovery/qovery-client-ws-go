@@ -871,9 +871,15 @@ components:
         node_warnings:
           key:
           - reason: reason
+            node_attributes:
+              node_pool_name: node_pool_name
             message: message
+            type: type
           - reason: reason
+            node_attributes:
+              node_pool_name: node_pool_name
             message: message
+            type: type
       properties:
         global_status:
           $ref: '#/components/schemas/ClusterStatusGlobalStatus'
@@ -1171,9 +1177,15 @@ components:
           node_warnings:
             key:
             - reason: reason
+              node_attributes:
+                node_pool_name: node_pool_name
               message: message
+              type: type
             - reason: reason
+              node_attributes:
+                node_pool_name: node_pool_name
               message: message
+              type: type
         pvcs:
         - disk_percent_usage: 0
           name: name
@@ -3723,18 +3735,34 @@ components:
       - RUNNING
       - ERROR
       type: string
+    QoveryNodeAttributes:
+      example:
+        node_pool_name: node_pool_name
+      properties:
+        node_pool_name:
+          nullable: true
+          type: string
     QoveryNodeFailure:
       example:
         reason: reason
+        node_attributes:
+          node_pool_name: node_pool_name
         message: message
+        type: type
       properties:
         message:
           type: string
+        node_attributes:
+          $ref: '#/components/schemas/QoveryNodeAttributes'
         reason:
+          type: string
+        type:
           type: string
       required:
       - message
+      - node_attributes
       - reason
+      - type
     ResourceStatusDto:
       enum:
       - OK
