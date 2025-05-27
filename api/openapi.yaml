@@ -37,7 +37,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClusterStatusDto'
+                $ref: '#/components/schemas/ClusterMetricsDto'
           description: Stream of cluster metrics
       tags:
       - cluster_metrics
@@ -900,9 +900,15 @@ components:
         node_warnings:
           key:
           - reason: reason
+            node_attributes:
+              node_pool_name: node_pool_name
             message: message
+            type: type
           - reason: reason
+            node_attributes:
+              node_pool_name: node_pool_name
             message: message
+            type: type
       properties:
         global_status:
           $ref: '#/components/schemas/ClusterStatusGlobalStatus'
@@ -941,6 +947,328 @@ components:
           type: array
       required:
       - nodes
+    ClusterMetricsDto:
+      example:
+        pvcs:
+        - disk_percent_usage: 0
+          name: name
+          namespace: namespace
+          created_at: 0
+          qovery_service_info:
+            environment_id: environment_id
+            project_id: project_id
+            service_name: service_name
+            service_id: service_id
+            project_name: project_name
+            environment_name: environment_name
+          disk_mib_capacity: 0
+          disk_mib_usage: 0
+          pod_name: pod_name
+          status: status
+        - disk_percent_usage: 0
+          name: name
+          namespace: namespace
+          created_at: 0
+          qovery_service_info:
+            environment_id: environment_id
+            project_id: project_id
+            service_name: service_name
+            service_id: service_id
+            project_name: project_name
+            environment_name: environment_name
+          disk_mib_capacity: 0
+          disk_mib_usage: 0
+          pod_name: pod_name
+          status: status
+        nodes:
+        - addresses:
+          - address: address
+            type: type
+          - address: address
+            type: type
+          os_image: os_image
+          resources_allocatable:
+            cpu_milli: 0
+            pods: 0
+            ephemeral_storage_mib: 0
+            memory_mib: 0
+          annotations:
+            key: annotations
+          created_at: 0
+          kubelet_version: kubelet_version
+          taints:
+          - effect: effect
+            value: value
+            key: key
+          - effect: effect
+            value: value
+            key: key
+          labels:
+            key: labels
+          metrics_usage:
+            memory_percent_working_set_usage: 0
+            cpu_percent_usage: 0
+            disk_percent_usage: 0
+            cpu_milli_usage: 0
+            memory_percent_rss_usage: 0
+            memory_mib_working_set_usage: 0
+            memory_mib_rss_usage: 0
+            disk_mib_usage: 0
+          resources_allocated:
+            limit_cpu_milli: 0
+            limit_memory_mib: 0
+            request_cpu_milli: 0
+            request_memory_mib: 0
+          kernel_version: kernel_version
+          resources_capacity:
+            cpu_milli: 0
+            pods: 0
+            ephemeral_storage_mib: 0
+            memory_mib: 0
+          name: name
+          operating_system: operating_system
+          pods:
+          - images_version:
+              key: images_version
+            restart_count: 0
+            cpu_milli_request: 0
+            memory_mib_limit: 0
+            error_container_statuses:
+            - reason: reason
+              container_name: container_name
+              message: message
+            - reason: reason
+              container_name: container_name
+              message: message
+            memory_mib_request: 0
+            name: name
+            namespace: namespace
+            cpu_milli_limit: 0
+            created_at: 0
+            qovery_service_info:
+              environment_id: environment_id
+              project_id: project_id
+              service_name: service_name
+              service_id: service_id
+              project_name: project_name
+              environment_name: environment_name
+            metrics_usage:
+              memory_percent_working_set_usage: 0
+              cpu_percent_usage: 0
+              disk_percent_usage: 0
+              cpu_milli_usage: 0
+              memory_percent_rss_usage: 0
+              memory_mib_working_set_usage: 0
+              memory_mib_rss_usage: 0
+              disk_mib_usage: 0
+          - images_version:
+              key: images_version
+            restart_count: 0
+            cpu_milli_request: 0
+            memory_mib_limit: 0
+            error_container_statuses:
+            - reason: reason
+              container_name: container_name
+              message: message
+            - reason: reason
+              container_name: container_name
+              message: message
+            memory_mib_request: 0
+            name: name
+            namespace: namespace
+            cpu_milli_limit: 0
+            created_at: 0
+            qovery_service_info:
+              environment_id: environment_id
+              project_id: project_id
+              service_name: service_name
+              service_id: service_id
+              project_name: project_name
+              environment_name: environment_name
+            metrics_usage:
+              memory_percent_working_set_usage: 0
+              cpu_percent_usage: 0
+              disk_percent_usage: 0
+              cpu_milli_usage: 0
+              memory_percent_rss_usage: 0
+              memory_mib_working_set_usage: 0
+              memory_mib_rss_usage: 0
+              disk_mib_usage: 0
+          conditions:
+          - reason: reason
+            last_heartbeat_time: 0
+            last_transition_time: 0
+            message: message
+            type: type
+            status: status
+          - reason: reason
+            last_heartbeat_time: 0
+            last_transition_time: 0
+            message: message
+            type: type
+            status: status
+          unschedulable: true
+          instance_type: instance_type
+          architecture: architecture
+        - addresses:
+          - address: address
+            type: type
+          - address: address
+            type: type
+          os_image: os_image
+          resources_allocatable:
+            cpu_milli: 0
+            pods: 0
+            ephemeral_storage_mib: 0
+            memory_mib: 0
+          annotations:
+            key: annotations
+          created_at: 0
+          kubelet_version: kubelet_version
+          taints:
+          - effect: effect
+            value: value
+            key: key
+          - effect: effect
+            value: value
+            key: key
+          labels:
+            key: labels
+          metrics_usage:
+            memory_percent_working_set_usage: 0
+            cpu_percent_usage: 0
+            disk_percent_usage: 0
+            cpu_milli_usage: 0
+            memory_percent_rss_usage: 0
+            memory_mib_working_set_usage: 0
+            memory_mib_rss_usage: 0
+            disk_mib_usage: 0
+          resources_allocated:
+            limit_cpu_milli: 0
+            limit_memory_mib: 0
+            request_cpu_milli: 0
+            request_memory_mib: 0
+          kernel_version: kernel_version
+          resources_capacity:
+            cpu_milli: 0
+            pods: 0
+            ephemeral_storage_mib: 0
+            memory_mib: 0
+          name: name
+          operating_system: operating_system
+          pods:
+          - images_version:
+              key: images_version
+            restart_count: 0
+            cpu_milli_request: 0
+            memory_mib_limit: 0
+            error_container_statuses:
+            - reason: reason
+              container_name: container_name
+              message: message
+            - reason: reason
+              container_name: container_name
+              message: message
+            memory_mib_request: 0
+            name: name
+            namespace: namespace
+            cpu_milli_limit: 0
+            created_at: 0
+            qovery_service_info:
+              environment_id: environment_id
+              project_id: project_id
+              service_name: service_name
+              service_id: service_id
+              project_name: project_name
+              environment_name: environment_name
+            metrics_usage:
+              memory_percent_working_set_usage: 0
+              cpu_percent_usage: 0
+              disk_percent_usage: 0
+              cpu_milli_usage: 0
+              memory_percent_rss_usage: 0
+              memory_mib_working_set_usage: 0
+              memory_mib_rss_usage: 0
+              disk_mib_usage: 0
+          - images_version:
+              key: images_version
+            restart_count: 0
+            cpu_milli_request: 0
+            memory_mib_limit: 0
+            error_container_statuses:
+            - reason: reason
+              container_name: container_name
+              message: message
+            - reason: reason
+              container_name: container_name
+              message: message
+            memory_mib_request: 0
+            name: name
+            namespace: namespace
+            cpu_milli_limit: 0
+            created_at: 0
+            qovery_service_info:
+              environment_id: environment_id
+              project_id: project_id
+              service_name: service_name
+              service_id: service_id
+              project_name: project_name
+              environment_name: environment_name
+            metrics_usage:
+              memory_percent_working_set_usage: 0
+              cpu_percent_usage: 0
+              disk_percent_usage: 0
+              cpu_milli_usage: 0
+              memory_percent_rss_usage: 0
+              memory_mib_working_set_usage: 0
+              memory_mib_rss_usage: 0
+              disk_mib_usage: 0
+          conditions:
+          - reason: reason
+            last_heartbeat_time: 0
+            last_transition_time: 0
+            message: message
+            type: type
+            status: status
+          - reason: reason
+            last_heartbeat_time: 0
+            last_transition_time: 0
+            message: message
+            type: type
+            status: status
+          unschedulable: true
+          instance_type: instance_type
+          architecture: architecture
+        node_pools:
+        - memory_mib_limit: 0
+          cpu_milli: 0
+          name: name
+          cpu_milli_limit: 0
+          nodes_count: 0
+          memory_mib: 0
+        - memory_mib_limit: 0
+          cpu_milli: 0
+          name: name
+          cpu_milli_limit: 0
+          nodes_count: 0
+          memory_mib: 0
+      properties:
+        node_pools:
+          items:
+            $ref: '#/components/schemas/NodePoolInfoDto'
+          type: array
+        nodes:
+          items:
+            $ref: '#/components/schemas/ClusterNodeDto'
+          type: array
+        pvcs:
+          items:
+            $ref: '#/components/schemas/PvcInfoDto'
+          type: array
+      required:
+      - node_pools
+      - nodes
+      - pvcs
     ClusterNodeDto:
       example:
         addresses:
@@ -1200,299 +1528,15 @@ components:
           node_warnings:
             key:
             - reason: reason
+              node_attributes:
+                node_pool_name: node_pool_name
               message: message
+              type: type
             - reason: reason
+              node_attributes:
+                node_pool_name: node_pool_name
               message: message
-        pvcs:
-        - disk_percent_usage: 0
-          name: name
-          namespace: namespace
-          created_at: 0
-          qovery_service_info:
-            environment_id: environment_id
-            project_id: project_id
-            service_name: service_name
-            service_id: service_id
-            project_name: project_name
-            environment_name: environment_name
-          disk_mib_capacity: 0
-          disk_mib_usage: 0
-          pod_name: pod_name
-          status: status
-        - disk_percent_usage: 0
-          name: name
-          namespace: namespace
-          created_at: 0
-          qovery_service_info:
-            environment_id: environment_id
-            project_id: project_id
-            service_name: service_name
-            service_id: service_id
-            project_name: project_name
-            environment_name: environment_name
-          disk_mib_capacity: 0
-          disk_mib_usage: 0
-          pod_name: pod_name
-          status: status
-        nodes:
-        - addresses:
-          - address: address
-            type: type
-          - address: address
-            type: type
-          os_image: os_image
-          resources_allocatable:
-            cpu_milli: 0
-            pods: 0
-            ephemeral_storage_mib: 0
-            memory_mib: 0
-          annotations:
-            key: annotations
-          created_at: 0
-          kubelet_version: kubelet_version
-          taints:
-          - effect: effect
-            value: value
-            key: key
-          - effect: effect
-            value: value
-            key: key
-          labels:
-            key: labels
-          metrics_usage:
-            memory_percent_working_set_usage: 0
-            cpu_percent_usage: 0
-            disk_percent_usage: 0
-            cpu_milli_usage: 0
-            memory_percent_rss_usage: 0
-            memory_mib_working_set_usage: 0
-            memory_mib_rss_usage: 0
-            disk_mib_usage: 0
-          resources_allocated:
-            limit_cpu_milli: 0
-            limit_memory_mib: 0
-            request_cpu_milli: 0
-            request_memory_mib: 0
-          kernel_version: kernel_version
-          resources_capacity:
-            cpu_milli: 0
-            pods: 0
-            ephemeral_storage_mib: 0
-            memory_mib: 0
-          name: name
-          operating_system: operating_system
-          pods:
-          - images_version:
-              key: images_version
-            restart_count: 0
-            cpu_milli_request: 0
-            memory_mib_limit: 0
-            error_container_statuses:
-            - reason: reason
-              container_name: container_name
-              message: message
-            - reason: reason
-              container_name: container_name
-              message: message
-            memory_mib_request: 0
-            name: name
-            namespace: namespace
-            cpu_milli_limit: 0
-            created_at: 0
-            qovery_service_info:
-              environment_id: environment_id
-              project_id: project_id
-              service_name: service_name
-              service_id: service_id
-              project_name: project_name
-              environment_name: environment_name
-            metrics_usage:
-              memory_percent_working_set_usage: 0
-              cpu_percent_usage: 0
-              disk_percent_usage: 0
-              cpu_milli_usage: 0
-              memory_percent_rss_usage: 0
-              memory_mib_working_set_usage: 0
-              memory_mib_rss_usage: 0
-              disk_mib_usage: 0
-          - images_version:
-              key: images_version
-            restart_count: 0
-            cpu_milli_request: 0
-            memory_mib_limit: 0
-            error_container_statuses:
-            - reason: reason
-              container_name: container_name
-              message: message
-            - reason: reason
-              container_name: container_name
-              message: message
-            memory_mib_request: 0
-            name: name
-            namespace: namespace
-            cpu_milli_limit: 0
-            created_at: 0
-            qovery_service_info:
-              environment_id: environment_id
-              project_id: project_id
-              service_name: service_name
-              service_id: service_id
-              project_name: project_name
-              environment_name: environment_name
-            metrics_usage:
-              memory_percent_working_set_usage: 0
-              cpu_percent_usage: 0
-              disk_percent_usage: 0
-              cpu_milli_usage: 0
-              memory_percent_rss_usage: 0
-              memory_mib_working_set_usage: 0
-              memory_mib_rss_usage: 0
-              disk_mib_usage: 0
-          conditions:
-          - reason: reason
-            last_heartbeat_time: 0
-            last_transition_time: 0
-            message: message
-            type: type
-            status: status
-          - reason: reason
-            last_heartbeat_time: 0
-            last_transition_time: 0
-            message: message
-            type: type
-            status: status
-          unschedulable: true
-          instance_type: instance_type
-          architecture: architecture
-        - addresses:
-          - address: address
-            type: type
-          - address: address
-            type: type
-          os_image: os_image
-          resources_allocatable:
-            cpu_milli: 0
-            pods: 0
-            ephemeral_storage_mib: 0
-            memory_mib: 0
-          annotations:
-            key: annotations
-          created_at: 0
-          kubelet_version: kubelet_version
-          taints:
-          - effect: effect
-            value: value
-            key: key
-          - effect: effect
-            value: value
-            key: key
-          labels:
-            key: labels
-          metrics_usage:
-            memory_percent_working_set_usage: 0
-            cpu_percent_usage: 0
-            disk_percent_usage: 0
-            cpu_milli_usage: 0
-            memory_percent_rss_usage: 0
-            memory_mib_working_set_usage: 0
-            memory_mib_rss_usage: 0
-            disk_mib_usage: 0
-          resources_allocated:
-            limit_cpu_milli: 0
-            limit_memory_mib: 0
-            request_cpu_milli: 0
-            request_memory_mib: 0
-          kernel_version: kernel_version
-          resources_capacity:
-            cpu_milli: 0
-            pods: 0
-            ephemeral_storage_mib: 0
-            memory_mib: 0
-          name: name
-          operating_system: operating_system
-          pods:
-          - images_version:
-              key: images_version
-            restart_count: 0
-            cpu_milli_request: 0
-            memory_mib_limit: 0
-            error_container_statuses:
-            - reason: reason
-              container_name: container_name
-              message: message
-            - reason: reason
-              container_name: container_name
-              message: message
-            memory_mib_request: 0
-            name: name
-            namespace: namespace
-            cpu_milli_limit: 0
-            created_at: 0
-            qovery_service_info:
-              environment_id: environment_id
-              project_id: project_id
-              service_name: service_name
-              service_id: service_id
-              project_name: project_name
-              environment_name: environment_name
-            metrics_usage:
-              memory_percent_working_set_usage: 0
-              cpu_percent_usage: 0
-              disk_percent_usage: 0
-              cpu_milli_usage: 0
-              memory_percent_rss_usage: 0
-              memory_mib_working_set_usage: 0
-              memory_mib_rss_usage: 0
-              disk_mib_usage: 0
-          - images_version:
-              key: images_version
-            restart_count: 0
-            cpu_milli_request: 0
-            memory_mib_limit: 0
-            error_container_statuses:
-            - reason: reason
-              container_name: container_name
-              message: message
-            - reason: reason
-              container_name: container_name
-              message: message
-            memory_mib_request: 0
-            name: name
-            namespace: namespace
-            cpu_milli_limit: 0
-            created_at: 0
-            qovery_service_info:
-              environment_id: environment_id
-              project_id: project_id
-              service_name: service_name
-              service_id: service_id
-              project_name: project_name
-              environment_name: environment_name
-            metrics_usage:
-              memory_percent_working_set_usage: 0
-              cpu_percent_usage: 0
-              disk_percent_usage: 0
-              cpu_milli_usage: 0
-              memory_percent_rss_usage: 0
-              memory_mib_working_set_usage: 0
-              memory_mib_rss_usage: 0
-              disk_mib_usage: 0
-          conditions:
-          - reason: reason
-            last_heartbeat_time: 0
-            last_transition_time: 0
-            message: message
-            type: type
-            status: status
-          - reason: reason
-            last_heartbeat_time: 0
-            last_transition_time: 0
-            message: message
-            type: type
-            status: status
-          unschedulable: true
-          instance_type: instance_type
-          architecture: architecture
+              type: type
         tls_certificate:
           not_after: 0
           dns_names:
@@ -1504,41 +1548,13 @@ components:
           state: STARTING
           renewal_time: 0
           state_message: state_message
-        node_pools:
-        - memory_mib_limit: 0
-          cpu_milli: 0
-          name: name
-          cpu_milli_limit: 0
-          nodes_count: 0
-          memory_mib: 0
-        - memory_mib_limit: 0
-          cpu_milli: 0
-          name: name
-          cpu_milli_limit: 0
-          nodes_count: 0
-          memory_mib: 0
       properties:
         computed_status:
           $ref: '#/components/schemas/ClusterComputedStatusDto'
-        node_pools:
-          items:
-            $ref: '#/components/schemas/NodePoolInfoDto'
-          type: array
-        nodes:
-          items:
-            $ref: '#/components/schemas/ClusterNodeDto'
-          type: array
-        pvcs:
-          items:
-            $ref: '#/components/schemas/PvcInfoDto'
-          type: array
         tls_certificate:
           $ref: '#/components/schemas/CertificateStatusDto'
       required:
       - computed_status
-      - node_pools
-      - nodes
-      - pvcs
     ClusterStatusGlobalStatus:
       enum:
       - RUNNING
@@ -3753,6 +3769,8 @@ components:
       - ERROR
       type: string
     QoveryNodeAttributes:
+      example:
+        node_pool_name: node_pool_name
       properties:
         node_pool_name:
           nullable: true
@@ -3760,15 +3778,24 @@ components:
     QoveryNodeFailure:
       example:
         reason: reason
+        node_attributes:
+          node_pool_name: node_pool_name
         message: message
+        type: type
       properties:
         message:
           type: string
+        node_attributes:
+          $ref: '#/components/schemas/QoveryNodeAttributes'
         reason:
+          type: string
+        type:
           type: string
       required:
       - message
+      - node_attributes
       - reason
+      - type
     ResourceStatusDto:
       enum:
       - OK

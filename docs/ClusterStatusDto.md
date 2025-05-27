@@ -5,16 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ComputedStatus** | [**ClusterComputedStatusDto**](ClusterComputedStatusDto.md) |  | 
-**NodePools** | [**[]NodePoolInfoDto**](NodePoolInfoDto.md) |  | 
-**Nodes** | [**[]ClusterNodeDto**](ClusterNodeDto.md) |  | 
-**Pvcs** | [**[]PvcInfoDto**](PvcInfoDto.md) |  | 
 **TlsCertificate** | Pointer to [**NullableCertificateStatusDto**](CertificateStatusDto.md) |  | [optional] 
 
 ## Methods
 
 ### NewClusterStatusDto
 
-`func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodePools []NodePoolInfoDto, nodes []ClusterNodeDto, pvcs []PvcInfoDto, ) *ClusterStatusDto`
+`func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, ) *ClusterStatusDto`
 
 NewClusterStatusDto instantiates a new ClusterStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -47,66 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *ClusterStatusDto) SetComputedStatus(v ClusterComputedStatusDto)`
 
 SetComputedStatus sets ComputedStatus field to given value.
-
-
-### GetNodePools
-
-`func (o *ClusterStatusDto) GetNodePools() []NodePoolInfoDto`
-
-GetNodePools returns the NodePools field if non-nil, zero value otherwise.
-
-### GetNodePoolsOk
-
-`func (o *ClusterStatusDto) GetNodePoolsOk() (*[]NodePoolInfoDto, bool)`
-
-GetNodePoolsOk returns a tuple with the NodePools field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodePools
-
-`func (o *ClusterStatusDto) SetNodePools(v []NodePoolInfoDto)`
-
-SetNodePools sets NodePools field to given value.
-
-
-### GetNodes
-
-`func (o *ClusterStatusDto) GetNodes() []ClusterNodeDto`
-
-GetNodes returns the Nodes field if non-nil, zero value otherwise.
-
-### GetNodesOk
-
-`func (o *ClusterStatusDto) GetNodesOk() (*[]ClusterNodeDto, bool)`
-
-GetNodesOk returns a tuple with the Nodes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNodes
-
-`func (o *ClusterStatusDto) SetNodes(v []ClusterNodeDto)`
-
-SetNodes sets Nodes field to given value.
-
-
-### GetPvcs
-
-`func (o *ClusterStatusDto) GetPvcs() []PvcInfoDto`
-
-GetPvcs returns the Pvcs field if non-nil, zero value otherwise.
-
-### GetPvcsOk
-
-`func (o *ClusterStatusDto) GetPvcsOk() (*[]PvcInfoDto, bool)`
-
-GetPvcsOk returns a tuple with the Pvcs field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPvcs
-
-`func (o *ClusterStatusDto) SetPvcs(v []PvcInfoDto)`
-
-SetPvcs sets Pvcs field to given value.
 
 
 ### GetTlsCertificate

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## HandleClusterMetricsRequest
 
-> ClusterStatusDto HandleClusterMetricsRequest(ctx, organization, cluster).Execute()
+> ClusterMetricsDto HandleClusterMetricsRequest(ctx, organization, cluster).Execute()
 
 
 
@@ -37,7 +37,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ClusterMetricsAPI.HandleClusterMetricsRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `HandleClusterMetricsRequest`: ClusterStatusDto
+	// response from `HandleClusterMetricsRequest`: ClusterMetricsDto
 	fmt.Fprintf(os.Stdout, "Response from `ClusterMetricsAPI.HandleClusterMetricsRequest`: %v\n", resp)
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterStatusDto**](ClusterStatusDto.md)
+[**ClusterMetricsDto**](ClusterMetricsDto.md)
 
 ### Authorization
 

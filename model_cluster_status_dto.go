@@ -23,9 +23,6 @@ var _ MappedNullable = &ClusterStatusDto{}
 // ClusterStatusDto struct for ClusterStatusDto
 type ClusterStatusDto struct {
 	ComputedStatus ClusterComputedStatusDto `json:"computed_status"`
-	NodePools []NodePoolInfoDto `json:"node_pools"`
-	Nodes []ClusterNodeDto `json:"nodes"`
-	Pvcs []PvcInfoDto `json:"pvcs"`
 	TlsCertificate NullableCertificateStatusDto `json:"tls_certificate,omitempty"`
 }
 
@@ -35,12 +32,9 @@ type _ClusterStatusDto ClusterStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClusterStatusDto(computedStatus ClusterComputedStatusDto, nodePools []NodePoolInfoDto, nodes []ClusterNodeDto, pvcs []PvcInfoDto) *ClusterStatusDto {
+func NewClusterStatusDto(computedStatus ClusterComputedStatusDto) *ClusterStatusDto {
 	this := ClusterStatusDto{}
 	this.ComputedStatus = computedStatus
-	this.NodePools = nodePools
-	this.Nodes = nodes
-	this.Pvcs = pvcs
 	return &this
 }
 
@@ -74,78 +68,6 @@ func (o *ClusterStatusDto) GetComputedStatusOk() (*ClusterComputedStatusDto, boo
 // SetComputedStatus sets field value
 func (o *ClusterStatusDto) SetComputedStatus(v ClusterComputedStatusDto) {
 	o.ComputedStatus = v
-}
-
-// GetNodePools returns the NodePools field value
-func (o *ClusterStatusDto) GetNodePools() []NodePoolInfoDto {
-	if o == nil {
-		var ret []NodePoolInfoDto
-		return ret
-	}
-
-	return o.NodePools
-}
-
-// GetNodePoolsOk returns a tuple with the NodePools field value
-// and a boolean to check if the value has been set.
-func (o *ClusterStatusDto) GetNodePoolsOk() ([]NodePoolInfoDto, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.NodePools, true
-}
-
-// SetNodePools sets field value
-func (o *ClusterStatusDto) SetNodePools(v []NodePoolInfoDto) {
-	o.NodePools = v
-}
-
-// GetNodes returns the Nodes field value
-func (o *ClusterStatusDto) GetNodes() []ClusterNodeDto {
-	if o == nil {
-		var ret []ClusterNodeDto
-		return ret
-	}
-
-	return o.Nodes
-}
-
-// GetNodesOk returns a tuple with the Nodes field value
-// and a boolean to check if the value has been set.
-func (o *ClusterStatusDto) GetNodesOk() ([]ClusterNodeDto, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Nodes, true
-}
-
-// SetNodes sets field value
-func (o *ClusterStatusDto) SetNodes(v []ClusterNodeDto) {
-	o.Nodes = v
-}
-
-// GetPvcs returns the Pvcs field value
-func (o *ClusterStatusDto) GetPvcs() []PvcInfoDto {
-	if o == nil {
-		var ret []PvcInfoDto
-		return ret
-	}
-
-	return o.Pvcs
-}
-
-// GetPvcsOk returns a tuple with the Pvcs field value
-// and a boolean to check if the value has been set.
-func (o *ClusterStatusDto) GetPvcsOk() ([]PvcInfoDto, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Pvcs, true
-}
-
-// SetPvcs sets field value
-func (o *ClusterStatusDto) SetPvcs(v []PvcInfoDto) {
-	o.Pvcs = v
 }
 
 // GetTlsCertificate returns the TlsCertificate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -201,9 +123,6 @@ func (o ClusterStatusDto) MarshalJSON() ([]byte, error) {
 func (o ClusterStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["computed_status"] = o.ComputedStatus
-	toSerialize["node_pools"] = o.NodePools
-	toSerialize["nodes"] = o.Nodes
-	toSerialize["pvcs"] = o.Pvcs
 	if o.TlsCertificate.IsSet() {
 		toSerialize["tls_certificate"] = o.TlsCertificate.Get()
 	}
@@ -216,9 +135,6 @@ func (o *ClusterStatusDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"computed_status",
-		"node_pools",
-		"nodes",
-		"pvcs",
 	}
 
 	allProperties := make(map[string]interface{})

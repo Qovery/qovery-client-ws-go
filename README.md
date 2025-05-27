@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
  - [CertificateStatusDto](docs/CertificateStatusDto.md)
  - [ClusterComputedStatusDto](docs/ClusterComputedStatusDto.md)
  - [ClusterListNodesResponseDto](docs/ClusterListNodesResponseDto.md)
+ - [ClusterMetricsDto](docs/ClusterMetricsDto.md)
  - [ClusterNodeDto](docs/ClusterNodeDto.md)
  - [ClusterStatusDto](docs/ClusterStatusDto.md)
  - [ClusterStatusGlobalStatus](docs/ClusterStatusGlobalStatus.md)

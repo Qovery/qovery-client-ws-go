@@ -31,7 +31,7 @@ type ApiHandleClusterMetricsRequestRequest struct {
 	cluster string
 }
 
-func (r ApiHandleClusterMetricsRequestRequest) Execute() (*ClusterStatusDto, *http.Response, error) {
+func (r ApiHandleClusterMetricsRequestRequest) Execute() (*ClusterMetricsDto, *http.Response, error) {
 	return r.ApiService.HandleClusterMetricsRequestExecute(r)
 }
 
@@ -53,13 +53,13 @@ func (a *ClusterMetricsAPIService) HandleClusterMetricsRequest(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return ClusterStatusDto
-func (a *ClusterMetricsAPIService) HandleClusterMetricsRequestExecute(r ApiHandleClusterMetricsRequestRequest) (*ClusterStatusDto, *http.Response, error) {
+//  @return ClusterMetricsDto
+func (a *ClusterMetricsAPIService) HandleClusterMetricsRequestExecute(r ApiHandleClusterMetricsRequestRequest) (*ClusterMetricsDto, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ClusterStatusDto
+		localVarReturnValue  *ClusterMetricsDto
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClusterMetricsAPIService.HandleClusterMetricsRequest")

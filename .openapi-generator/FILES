@@ -21,6 +21,7 @@ docs/ClusterComputedStatusDto.md
 docs/ClusterListNodesAPI.md
 docs/ClusterListNodesResponseDto.md
 docs/ClusterMetricsAPI.md
+docs/ClusterMetricsDto.md
 docs/ClusterNodeDto.md
 docs/ClusterStatusAPI.md
 docs/ClusterStatusDto.md
@@ -85,6 +86,7 @@ model_application_status_dto.go
 model_certificate_status_dto.go
 model_cluster_computed_status_dto.go
 model_cluster_list_nodes_response_dto.go
+model_cluster_metrics_dto.go
 model_cluster_node_dto.go
 model_cluster_status_dto.go
 model_cluster_status_global_status.go
