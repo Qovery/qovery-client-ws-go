@@ -789,6 +789,7 @@ components:
         last_failure_issuance_time:
           format: int64
           minimum: 0
+          nullable: true
           type: integer
         not_after:
           format: int64
@@ -810,7 +811,6 @@ components:
       required:
       - dns_names
       - failed_issuance_attempt_count
-      - last_failure_issuance_time
       - not_after
       - not_before
       - renewal_time
@@ -3295,10 +3295,12 @@ components:
         limit_cpu_milli:
           format: int32
           minimum: 0
+          nullable: true
           type: integer
         limit_memory_mib:
           format: int32
           minimum: 0
+          nullable: true
           type: integer
         request_cpu_milli:
           format: int32
@@ -3309,8 +3311,6 @@ components:
           minimum: 0
           type: integer
       required:
-      - limit_cpu_milli
-      - limit_memory_mib
       - request_cpu_milli
       - request_memory_mib
     NodeResourceDto:
