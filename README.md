@@ -79,6 +79,7 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ClusterListNodesAPI* | [**HandleClusterListNodesRequest**](docs/ClusterListNodesAPI.md#handleclusterlistnodesrequest) | **Get** /cluster/node | 
+*ClusterMetricsAPI* | [**HandleClusterMetricsRequest**](docs/ClusterMetricsAPI.md#handleclustermetricsrequest) | **Get** /cluster/metrics | 
 *ClusterStatusAPI* | [**HandleClusterStatusRequest**](docs/ClusterStatusAPI.md#handleclusterstatusrequest) | **Get** /cluster/status | 
 *DeploymentAPI* | [**HandleDeploymentLogsRequest**](docs/DeploymentAPI.md#handledeploymentlogsrequest) | **Get** /deployment/logs | 
 *DeploymentAPI* | [**HandleDeploymentStatusRequest**](docs/DeploymentAPI.md#handledeploymentstatusrequest) | **Get** /deployment/status | 

@@ -23,9 +23,7 @@ var _ MappedNullable = &QoveryNodeFailure{}
 // QoveryNodeFailure struct for QoveryNodeFailure
 type QoveryNodeFailure struct {
 	Message string `json:"message"`
-	NodeAttributes QoveryNodeAttributes `json:"node_attributes"`
 	Reason string `json:"reason"`
-	Type string `json:"type"`
 }
 
 type _QoveryNodeFailure QoveryNodeFailure
@@ -34,12 +32,10 @@ type _QoveryNodeFailure QoveryNodeFailure
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewQoveryNodeFailure(message string, nodeAttributes QoveryNodeAttributes, reason string, type_ string) *QoveryNodeFailure {
+func NewQoveryNodeFailure(message string, reason string) *QoveryNodeFailure {
 	this := QoveryNodeFailure{}
 	this.Message = message
-	this.NodeAttributes = nodeAttributes
 	this.Reason = reason
-	this.Type = type_
 	return &this
 }
 
@@ -75,30 +71,6 @@ func (o *QoveryNodeFailure) SetMessage(v string) {
 	o.Message = v
 }
 
-// GetNodeAttributes returns the NodeAttributes field value
-func (o *QoveryNodeFailure) GetNodeAttributes() QoveryNodeAttributes {
-	if o == nil {
-		var ret QoveryNodeAttributes
-		return ret
-	}
-
-	return o.NodeAttributes
-}
-
-// GetNodeAttributesOk returns a tuple with the NodeAttributes field value
-// and a boolean to check if the value has been set.
-func (o *QoveryNodeFailure) GetNodeAttributesOk() (*QoveryNodeAttributes, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.NodeAttributes, true
-}
-
-// SetNodeAttributes sets field value
-func (o *QoveryNodeFailure) SetNodeAttributes(v QoveryNodeAttributes) {
-	o.NodeAttributes = v
-}
-
 // GetReason returns the Reason field value
 func (o *QoveryNodeFailure) GetReason() string {
 	if o == nil {
@@ -123,30 +95,6 @@ func (o *QoveryNodeFailure) SetReason(v string) {
 	o.Reason = v
 }
 
-// GetType returns the Type field value
-func (o *QoveryNodeFailure) GetType() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value
-// and a boolean to check if the value has been set.
-func (o *QoveryNodeFailure) GetTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Type, true
-}
-
-// SetType sets field value
-func (o *QoveryNodeFailure) SetType(v string) {
-	o.Type = v
-}
-
 func (o QoveryNodeFailure) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -158,9 +106,7 @@ func (o QoveryNodeFailure) MarshalJSON() ([]byte, error) {
 func (o QoveryNodeFailure) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["message"] = o.Message
-	toSerialize["node_attributes"] = o.NodeAttributes
 	toSerialize["reason"] = o.Reason
-	toSerialize["type"] = o.Type
 	return toSerialize, nil
 }
 
@@ -170,9 +116,7 @@ func (o *QoveryNodeFailure) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"message",
-		"node_attributes",
 		"reason",
-		"type",
 	}
 
 	allProperties := make(map[string]interface{})

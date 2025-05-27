@@ -24,7 +24,7 @@ var _ MappedNullable = &CertificateStatusDto{}
 type CertificateStatusDto struct {
 	DnsNames []string `json:"dns_names"`
 	FailedIssuanceAttemptCount int64 `json:"failed_issuance_attempt_count"`
-	LastFailureIssuanceTime NullableInt64 `json:"last_failure_issuance_time,omitempty"`
+	LastFailureIssuanceTime int64 `json:"last_failure_issuance_time"`
 	NotAfter int64 `json:"not_after"`
 	NotBefore int64 `json:"not_before"`
 	RenewalTime int64 `json:"renewal_time"`
@@ -38,10 +38,11 @@ type _CertificateStatusDto CertificateStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCertificateStatusDto(dnsNames []string, failedIssuanceAttemptCount int64, notAfter int64, notBefore int64, renewalTime int64, state ServiceStateDto) *CertificateStatusDto {
+func NewCertificateStatusDto(dnsNames []string, failedIssuanceAttemptCount int64, lastFailureIssuanceTime int64, notAfter int64, notBefore int64, renewalTime int64, state ServiceStateDto) *CertificateStatusDto {
 	this := CertificateStatusDto{}
 	this.DnsNames = dnsNames
 	this.FailedIssuanceAttemptCount = failedIssuanceAttemptCount
+	this.LastFailureIssuanceTime = lastFailureIssuanceTime
 	this.NotAfter = notAfter
 	this.NotBefore = notBefore
 	this.RenewalTime = renewalTime
@@ -105,46 +106,28 @@ func (o *CertificateStatusDto) SetFailedIssuanceAttemptCount(v int64) {
 	o.FailedIssuanceAttemptCount = v
 }
 
-// GetLastFailureIssuanceTime returns the LastFailureIssuanceTime field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastFailureIssuanceTime returns the LastFailureIssuanceTime field value
 func (o *CertificateStatusDto) GetLastFailureIssuanceTime() int64 {
-	if o == nil || IsNil(o.LastFailureIssuanceTime.Get()) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.LastFailureIssuanceTime.Get()
+
+	return o.LastFailureIssuanceTime
 }
 
-// GetLastFailureIssuanceTimeOk returns a tuple with the LastFailureIssuanceTime field value if set, nil otherwise
+// GetLastFailureIssuanceTimeOk returns a tuple with the LastFailureIssuanceTime field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CertificateStatusDto) GetLastFailureIssuanceTimeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LastFailureIssuanceTime.Get(), o.LastFailureIssuanceTime.IsSet()
+	return &o.LastFailureIssuanceTime, true
 }
 
-// HasLastFailureIssuanceTime returns a boolean if a field has been set.
-func (o *CertificateStatusDto) HasLastFailureIssuanceTime() bool {
-	if o != nil && o.LastFailureIssuanceTime.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLastFailureIssuanceTime gets a reference to the given NullableInt64 and assigns it to the LastFailureIssuanceTime field.
+// SetLastFailureIssuanceTime sets field value
 func (o *CertificateStatusDto) SetLastFailureIssuanceTime(v int64) {
-	o.LastFailureIssuanceTime.Set(&v)
-}
-// SetLastFailureIssuanceTimeNil sets the value for LastFailureIssuanceTime to be an explicit nil
-func (o *CertificateStatusDto) SetLastFailureIssuanceTimeNil() {
-	o.LastFailureIssuanceTime.Set(nil)
-}
-
-// UnsetLastFailureIssuanceTime ensures that no value is present for LastFailureIssuanceTime, not even an explicit nil
-func (o *CertificateStatusDto) UnsetLastFailureIssuanceTime() {
-	o.LastFailureIssuanceTime.Unset()
+	o.LastFailureIssuanceTime = v
 }
 
 // GetNotAfter returns the NotAfter field value
@@ -297,9 +280,7 @@ func (o CertificateStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["dns_names"] = o.DnsNames
 	toSerialize["failed_issuance_attempt_count"] = o.FailedIssuanceAttemptCount
-	if o.LastFailureIssuanceTime.IsSet() {
-		toSerialize["last_failure_issuance_time"] = o.LastFailureIssuanceTime.Get()
-	}
+	toSerialize["last_failure_issuance_time"] = o.LastFailureIssuanceTime
 	toSerialize["not_after"] = o.NotAfter
 	toSerialize["not_before"] = o.NotBefore
 	toSerialize["renewal_time"] = o.RenewalTime
@@ -317,6 +298,7 @@ func (o *CertificateStatusDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"dns_names",
 		"failed_issuance_attempt_count",
+		"last_failure_issuance_time",
 		"not_after",
 		"not_before",
 		"renewal_time",

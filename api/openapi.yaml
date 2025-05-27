@@ -12,6 +12,35 @@ info:
 servers:
 - url: wss://ws.qovery.com
 paths:
+  /cluster/metrics:
+    get:
+      operationId: handle_cluster_metrics_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterStatusDto'
+          description: Stream of cluster metrics
+      tags:
+      - cluster_metrics
   /cluster/node:
     get:
       operationId: handle_cluster_list_nodes_request
@@ -789,7 +818,6 @@ components:
         last_failure_issuance_time:
           format: int64
           minimum: 0
-          nullable: true
           type: integer
         not_after:
           format: int64
@@ -811,6 +839,7 @@ components:
       required:
       - dns_names
       - failed_issuance_attempt_count
+      - last_failure_issuance_time
       - not_after
       - not_before
       - renewal_time
@@ -871,15 +900,9 @@ components:
         node_warnings:
           key:
           - reason: reason
-            node_attributes:
-              node_pool_name: node_pool_name
             message: message
-            type: type
           - reason: reason
-            node_attributes:
-              node_pool_name: node_pool_name
             message: message
-            type: type
       properties:
         global_status:
           $ref: '#/components/schemas/ClusterStatusGlobalStatus'
@@ -1177,15 +1200,9 @@ components:
           node_warnings:
             key:
             - reason: reason
-              node_attributes:
-                node_pool_name: node_pool_name
               message: message
-              type: type
             - reason: reason
-              node_attributes:
-                node_pool_name: node_pool_name
               message: message
-              type: type
         pvcs:
         - disk_percent_usage: 0
           name: name
@@ -3295,12 +3312,10 @@ components:
         limit_cpu_milli:
           format: int32
           minimum: 0
-          nullable: true
           type: integer
         limit_memory_mib:
           format: int32
           minimum: 0
-          nullable: true
           type: integer
         request_cpu_milli:
           format: int32
@@ -3311,6 +3326,8 @@ components:
           minimum: 0
           type: integer
       required:
+      - limit_cpu_milli
+      - limit_memory_mib
       - request_cpu_milli
       - request_memory_mib
     NodeResourceDto:
@@ -3736,8 +3753,6 @@ components:
       - ERROR
       type: string
     QoveryNodeAttributes:
-      example:
-        node_pool_name: node_pool_name
       properties:
         node_pool_name:
           nullable: true
@@ -3745,24 +3760,15 @@ components:
     QoveryNodeFailure:
       example:
         reason: reason
-        node_attributes:
-          node_pool_name: node_pool_name
         message: message
-        type: type
       properties:
         message:
           type: string
-        node_attributes:
-          $ref: '#/components/schemas/QoveryNodeAttributes'
         reason:
-          type: string
-        type:
           type: string
       required:
       - message
-      - node_attributes
       - reason
-      - type
     ResourceStatusDto:
       enum:
       - OK

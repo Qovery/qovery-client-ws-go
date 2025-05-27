@@ -4,6 +4,7 @@
 README.md
 api/openapi.yaml
 api_cluster_list_nodes.go
+api_cluster_metrics.go
 api_cluster_status.go
 api_deployment.go
 api_logs.go
@@ -19,6 +20,7 @@ docs/CertificateStatusDto.md
 docs/ClusterComputedStatusDto.md
 docs/ClusterListNodesAPI.md
 docs/ClusterListNodesResponseDto.md
+docs/ClusterMetricsAPI.md
 docs/ClusterNodeDto.md
 docs/ClusterStatusAPI.md
 docs/ClusterStatusDto.md
@@ -134,6 +136,7 @@ model_service_type.go
 model_unit_dto.go
 response.go
 test/api_cluster_list_nodes_test.go
+test/api_cluster_metrics_test.go
 test/api_cluster_status_test.go
 test/api_deployment_test.go
 test/api_logs_test.go

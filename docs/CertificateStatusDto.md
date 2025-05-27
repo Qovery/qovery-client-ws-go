@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DnsNames** | **[]string** |  | 
 **FailedIssuanceAttemptCount** | **int64** |  | 
-**LastFailureIssuanceTime** | Pointer to **NullableInt64** |  | [optional] 
+**LastFailureIssuanceTime** | **int64** |  | 
 **NotAfter** | **int64** |  | 
 **NotBefore** | **int64** |  | 
 **RenewalTime** | **int64** |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCertificateStatusDto
 
-`func NewCertificateStatusDto(dnsNames []string, failedIssuanceAttemptCount int64, notAfter int64, notBefore int64, renewalTime int64, state ServiceStateDto, ) *CertificateStatusDto`
+`func NewCertificateStatusDto(dnsNames []string, failedIssuanceAttemptCount int64, lastFailureIssuanceTime int64, notAfter int64, notBefore int64, renewalTime int64, state ServiceStateDto, ) *CertificateStatusDto`
 
 NewCertificateStatusDto instantiates a new CertificateStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -91,22 +91,7 @@ and a boolean to check if the value has been set.
 
 SetLastFailureIssuanceTime sets LastFailureIssuanceTime field to given value.
 
-### HasLastFailureIssuanceTime
 
-`func (o *CertificateStatusDto) HasLastFailureIssuanceTime() bool`
-
-HasLastFailureIssuanceTime returns a boolean if a field has been set.
-
-### SetLastFailureIssuanceTimeNil
-
-`func (o *CertificateStatusDto) SetLastFailureIssuanceTimeNil(b bool)`
-
- SetLastFailureIssuanceTimeNil sets the value for LastFailureIssuanceTime to be an explicit nil
-
-### UnsetLastFailureIssuanceTime
-`func (o *CertificateStatusDto) UnsetLastFailureIssuanceTime()`
-
-UnsetLastFailureIssuanceTime ensures that no value is present for LastFailureIssuanceTime, not even an explicit nil
 ### GetNotAfter
 
 `func (o *CertificateStatusDto) GetNotAfter() int64`

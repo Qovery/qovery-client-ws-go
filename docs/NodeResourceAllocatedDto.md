@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LimitCpuMilli** | Pointer to **NullableInt32** |  | [optional] 
-**LimitMemoryMib** | Pointer to **NullableInt32** |  | [optional] 
+**LimitCpuMilli** | **int32** |  | 
+**LimitMemoryMib** | **int32** |  | 
 **RequestCpuMilli** | **int32** |  | 
 **RequestMemoryMib** | **int32** |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewNodeResourceAllocatedDto
 
-`func NewNodeResourceAllocatedDto(requestCpuMilli int32, requestMemoryMib int32, ) *NodeResourceAllocatedDto`
+`func NewNodeResourceAllocatedDto(limitCpuMilli int32, limitMemoryMib int32, requestCpuMilli int32, requestMemoryMib int32, ) *NodeResourceAllocatedDto`
 
 NewNodeResourceAllocatedDto instantiates a new NodeResourceAllocatedDto object
 This constructor will assign default values to properties that have it defined,
@@ -47,22 +47,7 @@ and a boolean to check if the value has been set.
 
 SetLimitCpuMilli sets LimitCpuMilli field to given value.
 
-### HasLimitCpuMilli
 
-`func (o *NodeResourceAllocatedDto) HasLimitCpuMilli() bool`
-
-HasLimitCpuMilli returns a boolean if a field has been set.
-
-### SetLimitCpuMilliNil
-
-`func (o *NodeResourceAllocatedDto) SetLimitCpuMilliNil(b bool)`
-
- SetLimitCpuMilliNil sets the value for LimitCpuMilli to be an explicit nil
-
-### UnsetLimitCpuMilli
-`func (o *NodeResourceAllocatedDto) UnsetLimitCpuMilli()`
-
-UnsetLimitCpuMilli ensures that no value is present for LimitCpuMilli, not even an explicit nil
 ### GetLimitMemoryMib
 
 `func (o *NodeResourceAllocatedDto) GetLimitMemoryMib() int32`
@@ -82,22 +67,7 @@ and a boolean to check if the value has been set.
 
 SetLimitMemoryMib sets LimitMemoryMib field to given value.
 
-### HasLimitMemoryMib
 
-`func (o *NodeResourceAllocatedDto) HasLimitMemoryMib() bool`
-
-HasLimitMemoryMib returns a boolean if a field has been set.
-
-### SetLimitMemoryMibNil
-
-`func (o *NodeResourceAllocatedDto) SetLimitMemoryMibNil(b bool)`
-
- SetLimitMemoryMibNil sets the value for LimitMemoryMib to be an explicit nil
-
-### UnsetLimitMemoryMib
-`func (o *NodeResourceAllocatedDto) UnsetLimitMemoryMib()`
-
-UnsetLimitMemoryMib ensures that no value is present for LimitMemoryMib, not even an explicit nil
 ### GetRequestCpuMilli
 
 `func (o *NodeResourceAllocatedDto) GetRequestCpuMilli() int32`
