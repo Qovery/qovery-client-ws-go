@@ -6318,6 +6318,7 @@ components:
       - DATABASE
       - JOB
       - HELM
+      - TERRAFORM
       type: string
     UnitDto:
       enum:
