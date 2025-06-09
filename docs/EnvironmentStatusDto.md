@@ -12,12 +12,13 @@ Name | Type | Description | Notes
 **Jobs** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 **ProjectId** | **string** |  | 
 **State** | [**ServiceStateDto**](ServiceStateDto.md) |  | 
+**Terraform** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 
 ## Methods
 
 ### NewEnvironmentStatusDto
 
-`func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, ) *EnvironmentStatusDto`
+`func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []ApplicationStatusDto, ) *EnvironmentStatusDto`
 
 NewEnvironmentStatusDto instantiates a new EnvironmentStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -190,6 +191,26 @@ and a boolean to check if the value has been set.
 `func (o *EnvironmentStatusDto) SetState(v ServiceStateDto)`
 
 SetState sets State field to given value.
+
+
+### GetTerraform
+
+`func (o *EnvironmentStatusDto) GetTerraform() []ApplicationStatusDto`
+
+GetTerraform returns the Terraform field if non-nil, zero value otherwise.
+
+### GetTerraformOk
+
+`func (o *EnvironmentStatusDto) GetTerraformOk() (*[]ApplicationStatusDto, bool)`
+
+GetTerraformOk returns a tuple with the Terraform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTerraform
+
+`func (o *EnvironmentStatusDto) SetTerraform(v []ApplicationStatusDto)`
+
+SetTerraform sets Terraform field to given value.
 
 
 

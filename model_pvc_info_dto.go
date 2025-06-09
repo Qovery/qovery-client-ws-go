@@ -27,8 +27,8 @@ type PvcInfoDto struct {
 	DiskMibUsage int32 `json:"disk_mib_usage"`
 	DiskPercentUsage int32 `json:"disk_percent_usage"`
 	Name string `json:"name"`
-	Namespace string `json:"namespace"`
-	PodName string `json:"pod_name"`
+	Namespace NullableString `json:"namespace,omitempty"`
+	PodName NullableString `json:"pod_name,omitempty"`
 	QoveryServiceInfo NullablePodQoveryServiceInfoDto `json:"qovery_service_info,omitempty"`
 	Status NullableString `json:"status,omitempty"`
 }
@@ -39,15 +39,13 @@ type _PvcInfoDto PvcInfoDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPvcInfoDto(createdAt int64, diskMibCapacity int32, diskMibUsage int32, diskPercentUsage int32, name string, namespace string, podName string) *PvcInfoDto {
+func NewPvcInfoDto(createdAt int64, diskMibCapacity int32, diskMibUsage int32, diskPercentUsage int32, name string) *PvcInfoDto {
 	this := PvcInfoDto{}
 	this.CreatedAt = createdAt
 	this.DiskMibCapacity = diskMibCapacity
 	this.DiskMibUsage = diskMibUsage
 	this.DiskPercentUsage = diskPercentUsage
 	this.Name = name
-	this.Namespace = namespace
-	this.PodName = podName
 	return &this
 }
 
@@ -179,52 +177,88 @@ func (o *PvcInfoDto) SetName(v string) {
 	o.Name = v
 }
 
-// GetNamespace returns the Namespace field value
+// GetNamespace returns the Namespace field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PvcInfoDto) GetNamespace() string {
-	if o == nil {
+	if o == nil || IsNil(o.Namespace.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Namespace
+	return *o.Namespace.Get()
 }
 
-// GetNamespaceOk returns a tuple with the Namespace field value
+// GetNamespaceOk returns a tuple with the Namespace field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PvcInfoDto) GetNamespaceOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Namespace, true
+	return o.Namespace.Get(), o.Namespace.IsSet()
 }
 
-// SetNamespace sets field value
+// HasNamespace returns a boolean if a field has been set.
+func (o *PvcInfoDto) HasNamespace() bool {
+	if o != nil && o.Namespace.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNamespace gets a reference to the given NullableString and assigns it to the Namespace field.
 func (o *PvcInfoDto) SetNamespace(v string) {
-	o.Namespace = v
+	o.Namespace.Set(&v)
+}
+// SetNamespaceNil sets the value for Namespace to be an explicit nil
+func (o *PvcInfoDto) SetNamespaceNil() {
+	o.Namespace.Set(nil)
 }
 
-// GetPodName returns the PodName field value
+// UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
+func (o *PvcInfoDto) UnsetNamespace() {
+	o.Namespace.Unset()
+}
+
+// GetPodName returns the PodName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PvcInfoDto) GetPodName() string {
-	if o == nil {
+	if o == nil || IsNil(o.PodName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.PodName
+	return *o.PodName.Get()
 }
 
-// GetPodNameOk returns a tuple with the PodName field value
+// GetPodNameOk returns a tuple with the PodName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PvcInfoDto) GetPodNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.PodName, true
+	return o.PodName.Get(), o.PodName.IsSet()
 }
 
-// SetPodName sets field value
+// HasPodName returns a boolean if a field has been set.
+func (o *PvcInfoDto) HasPodName() bool {
+	if o != nil && o.PodName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPodName gets a reference to the given NullableString and assigns it to the PodName field.
 func (o *PvcInfoDto) SetPodName(v string) {
-	o.PodName = v
+	o.PodName.Set(&v)
+}
+// SetPodNameNil sets the value for PodName to be an explicit nil
+func (o *PvcInfoDto) SetPodNameNil() {
+	o.PodName.Set(nil)
+}
+
+// UnsetPodName ensures that no value is present for PodName, not even an explicit nil
+func (o *PvcInfoDto) UnsetPodName() {
+	o.PodName.Unset()
 }
 
 // GetQoveryServiceInfo returns the QoveryServiceInfo field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -326,8 +360,12 @@ func (o PvcInfoDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["disk_mib_usage"] = o.DiskMibUsage
 	toSerialize["disk_percent_usage"] = o.DiskPercentUsage
 	toSerialize["name"] = o.Name
-	toSerialize["namespace"] = o.Namespace
-	toSerialize["pod_name"] = o.PodName
+	if o.Namespace.IsSet() {
+		toSerialize["namespace"] = o.Namespace.Get()
+	}
+	if o.PodName.IsSet() {
+		toSerialize["pod_name"] = o.PodName.Get()
+	}
 	if o.QoveryServiceInfo.IsSet() {
 		toSerialize["qovery_service_info"] = o.QoveryServiceInfo.Get()
 	}
@@ -347,8 +385,6 @@ func (o *PvcInfoDto) UnmarshalJSON(data []byte) (err error) {
 		"disk_mib_usage",
 		"disk_percent_usage",
 		"name",
-		"namespace",
-		"pod_name",
 	}
 
 	allProperties := make(map[string]interface{})

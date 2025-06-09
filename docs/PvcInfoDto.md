@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **DiskMibUsage** | **int32** |  | 
 **DiskPercentUsage** | **int32** |  | 
 **Name** | **string** |  | 
-**Namespace** | **string** |  | 
-**PodName** | **string** |  | 
+**Namespace** | Pointer to **NullableString** |  | [optional] 
+**PodName** | Pointer to **NullableString** |  | [optional] 
 **QoveryServiceInfo** | Pointer to [**NullablePodQoveryServiceInfoDto**](PodQoveryServiceInfoDto.md) |  | [optional] 
 **Status** | Pointer to **NullableString** |  | [optional] 
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewPvcInfoDto
 
-`func NewPvcInfoDto(createdAt int64, diskMibCapacity int32, diskMibUsage int32, diskPercentUsage int32, name string, namespace string, podName string, ) *PvcInfoDto`
+`func NewPvcInfoDto(createdAt int64, diskMibCapacity int32, diskMibUsage int32, diskPercentUsage int32, name string, ) *PvcInfoDto`
 
 NewPvcInfoDto instantiates a new PvcInfoDto object
 This constructor will assign default values to properties that have it defined,
@@ -152,7 +152,22 @@ and a boolean to check if the value has been set.
 
 SetNamespace sets Namespace field to given value.
 
+### HasNamespace
 
+`func (o *PvcInfoDto) HasNamespace() bool`
+
+HasNamespace returns a boolean if a field has been set.
+
+### SetNamespaceNil
+
+`func (o *PvcInfoDto) SetNamespaceNil(b bool)`
+
+ SetNamespaceNil sets the value for Namespace to be an explicit nil
+
+### UnsetNamespace
+`func (o *PvcInfoDto) UnsetNamespace()`
+
+UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
 ### GetPodName
 
 `func (o *PvcInfoDto) GetPodName() string`
@@ -172,7 +187,22 @@ and a boolean to check if the value has been set.
 
 SetPodName sets PodName field to given value.
 
+### HasPodName
 
+`func (o *PvcInfoDto) HasPodName() bool`
+
+HasPodName returns a boolean if a field has been set.
+
+### SetPodNameNil
+
+`func (o *PvcInfoDto) SetPodNameNil(b bool)`
+
+ SetPodNameNil sets the value for PodName to be an explicit nil
+
+### UnsetPodName
+`func (o *PvcInfoDto) UnsetPodName()`
+
+UnsetPodName ensures that no value is present for PodName, not even an explicit nil
 ### GetQoveryServiceInfo
 
 `func (o *PvcInfoDto) GetQoveryServiceInfo() PodQoveryServiceInfoDto`

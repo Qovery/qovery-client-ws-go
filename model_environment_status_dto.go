@@ -30,6 +30,7 @@ type EnvironmentStatusDto struct {
 	Jobs []ApplicationStatusDto `json:"jobs"`
 	ProjectId string `json:"project_id"`
 	State ServiceStateDto `json:"state"`
+	Terraform []ApplicationStatusDto `json:"terraform"`
 }
 
 type _EnvironmentStatusDto EnvironmentStatusDto
@@ -38,7 +39,7 @@ type _EnvironmentStatusDto EnvironmentStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto) *EnvironmentStatusDto {
+func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []ApplicationStatusDto) *EnvironmentStatusDto {
 	this := EnvironmentStatusDto{}
 	this.Applications = applications
 	this.Containers = containers
@@ -48,6 +49,7 @@ func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []A
 	this.Jobs = jobs
 	this.ProjectId = projectId
 	this.State = state
+	this.Terraform = terraform
 	return &this
 }
 
@@ -251,6 +253,30 @@ func (o *EnvironmentStatusDto) SetState(v ServiceStateDto) {
 	o.State = v
 }
 
+// GetTerraform returns the Terraform field value
+func (o *EnvironmentStatusDto) GetTerraform() []ApplicationStatusDto {
+	if o == nil {
+		var ret []ApplicationStatusDto
+		return ret
+	}
+
+	return o.Terraform
+}
+
+// GetTerraformOk returns a tuple with the Terraform field value
+// and a boolean to check if the value has been set.
+func (o *EnvironmentStatusDto) GetTerraformOk() ([]ApplicationStatusDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Terraform, true
+}
+
+// SetTerraform sets field value
+func (o *EnvironmentStatusDto) SetTerraform(v []ApplicationStatusDto) {
+	o.Terraform = v
+}
+
 func (o EnvironmentStatusDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -269,6 +295,7 @@ func (o EnvironmentStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["jobs"] = o.Jobs
 	toSerialize["project_id"] = o.ProjectId
 	toSerialize["state"] = o.State
+	toSerialize["terraform"] = o.Terraform
 	return toSerialize, nil
 }
 
@@ -285,6 +312,7 @@ func (o *EnvironmentStatusDto) UnmarshalJSON(data []byte) (err error) {
 		"jobs",
 		"project_id",
 		"state",
+		"terraform",
 	}
 
 	allProperties := make(map[string]interface{})
