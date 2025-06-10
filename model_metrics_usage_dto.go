@@ -22,8 +22,8 @@ var _ MappedNullable = &MetricsUsageDto{}
 type MetricsUsageDto struct {
 	CpuMilliUsage NullableInt32 `json:"cpu_milli_usage,omitempty"`
 	CpuPercentUsage NullableInt32 `json:"cpu_percent_usage,omitempty"`
-	DiskMibUsage NullableInt32 `json:"disk_mib_usage,omitempty"`
-	DiskPercentUsage NullableInt32 `json:"disk_percent_usage,omitempty"`
+	EphemeralStoragePercentUsage NullableInt32 `json:"ephemeral_storage_percent_usage,omitempty"`
+	EphemeralStorageUsage NullableInt32 `json:"ephemeral_storage_usage,omitempty"`
 	MemoryMibRssUsage NullableInt32 `json:"memory_mib_rss_usage,omitempty"`
 	MemoryMibWorkingSetUsage NullableInt32 `json:"memory_mib_working_set_usage,omitempty"`
 	MemoryPercentRssUsage NullableInt32 `json:"memory_percent_rss_usage,omitempty"`
@@ -131,88 +131,88 @@ func (o *MetricsUsageDto) UnsetCpuPercentUsage() {
 	o.CpuPercentUsage.Unset()
 }
 
-// GetDiskMibUsage returns the DiskMibUsage field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MetricsUsageDto) GetDiskMibUsage() int32 {
-	if o == nil || IsNil(o.DiskMibUsage.Get()) {
+// GetEphemeralStoragePercentUsage returns the EphemeralStoragePercentUsage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MetricsUsageDto) GetEphemeralStoragePercentUsage() int32 {
+	if o == nil || IsNil(o.EphemeralStoragePercentUsage.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.DiskMibUsage.Get()
+	return *o.EphemeralStoragePercentUsage.Get()
 }
 
-// GetDiskMibUsageOk returns a tuple with the DiskMibUsage field value if set, nil otherwise
+// GetEphemeralStoragePercentUsageOk returns a tuple with the EphemeralStoragePercentUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MetricsUsageDto) GetDiskMibUsageOk() (*int32, bool) {
+func (o *MetricsUsageDto) GetEphemeralStoragePercentUsageOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DiskMibUsage.Get(), o.DiskMibUsage.IsSet()
+	return o.EphemeralStoragePercentUsage.Get(), o.EphemeralStoragePercentUsage.IsSet()
 }
 
-// HasDiskMibUsage returns a boolean if a field has been set.
-func (o *MetricsUsageDto) HasDiskMibUsage() bool {
-	if o != nil && o.DiskMibUsage.IsSet() {
+// HasEphemeralStoragePercentUsage returns a boolean if a field has been set.
+func (o *MetricsUsageDto) HasEphemeralStoragePercentUsage() bool {
+	if o != nil && o.EphemeralStoragePercentUsage.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDiskMibUsage gets a reference to the given NullableInt32 and assigns it to the DiskMibUsage field.
-func (o *MetricsUsageDto) SetDiskMibUsage(v int32) {
-	o.DiskMibUsage.Set(&v)
+// SetEphemeralStoragePercentUsage gets a reference to the given NullableInt32 and assigns it to the EphemeralStoragePercentUsage field.
+func (o *MetricsUsageDto) SetEphemeralStoragePercentUsage(v int32) {
+	o.EphemeralStoragePercentUsage.Set(&v)
 }
-// SetDiskMibUsageNil sets the value for DiskMibUsage to be an explicit nil
-func (o *MetricsUsageDto) SetDiskMibUsageNil() {
-	o.DiskMibUsage.Set(nil)
-}
-
-// UnsetDiskMibUsage ensures that no value is present for DiskMibUsage, not even an explicit nil
-func (o *MetricsUsageDto) UnsetDiskMibUsage() {
-	o.DiskMibUsage.Unset()
+// SetEphemeralStoragePercentUsageNil sets the value for EphemeralStoragePercentUsage to be an explicit nil
+func (o *MetricsUsageDto) SetEphemeralStoragePercentUsageNil() {
+	o.EphemeralStoragePercentUsage.Set(nil)
 }
 
-// GetDiskPercentUsage returns the DiskPercentUsage field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MetricsUsageDto) GetDiskPercentUsage() int32 {
-	if o == nil || IsNil(o.DiskPercentUsage.Get()) {
+// UnsetEphemeralStoragePercentUsage ensures that no value is present for EphemeralStoragePercentUsage, not even an explicit nil
+func (o *MetricsUsageDto) UnsetEphemeralStoragePercentUsage() {
+	o.EphemeralStoragePercentUsage.Unset()
+}
+
+// GetEphemeralStorageUsage returns the EphemeralStorageUsage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MetricsUsageDto) GetEphemeralStorageUsage() int32 {
+	if o == nil || IsNil(o.EphemeralStorageUsage.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.DiskPercentUsage.Get()
+	return *o.EphemeralStorageUsage.Get()
 }
 
-// GetDiskPercentUsageOk returns a tuple with the DiskPercentUsage field value if set, nil otherwise
+// GetEphemeralStorageUsageOk returns a tuple with the EphemeralStorageUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MetricsUsageDto) GetDiskPercentUsageOk() (*int32, bool) {
+func (o *MetricsUsageDto) GetEphemeralStorageUsageOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DiskPercentUsage.Get(), o.DiskPercentUsage.IsSet()
+	return o.EphemeralStorageUsage.Get(), o.EphemeralStorageUsage.IsSet()
 }
 
-// HasDiskPercentUsage returns a boolean if a field has been set.
-func (o *MetricsUsageDto) HasDiskPercentUsage() bool {
-	if o != nil && o.DiskPercentUsage.IsSet() {
+// HasEphemeralStorageUsage returns a boolean if a field has been set.
+func (o *MetricsUsageDto) HasEphemeralStorageUsage() bool {
+	if o != nil && o.EphemeralStorageUsage.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDiskPercentUsage gets a reference to the given NullableInt32 and assigns it to the DiskPercentUsage field.
-func (o *MetricsUsageDto) SetDiskPercentUsage(v int32) {
-	o.DiskPercentUsage.Set(&v)
+// SetEphemeralStorageUsage gets a reference to the given NullableInt32 and assigns it to the EphemeralStorageUsage field.
+func (o *MetricsUsageDto) SetEphemeralStorageUsage(v int32) {
+	o.EphemeralStorageUsage.Set(&v)
 }
-// SetDiskPercentUsageNil sets the value for DiskPercentUsage to be an explicit nil
-func (o *MetricsUsageDto) SetDiskPercentUsageNil() {
-	o.DiskPercentUsage.Set(nil)
+// SetEphemeralStorageUsageNil sets the value for EphemeralStorageUsage to be an explicit nil
+func (o *MetricsUsageDto) SetEphemeralStorageUsageNil() {
+	o.EphemeralStorageUsage.Set(nil)
 }
 
-// UnsetDiskPercentUsage ensures that no value is present for DiskPercentUsage, not even an explicit nil
-func (o *MetricsUsageDto) UnsetDiskPercentUsage() {
-	o.DiskPercentUsage.Unset()
+// UnsetEphemeralStorageUsage ensures that no value is present for EphemeralStorageUsage, not even an explicit nil
+func (o *MetricsUsageDto) UnsetEphemeralStorageUsage() {
+	o.EphemeralStorageUsage.Unset()
 }
 
 // GetMemoryMibRssUsage returns the MemoryMibRssUsage field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -399,11 +399,11 @@ func (o MetricsUsageDto) ToMap() (map[string]interface{}, error) {
 	if o.CpuPercentUsage.IsSet() {
 		toSerialize["cpu_percent_usage"] = o.CpuPercentUsage.Get()
 	}
-	if o.DiskMibUsage.IsSet() {
-		toSerialize["disk_mib_usage"] = o.DiskMibUsage.Get()
+	if o.EphemeralStoragePercentUsage.IsSet() {
+		toSerialize["ephemeral_storage_percent_usage"] = o.EphemeralStoragePercentUsage.Get()
 	}
-	if o.DiskPercentUsage.IsSet() {
-		toSerialize["disk_percent_usage"] = o.DiskPercentUsage.Get()
+	if o.EphemeralStorageUsage.IsSet() {
+		toSerialize["ephemeral_storage_usage"] = o.EphemeralStorageUsage.Get()
 	}
 	if o.MemoryMibRssUsage.IsSet() {
 		toSerialize["memory_mib_rss_usage"] = o.MemoryMibRssUsage.Get()

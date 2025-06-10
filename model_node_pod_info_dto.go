@@ -25,6 +25,8 @@ type NodePodInfoDto struct {
 	CpuMilliLimit NullableInt32 `json:"cpu_milli_limit,omitempty"`
 	CpuMilliRequest NullableInt32 `json:"cpu_milli_request,omitempty"`
 	CreatedAt int64 `json:"created_at"`
+	EphemeralStorageMibLimit NullableInt32 `json:"ephemeral_storage_mib_limit,omitempty"`
+	EphemeralStorageMibRequest NullableInt32 `json:"ephemeral_storage_mib_request,omitempty"`
 	ErrorContainerStatuses []NodePodErrorStatusDto `json:"error_container_statuses"`
 	ImagesVersion map[string]string `json:"images_version"`
 	MemoryMibLimit NullableInt32 `json:"memory_mib_limit,omitempty"`
@@ -168,6 +170,90 @@ func (o *NodePodInfoDto) GetCreatedAtOk() (*int64, bool) {
 // SetCreatedAt sets field value
 func (o *NodePodInfoDto) SetCreatedAt(v int64) {
 	o.CreatedAt = v
+}
+
+// GetEphemeralStorageMibLimit returns the EphemeralStorageMibLimit field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NodePodInfoDto) GetEphemeralStorageMibLimit() int32 {
+	if o == nil || IsNil(o.EphemeralStorageMibLimit.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.EphemeralStorageMibLimit.Get()
+}
+
+// GetEphemeralStorageMibLimitOk returns a tuple with the EphemeralStorageMibLimit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NodePodInfoDto) GetEphemeralStorageMibLimitOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EphemeralStorageMibLimit.Get(), o.EphemeralStorageMibLimit.IsSet()
+}
+
+// HasEphemeralStorageMibLimit returns a boolean if a field has been set.
+func (o *NodePodInfoDto) HasEphemeralStorageMibLimit() bool {
+	if o != nil && o.EphemeralStorageMibLimit.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEphemeralStorageMibLimit gets a reference to the given NullableInt32 and assigns it to the EphemeralStorageMibLimit field.
+func (o *NodePodInfoDto) SetEphemeralStorageMibLimit(v int32) {
+	o.EphemeralStorageMibLimit.Set(&v)
+}
+// SetEphemeralStorageMibLimitNil sets the value for EphemeralStorageMibLimit to be an explicit nil
+func (o *NodePodInfoDto) SetEphemeralStorageMibLimitNil() {
+	o.EphemeralStorageMibLimit.Set(nil)
+}
+
+// UnsetEphemeralStorageMibLimit ensures that no value is present for EphemeralStorageMibLimit, not even an explicit nil
+func (o *NodePodInfoDto) UnsetEphemeralStorageMibLimit() {
+	o.EphemeralStorageMibLimit.Unset()
+}
+
+// GetEphemeralStorageMibRequest returns the EphemeralStorageMibRequest field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NodePodInfoDto) GetEphemeralStorageMibRequest() int32 {
+	if o == nil || IsNil(o.EphemeralStorageMibRequest.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.EphemeralStorageMibRequest.Get()
+}
+
+// GetEphemeralStorageMibRequestOk returns a tuple with the EphemeralStorageMibRequest field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NodePodInfoDto) GetEphemeralStorageMibRequestOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EphemeralStorageMibRequest.Get(), o.EphemeralStorageMibRequest.IsSet()
+}
+
+// HasEphemeralStorageMibRequest returns a boolean if a field has been set.
+func (o *NodePodInfoDto) HasEphemeralStorageMibRequest() bool {
+	if o != nil && o.EphemeralStorageMibRequest.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEphemeralStorageMibRequest gets a reference to the given NullableInt32 and assigns it to the EphemeralStorageMibRequest field.
+func (o *NodePodInfoDto) SetEphemeralStorageMibRequest(v int32) {
+	o.EphemeralStorageMibRequest.Set(&v)
+}
+// SetEphemeralStorageMibRequestNil sets the value for EphemeralStorageMibRequest to be an explicit nil
+func (o *NodePodInfoDto) SetEphemeralStorageMibRequestNil() {
+	o.EphemeralStorageMibRequest.Set(nil)
+}
+
+// UnsetEphemeralStorageMibRequest ensures that no value is present for EphemeralStorageMibRequest, not even an explicit nil
+func (o *NodePodInfoDto) UnsetEphemeralStorageMibRequest() {
+	o.EphemeralStorageMibRequest.Unset()
 }
 
 // GetErrorContainerStatuses returns the ErrorContainerStatuses field value
@@ -457,6 +543,12 @@ func (o NodePodInfoDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["cpu_milli_request"] = o.CpuMilliRequest.Get()
 	}
 	toSerialize["created_at"] = o.CreatedAt
+	if o.EphemeralStorageMibLimit.IsSet() {
+		toSerialize["ephemeral_storage_mib_limit"] = o.EphemeralStorageMibLimit.Get()
+	}
+	if o.EphemeralStorageMibRequest.IsSet() {
+		toSerialize["ephemeral_storage_mib_request"] = o.EphemeralStorageMibRequest.Get()
+	}
 	toSerialize["error_container_statuses"] = o.ErrorContainerStatuses
 	toSerialize["images_version"] = o.ImagesVersion
 	if o.MemoryMibLimit.IsSet() {

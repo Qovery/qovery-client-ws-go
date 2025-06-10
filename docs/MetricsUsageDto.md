@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CpuMilliUsage** | Pointer to **NullableInt32** |  | [optional] 
 **CpuPercentUsage** | Pointer to **NullableInt32** |  | [optional] 
-**DiskMibUsage** | Pointer to **NullableInt32** |  | [optional] 
-**DiskPercentUsage** | Pointer to **NullableInt32** |  | [optional] 
+**EphemeralStoragePercentUsage** | Pointer to **NullableInt32** |  | [optional] 
+**EphemeralStorageUsage** | Pointer to **NullableInt32** |  | [optional] 
 **MemoryMibRssUsage** | Pointer to **NullableInt32** |  | [optional] 
 **MemoryMibWorkingSetUsage** | Pointer to **NullableInt32** |  | [optional] 
 **MemoryPercentRssUsage** | Pointer to **NullableInt32** |  | [optional] 
@@ -102,76 +102,76 @@ HasCpuPercentUsage returns a boolean if a field has been set.
 `func (o *MetricsUsageDto) UnsetCpuPercentUsage()`
 
 UnsetCpuPercentUsage ensures that no value is present for CpuPercentUsage, not even an explicit nil
-### GetDiskMibUsage
+### GetEphemeralStoragePercentUsage
 
-`func (o *MetricsUsageDto) GetDiskMibUsage() int32`
+`func (o *MetricsUsageDto) GetEphemeralStoragePercentUsage() int32`
 
-GetDiskMibUsage returns the DiskMibUsage field if non-nil, zero value otherwise.
+GetEphemeralStoragePercentUsage returns the EphemeralStoragePercentUsage field if non-nil, zero value otherwise.
 
-### GetDiskMibUsageOk
+### GetEphemeralStoragePercentUsageOk
 
-`func (o *MetricsUsageDto) GetDiskMibUsageOk() (*int32, bool)`
+`func (o *MetricsUsageDto) GetEphemeralStoragePercentUsageOk() (*int32, bool)`
 
-GetDiskMibUsageOk returns a tuple with the DiskMibUsage field if it's non-nil, zero value otherwise
+GetEphemeralStoragePercentUsageOk returns a tuple with the EphemeralStoragePercentUsage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDiskMibUsage
+### SetEphemeralStoragePercentUsage
 
-`func (o *MetricsUsageDto) SetDiskMibUsage(v int32)`
+`func (o *MetricsUsageDto) SetEphemeralStoragePercentUsage(v int32)`
 
-SetDiskMibUsage sets DiskMibUsage field to given value.
+SetEphemeralStoragePercentUsage sets EphemeralStoragePercentUsage field to given value.
 
-### HasDiskMibUsage
+### HasEphemeralStoragePercentUsage
 
-`func (o *MetricsUsageDto) HasDiskMibUsage() bool`
+`func (o *MetricsUsageDto) HasEphemeralStoragePercentUsage() bool`
 
-HasDiskMibUsage returns a boolean if a field has been set.
+HasEphemeralStoragePercentUsage returns a boolean if a field has been set.
 
-### SetDiskMibUsageNil
+### SetEphemeralStoragePercentUsageNil
 
-`func (o *MetricsUsageDto) SetDiskMibUsageNil(b bool)`
+`func (o *MetricsUsageDto) SetEphemeralStoragePercentUsageNil(b bool)`
 
- SetDiskMibUsageNil sets the value for DiskMibUsage to be an explicit nil
+ SetEphemeralStoragePercentUsageNil sets the value for EphemeralStoragePercentUsage to be an explicit nil
 
-### UnsetDiskMibUsage
-`func (o *MetricsUsageDto) UnsetDiskMibUsage()`
+### UnsetEphemeralStoragePercentUsage
+`func (o *MetricsUsageDto) UnsetEphemeralStoragePercentUsage()`
 
-UnsetDiskMibUsage ensures that no value is present for DiskMibUsage, not even an explicit nil
-### GetDiskPercentUsage
+UnsetEphemeralStoragePercentUsage ensures that no value is present for EphemeralStoragePercentUsage, not even an explicit nil
+### GetEphemeralStorageUsage
 
-`func (o *MetricsUsageDto) GetDiskPercentUsage() int32`
+`func (o *MetricsUsageDto) GetEphemeralStorageUsage() int32`
 
-GetDiskPercentUsage returns the DiskPercentUsage field if non-nil, zero value otherwise.
+GetEphemeralStorageUsage returns the EphemeralStorageUsage field if non-nil, zero value otherwise.
 
-### GetDiskPercentUsageOk
+### GetEphemeralStorageUsageOk
 
-`func (o *MetricsUsageDto) GetDiskPercentUsageOk() (*int32, bool)`
+`func (o *MetricsUsageDto) GetEphemeralStorageUsageOk() (*int32, bool)`
 
-GetDiskPercentUsageOk returns a tuple with the DiskPercentUsage field if it's non-nil, zero value otherwise
+GetEphemeralStorageUsageOk returns a tuple with the EphemeralStorageUsage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDiskPercentUsage
+### SetEphemeralStorageUsage
 
-`func (o *MetricsUsageDto) SetDiskPercentUsage(v int32)`
+`func (o *MetricsUsageDto) SetEphemeralStorageUsage(v int32)`
 
-SetDiskPercentUsage sets DiskPercentUsage field to given value.
+SetEphemeralStorageUsage sets EphemeralStorageUsage field to given value.
 
-### HasDiskPercentUsage
+### HasEphemeralStorageUsage
 
-`func (o *MetricsUsageDto) HasDiskPercentUsage() bool`
+`func (o *MetricsUsageDto) HasEphemeralStorageUsage() bool`
 
-HasDiskPercentUsage returns a boolean if a field has been set.
+HasEphemeralStorageUsage returns a boolean if a field has been set.
 
-### SetDiskPercentUsageNil
+### SetEphemeralStorageUsageNil
 
-`func (o *MetricsUsageDto) SetDiskPercentUsageNil(b bool)`
+`func (o *MetricsUsageDto) SetEphemeralStorageUsageNil(b bool)`
 
- SetDiskPercentUsageNil sets the value for DiskPercentUsage to be an explicit nil
+ SetEphemeralStorageUsageNil sets the value for EphemeralStorageUsage to be an explicit nil
 
-### UnsetDiskPercentUsage
-`func (o *MetricsUsageDto) UnsetDiskPercentUsage()`
+### UnsetEphemeralStorageUsage
+`func (o *MetricsUsageDto) UnsetEphemeralStorageUsage()`
 
-UnsetDiskPercentUsage ensures that no value is present for DiskPercentUsage, not even an explicit nil
+UnsetEphemeralStorageUsage ensures that no value is present for EphemeralStorageUsage, not even an explicit nil
 ### GetMemoryMibRssUsage
 
 `func (o *MetricsUsageDto) GetMemoryMibRssUsage() int32`

@@ -1006,14 +1006,14 @@ components:
           labels:
             key: labels
           metrics_usage:
+            ephemeral_storage_usage: 0
+            ephemeral_storage_percent_usage: 0
             memory_percent_working_set_usage: 0
             cpu_percent_usage: 0
-            disk_percent_usage: 0
             cpu_milli_usage: 0
             memory_percent_rss_usage: 0
             memory_mib_working_set_usage: 0
             memory_mib_rss_usage: 0
-            disk_mib_usage: 0
           resources_allocated:
             limit_cpu_milli: 0
             limit_memory_mib: 0
@@ -1040,11 +1040,9 @@ components:
             - reason: reason
               container_name: container_name
               message: message
-            memory_mib_request: 0
-            name: name
-            namespace: namespace
             cpu_milli_limit: 0
             created_at: 0
+            ephemeral_storage_mib_request: 0
             qovery_service_info:
               environment_id: environment_id
               project_id: project_id
@@ -1053,14 +1051,18 @@ components:
               project_name: project_name
               environment_name: environment_name
             metrics_usage:
+              ephemeral_storage_usage: 0
+              ephemeral_storage_percent_usage: 0
               memory_percent_working_set_usage: 0
               cpu_percent_usage: 0
-              disk_percent_usage: 0
               cpu_milli_usage: 0
               memory_percent_rss_usage: 0
               memory_mib_working_set_usage: 0
               memory_mib_rss_usage: 0
-              disk_mib_usage: 0
+            ephemeral_storage_mib_limit: 0
+            memory_mib_request: 0
+            name: name
+            namespace: namespace
           - images_version:
               key: images_version
             restart_count: 0
@@ -1073,11 +1075,9 @@ components:
             - reason: reason
               container_name: container_name
               message: message
-            memory_mib_request: 0
-            name: name
-            namespace: namespace
             cpu_milli_limit: 0
             created_at: 0
+            ephemeral_storage_mib_request: 0
             qovery_service_info:
               environment_id: environment_id
               project_id: project_id
@@ -1086,14 +1086,18 @@ components:
               project_name: project_name
               environment_name: environment_name
             metrics_usage:
+              ephemeral_storage_usage: 0
+              ephemeral_storage_percent_usage: 0
               memory_percent_working_set_usage: 0
               cpu_percent_usage: 0
-              disk_percent_usage: 0
               cpu_milli_usage: 0
               memory_percent_rss_usage: 0
               memory_mib_working_set_usage: 0
               memory_mib_rss_usage: 0
-              disk_mib_usage: 0
+            ephemeral_storage_mib_limit: 0
+            memory_mib_request: 0
+            name: name
+            namespace: namespace
           conditions:
           - reason: reason
             last_heartbeat_time: 0
@@ -1135,14 +1139,14 @@ components:
           labels:
             key: labels
           metrics_usage:
+            ephemeral_storage_usage: 0
+            ephemeral_storage_percent_usage: 0
             memory_percent_working_set_usage: 0
             cpu_percent_usage: 0
-            disk_percent_usage: 0
             cpu_milli_usage: 0
             memory_percent_rss_usage: 0
             memory_mib_working_set_usage: 0
             memory_mib_rss_usage: 0
-            disk_mib_usage: 0
           resources_allocated:
             limit_cpu_milli: 0
             limit_memory_mib: 0
@@ -1169,11 +1173,9 @@ components:
             - reason: reason
               container_name: container_name
               message: message
-            memory_mib_request: 0
-            name: name
-            namespace: namespace
             cpu_milli_limit: 0
             created_at: 0
+            ephemeral_storage_mib_request: 0
             qovery_service_info:
               environment_id: environment_id
               project_id: project_id
@@ -1182,14 +1184,18 @@ components:
               project_name: project_name
               environment_name: environment_name
             metrics_usage:
+              ephemeral_storage_usage: 0
+              ephemeral_storage_percent_usage: 0
               memory_percent_working_set_usage: 0
               cpu_percent_usage: 0
-              disk_percent_usage: 0
               cpu_milli_usage: 0
               memory_percent_rss_usage: 0
               memory_mib_working_set_usage: 0
               memory_mib_rss_usage: 0
-              disk_mib_usage: 0
+            ephemeral_storage_mib_limit: 0
+            memory_mib_request: 0
+            name: name
+            namespace: namespace
           - images_version:
               key: images_version
             restart_count: 0
@@ -1202,11 +1208,9 @@ components:
             - reason: reason
               container_name: container_name
               message: message
-            memory_mib_request: 0
-            name: name
-            namespace: namespace
             cpu_milli_limit: 0
             created_at: 0
+            ephemeral_storage_mib_request: 0
             qovery_service_info:
               environment_id: environment_id
               project_id: project_id
@@ -1215,14 +1219,18 @@ components:
               project_name: project_name
               environment_name: environment_name
             metrics_usage:
+              ephemeral_storage_usage: 0
+              ephemeral_storage_percent_usage: 0
               memory_percent_working_set_usage: 0
               cpu_percent_usage: 0
-              disk_percent_usage: 0
               cpu_milli_usage: 0
               memory_percent_rss_usage: 0
               memory_mib_working_set_usage: 0
               memory_mib_rss_usage: 0
-              disk_mib_usage: 0
+            ephemeral_storage_mib_limit: 0
+            memory_mib_request: 0
+            name: name
+            namespace: namespace
           conditions:
           - reason: reason
             last_heartbeat_time: 0
@@ -1296,14 +1304,14 @@ components:
         labels:
           key: labels
         metrics_usage:
+          ephemeral_storage_usage: 0
+          ephemeral_storage_percent_usage: 0
           memory_percent_working_set_usage: 0
           cpu_percent_usage: 0
-          disk_percent_usage: 0
           cpu_milli_usage: 0
           memory_percent_rss_usage: 0
           memory_mib_working_set_usage: 0
           memory_mib_rss_usage: 0
-          disk_mib_usage: 0
         resources_allocated:
           limit_cpu_milli: 0
           limit_memory_mib: 0
@@ -1330,11 +1338,9 @@ components:
           - reason: reason
             container_name: container_name
             message: message
-          memory_mib_request: 0
-          name: name
-          namespace: namespace
           cpu_milli_limit: 0
           created_at: 0
+          ephemeral_storage_mib_request: 0
           qovery_service_info:
             environment_id: environment_id
             project_id: project_id
@@ -1343,14 +1349,18 @@ components:
             project_name: project_name
             environment_name: environment_name
           metrics_usage:
+            ephemeral_storage_usage: 0
+            ephemeral_storage_percent_usage: 0
             memory_percent_working_set_usage: 0
             cpu_percent_usage: 0
-            disk_percent_usage: 0
             cpu_milli_usage: 0
             memory_percent_rss_usage: 0
             memory_mib_working_set_usage: 0
             memory_mib_rss_usage: 0
-            disk_mib_usage: 0
+          ephemeral_storage_mib_limit: 0
+          memory_mib_request: 0
+          name: name
+          namespace: namespace
         - images_version:
             key: images_version
           restart_count: 0
@@ -1363,11 +1373,9 @@ components:
           - reason: reason
             container_name: container_name
             message: message
-          memory_mib_request: 0
-          name: name
-          namespace: namespace
           cpu_milli_limit: 0
           created_at: 0
+          ephemeral_storage_mib_request: 0
           qovery_service_info:
             environment_id: environment_id
             project_id: project_id
@@ -1376,14 +1384,18 @@ components:
             project_name: project_name
             environment_name: environment_name
           metrics_usage:
+            ephemeral_storage_usage: 0
+            ephemeral_storage_percent_usage: 0
             memory_percent_working_set_usage: 0
             cpu_percent_usage: 0
-            disk_percent_usage: 0
             cpu_milli_usage: 0
             memory_percent_rss_usage: 0
             memory_mib_working_set_usage: 0
             memory_mib_rss_usage: 0
-            disk_mib_usage: 0
+          ephemeral_storage_mib_limit: 0
+          memory_mib_request: 0
+          name: name
+          namespace: namespace
         conditions:
         - reason: reason
           last_heartbeat_time: 0
@@ -3317,14 +3329,14 @@ components:
       - unit
     MetricsUsageDto:
       example:
+        ephemeral_storage_usage: 0
+        ephemeral_storage_percent_usage: 0
         memory_percent_working_set_usage: 0
         cpu_percent_usage: 0
-        disk_percent_usage: 0
         cpu_milli_usage: 0
         memory_percent_rss_usage: 0
         memory_mib_working_set_usage: 0
         memory_mib_rss_usage: 0
-        disk_mib_usage: 0
       properties:
         cpu_milli_usage:
           format: int32
@@ -3336,12 +3348,12 @@ components:
           minimum: 0
           nullable: true
           type: integer
-        disk_mib_usage:
+        ephemeral_storage_percent_usage:
           format: int32
           minimum: 0
           nullable: true
           type: integer
-        disk_percent_usage:
+        ephemeral_storage_usage:
           format: int32
           minimum: 0
           nullable: true
@@ -3457,11 +3469,9 @@ components:
         - reason: reason
           container_name: container_name
           message: message
-        memory_mib_request: 0
-        name: name
-        namespace: namespace
         cpu_milli_limit: 0
         created_at: 0
+        ephemeral_storage_mib_request: 0
         qovery_service_info:
           environment_id: environment_id
           project_id: project_id
@@ -3470,14 +3480,18 @@ components:
           project_name: project_name
           environment_name: environment_name
         metrics_usage:
+          ephemeral_storage_usage: 0
+          ephemeral_storage_percent_usage: 0
           memory_percent_working_set_usage: 0
           cpu_percent_usage: 0
-          disk_percent_usage: 0
           cpu_milli_usage: 0
           memory_percent_rss_usage: 0
           memory_mib_working_set_usage: 0
           memory_mib_rss_usage: 0
-          disk_mib_usage: 0
+        ephemeral_storage_mib_limit: 0
+        memory_mib_request: 0
+        name: name
+        namespace: namespace
       properties:
         cpu_milli_limit:
           format: int32
@@ -3492,6 +3506,16 @@ components:
         created_at:
           format: int64
           minimum: 0
+          type: integer
+        ephemeral_storage_mib_limit:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        ephemeral_storage_mib_request:
+          format: int32
+          minimum: 0
+          nullable: true
           type: integer
         error_container_statuses:
           items:

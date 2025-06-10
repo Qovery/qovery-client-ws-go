@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **CpuMilliLimit** | Pointer to **NullableInt32** |  | [optional] 
 **CpuMilliRequest** | Pointer to **NullableInt32** |  | [optional] 
 **CreatedAt** | **int64** |  | 
+**EphemeralStorageMibLimit** | Pointer to **NullableInt32** |  | [optional] 
+**EphemeralStorageMibRequest** | Pointer to **NullableInt32** |  | [optional] 
 **ErrorContainerStatuses** | [**[]NodePodErrorStatusDto**](NodePodErrorStatusDto.md) |  | 
 **ImagesVersion** | **map[string]string** |  | 
 **MemoryMibLimit** | Pointer to **NullableInt32** |  | [optional] 
@@ -126,6 +128,76 @@ and a boolean to check if the value has been set.
 SetCreatedAt sets CreatedAt field to given value.
 
 
+### GetEphemeralStorageMibLimit
+
+`func (o *NodePodInfoDto) GetEphemeralStorageMibLimit() int32`
+
+GetEphemeralStorageMibLimit returns the EphemeralStorageMibLimit field if non-nil, zero value otherwise.
+
+### GetEphemeralStorageMibLimitOk
+
+`func (o *NodePodInfoDto) GetEphemeralStorageMibLimitOk() (*int32, bool)`
+
+GetEphemeralStorageMibLimitOk returns a tuple with the EphemeralStorageMibLimit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEphemeralStorageMibLimit
+
+`func (o *NodePodInfoDto) SetEphemeralStorageMibLimit(v int32)`
+
+SetEphemeralStorageMibLimit sets EphemeralStorageMibLimit field to given value.
+
+### HasEphemeralStorageMibLimit
+
+`func (o *NodePodInfoDto) HasEphemeralStorageMibLimit() bool`
+
+HasEphemeralStorageMibLimit returns a boolean if a field has been set.
+
+### SetEphemeralStorageMibLimitNil
+
+`func (o *NodePodInfoDto) SetEphemeralStorageMibLimitNil(b bool)`
+
+ SetEphemeralStorageMibLimitNil sets the value for EphemeralStorageMibLimit to be an explicit nil
+
+### UnsetEphemeralStorageMibLimit
+`func (o *NodePodInfoDto) UnsetEphemeralStorageMibLimit()`
+
+UnsetEphemeralStorageMibLimit ensures that no value is present for EphemeralStorageMibLimit, not even an explicit nil
+### GetEphemeralStorageMibRequest
+
+`func (o *NodePodInfoDto) GetEphemeralStorageMibRequest() int32`
+
+GetEphemeralStorageMibRequest returns the EphemeralStorageMibRequest field if non-nil, zero value otherwise.
+
+### GetEphemeralStorageMibRequestOk
+
+`func (o *NodePodInfoDto) GetEphemeralStorageMibRequestOk() (*int32, bool)`
+
+GetEphemeralStorageMibRequestOk returns a tuple with the EphemeralStorageMibRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEphemeralStorageMibRequest
+
+`func (o *NodePodInfoDto) SetEphemeralStorageMibRequest(v int32)`
+
+SetEphemeralStorageMibRequest sets EphemeralStorageMibRequest field to given value.
+
+### HasEphemeralStorageMibRequest
+
+`func (o *NodePodInfoDto) HasEphemeralStorageMibRequest() bool`
+
+HasEphemeralStorageMibRequest returns a boolean if a field has been set.
+
+### SetEphemeralStorageMibRequestNil
+
+`func (o *NodePodInfoDto) SetEphemeralStorageMibRequestNil(b bool)`
+
+ SetEphemeralStorageMibRequestNil sets the value for EphemeralStorageMibRequest to be an explicit nil
+
+### UnsetEphemeralStorageMibRequest
+`func (o *NodePodInfoDto) UnsetEphemeralStorageMibRequest()`
+
+UnsetEphemeralStorageMibRequest ensures that no value is present for EphemeralStorageMibRequest, not even an explicit nil
 ### GetErrorContainerStatuses
 
 `func (o *NodePodInfoDto) GetErrorContainerStatuses() []NodePodErrorStatusDto`
