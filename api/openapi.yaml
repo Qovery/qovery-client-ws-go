@@ -1063,6 +1063,7 @@ components:
             memory_mib_request: 0
             name: name
             namespace: namespace
+            status_phase: PENDING
           - images_version:
               key: images_version
             restart_count: 0
@@ -1098,6 +1099,7 @@ components:
             memory_mib_request: 0
             name: name
             namespace: namespace
+            status_phase: PENDING
           conditions:
           - reason: reason
             last_heartbeat_time: 0
@@ -1196,6 +1198,7 @@ components:
             memory_mib_request: 0
             name: name
             namespace: namespace
+            status_phase: PENDING
           - images_version:
               key: images_version
             restart_count: 0
@@ -1231,6 +1234,7 @@ components:
             memory_mib_request: 0
             name: name
             namespace: namespace
+            status_phase: PENDING
           conditions:
           - reason: reason
             last_heartbeat_time: 0
@@ -1361,6 +1365,7 @@ components:
           memory_mib_request: 0
           name: name
           namespace: namespace
+          status_phase: PENDING
         - images_version:
             key: images_version
           restart_count: 0
@@ -1396,6 +1401,7 @@ components:
           memory_mib_request: 0
           name: name
           namespace: namespace
+          status_phase: PENDING
         conditions:
         - reason: reason
           last_heartbeat_time: 0
@@ -3492,6 +3498,7 @@ components:
         memory_mib_request: 0
         name: name
         namespace: namespace
+        status_phase: PENDING
       properties:
         cpu_milli_limit:
           format: int32
@@ -3546,6 +3553,8 @@ components:
           format: int32
           minimum: 0
           type: integer
+        status_phase:
+          $ref: '#/components/schemas/PodStatusPhase'
       required:
       - created_at
       - error_container_statuses
@@ -3554,6 +3563,7 @@ components:
       - name
       - namespace
       - restart_count
+      - status_phase
     NodePoolInfoDto:
       example:
         memory_mib_limit: 0
@@ -3903,6 +3913,14 @@ components:
       - state
       - state_message
       - state_reason
+    PodStatusPhase:
+      enum:
+      - PENDING
+      - RUNNING
+      - SUCCEEDED
+      - FAILED
+      - UNKNOWN
+      type: string
     PvcInfoDto:
       example:
         disk_percent_usage: 0

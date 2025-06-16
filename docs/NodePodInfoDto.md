@@ -18,12 +18,13 @@ Name | Type | Description | Notes
 **Namespace** | **string** |  | 
 **QoveryServiceInfo** | Pointer to [**NullablePodQoveryServiceInfoDto**](PodQoveryServiceInfoDto.md) |  | [optional] 
 **RestartCount** | **int32** |  | 
+**StatusPhase** | [**PodStatusPhase**](PodStatusPhase.md) |  | 
 
 ## Methods
 
 ### NewNodePodInfoDto
 
-`func NewNodePodInfoDto(createdAt int64, errorContainerStatuses []NodePodErrorStatusDto, imagesVersion map[string]string, metricsUsage MetricsUsageDto, name string, namespace string, restartCount int32, ) *NodePodInfoDto`
+`func NewNodePodInfoDto(createdAt int64, errorContainerStatuses []NodePodErrorStatusDto, imagesVersion map[string]string, metricsUsage MetricsUsageDto, name string, namespace string, restartCount int32, statusPhase PodStatusPhase, ) *NodePodInfoDto`
 
 NewNodePodInfoDto instantiates a new NodePodInfoDto object
 This constructor will assign default values to properties that have it defined,
@@ -421,6 +422,26 @@ and a boolean to check if the value has been set.
 `func (o *NodePodInfoDto) SetRestartCount(v int32)`
 
 SetRestartCount sets RestartCount field to given value.
+
+
+### GetStatusPhase
+
+`func (o *NodePodInfoDto) GetStatusPhase() PodStatusPhase`
+
+GetStatusPhase returns the StatusPhase field if non-nil, zero value otherwise.
+
+### GetStatusPhaseOk
+
+`func (o *NodePodInfoDto) GetStatusPhaseOk() (*PodStatusPhase, bool)`
+
+GetStatusPhaseOk returns a tuple with the StatusPhase field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusPhase
+
+`func (o *NodePodInfoDto) SetStatusPhase(v PodStatusPhase)`
+
+SetStatusPhase sets StatusPhase field to given value.
 
 
 

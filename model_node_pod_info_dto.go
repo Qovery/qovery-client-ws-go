@@ -36,6 +36,7 @@ type NodePodInfoDto struct {
 	Namespace string `json:"namespace"`
 	QoveryServiceInfo NullablePodQoveryServiceInfoDto `json:"qovery_service_info,omitempty"`
 	RestartCount int32 `json:"restart_count"`
+	StatusPhase PodStatusPhase `json:"status_phase"`
 }
 
 type _NodePodInfoDto NodePodInfoDto
@@ -44,7 +45,7 @@ type _NodePodInfoDto NodePodInfoDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNodePodInfoDto(createdAt int64, errorContainerStatuses []NodePodErrorStatusDto, imagesVersion map[string]string, metricsUsage MetricsUsageDto, name string, namespace string, restartCount int32) *NodePodInfoDto {
+func NewNodePodInfoDto(createdAt int64, errorContainerStatuses []NodePodErrorStatusDto, imagesVersion map[string]string, metricsUsage MetricsUsageDto, name string, namespace string, restartCount int32, statusPhase PodStatusPhase) *NodePodInfoDto {
 	this := NodePodInfoDto{}
 	this.CreatedAt = createdAt
 	this.ErrorContainerStatuses = errorContainerStatuses
@@ -53,6 +54,7 @@ func NewNodePodInfoDto(createdAt int64, errorContainerStatuses []NodePodErrorSta
 	this.Name = name
 	this.Namespace = namespace
 	this.RestartCount = restartCount
+	this.StatusPhase = statusPhase
 	return &this
 }
 
@@ -526,6 +528,30 @@ func (o *NodePodInfoDto) SetRestartCount(v int32) {
 	o.RestartCount = v
 }
 
+// GetStatusPhase returns the StatusPhase field value
+func (o *NodePodInfoDto) GetStatusPhase() PodStatusPhase {
+	if o == nil {
+		var ret PodStatusPhase
+		return ret
+	}
+
+	return o.StatusPhase
+}
+
+// GetStatusPhaseOk returns a tuple with the StatusPhase field value
+// and a boolean to check if the value has been set.
+func (o *NodePodInfoDto) GetStatusPhaseOk() (*PodStatusPhase, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StatusPhase, true
+}
+
+// SetStatusPhase sets field value
+func (o *NodePodInfoDto) SetStatusPhase(v PodStatusPhase) {
+	o.StatusPhase = v
+}
+
 func (o NodePodInfoDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -564,6 +590,7 @@ func (o NodePodInfoDto) ToMap() (map[string]interface{}, error) {
 		toSerialize["qovery_service_info"] = o.QoveryServiceInfo.Get()
 	}
 	toSerialize["restart_count"] = o.RestartCount
+	toSerialize["status_phase"] = o.StatusPhase
 	return toSerialize, nil
 }
 
@@ -579,6 +606,7 @@ func (o *NodePodInfoDto) UnmarshalJSON(data []byte) (err error) {
 		"name",
 		"namespace",
 		"restart_count",
+		"status_phase",
 	}
 
 	allProperties := make(map[string]interface{})

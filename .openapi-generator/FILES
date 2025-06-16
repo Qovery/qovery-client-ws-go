@@ -55,6 +55,7 @@ docs/PodInfoDto.md
 docs/PodKubernetesEventDto.md
 docs/PodQoveryServiceInfoDto.md
 docs/PodStatusDto.md
+docs/PodStatusPhase.md
 docs/PvcInfoDto.md
 docs/QoveryClusterKubeVersionStatus.md
 docs/QoveryComponentContainerStatusIssue.md
@@ -117,6 +118,7 @@ model_pod_info_dto.go
 model_pod_kubernetes_event_dto.go
 model_pod_qovery_service_info_dto.go
 model_pod_status_dto.go
+model_pod_status_phase.go
 model_pvc_info_dto.go
 model_qovery_cluster_kube_version_status.go
 model_qovery_component_container_status_issue.go

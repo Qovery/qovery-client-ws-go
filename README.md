@@ -129,6 +129,7 @@ Class | Method | HTTP request | Description
  - [PodKubernetesEventDto](docs/PodKubernetesEventDto.md)
  - [PodQoveryServiceInfoDto](docs/PodQoveryServiceInfoDto.md)
  - [PodStatusDto](docs/PodStatusDto.md)
+ - [PodStatusPhase](docs/PodStatusPhase.md)
  - [PvcInfoDto](docs/PvcInfoDto.md)
  - [QoveryClusterKubeVersionStatus](docs/QoveryClusterKubeVersionStatus.md)
  - [QoveryComponentContainerStatusIssue](docs/QoveryComponentContainerStatusIssue.md)
