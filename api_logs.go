@@ -154,6 +154,7 @@ type ApiHandleServiceLogsRequestRequest struct {
 	environment string
 	service string
 	podName string
+	deploymentId string
 }
 
 func (r ApiHandleServiceLogsRequestRequest) Execute() (*ServiceLogResponseDto, *http.Response, error) {
@@ -170,9 +171,10 @@ HandleServiceLogsRequest Method for HandleServiceLogsRequest
  @param environment
  @param service
  @param podName
+ @param deploymentId
  @return ApiHandleServiceLogsRequestRequest
 */
-func (a *LogsAPIService) HandleServiceLogsRequest(ctx context.Context, organization string, cluster string, project string, environment string, service string, podName string) ApiHandleServiceLogsRequestRequest {
+func (a *LogsAPIService) HandleServiceLogsRequest(ctx context.Context, organization string, cluster string, project string, environment string, service string, podName string, deploymentId string) ApiHandleServiceLogsRequestRequest {
 	return ApiHandleServiceLogsRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -182,6 +184,7 @@ func (a *LogsAPIService) HandleServiceLogsRequest(ctx context.Context, organizat
 		environment: environment,
 		service: service,
 		podName: podName,
+		deploymentId: deploymentId,
 	}
 }
 
@@ -207,6 +210,7 @@ func (a *LogsAPIService) HandleServiceLogsRequestExecute(r ApiHandleServiceLogsR
 	localVarPath = strings.Replace(localVarPath, "{"+"environment"+"}", url.PathEscape(parameterValueToString(r.environment, "environment")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"service"+"}", url.PathEscape(parameterValueToString(r.service, "service")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"pod_name"+"}", url.PathEscape(parameterValueToString(r.podName, "podName")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"deployment_id"+"}", url.PathEscape(parameterValueToString(r.deploymentId, "deploymentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
