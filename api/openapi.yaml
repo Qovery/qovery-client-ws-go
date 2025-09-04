@@ -331,6 +331,22 @@ paths:
           nullable: true
           type: string
         style: simple
+      - explode: false
+        in: path
+        name: query
+        required: true
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: start
+        required: true
+        schema:
+          nullable: true
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -3993,18 +4009,6 @@ components:
       - $ref: '#/components/schemas/KubeVersionStatusOkValue'
       - $ref: '#/components/schemas/KubeVersionStatusDriftValue'
       - $ref: '#/components/schemas/KubeVersionStatusUnknownValue'
-    QoveryComponentContainerStatusIssue:
-      properties:
-        level:
-          $ref: '#/components/schemas/QoveryComponentContainerStatusLevel'
-        message:
-          nullable: true
-          type: string
-        reason:
-          nullable: true
-          type: string
-      required:
-      - level
     QoveryComponentContainerStatusLevel:
       enum:
       - ERROR
@@ -4137,9 +4141,12 @@ components:
     ServiceLogResponseDto:
       example:
         container_name: container_name
+        severity_text: 6
         created_at: 0
         message: message
         version: version
+        labels:
+          key: labels
         pod_name: pod_name
       properties:
         container_name:
@@ -4148,17 +4155,25 @@ components:
           format: int64
           minimum: 0
           type: integer
+        labels:
+          additionalProperties:
+            type: string
         message:
           type: string
         pod_name:
           type: string
+        severity_text:
+          format: int32
+          type: integer
         version:
           type: string
       required:
       - container_name
       - created_at
+      - labels
       - message
       - pod_name
+      - severity_text
       - version
     ServiceMetricsDto:
       example:

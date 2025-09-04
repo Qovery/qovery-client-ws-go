@@ -24,8 +24,10 @@ var _ MappedNullable = &ServiceLogResponseDto{}
 type ServiceLogResponseDto struct {
 	ContainerName string `json:"container_name"`
 	CreatedAt int64 `json:"created_at"`
+	Labels map[string]string `json:"labels"`
 	Message string `json:"message"`
 	PodName string `json:"pod_name"`
+	SeverityText int32 `json:"severity_text"`
 	Version string `json:"version"`
 }
 
@@ -35,12 +37,14 @@ type _ServiceLogResponseDto ServiceLogResponseDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceLogResponseDto(containerName string, createdAt int64, message string, podName string, version string) *ServiceLogResponseDto {
+func NewServiceLogResponseDto(containerName string, createdAt int64, labels map[string]string, message string, podName string, severityText int32, version string) *ServiceLogResponseDto {
 	this := ServiceLogResponseDto{}
 	this.ContainerName = containerName
 	this.CreatedAt = createdAt
+	this.Labels = labels
 	this.Message = message
 	this.PodName = podName
+	this.SeverityText = severityText
 	this.Version = version
 	return &this
 }
@@ -101,6 +105,30 @@ func (o *ServiceLogResponseDto) SetCreatedAt(v int64) {
 	o.CreatedAt = v
 }
 
+// GetLabels returns the Labels field value
+func (o *ServiceLogResponseDto) GetLabels() map[string]string {
+	if o == nil {
+		var ret map[string]string
+		return ret
+	}
+
+	return o.Labels
+}
+
+// GetLabelsOk returns a tuple with the Labels field value
+// and a boolean to check if the value has been set.
+func (o *ServiceLogResponseDto) GetLabelsOk() (map[string]string, bool) {
+	if o == nil {
+		return map[string]string{}, false
+	}
+	return o.Labels, true
+}
+
+// SetLabels sets field value
+func (o *ServiceLogResponseDto) SetLabels(v map[string]string) {
+	o.Labels = v
+}
+
 // GetMessage returns the Message field value
 func (o *ServiceLogResponseDto) GetMessage() string {
 	if o == nil {
@@ -149,6 +177,30 @@ func (o *ServiceLogResponseDto) SetPodName(v string) {
 	o.PodName = v
 }
 
+// GetSeverityText returns the SeverityText field value
+func (o *ServiceLogResponseDto) GetSeverityText() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.SeverityText
+}
+
+// GetSeverityTextOk returns a tuple with the SeverityText field value
+// and a boolean to check if the value has been set.
+func (o *ServiceLogResponseDto) GetSeverityTextOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SeverityText, true
+}
+
+// SetSeverityText sets field value
+func (o *ServiceLogResponseDto) SetSeverityText(v int32) {
+	o.SeverityText = v
+}
+
 // GetVersion returns the Version field value
 func (o *ServiceLogResponseDto) GetVersion() string {
 	if o == nil {
@@ -185,8 +237,10 @@ func (o ServiceLogResponseDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["container_name"] = o.ContainerName
 	toSerialize["created_at"] = o.CreatedAt
+	toSerialize["labels"] = o.Labels
 	toSerialize["message"] = o.Message
 	toSerialize["pod_name"] = o.PodName
+	toSerialize["severity_text"] = o.SeverityText
 	toSerialize["version"] = o.Version
 	return toSerialize, nil
 }
@@ -198,8 +252,10 @@ func (o *ServiceLogResponseDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"container_name",
 		"created_at",
+		"labels",
 		"message",
 		"pod_name",
+		"severity_text",
 		"version",
 	}
 

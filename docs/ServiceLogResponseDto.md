@@ -6,15 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ContainerName** | **string** |  | 
 **CreatedAt** | **int64** |  | 
+**Labels** | **map[string]string** |  | 
 **Message** | **string** |  | 
 **PodName** | **string** |  | 
+**SeverityText** | **int32** |  | 
 **Version** | **string** |  | 
 
 ## Methods
 
 ### NewServiceLogResponseDto
 
-`func NewServiceLogResponseDto(containerName string, createdAt int64, message string, podName string, version string, ) *ServiceLogResponseDto`
+`func NewServiceLogResponseDto(containerName string, createdAt int64, labels map[string]string, message string, podName string, severityText int32, version string, ) *ServiceLogResponseDto`
 
 NewServiceLogResponseDto instantiates a new ServiceLogResponseDto object
 This constructor will assign default values to properties that have it defined,
@@ -69,6 +71,26 @@ and a boolean to check if the value has been set.
 SetCreatedAt sets CreatedAt field to given value.
 
 
+### GetLabels
+
+`func (o *ServiceLogResponseDto) GetLabels() map[string]string`
+
+GetLabels returns the Labels field if non-nil, zero value otherwise.
+
+### GetLabelsOk
+
+`func (o *ServiceLogResponseDto) GetLabelsOk() (*map[string]string, bool)`
+
+GetLabelsOk returns a tuple with the Labels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLabels
+
+`func (o *ServiceLogResponseDto) SetLabels(v map[string]string)`
+
+SetLabels sets Labels field to given value.
+
+
 ### GetMessage
 
 `func (o *ServiceLogResponseDto) GetMessage() string`
@@ -107,6 +129,26 @@ and a boolean to check if the value has been set.
 `func (o *ServiceLogResponseDto) SetPodName(v string)`
 
 SetPodName sets PodName field to given value.
+
+
+### GetSeverityText
+
+`func (o *ServiceLogResponseDto) GetSeverityText() int32`
+
+GetSeverityText returns the SeverityText field if non-nil, zero value otherwise.
+
+### GetSeverityTextOk
+
+`func (o *ServiceLogResponseDto) GetSeverityTextOk() (*int32, bool)`
+
+GetSeverityTextOk returns a tuple with the SeverityText field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeverityText
+
+`func (o *ServiceLogResponseDto) SetSeverityText(v int32)`
+
+SetSeverityText sets SeverityText field to given value.
 
 
 ### GetVersion

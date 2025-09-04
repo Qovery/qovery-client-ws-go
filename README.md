@@ -132,7 +132,6 @@ Class | Method | HTTP request | Description
  - [PodStatusPhase](docs/PodStatusPhase.md)
  - [PvcInfoDto](docs/PvcInfoDto.md)
  - [QoveryClusterKubeVersionStatus](docs/QoveryClusterKubeVersionStatus.md)
- - [QoveryComponentContainerStatusIssue](docs/QoveryComponentContainerStatusIssue.md)
  - [QoveryComponentContainerStatusLevel](docs/QoveryComponentContainerStatusLevel.md)
  - [QoveryComponentDto](docs/QoveryComponentDto.md)
  - [QoveryComponentInFailure](docs/QoveryComponentInFailure.md)

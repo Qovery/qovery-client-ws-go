@@ -94,7 +94,7 @@ No authorization required
 
 ## HandleServiceLogsRequest
 
-> ServiceLogResponseDto HandleServiceLogsRequest(ctx, organization, cluster, project, environment, service, podName, deploymentId).Execute()
+> ServiceLogResponseDto HandleServiceLogsRequest(ctx, organization, cluster, project, environment, service, podName, deploymentId, query, start).Execute()
 
 
 
@@ -118,10 +118,12 @@ func main() {
 	service := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	podName := "podName_example" // string | 
 	deploymentId := "deploymentId_example" // string | 
+	query := "query_example" // string | 
+	start := "start_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LogsAPI.HandleServiceLogsRequest(context.Background(), organization, cluster, project, environment, service, podName, deploymentId).Execute()
+	resp, r, err := apiClient.LogsAPI.HandleServiceLogsRequest(context.Background(), organization, cluster, project, environment, service, podName, deploymentId, query, start).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.HandleServiceLogsRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -144,6 +146,8 @@ Name | Type | Description  | Notes
 **service** | **string** |  | 
 **podName** | **string** |  | 
 **deploymentId** | **string** |  | 
+**query** | **string** |  | 
+**start** | **string** |  | 
 
 ### Other Parameters
 
@@ -152,6 +156,8 @@ Other parameters are passed through a pointer to a apiHandleServiceLogsRequestRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
+
 
 
 
