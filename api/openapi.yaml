@@ -347,6 +347,16 @@ paths:
           nullable: true
           type: string
         style: simple
+      - explode: false
+        in: path
+        name: limit
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: simple
       responses:
         "200":
           content:

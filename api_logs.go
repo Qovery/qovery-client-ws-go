@@ -157,6 +157,7 @@ type ApiHandleServiceLogsRequestRequest struct {
 	deploymentId string
 	query string
 	start string
+	limit int32
 }
 
 func (r ApiHandleServiceLogsRequestRequest) Execute() (*ServiceLogResponseDto, *http.Response, error) {
@@ -176,9 +177,10 @@ HandleServiceLogsRequest Method for HandleServiceLogsRequest
  @param deploymentId
  @param query
  @param start
+ @param limit
  @return ApiHandleServiceLogsRequestRequest
 */
-func (a *LogsAPIService) HandleServiceLogsRequest(ctx context.Context, organization string, cluster string, project string, environment string, service string, podName string, deploymentId string, query string, start string) ApiHandleServiceLogsRequestRequest {
+func (a *LogsAPIService) HandleServiceLogsRequest(ctx context.Context, organization string, cluster string, project string, environment string, service string, podName string, deploymentId string, query string, start string, limit int32) ApiHandleServiceLogsRequestRequest {
 	return ApiHandleServiceLogsRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -191,6 +193,7 @@ func (a *LogsAPIService) HandleServiceLogsRequest(ctx context.Context, organizat
 		deploymentId: deploymentId,
 		query: query,
 		start: start,
+		limit: limit,
 	}
 }
 
@@ -219,10 +222,14 @@ func (a *LogsAPIService) HandleServiceLogsRequestExecute(r ApiHandleServiceLogsR
 	localVarPath = strings.Replace(localVarPath, "{"+"deployment_id"+"}", url.PathEscape(parameterValueToString(r.deploymentId, "deploymentId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"query"+"}", url.PathEscape(parameterValueToString(r.query, "query")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"start"+"}", url.PathEscape(parameterValueToString(r.start, "start")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"limit"+"}", url.PathEscape(parameterValueToString(r.limit, "limit")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.limit < 0 {
+		return localVarReturnValue, nil, reportError("limit must be greater than 0")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
