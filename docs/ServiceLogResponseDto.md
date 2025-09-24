@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **Labels** | **map[string]string** |  | 
 **Message** | **string** |  | 
 **PodName** | **string** |  | 
-**SeverityText** | **int32** |  | 
+**SeverityText** | **string** |  | 
 **Version** | **string** |  | 
 
 ## Methods
 
 ### NewServiceLogResponseDto
 
-`func NewServiceLogResponseDto(containerName string, createdAt int64, labels map[string]string, message string, podName string, severityText int32, version string, ) *ServiceLogResponseDto`
+`func NewServiceLogResponseDto(containerName string, createdAt int64, labels map[string]string, message string, podName string, severityText string, version string, ) *ServiceLogResponseDto`
 
 NewServiceLogResponseDto instantiates a new ServiceLogResponseDto object
 This constructor will assign default values to properties that have it defined,
@@ -133,20 +133,20 @@ SetPodName sets PodName field to given value.
 
 ### GetSeverityText
 
-`func (o *ServiceLogResponseDto) GetSeverityText() int32`
+`func (o *ServiceLogResponseDto) GetSeverityText() string`
 
 GetSeverityText returns the SeverityText field if non-nil, zero value otherwise.
 
 ### GetSeverityTextOk
 
-`func (o *ServiceLogResponseDto) GetSeverityTextOk() (*int32, bool)`
+`func (o *ServiceLogResponseDto) GetSeverityTextOk() (*string, bool)`
 
 GetSeverityTextOk returns a tuple with the SeverityText field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSeverityText
 
-`func (o *ServiceLogResponseDto) SetSeverityText(v int32)`
+`func (o *ServiceLogResponseDto) SetSeverityText(v string)`
 
 SetSeverityText sets SeverityText field to given value.
 

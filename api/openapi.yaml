@@ -4151,7 +4151,7 @@ components:
     ServiceLogResponseDto:
       example:
         container_name: container_name
-        severity_text: 6
+        severity_text: severity_text
         created_at: 0
         message: message
         version: version
@@ -4173,8 +4173,7 @@ components:
         pod_name:
           type: string
         severity_text:
-          format: int32
-          type: integer
+          type: string
         version:
           type: string
       required:

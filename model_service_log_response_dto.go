@@ -27,7 +27,7 @@ type ServiceLogResponseDto struct {
 	Labels map[string]string `json:"labels"`
 	Message string `json:"message"`
 	PodName string `json:"pod_name"`
-	SeverityText int32 `json:"severity_text"`
+	SeverityText string `json:"severity_text"`
 	Version string `json:"version"`
 }
 
@@ -37,7 +37,7 @@ type _ServiceLogResponseDto ServiceLogResponseDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceLogResponseDto(containerName string, createdAt int64, labels map[string]string, message string, podName string, severityText int32, version string) *ServiceLogResponseDto {
+func NewServiceLogResponseDto(containerName string, createdAt int64, labels map[string]string, message string, podName string, severityText string, version string) *ServiceLogResponseDto {
 	this := ServiceLogResponseDto{}
 	this.ContainerName = containerName
 	this.CreatedAt = createdAt
@@ -178,9 +178,9 @@ func (o *ServiceLogResponseDto) SetPodName(v string) {
 }
 
 // GetSeverityText returns the SeverityText field value
-func (o *ServiceLogResponseDto) GetSeverityText() int32 {
+func (o *ServiceLogResponseDto) GetSeverityText() string {
 	if o == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 
@@ -189,7 +189,7 @@ func (o *ServiceLogResponseDto) GetSeverityText() int32 {
 
 // GetSeverityTextOk returns a tuple with the SeverityText field value
 // and a boolean to check if the value has been set.
-func (o *ServiceLogResponseDto) GetSeverityTextOk() (*int32, bool) {
+func (o *ServiceLogResponseDto) GetSeverityTextOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -197,7 +197,7 @@ func (o *ServiceLogResponseDto) GetSeverityTextOk() (*int32, bool) {
 }
 
 // SetSeverityText sets field value
-func (o *ServiceLogResponseDto) SetSeverityText(v int32) {
+func (o *ServiceLogResponseDto) SetSeverityText(v string) {
 	o.SeverityText = v
 }
 
