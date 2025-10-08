@@ -24,6 +24,7 @@ var _ MappedNullable = &ServiceLogResponseDto{}
 type ServiceLogResponseDto struct {
 	ContainerName string `json:"container_name"`
 	CreatedAt int64 `json:"created_at"`
+	FromKube bool `json:"from_kube"`
 	Labels map[string]string `json:"labels"`
 	Message string `json:"message"`
 	PodName string `json:"pod_name"`
@@ -37,10 +38,11 @@ type _ServiceLogResponseDto ServiceLogResponseDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceLogResponseDto(containerName string, createdAt int64, labels map[string]string, message string, podName string, severityText string, version string) *ServiceLogResponseDto {
+func NewServiceLogResponseDto(containerName string, createdAt int64, fromKube bool, labels map[string]string, message string, podName string, severityText string, version string) *ServiceLogResponseDto {
 	this := ServiceLogResponseDto{}
 	this.ContainerName = containerName
 	this.CreatedAt = createdAt
+	this.FromKube = fromKube
 	this.Labels = labels
 	this.Message = message
 	this.PodName = podName
@@ -103,6 +105,30 @@ func (o *ServiceLogResponseDto) GetCreatedAtOk() (*int64, bool) {
 // SetCreatedAt sets field value
 func (o *ServiceLogResponseDto) SetCreatedAt(v int64) {
 	o.CreatedAt = v
+}
+
+// GetFromKube returns the FromKube field value
+func (o *ServiceLogResponseDto) GetFromKube() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.FromKube
+}
+
+// GetFromKubeOk returns a tuple with the FromKube field value
+// and a boolean to check if the value has been set.
+func (o *ServiceLogResponseDto) GetFromKubeOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FromKube, true
+}
+
+// SetFromKube sets field value
+func (o *ServiceLogResponseDto) SetFromKube(v bool) {
+	o.FromKube = v
 }
 
 // GetLabels returns the Labels field value
@@ -237,6 +263,7 @@ func (o ServiceLogResponseDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["container_name"] = o.ContainerName
 	toSerialize["created_at"] = o.CreatedAt
+	toSerialize["from_kube"] = o.FromKube
 	toSerialize["labels"] = o.Labels
 	toSerialize["message"] = o.Message
 	toSerialize["pod_name"] = o.PodName
@@ -252,6 +279,7 @@ func (o *ServiceLogResponseDto) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"container_name",
 		"created_at",
+		"from_kube",
 		"labels",
 		"message",
 		"pod_name",

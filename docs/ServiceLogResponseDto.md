@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ContainerName** | **string** |  | 
 **CreatedAt** | **int64** |  | 
+**FromKube** | **bool** |  | 
 **Labels** | **map[string]string** |  | 
 **Message** | **string** |  | 
 **PodName** | **string** |  | 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewServiceLogResponseDto
 
-`func NewServiceLogResponseDto(containerName string, createdAt int64, labels map[string]string, message string, podName string, severityText string, version string, ) *ServiceLogResponseDto`
+`func NewServiceLogResponseDto(containerName string, createdAt int64, fromKube bool, labels map[string]string, message string, podName string, severityText string, version string, ) *ServiceLogResponseDto`
 
 NewServiceLogResponseDto instantiates a new ServiceLogResponseDto object
 This constructor will assign default values to properties that have it defined,
@@ -69,6 +70,26 @@ and a boolean to check if the value has been set.
 `func (o *ServiceLogResponseDto) SetCreatedAt(v int64)`
 
 SetCreatedAt sets CreatedAt field to given value.
+
+
+### GetFromKube
+
+`func (o *ServiceLogResponseDto) GetFromKube() bool`
+
+GetFromKube returns the FromKube field if non-nil, zero value otherwise.
+
+### GetFromKubeOk
+
+`func (o *ServiceLogResponseDto) GetFromKubeOk() (*bool, bool)`
+
+GetFromKubeOk returns a tuple with the FromKube field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFromKube
+
+`func (o *ServiceLogResponseDto) SetFromKube(v bool)`
+
+SetFromKube sets FromKube field to given value.
 
 
 ### GetLabels
