@@ -66,6 +66,8 @@ docs/QoveryNodeAttributes.md
 docs/QoveryNodeFailure.md
 docs/RemoteDebugAPI.md
 docs/ResourceStatusDto.md
+docs/ServiceActionDetailsDto.md
+docs/ServiceActionDto.md
 docs/ServiceInfraLogResponseDto.md
 docs/ServiceListPodsAPI.md
 docs/ServiceListPodsResponseDto.md
@@ -76,8 +78,10 @@ docs/ServiceMetricsV2Dto.md
 docs/ServiceStateDto.md
 docs/ServiceStatusAPI.md
 docs/ServiceStatusDto.md
+docs/ServiceSubActionDto.md
 docs/ServiceType.md
 docs/ShellAPI.md
+docs/TerraformStatusDto.md
 docs/UnitDto.md
 git_push.sh
 go.mod
@@ -127,6 +131,8 @@ model_qovery_component_status.go
 model_qovery_node_attributes.go
 model_qovery_node_failure.go
 model_resource_status_dto.go
+model_service_action_details_dto.go
+model_service_action_dto.go
 model_service_infra_log_response_dto.go
 model_service_list_pods_response_dto.go
 model_service_log_response_dto.go
@@ -134,7 +140,9 @@ model_service_metrics_dto.go
 model_service_metrics_v2_dto.go
 model_service_state_dto.go
 model_service_status_dto.go
+model_service_sub_action_dto.go
 model_service_type.go
+model_terraform_status_dto.go
 model_unit_dto.go
 response.go
 test/api_cluster_list_nodes_test.go

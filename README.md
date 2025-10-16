@@ -139,6 +139,8 @@ Class | Method | HTTP request | Description
  - [QoveryNodeAttributes](docs/QoveryNodeAttributes.md)
  - [QoveryNodeFailure](docs/QoveryNodeFailure.md)
  - [ResourceStatusDto](docs/ResourceStatusDto.md)
+ - [ServiceActionDetailsDto](docs/ServiceActionDetailsDto.md)
+ - [ServiceActionDto](docs/ServiceActionDto.md)
  - [ServiceInfraLogResponseDto](docs/ServiceInfraLogResponseDto.md)
  - [ServiceListPodsResponseDto](docs/ServiceListPodsResponseDto.md)
  - [ServiceLogResponseDto](docs/ServiceLogResponseDto.md)
@@ -146,7 +148,9 @@ Class | Method | HTTP request | Description
  - [ServiceMetricsV2Dto](docs/ServiceMetricsV2Dto.md)
  - [ServiceStateDto](docs/ServiceStateDto.md)
  - [ServiceStatusDto](docs/ServiceStatusDto.md)
+ - [ServiceSubActionDto](docs/ServiceSubActionDto.md)
  - [ServiceType](docs/ServiceType.md)
+ - [TerraformStatusDto](docs/TerraformStatusDto.md)
  - [UnitDto](docs/UnitDto.md)
 
 
