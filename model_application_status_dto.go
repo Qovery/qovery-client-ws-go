@@ -25,6 +25,7 @@ type ApplicationStatusDto struct {
 	Certificates []CertificateStatusDto `json:"certificates"`
 	Id string `json:"id"`
 	Pods []PodStatusDto `json:"pods"`
+	ScaledObject NullableScaledObjectStatusDto `json:"scaled_object,omitempty"`
 	State ServiceStateDto `json:"state"`
 }
 
@@ -123,6 +124,48 @@ func (o *ApplicationStatusDto) SetPods(v []PodStatusDto) {
 	o.Pods = v
 }
 
+// GetScaledObject returns the ScaledObject field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApplicationStatusDto) GetScaledObject() ScaledObjectStatusDto {
+	if o == nil || IsNil(o.ScaledObject.Get()) {
+		var ret ScaledObjectStatusDto
+		return ret
+	}
+	return *o.ScaledObject.Get()
+}
+
+// GetScaledObjectOk returns a tuple with the ScaledObject field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApplicationStatusDto) GetScaledObjectOk() (*ScaledObjectStatusDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ScaledObject.Get(), o.ScaledObject.IsSet()
+}
+
+// HasScaledObject returns a boolean if a field has been set.
+func (o *ApplicationStatusDto) HasScaledObject() bool {
+	if o != nil && o.ScaledObject.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetScaledObject gets a reference to the given NullableScaledObjectStatusDto and assigns it to the ScaledObject field.
+func (o *ApplicationStatusDto) SetScaledObject(v ScaledObjectStatusDto) {
+	o.ScaledObject.Set(&v)
+}
+// SetScaledObjectNil sets the value for ScaledObject to be an explicit nil
+func (o *ApplicationStatusDto) SetScaledObjectNil() {
+	o.ScaledObject.Set(nil)
+}
+
+// UnsetScaledObject ensures that no value is present for ScaledObject, not even an explicit nil
+func (o *ApplicationStatusDto) UnsetScaledObject() {
+	o.ScaledObject.Unset()
+}
+
 // GetState returns the State field value
 func (o *ApplicationStatusDto) GetState() ServiceStateDto {
 	if o == nil {
@@ -160,6 +203,9 @@ func (o ApplicationStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["certificates"] = o.Certificates
 	toSerialize["id"] = o.Id
 	toSerialize["pods"] = o.Pods
+	if o.ScaledObject.IsSet() {
+		toSerialize["scaled_object"] = o.ScaledObject.Get()
+	}
 	toSerialize["state"] = o.State
 	return toSerialize, nil
 }

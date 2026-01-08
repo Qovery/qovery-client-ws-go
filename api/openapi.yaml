@@ -810,6 +810,40 @@ components:
             type: type
         id: id
         state: null
+        scaled_object:
+          resource_metric_names:
+          - resource_metric_names
+          - resource_metric_names
+          original_replica_count: 7
+          scale_target_kind: scale_target_kind
+          health:
+            key:
+              number_of_failures: 2
+              status: status
+          scale_target_gvkr:
+            resource: resource
+            kind: kind
+            version: version
+            group: group
+          paused_replica_count: 1
+          authentications_types: authentications_types
+          last_active_time: 0
+          external_metric_names:
+          - external_metric_names
+          - external_metric_names
+          name: name
+          hpa_name: hpa_name
+          triggers_types: triggers_types
+          conditions:
+          - reason: reason
+            message: message
+            type: type
+            status: status
+          - reason: reason
+            message: message
+            type: type
+            status: status
+          composite_scaler_name: composite_scaler_name
       properties:
         certificates:
           items:
@@ -821,6 +855,8 @@ components:
           items:
             $ref: '#/components/schemas/PodStatusDto'
           type: array
+        scaled_object:
+          $ref: '#/components/schemas/ScaledObjectStatusDto'
         state:
           $ref: '#/components/schemas/ServiceStateDto'
       required:
@@ -2158,6 +2194,40 @@ components:
               type: type
           id: id
           state: null
+          scaled_object:
+            resource_metric_names:
+            - resource_metric_names
+            - resource_metric_names
+            original_replica_count: 7
+            scale_target_kind: scale_target_kind
+            health:
+              key:
+                number_of_failures: 2
+                status: status
+            scale_target_gvkr:
+              resource: resource
+              kind: kind
+              version: version
+              group: group
+            paused_replica_count: 1
+            authentications_types: authentications_types
+            last_active_time: 0
+            external_metric_names:
+            - external_metric_names
+            - external_metric_names
+            name: name
+            hpa_name: hpa_name
+            triggers_types: triggers_types
+            conditions:
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            composite_scaler_name: composite_scaler_name
         - certificates:
           - not_after: 0
             dns_names:
@@ -2280,6 +2350,40 @@ components:
               type: type
           id: id
           state: null
+          scaled_object:
+            resource_metric_names:
+            - resource_metric_names
+            - resource_metric_names
+            original_replica_count: 7
+            scale_target_kind: scale_target_kind
+            health:
+              key:
+                number_of_failures: 2
+                status: status
+            scale_target_gvkr:
+              resource: resource
+              kind: kind
+              version: version
+              group: group
+            paused_replica_count: 1
+            authentications_types: authentications_types
+            last_active_time: 0
+            external_metric_names:
+            - external_metric_names
+            - external_metric_names
+            name: name
+            hpa_name: hpa_name
+            triggers_types: triggers_types
+            conditions:
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            composite_scaler_name: composite_scaler_name
         containers:
         - certificates:
           - not_after: 0
@@ -2403,6 +2507,40 @@ components:
               type: type
           id: id
           state: null
+          scaled_object:
+            resource_metric_names:
+            - resource_metric_names
+            - resource_metric_names
+            original_replica_count: 7
+            scale_target_kind: scale_target_kind
+            health:
+              key:
+                number_of_failures: 2
+                status: status
+            scale_target_gvkr:
+              resource: resource
+              kind: kind
+              version: version
+              group: group
+            paused_replica_count: 1
+            authentications_types: authentications_types
+            last_active_time: 0
+            external_metric_names:
+            - external_metric_names
+            - external_metric_names
+            name: name
+            hpa_name: hpa_name
+            triggers_types: triggers_types
+            conditions:
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            composite_scaler_name: composite_scaler_name
         - certificates:
           - not_after: 0
             dns_names:
@@ -2525,6 +2663,40 @@ components:
               type: type
           id: id
           state: null
+          scaled_object:
+            resource_metric_names:
+            - resource_metric_names
+            - resource_metric_names
+            original_replica_count: 7
+            scale_target_kind: scale_target_kind
+            health:
+              key:
+                number_of_failures: 2
+                status: status
+            scale_target_gvkr:
+              resource: resource
+              kind: kind
+              version: version
+              group: group
+            paused_replica_count: 1
+            authentications_types: authentications_types
+            last_active_time: 0
+            external_metric_names:
+            - external_metric_names
+            - external_metric_names
+            name: name
+            hpa_name: hpa_name
+            triggers_types: triggers_types
+            conditions:
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            composite_scaler_name: composite_scaler_name
         terraform:
         - triggered_action:
             sub_action: NONE
@@ -2859,6 +3031,40 @@ components:
               type: type
           id: id
           state: null
+          scaled_object:
+            resource_metric_names:
+            - resource_metric_names
+            - resource_metric_names
+            original_replica_count: 7
+            scale_target_kind: scale_target_kind
+            health:
+              key:
+                number_of_failures: 2
+                status: status
+            scale_target_gvkr:
+              resource: resource
+              kind: kind
+              version: version
+              group: group
+            paused_replica_count: 1
+            authentications_types: authentications_types
+            last_active_time: 0
+            external_metric_names:
+            - external_metric_names
+            - external_metric_names
+            name: name
+            hpa_name: hpa_name
+            triggers_types: triggers_types
+            conditions:
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            composite_scaler_name: composite_scaler_name
         - certificates:
           - not_after: 0
             dns_names:
@@ -2981,6 +3187,40 @@ components:
               type: type
           id: id
           state: null
+          scaled_object:
+            resource_metric_names:
+            - resource_metric_names
+            - resource_metric_names
+            original_replica_count: 7
+            scale_target_kind: scale_target_kind
+            health:
+              key:
+                number_of_failures: 2
+                status: status
+            scale_target_gvkr:
+              resource: resource
+              kind: kind
+              version: version
+              group: group
+            paused_replica_count: 1
+            authentications_types: authentications_types
+            last_active_time: 0
+            external_metric_names:
+            - external_metric_names
+            - external_metric_names
+            name: name
+            hpa_name: hpa_name
+            triggers_types: triggers_types
+            conditions:
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            composite_scaler_name: composite_scaler_name
         applications:
         - certificates:
           - not_after: 0
@@ -3104,6 +3344,40 @@ components:
               type: type
           id: id
           state: null
+          scaled_object:
+            resource_metric_names:
+            - resource_metric_names
+            - resource_metric_names
+            original_replica_count: 7
+            scale_target_kind: scale_target_kind
+            health:
+              key:
+                number_of_failures: 2
+                status: status
+            scale_target_gvkr:
+              resource: resource
+              kind: kind
+              version: version
+              group: group
+            paused_replica_count: 1
+            authentications_types: authentications_types
+            last_active_time: 0
+            external_metric_names:
+            - external_metric_names
+            - external_metric_names
+            name: name
+            hpa_name: hpa_name
+            triggers_types: triggers_types
+            conditions:
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            composite_scaler_name: composite_scaler_name
         - certificates:
           - not_after: 0
             dns_names:
@@ -3226,6 +3500,40 @@ components:
               type: type
           id: id
           state: null
+          scaled_object:
+            resource_metric_names:
+            - resource_metric_names
+            - resource_metric_names
+            original_replica_count: 7
+            scale_target_kind: scale_target_kind
+            health:
+              key:
+                number_of_failures: 2
+                status: status
+            scale_target_gvkr:
+              resource: resource
+              kind: kind
+              version: version
+              group: group
+            paused_replica_count: 1
+            authentications_types: authentications_types
+            last_active_time: 0
+            external_metric_names:
+            - external_metric_names
+            - external_metric_names
+            name: name
+            hpa_name: hpa_name
+            triggers_types: triggers_types
+            conditions:
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            composite_scaler_name: composite_scaler_name
       properties:
         applications:
           items:
@@ -4080,6 +4388,148 @@ components:
       - WARNING
       - ALERT
       type: string
+    ScaleTargetGvkrDto:
+      example:
+        resource: resource
+        kind: kind
+        version: version
+        group: group
+      properties:
+        group:
+          type: string
+        kind:
+          type: string
+        resource:
+          type: string
+        version:
+          type: string
+      required:
+      - group
+      - kind
+      - resource
+      - version
+    ScaledObjectConditionDto:
+      example:
+        reason: reason
+        message: message
+        type: type
+        status: status
+      properties:
+        message:
+          nullable: true
+          type: string
+        reason:
+          nullable: true
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+      required:
+      - status
+      - type
+    ScaledObjectHealthDto:
+      example:
+        number_of_failures: 2
+        status: status
+      properties:
+        number_of_failures:
+          format: int32
+          nullable: true
+          type: integer
+        status:
+          type: string
+      required:
+      - status
+    ScaledObjectStatusDto:
+      example:
+        resource_metric_names:
+        - resource_metric_names
+        - resource_metric_names
+        original_replica_count: 7
+        scale_target_kind: scale_target_kind
+        health:
+          key:
+            number_of_failures: 2
+            status: status
+        scale_target_gvkr:
+          resource: resource
+          kind: kind
+          version: version
+          group: group
+        paused_replica_count: 1
+        authentications_types: authentications_types
+        last_active_time: 0
+        external_metric_names:
+        - external_metric_names
+        - external_metric_names
+        name: name
+        hpa_name: hpa_name
+        triggers_types: triggers_types
+        conditions:
+        - reason: reason
+          message: message
+          type: type
+          status: status
+        - reason: reason
+          message: message
+          type: type
+          status: status
+        composite_scaler_name: composite_scaler_name
+      properties:
+        authentications_types:
+          nullable: true
+          type: string
+        composite_scaler_name:
+          nullable: true
+          type: string
+        conditions:
+          items:
+            $ref: '#/components/schemas/ScaledObjectConditionDto'
+          type: array
+        external_metric_names:
+          items:
+            type: string
+          type: array
+        health:
+          additionalProperties:
+            $ref: '#/components/schemas/ScaledObjectHealthDto'
+        hpa_name:
+          nullable: true
+          type: string
+        last_active_time:
+          format: int64
+          minimum: 0
+          type: integer
+        name:
+          type: string
+        original_replica_count:
+          format: int32
+          nullable: true
+          type: integer
+        paused_replica_count:
+          format: int32
+          nullable: true
+          type: integer
+        resource_metric_names:
+          items:
+            type: string
+          type: array
+        scale_target_gvkr:
+          $ref: '#/components/schemas/ScaleTargetGvkrDto'
+        scale_target_kind:
+          nullable: true
+          type: string
+        triggers_types:
+          nullable: true
+          type: string
+      required:
+      - conditions
+      - external_metric_names
+      - health
+      - last_active_time
+      - name
+      - resource_metric_names
     ServiceActionDetailsDto:
       example:
         sub_action: NONE
@@ -4571,6 +5021,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           - certificates:
             - not_after: 0
               dns_names:
@@ -4693,6 +5177,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           containers:
           - certificates:
             - not_after: 0
@@ -4816,6 +5334,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           - certificates:
             - not_after: 0
               dns_names:
@@ -4938,6 +5490,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           terraform:
           - triggered_action:
               sub_action: NONE
@@ -5272,6 +5858,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           - certificates:
             - not_after: 0
               dns_names:
@@ -5394,6 +6014,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           applications:
           - certificates:
             - not_after: 0
@@ -5517,6 +6171,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           - certificates:
             - not_after: 0
               dns_names:
@@ -5639,6 +6327,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
         - databases:
           - pods:
             - restart_count: 0
@@ -5966,6 +6688,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           - certificates:
             - not_after: 0
               dns_names:
@@ -6088,6 +6844,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           containers:
           - certificates:
             - not_after: 0
@@ -6211,6 +7001,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           - certificates:
             - not_after: 0
               dns_names:
@@ -6333,6 +7157,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           terraform:
           - triggered_action:
               sub_action: NONE
@@ -6667,6 +7525,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           - certificates:
             - not_after: 0
               dns_names:
@@ -6789,6 +7681,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           applications:
           - certificates:
             - not_after: 0
@@ -6912,6 +7838,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           - certificates:
             - not_after: 0
               dns_names:
@@ -7034,6 +7994,40 @@ components:
                 type: type
             id: id
             state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
       properties:
         environments:
           items:

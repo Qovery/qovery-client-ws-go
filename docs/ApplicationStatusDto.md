@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Certificates** | [**[]CertificateStatusDto**](CertificateStatusDto.md) |  | 
 **Id** | **string** |  | 
 **Pods** | [**[]PodStatusDto**](PodStatusDto.md) |  | 
+**ScaledObject** | Pointer to [**NullableScaledObjectStatusDto**](ScaledObjectStatusDto.md) |  | [optional] 
 **State** | [**ServiceStateDto**](ServiceStateDto.md) |  | 
 
 ## Methods
@@ -88,6 +89,41 @@ and a boolean to check if the value has been set.
 SetPods sets Pods field to given value.
 
 
+### GetScaledObject
+
+`func (o *ApplicationStatusDto) GetScaledObject() ScaledObjectStatusDto`
+
+GetScaledObject returns the ScaledObject field if non-nil, zero value otherwise.
+
+### GetScaledObjectOk
+
+`func (o *ApplicationStatusDto) GetScaledObjectOk() (*ScaledObjectStatusDto, bool)`
+
+GetScaledObjectOk returns a tuple with the ScaledObject field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScaledObject
+
+`func (o *ApplicationStatusDto) SetScaledObject(v ScaledObjectStatusDto)`
+
+SetScaledObject sets ScaledObject field to given value.
+
+### HasScaledObject
+
+`func (o *ApplicationStatusDto) HasScaledObject() bool`
+
+HasScaledObject returns a boolean if a field has been set.
+
+### SetScaledObjectNil
+
+`func (o *ApplicationStatusDto) SetScaledObjectNil(b bool)`
+
+ SetScaledObjectNil sets the value for ScaledObject to be an explicit nil
+
+### UnsetScaledObject
+`func (o *ApplicationStatusDto) UnsetScaledObject()`
+
+UnsetScaledObject ensures that no value is present for ScaledObject, not even an explicit nil
 ### GetState
 
 `func (o *ApplicationStatusDto) GetState() ServiceStateDto`
