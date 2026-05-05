@@ -8052,6 +8052,7 @@ components:
       - JOB
       - HELM
       - TERRAFORM
+      - ARGOCD_APP
       type: string
     TerraformStatusDto:
       example:
