@@ -95,6 +95,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [ApplicationStatusDto](docs/ApplicationStatusDto.md)
+ - [ArgoCdAppStatusDto](docs/ArgoCdAppStatusDto.md)
  - [CertificateStatusDto](docs/CertificateStatusDto.md)
  - [ClusterComputedStatusDto](docs/ClusterComputedStatusDto.md)
  - [ClusterListNodesResponseDto](docs/ClusterListNodesResponseDto.md)

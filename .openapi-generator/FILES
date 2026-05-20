@@ -16,6 +16,7 @@ api_shell.go
 client.go
 configuration.go
 docs/ApplicationStatusDto.md
+docs/ArgoCdAppStatusDto.md
 docs/CertificateStatusDto.md
 docs/ClusterComputedStatusDto.md
 docs/ClusterListNodesAPI.md
@@ -91,6 +92,7 @@ git_push.sh
 go.mod
 go.sum
 model_application_status_dto.go
+model_argo_cd_app_status_dto.go
 model_certificate_status_dto.go
 model_cluster_computed_status_dto.go
 model_cluster_list_nodes_response_dto.go

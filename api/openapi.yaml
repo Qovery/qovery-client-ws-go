@@ -864,6 +864,122 @@ components:
       - id
       - pods
       - state
+    ArgoCdAppStatusDto:
+      example:
+        pods:
+        - restart_count: 0
+          state_reason: state_reason
+          name: name
+          started_at: 0
+          containers:
+          - image: image
+            restart_count: 0
+            current_state:
+              state_reason: state_reason
+              started_at: 0
+              state: STARTING
+              state_message: state_message
+            name: name
+            last_terminated_state:
+              reason: reason
+              finished_at: 0
+              exit_code: 6
+              started_at: 0
+              message: message
+              signal: 5
+              exit_code_message: exit_code_message
+          - image: image
+            restart_count: 0
+            current_state:
+              state_reason: state_reason
+              started_at: 0
+              state: STARTING
+              state_message: state_message
+            name: name
+            last_terminated_state:
+              reason: reason
+              finished_at: 0
+              exit_code: 6
+              started_at: 0
+              message: message
+              signal: 5
+              exit_code_message: exit_code_message
+          service_version: service_version
+          state: null
+          state_message: state_message
+          last_events:
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
+        - restart_count: 0
+          state_reason: state_reason
+          name: name
+          started_at: 0
+          containers:
+          - image: image
+            restart_count: 0
+            current_state:
+              state_reason: state_reason
+              started_at: 0
+              state: STARTING
+              state_message: state_message
+            name: name
+            last_terminated_state:
+              reason: reason
+              finished_at: 0
+              exit_code: 6
+              started_at: 0
+              message: message
+              signal: 5
+              exit_code_message: exit_code_message
+          - image: image
+            restart_count: 0
+            current_state:
+              state_reason: state_reason
+              started_at: 0
+              state: STARTING
+              state_message: state_message
+            name: name
+            last_terminated_state:
+              reason: reason
+              finished_at: 0
+              exit_code: 6
+              started_at: 0
+              message: message
+              signal: 5
+              exit_code_message: exit_code_message
+          service_version: service_version
+          state: null
+          state_message: state_message
+          last_events:
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
+          - reason: reason
+            created_at: 0
+            message: message
+            type: type
+        id: id
+        state: null
+      properties:
+        id:
+          type: string
+        pods:
+          items:
+            $ref: '#/components/schemas/PodStatusDto'
+          type: array
+        state:
+          $ref: '#/components/schemas/ServiceStateDto'
+      required:
+      - id
+      - pods
+      - state
     CertificateStatusDto:
       example:
         not_after: 0
@@ -2384,6 +2500,209 @@ components:
               type: type
               status: status
             composite_scaler_name: composite_scaler_name
+        argocd_apps:
+        - pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: 0
+            containers:
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            service_version: service_version
+            state: null
+            state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: 0
+            containers:
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            service_version: service_version
+            state: null
+            state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+          id: id
+          state: null
+        - pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: 0
+            containers:
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            service_version: service_version
+            state: null
+            state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: 0
+            containers:
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            service_version: service_version
+            state: null
+            state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+          id: id
+          state: null
         containers:
         - certificates:
           - not_after: 0
@@ -3539,6 +3858,10 @@ components:
           items:
             $ref: '#/components/schemas/ApplicationStatusDto'
           type: array
+        argocd_apps:
+          items:
+            $ref: '#/components/schemas/ArgoCdAppStatusDto'
+          type: array
         containers:
           items:
             $ref: '#/components/schemas/ApplicationStatusDto'
@@ -3567,6 +3890,7 @@ components:
           type: array
       required:
       - applications
+      - argocd_apps
       - containers
       - databases
       - helms
@@ -5211,6 +5535,209 @@ components:
                 type: type
                 status: status
               composite_scaler_name: composite_scaler_name
+          argocd_apps:
+          - pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            id: id
+            state: null
+          - pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            id: id
+            state: null
           containers:
           - certificates:
             - not_after: 0
@@ -6878,6 +7405,209 @@ components:
                 type: type
                 status: status
               composite_scaler_name: composite_scaler_name
+          argocd_apps:
+          - pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            id: id
+            state: null
+          - pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            id: id
+            state: null
           containers:
           - certificates:
             - not_after: 0

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Applications** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
+**ArgocdApps** | [**[]ArgoCdAppStatusDto**](ArgoCdAppStatusDto.md) |  | 
 **Containers** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 **Databases** | [**[]DatabaseStatusDto**](DatabaseStatusDto.md) |  | 
 **Helms** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewEnvironmentStatusDto
 
-`func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto, ) *EnvironmentStatusDto`
+`func NewEnvironmentStatusDto(applications []ApplicationStatusDto, argocdApps []ArgoCdAppStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto, ) *EnvironmentStatusDto`
 
 NewEnvironmentStatusDto instantiates a new EnvironmentStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -51,6 +52,26 @@ and a boolean to check if the value has been set.
 `func (o *EnvironmentStatusDto) SetApplications(v []ApplicationStatusDto)`
 
 SetApplications sets Applications field to given value.
+
+
+### GetArgocdApps
+
+`func (o *EnvironmentStatusDto) GetArgocdApps() []ArgoCdAppStatusDto`
+
+GetArgocdApps returns the ArgocdApps field if non-nil, zero value otherwise.
+
+### GetArgocdAppsOk
+
+`func (o *EnvironmentStatusDto) GetArgocdAppsOk() (*[]ArgoCdAppStatusDto, bool)`
+
+GetArgocdAppsOk returns a tuple with the ArgocdApps field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArgocdApps
+
+`func (o *EnvironmentStatusDto) SetArgocdApps(v []ArgoCdAppStatusDto)`
+
+SetArgocdApps sets ArgocdApps field to given value.
 
 
 ### GetContainers

@@ -23,6 +23,7 @@ var _ MappedNullable = &EnvironmentStatusDto{}
 // EnvironmentStatusDto struct for EnvironmentStatusDto
 type EnvironmentStatusDto struct {
 	Applications []ApplicationStatusDto `json:"applications"`
+	ArgocdApps []ArgoCdAppStatusDto `json:"argocd_apps"`
 	Containers []ApplicationStatusDto `json:"containers"`
 	Databases []DatabaseStatusDto `json:"databases"`
 	Helms []ApplicationStatusDto `json:"helms"`
@@ -39,9 +40,10 @@ type _EnvironmentStatusDto EnvironmentStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentStatusDto(applications []ApplicationStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto) *EnvironmentStatusDto {
+func NewEnvironmentStatusDto(applications []ApplicationStatusDto, argocdApps []ArgoCdAppStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto) *EnvironmentStatusDto {
 	this := EnvironmentStatusDto{}
 	this.Applications = applications
+	this.ArgocdApps = argocdApps
 	this.Containers = containers
 	this.Databases = databases
 	this.Helms = helms
@@ -83,6 +85,30 @@ func (o *EnvironmentStatusDto) GetApplicationsOk() ([]ApplicationStatusDto, bool
 // SetApplications sets field value
 func (o *EnvironmentStatusDto) SetApplications(v []ApplicationStatusDto) {
 	o.Applications = v
+}
+
+// GetArgocdApps returns the ArgocdApps field value
+func (o *EnvironmentStatusDto) GetArgocdApps() []ArgoCdAppStatusDto {
+	if o == nil {
+		var ret []ArgoCdAppStatusDto
+		return ret
+	}
+
+	return o.ArgocdApps
+}
+
+// GetArgocdAppsOk returns a tuple with the ArgocdApps field value
+// and a boolean to check if the value has been set.
+func (o *EnvironmentStatusDto) GetArgocdAppsOk() ([]ArgoCdAppStatusDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ArgocdApps, true
+}
+
+// SetArgocdApps sets field value
+func (o *EnvironmentStatusDto) SetArgocdApps(v []ArgoCdAppStatusDto) {
+	o.ArgocdApps = v
 }
 
 // GetContainers returns the Containers field value
@@ -288,6 +314,7 @@ func (o EnvironmentStatusDto) MarshalJSON() ([]byte, error) {
 func (o EnvironmentStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["applications"] = o.Applications
+	toSerialize["argocd_apps"] = o.ArgocdApps
 	toSerialize["containers"] = o.Containers
 	toSerialize["databases"] = o.Databases
 	toSerialize["helms"] = o.Helms
@@ -305,6 +332,7 @@ func (o *EnvironmentStatusDto) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"applications",
+		"argocd_apps",
 		"containers",
 		"databases",
 		"helms",
