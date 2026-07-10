@@ -3,6 +3,8 @@
 .travis.yml
 README.md
 api/openapi.yaml
+api_blueprint_preview.go
+api_blueprint_service.go
 api_cluster_list_nodes.go
 api_cluster_metrics.go
 api_cluster_status.go
@@ -17,6 +19,8 @@ client.go
 configuration.go
 docs/ApplicationStatusDto.md
 docs/ArgoCdAppStatusDto.md
+docs/BlueprintPreviewAPI.md
+docs/BlueprintServiceAPI.md
 docs/CertificateStatusDto.md
 docs/ClusterComputedStatusDto.md
 docs/ClusterListNodesAPI.md
@@ -155,6 +159,8 @@ model_service_type.go
 model_terraform_status_dto.go
 model_unit_dto.go
 response.go
+test/api_blueprint_preview_test.go
+test/api_blueprint_service_test.go
 test/api_cluster_list_nodes_test.go
 test/api_cluster_metrics_test.go
 test/api_cluster_status_test.go

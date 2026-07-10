@@ -12,6 +12,98 @@ info:
 servers:
 - url: wss://ws.qovery.com
 paths:
+  /blueprint/preview:
+    get:
+      operationId: handle_blueprint_preview_request
+      parameters:
+      - description: Organization id — for permission scoping. Frontend already has
+          it.
+        explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: Cluster id — for permission scoping. Frontend already has it.
+        explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: |-
+          Preview id — the UUIDv7 q-core returned from `POST /api/blueprint/{id}/update/preview`.
+          Doubles as the Pub/Sub channel suffix: `core.blueprint.preview.{preview_id}`.
+        explode: false
+        in: path
+        name: preview_id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: "Terminal frame from the blueprint update-preview broker: one\
+            \ of {\"type\":\"diff\",…}, {\"type\":\"error\",…}, {\"type\":\"cancelled\"\
+            }, {\"type\":\"timeout\"}. Connection closes after the frame."
+      tags:
+      - blueprint_preview
+  /blueprint/service-created:
+    get:
+      operationId: handle_blueprint_service_created_request
+      parameters:
+      - explode: false
+        in: path
+        name: organization
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: cluster
+        required: true
+        schema:
+          format: uuid
+          nullable: true
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: project
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: environment
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: "Stream of blueprint service-created events. Payload: {\"blueprint_id\"\
+            : \"<uuid>\"}"
+      tags:
+      - blueprint_service
   /cluster/metrics:
     get:
       operationId: handle_cluster_metrics_request

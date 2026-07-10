@@ -1,0 +1,86 @@
+# \BlueprintServiceAPI
+
+All URIs are relative to *http://localhost*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**HandleBlueprintServiceCreatedRequest**](BlueprintServiceAPI.md#HandleBlueprintServiceCreatedRequest) | **Get** /blueprint/service-created | 
+
+
+
+## HandleBlueprintServiceCreatedRequest
+
+> string HandleBlueprintServiceCreatedRequest(ctx, organization, cluster, project, environment).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/qovery/qovery-client-ws-go"
+)
+
+func main() {
+	organization := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	cluster := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BlueprintServiceAPI.HandleBlueprintServiceCreatedRequest(context.Background(), organization, cluster, project, environment).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BlueprintServiceAPI.HandleBlueprintServiceCreatedRequest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `HandleBlueprintServiceCreatedRequest`: string
+	fmt.Fprintf(os.Stdout, "Response from `BlueprintServiceAPI.HandleBlueprintServiceCreatedRequest`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**organization** | **string** |  | 
+**cluster** | **string** |  | 
+**project** | **string** |  | 
+**environment** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHandleBlueprintServiceCreatedRequestRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+
+### Return type
+
+**string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+

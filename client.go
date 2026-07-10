@@ -50,6 +50,10 @@ type APIClient struct {
 
 	// API Services
 
+	BlueprintPreviewAPI *BlueprintPreviewAPIService
+
+	BlueprintServiceAPI *BlueprintServiceAPIService
+
 	ClusterListNodesAPI *ClusterListNodesAPIService
 
 	ClusterMetricsAPI *ClusterMetricsAPIService
@@ -87,6 +91,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
+	c.BlueprintPreviewAPI = (*BlueprintPreviewAPIService)(&c.common)
+	c.BlueprintServiceAPI = (*BlueprintServiceAPIService)(&c.common)
 	c.ClusterListNodesAPI = (*ClusterListNodesAPIService)(&c.common)
 	c.ClusterMetricsAPI = (*ClusterMetricsAPIService)(&c.common)
 	c.ClusterStatusAPI = (*ClusterStatusAPIService)(&c.common)

@@ -78,6 +78,8 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*BlueprintPreviewAPI* | [**HandleBlueprintPreviewRequest**](docs/BlueprintPreviewAPI.md#handleblueprintpreviewrequest) | **Get** /blueprint/preview | 
+*BlueprintServiceAPI* | [**HandleBlueprintServiceCreatedRequest**](docs/BlueprintServiceAPI.md#handleblueprintservicecreatedrequest) | **Get** /blueprint/service-created | 
 *ClusterListNodesAPI* | [**HandleClusterListNodesRequest**](docs/ClusterListNodesAPI.md#handleclusterlistnodesrequest) | **Get** /cluster/node | 
 *ClusterMetricsAPI* | [**HandleClusterMetricsRequest**](docs/ClusterMetricsAPI.md#handleclustermetricsrequest) | **Get** /cluster/metrics | 
 *ClusterStatusAPI* | [**HandleClusterStatusRequest**](docs/ClusterStatusAPI.md#handleclusterstatusrequest) | **Get** /cluster/status | 
