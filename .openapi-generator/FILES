@@ -20,7 +20,13 @@ configuration.go
 docs/ApplicationStatusDto.md
 docs/ArgoCdAppStatusDto.md
 docs/BlueprintPreviewAPI.md
+docs/BlueprintPreviewResult.md
+docs/BlueprintPreviewResultOneOf.md
+docs/BlueprintPreviewResultOneOf1.md
+docs/BlueprintPreviewResultOneOf2.md
+docs/BlueprintPreviewResultOneOf3.md
 docs/BlueprintServiceAPI.md
+docs/BlueprintServiceCreatedEvent.md
 docs/CertificateStatusDto.md
 docs/ClusterComputedStatusDto.md
 docs/ClusterListNodesAPI.md
@@ -97,6 +103,12 @@ go.mod
 go.sum
 model_application_status_dto.go
 model_argo_cd_app_status_dto.go
+model_blueprint_preview_result.go
+model_blueprint_preview_result_one_of.go
+model_blueprint_preview_result_one_of_1.go
+model_blueprint_preview_result_one_of_2.go
+model_blueprint_preview_result_one_of_3.go
+model_blueprint_service_created_event.go
 model_certificate_status_dto.go
 model_cluster_computed_status_dto.go
 model_cluster_list_nodes_response_dto.go

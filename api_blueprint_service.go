@@ -33,7 +33,7 @@ type ApiHandleBlueprintServiceCreatedRequestRequest struct {
 	environment string
 }
 
-func (r ApiHandleBlueprintServiceCreatedRequestRequest) Execute() (string, *http.Response, error) {
+func (r ApiHandleBlueprintServiceCreatedRequestRequest) Execute() (*BlueprintServiceCreatedEvent, *http.Response, error) {
 	return r.ApiService.HandleBlueprintServiceCreatedRequestExecute(r)
 }
 
@@ -59,13 +59,13 @@ func (a *BlueprintServiceAPIService) HandleBlueprintServiceCreatedRequest(ctx co
 }
 
 // Execute executes the request
-//  @return string
-func (a *BlueprintServiceAPIService) HandleBlueprintServiceCreatedRequestExecute(r ApiHandleBlueprintServiceCreatedRequestRequest) (string, *http.Response, error) {
+//  @return BlueprintServiceCreatedEvent
+func (a *BlueprintServiceAPIService) HandleBlueprintServiceCreatedRequestExecute(r ApiHandleBlueprintServiceCreatedRequestRequest) (*BlueprintServiceCreatedEvent, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *BlueprintServiceCreatedEvent
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BlueprintServiceAPIService.HandleBlueprintServiceCreatedRequest")
@@ -93,7 +93,7 @@ func (a *BlueprintServiceAPIService) HandleBlueprintServiceCreatedRequestExecute
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

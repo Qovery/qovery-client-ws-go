@@ -49,12 +49,11 @@ paths:
       responses:
         "200":
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-          description: "Terminal frame from the blueprint update-preview broker: one\
-            \ of {\"type\":\"diff\",…}, {\"type\":\"error\",…}, {\"type\":\"cancelled\"\
-            }, {\"type\":\"timeout\"}. Connection closes after the frame."
+                $ref: '#/components/schemas/BlueprintPreviewResult'
+          description: "Terminal frame from the blueprint update-preview broker, discriminated\
+            \ on `type`. Connection closes after the frame."
       tags:
       - blueprint_preview
   /blueprint/service-created:
@@ -97,11 +96,11 @@ paths:
       responses:
         "200":
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-          description: "Stream of blueprint service-created events. Payload: {\"blueprint_id\"\
-            : \"<uuid>\"}"
+                $ref: '#/components/schemas/BlueprintServiceCreatedEvent'
+          description: Stream of blueprint service-created events. One frame per event;
+            the connection stays open.
       tags:
       - blueprint_service
   /cluster/metrics:
@@ -1072,6 +1071,27 @@ components:
       - id
       - pods
       - state
+    BlueprintPreviewResult:
+      description: |-
+        Final result of a blueprint update preview. Exactly one frame is sent, then the connection
+        closes. The `type` field selects the variant.
+      oneOf:
+      - $ref: '#/components/schemas/BlueprintPreviewResult_oneOf'
+      - $ref: '#/components/schemas/BlueprintPreviewResult_oneOf_1'
+      - $ref: '#/components/schemas/BlueprintPreviewResult_oneOf_2'
+      - $ref: '#/components/schemas/BlueprintPreviewResult_oneOf_3'
+    BlueprintServiceCreatedEvent:
+      description: One blueprint service-created event. The stream emits these until
+        the connection closes.
+      example:
+        blueprint_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        blueprint_id:
+          description: Id of the blueprint whose service was created.
+          format: uuid
+          type: string
+      required:
+      - blueprint_id
     CertificateStatusDto:
       example:
         not_after: 0
@@ -9004,3 +9024,53 @@ components:
       - MiB
       - GiB
       type: string
+    BlueprintPreviewResult_oneOf:
+      description: The preview succeeded. `payload` is the human-readable list of
+        changes; `service_type` e.g. "TERRAFORM".
+      example:
+        service_type: service_type
+        payload: payload
+        type: diff
+      properties:
+        payload:
+          type: string
+        service_type:
+          type: string
+        type:
+          enum:
+          - diff
+          type: string
+      required:
+      - payload
+      - service_type
+      - type
+    BlueprintPreviewResult_oneOf_1:
+      description: The preview failed. `message` explains why.
+      properties:
+        message:
+          type: string
+        type:
+          enum:
+          - error
+          type: string
+      required:
+      - message
+      - type
+    BlueprintPreviewResult_oneOf_2:
+      description: The preview was cancelled.
+      properties:
+        type:
+          enum:
+          - cancelled
+          type: string
+      required:
+      - type
+    BlueprintPreviewResult_oneOf_3:
+      description: The preview did not complete in time.
+      properties:
+        type:
+          enum:
+          - timeout
+          type: string
+      required:
+      - type

@@ -98,6 +98,12 @@ Class | Method | HTTP request | Description
 
  - [ApplicationStatusDto](docs/ApplicationStatusDto.md)
  - [ArgoCdAppStatusDto](docs/ArgoCdAppStatusDto.md)
+ - [BlueprintPreviewResult](docs/BlueprintPreviewResult.md)
+ - [BlueprintPreviewResultOneOf](docs/BlueprintPreviewResultOneOf.md)
+ - [BlueprintPreviewResultOneOf1](docs/BlueprintPreviewResultOneOf1.md)
+ - [BlueprintPreviewResultOneOf2](docs/BlueprintPreviewResultOneOf2.md)
+ - [BlueprintPreviewResultOneOf3](docs/BlueprintPreviewResultOneOf3.md)
+ - [BlueprintServiceCreatedEvent](docs/BlueprintServiceCreatedEvent.md)
  - [CertificateStatusDto](docs/CertificateStatusDto.md)
  - [ClusterComputedStatusDto](docs/ClusterComputedStatusDto.md)
  - [ClusterListNodesResponseDto](docs/ClusterListNodesResponseDto.md)

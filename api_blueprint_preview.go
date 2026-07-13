@@ -32,7 +32,7 @@ type ApiHandleBlueprintPreviewRequestRequest struct {
 	previewId string
 }
 
-func (r ApiHandleBlueprintPreviewRequestRequest) Execute() (string, *http.Response, error) {
+func (r ApiHandleBlueprintPreviewRequestRequest) Execute() (*BlueprintPreviewResult, *http.Response, error) {
 	return r.ApiService.HandleBlueprintPreviewRequestExecute(r)
 }
 
@@ -56,13 +56,13 @@ func (a *BlueprintPreviewAPIService) HandleBlueprintPreviewRequest(ctx context.C
 }
 
 // Execute executes the request
-//  @return string
-func (a *BlueprintPreviewAPIService) HandleBlueprintPreviewRequestExecute(r ApiHandleBlueprintPreviewRequestRequest) (string, *http.Response, error) {
+//  @return BlueprintPreviewResult
+func (a *BlueprintPreviewAPIService) HandleBlueprintPreviewRequestExecute(r ApiHandleBlueprintPreviewRequestRequest) (*BlueprintPreviewResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *BlueprintPreviewResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BlueprintPreviewAPIService.HandleBlueprintPreviewRequest")
@@ -89,7 +89,7 @@ func (a *BlueprintPreviewAPIService) HandleBlueprintPreviewRequestExecute(r ApiH
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

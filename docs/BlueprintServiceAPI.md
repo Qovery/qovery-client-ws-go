@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## HandleBlueprintServiceCreatedRequest
 
-> string HandleBlueprintServiceCreatedRequest(ctx, organization, cluster, project, environment).Execute()
+> BlueprintServiceCreatedEvent HandleBlueprintServiceCreatedRequest(ctx, organization, cluster, project, environment).Execute()
 
 
 
@@ -39,7 +39,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlueprintServiceAPI.HandleBlueprintServiceCreatedRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `HandleBlueprintServiceCreatedRequest`: string
+	// response from `HandleBlueprintServiceCreatedRequest`: BlueprintServiceCreatedEvent
 	fmt.Fprintf(os.Stdout, "Response from `BlueprintServiceAPI.HandleBlueprintServiceCreatedRequest`: %v\n", resp)
 }
 ```
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**BlueprintServiceCreatedEvent**](BlueprintServiceCreatedEvent.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

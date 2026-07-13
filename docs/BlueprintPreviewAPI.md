@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## HandleBlueprintPreviewRequest
 
-> string HandleBlueprintPreviewRequest(ctx, organization, cluster, previewId).Execute()
+> BlueprintPreviewResult HandleBlueprintPreviewRequest(ctx, organization, cluster, previewId).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `BlueprintPreviewAPI.HandleBlueprintPreviewRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `HandleBlueprintPreviewRequest`: string
+	// response from `HandleBlueprintPreviewRequest`: BlueprintPreviewResult
 	fmt.Fprintf(os.Stdout, "Response from `BlueprintPreviewAPI.HandleBlueprintPreviewRequest`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**BlueprintPreviewResult**](BlueprintPreviewResult.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
