@@ -2298,6 +2298,319 @@ components:
               type: type
           id: id
           state: null
+        agentic_workflows:
+        - certificates:
+          - not_after: 0
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: 0
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: 0
+            state: STARTING
+            renewal_time: 0
+            state_message: state_message
+          - not_after: 0
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: 0
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: 0
+            state: STARTING
+            renewal_time: 0
+            state_message: state_message
+          pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: 0
+            containers:
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            service_version: service_version
+            state: null
+            state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: 0
+            containers:
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            service_version: service_version
+            state: null
+            state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+          id: id
+          state: null
+          scaled_object:
+            resource_metric_names:
+            - resource_metric_names
+            - resource_metric_names
+            original_replica_count: 7
+            scale_target_kind: scale_target_kind
+            health:
+              key:
+                number_of_failures: 2
+                status: status
+            scale_target_gvkr:
+              resource: resource
+              kind: kind
+              version: version
+              group: group
+            paused_replica_count: 1
+            authentications_types: authentications_types
+            last_active_time: 0
+            external_metric_names:
+            - external_metric_names
+            - external_metric_names
+            name: name
+            hpa_name: hpa_name
+            triggers_types: triggers_types
+            conditions:
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            composite_scaler_name: composite_scaler_name
+        - certificates:
+          - not_after: 0
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: 0
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: 0
+            state: STARTING
+            renewal_time: 0
+            state_message: state_message
+          - not_after: 0
+            dns_names:
+            - dns_names
+            - dns_names
+            not_before: 0
+            failed_issuance_attempt_count: 0
+            last_failure_issuance_time: 0
+            state: STARTING
+            renewal_time: 0
+            state_message: state_message
+          pods:
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: 0
+            containers:
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            service_version: service_version
+            state: null
+            state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+          - restart_count: 0
+            state_reason: state_reason
+            name: name
+            started_at: 0
+            containers:
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            - image: image
+              restart_count: 0
+              current_state:
+                state_reason: state_reason
+                started_at: 0
+                state: STARTING
+                state_message: state_message
+              name: name
+              last_terminated_state:
+                reason: reason
+                finished_at: 0
+                exit_code: 6
+                started_at: 0
+                message: message
+                signal: 5
+                exit_code_message: exit_code_message
+            service_version: service_version
+            state: null
+            state_message: state_message
+            last_events:
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+            - reason: reason
+              created_at: 0
+              message: message
+              type: type
+          id: id
+          state: null
+          scaled_object:
+            resource_metric_names:
+            - resource_metric_names
+            - resource_metric_names
+            original_replica_count: 7
+            scale_target_kind: scale_target_kind
+            health:
+              key:
+                number_of_failures: 2
+                status: status
+            scale_target_gvkr:
+              resource: resource
+              kind: kind
+              version: version
+              group: group
+            paused_replica_count: 1
+            authentications_types: authentications_types
+            last_active_time: 0
+            external_metric_names:
+            - external_metric_names
+            - external_metric_names
+            name: name
+            hpa_name: hpa_name
+            triggers_types: triggers_types
+            conditions:
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            - reason: reason
+              message: message
+              type: type
+              status: status
+            composite_scaler_name: composite_scaler_name
         project_id: project_id
         jobs:
         - certificates:
@@ -3966,6 +4279,10 @@ components:
               status: status
             composite_scaler_name: composite_scaler_name
       properties:
+        agentic_workflows:
+          items:
+            $ref: '#/components/schemas/ApplicationStatusDto'
+          type: array
         applications:
           items:
             $ref: '#/components/schemas/ApplicationStatusDto'
@@ -4001,6 +4318,7 @@ components:
             $ref: '#/components/schemas/TerraformStatusDto'
           type: array
       required:
+      - agentic_workflows
       - applications
       - argocd_apps
       - containers
@@ -5333,6 +5651,319 @@ components:
                 type: type
             id: id
             state: null
+          agentic_workflows:
+          - certificates:
+            - not_after: 0
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: 0
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: 0
+              state: STARTING
+              renewal_time: 0
+              state_message: state_message
+            - not_after: 0
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: 0
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: 0
+              state: STARTING
+              renewal_time: 0
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            id: id
+            state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
+          - certificates:
+            - not_after: 0
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: 0
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: 0
+              state: STARTING
+              renewal_time: 0
+              state_message: state_message
+            - not_after: 0
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: 0
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: 0
+              state: STARTING
+              renewal_time: 0
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            id: id
+            state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           project_id: project_id
           jobs:
           - certificates:
@@ -7203,6 +7834,319 @@ components:
                 type: type
             id: id
             state: null
+          agentic_workflows:
+          - certificates:
+            - not_after: 0
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: 0
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: 0
+              state: STARTING
+              renewal_time: 0
+              state_message: state_message
+            - not_after: 0
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: 0
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: 0
+              state: STARTING
+              renewal_time: 0
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            id: id
+            state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
+          - certificates:
+            - not_after: 0
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: 0
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: 0
+              state: STARTING
+              renewal_time: 0
+              state_message: state_message
+            - not_after: 0
+              dns_names:
+              - dns_names
+              - dns_names
+              not_before: 0
+              failed_issuance_attempt_count: 0
+              last_failure_issuance_time: 0
+              state: STARTING
+              renewal_time: 0
+              state_message: state_message
+            pods:
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            - restart_count: 0
+              state_reason: state_reason
+              name: name
+              started_at: 0
+              containers:
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              - image: image
+                restart_count: 0
+                current_state:
+                  state_reason: state_reason
+                  started_at: 0
+                  state: STARTING
+                  state_message: state_message
+                name: name
+                last_terminated_state:
+                  reason: reason
+                  finished_at: 0
+                  exit_code: 6
+                  started_at: 0
+                  message: message
+                  signal: 5
+                  exit_code_message: exit_code_message
+              service_version: service_version
+              state: null
+              state_message: state_message
+              last_events:
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+              - reason: reason
+                created_at: 0
+                message: message
+                type: type
+            id: id
+            state: null
+            scaled_object:
+              resource_metric_names:
+              - resource_metric_names
+              - resource_metric_names
+              original_replica_count: 7
+              scale_target_kind: scale_target_kind
+              health:
+                key:
+                  number_of_failures: 2
+                  status: status
+              scale_target_gvkr:
+                resource: resource
+                kind: kind
+                version: version
+                group: group
+              paused_replica_count: 1
+              authentications_types: authentications_types
+              last_active_time: 0
+              external_metric_names:
+              - external_metric_names
+              - external_metric_names
+              name: name
+              hpa_name: hpa_name
+              triggers_types: triggers_types
+              conditions:
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              - reason: reason
+                message: message
+                type: type
+                status: status
+              composite_scaler_name: composite_scaler_name
           project_id: project_id
           jobs:
           - certificates:

@@ -22,6 +22,7 @@ var _ MappedNullable = &EnvironmentStatusDto{}
 
 // EnvironmentStatusDto struct for EnvironmentStatusDto
 type EnvironmentStatusDto struct {
+	AgenticWorkflows []ApplicationStatusDto `json:"agentic_workflows"`
 	Applications []ApplicationStatusDto `json:"applications"`
 	ArgocdApps []ArgoCdAppStatusDto `json:"argocd_apps"`
 	Containers []ApplicationStatusDto `json:"containers"`
@@ -40,8 +41,9 @@ type _EnvironmentStatusDto EnvironmentStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentStatusDto(applications []ApplicationStatusDto, argocdApps []ArgoCdAppStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto) *EnvironmentStatusDto {
+func NewEnvironmentStatusDto(agenticWorkflows []ApplicationStatusDto, applications []ApplicationStatusDto, argocdApps []ArgoCdAppStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto) *EnvironmentStatusDto {
 	this := EnvironmentStatusDto{}
+	this.AgenticWorkflows = agenticWorkflows
 	this.Applications = applications
 	this.ArgocdApps = argocdApps
 	this.Containers = containers
@@ -61,6 +63,30 @@ func NewEnvironmentStatusDto(applications []ApplicationStatusDto, argocdApps []A
 func NewEnvironmentStatusDtoWithDefaults() *EnvironmentStatusDto {
 	this := EnvironmentStatusDto{}
 	return &this
+}
+
+// GetAgenticWorkflows returns the AgenticWorkflows field value
+func (o *EnvironmentStatusDto) GetAgenticWorkflows() []ApplicationStatusDto {
+	if o == nil {
+		var ret []ApplicationStatusDto
+		return ret
+	}
+
+	return o.AgenticWorkflows
+}
+
+// GetAgenticWorkflowsOk returns a tuple with the AgenticWorkflows field value
+// and a boolean to check if the value has been set.
+func (o *EnvironmentStatusDto) GetAgenticWorkflowsOk() ([]ApplicationStatusDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AgenticWorkflows, true
+}
+
+// SetAgenticWorkflows sets field value
+func (o *EnvironmentStatusDto) SetAgenticWorkflows(v []ApplicationStatusDto) {
+	o.AgenticWorkflows = v
 }
 
 // GetApplications returns the Applications field value
@@ -313,6 +339,7 @@ func (o EnvironmentStatusDto) MarshalJSON() ([]byte, error) {
 
 func (o EnvironmentStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["agentic_workflows"] = o.AgenticWorkflows
 	toSerialize["applications"] = o.Applications
 	toSerialize["argocd_apps"] = o.ArgocdApps
 	toSerialize["containers"] = o.Containers
@@ -331,6 +358,7 @@ func (o *EnvironmentStatusDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"agentic_workflows",
 		"applications",
 		"argocd_apps",
 		"containers",

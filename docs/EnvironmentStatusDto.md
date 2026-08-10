@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AgenticWorkflows** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 **Applications** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 **ArgocdApps** | [**[]ArgoCdAppStatusDto**](ArgoCdAppStatusDto.md) |  | 
 **Containers** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewEnvironmentStatusDto
 
-`func NewEnvironmentStatusDto(applications []ApplicationStatusDto, argocdApps []ArgoCdAppStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto, ) *EnvironmentStatusDto`
+`func NewEnvironmentStatusDto(agenticWorkflows []ApplicationStatusDto, applications []ApplicationStatusDto, argocdApps []ArgoCdAppStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto, ) *EnvironmentStatusDto`
 
 NewEnvironmentStatusDto instantiates a new EnvironmentStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -33,6 +34,26 @@ will change when the set of required properties is changed
 NewEnvironmentStatusDtoWithDefaults instantiates a new EnvironmentStatusDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAgenticWorkflows
+
+`func (o *EnvironmentStatusDto) GetAgenticWorkflows() []ApplicationStatusDto`
+
+GetAgenticWorkflows returns the AgenticWorkflows field if non-nil, zero value otherwise.
+
+### GetAgenticWorkflowsOk
+
+`func (o *EnvironmentStatusDto) GetAgenticWorkflowsOk() (*[]ApplicationStatusDto, bool)`
+
+GetAgenticWorkflowsOk returns a tuple with the AgenticWorkflows field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgenticWorkflows
+
+`func (o *EnvironmentStatusDto) SetAgenticWorkflows(v []ApplicationStatusDto)`
+
+SetAgenticWorkflows sets AgenticWorkflows field to given value.
+
 
 ### GetApplications
 
