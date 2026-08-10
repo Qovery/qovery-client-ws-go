@@ -9839,6 +9839,7 @@ components:
       - HELM
       - TERRAFORM
       - ARGOCD_APP
+      - AGENTIC_WORKFLOW
       type: string
     TerraformStatusDto:
       example:

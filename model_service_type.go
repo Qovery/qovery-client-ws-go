@@ -28,6 +28,7 @@ const (
 	SERVICETYPE_HELM ServiceType = "HELM"
 	SERVICETYPE_TERRAFORM ServiceType = "TERRAFORM"
 	SERVICETYPE_ARGOCD_APP ServiceType = "ARGOCD_APP"
+	SERVICETYPE_AGENTIC_WORKFLOW ServiceType = "AGENTIC_WORKFLOW"
 )
 
 // All allowed values of ServiceType enum
@@ -39,6 +40,7 @@ var AllowedServiceTypeEnumValues = []ServiceType{
 	"HELM",
 	"TERRAFORM",
 	"ARGOCD_APP",
+	"AGENTIC_WORKFLOW",
 }
 
 func (v *ServiceType) UnmarshalJSON(src []byte) error {
