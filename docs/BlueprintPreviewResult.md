@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Payload** | **string** |  | 
 **ServiceType** | **string** |  | 
 **Type** | **string** |  | 
-**Message** | **string** |  | 
+**Message** | **NullableString** |  | 
 
 ## Methods
 
 ### NewBlueprintPreviewResult
 
-`func NewBlueprintPreviewResult(payload string, serviceType string, type_ string, message string, ) *BlueprintPreviewResult`
+`func NewBlueprintPreviewResult(payload string, serviceType string, type_ string, message NullableString, ) *BlueprintPreviewResult`
 
 NewBlueprintPreviewResult instantiates a new BlueprintPreviewResult object
 This constructor will assign default values to properties that have it defined,
@@ -108,6 +108,16 @@ and a boolean to check if the value has been set.
 SetMessage sets Message field to given value.
 
 
+### SetMessageNil
+
+`func (o *BlueprintPreviewResult) SetMessageNil(b bool)`
+
+ SetMessageNil sets the value for Message to be an explicit nil
+
+### UnsetMessage
+`func (o *BlueprintPreviewResult) UnsetMessage()`
+
+UnsetMessage ensures that no value is present for Message, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

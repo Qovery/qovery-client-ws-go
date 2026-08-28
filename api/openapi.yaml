@@ -10011,8 +10011,14 @@ components:
       required:
       - type
     BlueprintPreviewResult_oneOf_3:
-      description: The preview did not complete in time.
+      description: |-
+        The preview did not complete in time. `message` names the step that ran out of time and
+        after how long, when the engine got far enough to report it; it is absent when nothing
+        did — the engine went quiet, or the gateway stopped waiting first.
       properties:
+        message:
+          nullable: true
+          type: string
         type:
           enum:
           - timeout

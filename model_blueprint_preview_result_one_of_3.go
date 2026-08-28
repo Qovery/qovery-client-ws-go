@@ -20,8 +20,9 @@ import (
 // checks if the BlueprintPreviewResultOneOf3 type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &BlueprintPreviewResultOneOf3{}
 
-// BlueprintPreviewResultOneOf3 The preview did not complete in time.
+// BlueprintPreviewResultOneOf3 The preview did not complete in time. `message` names the step that ran out of time and after how long, when the engine got far enough to report it; it is absent when nothing did — the engine went quiet, or the gateway stopped waiting first.
 type BlueprintPreviewResultOneOf3 struct {
+	Message NullableString `json:"message,omitempty"`
 	Type string `json:"type"`
 }
 
@@ -43,6 +44,48 @@ func NewBlueprintPreviewResultOneOf3(type_ string) *BlueprintPreviewResultOneOf3
 func NewBlueprintPreviewResultOneOf3WithDefaults() *BlueprintPreviewResultOneOf3 {
 	this := BlueprintPreviewResultOneOf3{}
 	return &this
+}
+
+// GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BlueprintPreviewResultOneOf3) GetMessage() string {
+	if o == nil || IsNil(o.Message.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Message.Get()
+}
+
+// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BlueprintPreviewResultOneOf3) GetMessageOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Message.Get(), o.Message.IsSet()
+}
+
+// HasMessage returns a boolean if a field has been set.
+func (o *BlueprintPreviewResultOneOf3) HasMessage() bool {
+	if o != nil && o.Message.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMessage gets a reference to the given NullableString and assigns it to the Message field.
+func (o *BlueprintPreviewResultOneOf3) SetMessage(v string) {
+	o.Message.Set(&v)
+}
+// SetMessageNil sets the value for Message to be an explicit nil
+func (o *BlueprintPreviewResultOneOf3) SetMessageNil() {
+	o.Message.Set(nil)
+}
+
+// UnsetMessage ensures that no value is present for Message, not even an explicit nil
+func (o *BlueprintPreviewResultOneOf3) UnsetMessage() {
+	o.Message.Unset()
 }
 
 // GetType returns the Type field value
@@ -79,6 +122,9 @@ func (o BlueprintPreviewResultOneOf3) MarshalJSON() ([]byte, error) {
 
 func (o BlueprintPreviewResultOneOf3) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Message.IsSet() {
+		toSerialize["message"] = o.Message.Get()
+	}
 	toSerialize["type"] = o.Type
 	return toSerialize, nil
 }

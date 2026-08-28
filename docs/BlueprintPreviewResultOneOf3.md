@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Message** | Pointer to **NullableString** |  | [optional] 
 **Type** | **string** |  | 
 
 ## Methods
@@ -25,6 +26,41 @@ NewBlueprintPreviewResultOneOf3WithDefaults instantiates a new BlueprintPreviewR
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetMessage
+
+`func (o *BlueprintPreviewResultOneOf3) GetMessage() string`
+
+GetMessage returns the Message field if non-nil, zero value otherwise.
+
+### GetMessageOk
+
+`func (o *BlueprintPreviewResultOneOf3) GetMessageOk() (*string, bool)`
+
+GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMessage
+
+`func (o *BlueprintPreviewResultOneOf3) SetMessage(v string)`
+
+SetMessage sets Message field to given value.
+
+### HasMessage
+
+`func (o *BlueprintPreviewResultOneOf3) HasMessage() bool`
+
+HasMessage returns a boolean if a field has been set.
+
+### SetMessageNil
+
+`func (o *BlueprintPreviewResultOneOf3) SetMessageNil(b bool)`
+
+ SetMessageNil sets the value for Message to be an explicit nil
+
+### UnsetMessage
+`func (o *BlueprintPreviewResultOneOf3) UnsetMessage()`
+
+UnsetMessage ensures that no value is present for Message, not even an explicit nil
 ### GetType
 
 `func (o *BlueprintPreviewResultOneOf3) GetType() string`
