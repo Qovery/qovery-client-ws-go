@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## HandleShellExec
 
-> string HandleShellExec(ctx, organization, cluster, project, environment, service, podName, containerName, command, ttyWidth, ttyHeight).Execute()
+> string HandleShellExec(ctx, organization, cluster, project, environment, service, podName, containerName, command, ttyWidth, ttyHeight, serviceType).Execute()
 
 
 
@@ -37,10 +37,11 @@ func main() {
 	command := []string{"Inner_example"} // []string | 
 	ttyWidth := int32(56) // int32 | 
 	ttyHeight := int32(56) // int32 | 
+	serviceType := openapiclient.ServiceType("APPLICATION") // ServiceType | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ShellAPI.HandleShellExec(context.Background(), organization, cluster, project, environment, service, podName, containerName, command, ttyWidth, ttyHeight).Execute()
+	resp, r, err := apiClient.ShellAPI.HandleShellExec(context.Background(), organization, cluster, project, environment, service, podName, containerName, command, ttyWidth, ttyHeight, serviceType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ShellAPI.HandleShellExec``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -66,6 +67,7 @@ Name | Type | Description  | Notes
 **command** | [**[]string**](string.md) |  | 
 **ttyWidth** | **int32** |  | 
 **ttyHeight** | **int32** |  | 
+**serviceType** | [**ServiceType**](.md) |  | 
 
 ### Other Parameters
 
@@ -74,6 +76,7 @@ Other parameters are passed through a pointer to a apiHandleShellExecRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
 
 

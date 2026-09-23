@@ -24,7 +24,7 @@ var _ MappedNullable = &EnvironmentStatusDto{}
 type EnvironmentStatusDto struct {
 	AgenticWorkflows []ApplicationStatusDto `json:"agentic_workflows"`
 	Applications []ApplicationStatusDto `json:"applications"`
-	ArgocdApps []ArgoCdAppStatusDto `json:"argocd_apps"`
+	ArgocdApps []ArgocdAppStatusDto `json:"argocd_apps"`
 	Containers []ApplicationStatusDto `json:"containers"`
 	Databases []DatabaseStatusDto `json:"databases"`
 	Helms []ApplicationStatusDto `json:"helms"`
@@ -41,7 +41,7 @@ type _EnvironmentStatusDto EnvironmentStatusDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentStatusDto(agenticWorkflows []ApplicationStatusDto, applications []ApplicationStatusDto, argocdApps []ArgoCdAppStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto) *EnvironmentStatusDto {
+func NewEnvironmentStatusDto(agenticWorkflows []ApplicationStatusDto, applications []ApplicationStatusDto, argocdApps []ArgocdAppStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto) *EnvironmentStatusDto {
 	this := EnvironmentStatusDto{}
 	this.AgenticWorkflows = agenticWorkflows
 	this.Applications = applications
@@ -114,9 +114,9 @@ func (o *EnvironmentStatusDto) SetApplications(v []ApplicationStatusDto) {
 }
 
 // GetArgocdApps returns the ArgocdApps field value
-func (o *EnvironmentStatusDto) GetArgocdApps() []ArgoCdAppStatusDto {
+func (o *EnvironmentStatusDto) GetArgocdApps() []ArgocdAppStatusDto {
 	if o == nil {
-		var ret []ArgoCdAppStatusDto
+		var ret []ArgocdAppStatusDto
 		return ret
 	}
 
@@ -125,7 +125,7 @@ func (o *EnvironmentStatusDto) GetArgocdApps() []ArgoCdAppStatusDto {
 
 // GetArgocdAppsOk returns a tuple with the ArgocdApps field value
 // and a boolean to check if the value has been set.
-func (o *EnvironmentStatusDto) GetArgocdAppsOk() ([]ArgoCdAppStatusDto, bool) {
+func (o *EnvironmentStatusDto) GetArgocdAppsOk() ([]ArgocdAppStatusDto, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *EnvironmentStatusDto) GetArgocdAppsOk() ([]ArgoCdAppStatusDto, bool) {
 }
 
 // SetArgocdApps sets field value
-func (o *EnvironmentStatusDto) SetArgocdApps(v []ArgoCdAppStatusDto) {
+func (o *EnvironmentStatusDto) SetArgocdApps(v []ArgocdAppStatusDto) {
 	o.ArgocdApps = v
 }
 

@@ -37,6 +37,7 @@ type ApiHandleShellExecRequest struct {
 	command []string
 	ttyWidth int32
 	ttyHeight int32
+	serviceType ServiceType
 }
 
 func (r ApiHandleShellExecRequest) Execute() (string, *http.Response, error) {
@@ -57,9 +58,10 @@ HandleShellExec Method for HandleShellExec
  @param command
  @param ttyWidth
  @param ttyHeight
+ @param serviceType
  @return ApiHandleShellExecRequest
 */
-func (a *ShellAPIService) HandleShellExec(ctx context.Context, organization string, cluster string, project string, environment string, service string, podName string, containerName string, command []string, ttyWidth int32, ttyHeight int32) ApiHandleShellExecRequest {
+func (a *ShellAPIService) HandleShellExec(ctx context.Context, organization string, cluster string, project string, environment string, service string, podName string, containerName string, command []string, ttyWidth int32, ttyHeight int32, serviceType ServiceType) ApiHandleShellExecRequest {
 	return ApiHandleShellExecRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -73,6 +75,7 @@ func (a *ShellAPIService) HandleShellExec(ctx context.Context, organization stri
 		command: command,
 		ttyWidth: ttyWidth,
 		ttyHeight: ttyHeight,
+		serviceType: serviceType,
 	}
 }
 
@@ -102,6 +105,7 @@ func (a *ShellAPIService) HandleShellExecExecute(r ApiHandleShellExecRequest) (s
 	localVarPath = strings.Replace(localVarPath, "{"+"command"+"}", url.PathEscape(parameterValueToString(r.command, "command")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"tty_width"+"}", url.PathEscape(parameterValueToString(r.ttyWidth, "ttyWidth")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"tty_height"+"}", url.PathEscape(parameterValueToString(r.ttyHeight, "ttyHeight")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"service_type"+"}", url.PathEscape(parameterValueToString(r.serviceType, "serviceType")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

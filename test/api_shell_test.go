@@ -36,8 +36,9 @@ func Test_qovery-ws_ShellAPIService(t *testing.T) {
 		var command []string
 		var ttyWidth int32
 		var ttyHeight int32
+		var serviceType ServiceType
 
-		resp, httpRes, err := apiClient.ShellAPI.HandleShellExec(context.Background(), organization, cluster, project, environment, service, podName, containerName, command, ttyWidth, ttyHeight).Execute()
+		resp, httpRes, err := apiClient.ShellAPI.HandleShellExec(context.Background(), organization, cluster, project, environment, service, podName, containerName, command, ttyWidth, ttyHeight, serviceType).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

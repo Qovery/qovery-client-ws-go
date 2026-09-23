@@ -94,7 +94,7 @@ No authorization required
 
 ## HandleServiceLogsRequest
 
-> ServiceLogResponseDto HandleServiceLogsRequest(ctx, organization, cluster, project, environment, service, podName, deploymentId, query, start, limit).Execute()
+> ServiceLogResponseDto HandleServiceLogsRequest(ctx, organization, cluster, project, environment, service, serviceType, podName, deploymentId, query, start, limit).Execute()
 
 
 
@@ -116,6 +116,7 @@ func main() {
 	project := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	environment := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	service := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	serviceType := openapiclient.ServiceType("APPLICATION") // ServiceType | 
 	podName := "podName_example" // string | 
 	deploymentId := "deploymentId_example" // string | 
 	query := "query_example" // string | 
@@ -124,7 +125,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LogsAPI.HandleServiceLogsRequest(context.Background(), organization, cluster, project, environment, service, podName, deploymentId, query, start, limit).Execute()
+	resp, r, err := apiClient.LogsAPI.HandleServiceLogsRequest(context.Background(), organization, cluster, project, environment, service, serviceType, podName, deploymentId, query, start, limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.HandleServiceLogsRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -145,6 +146,7 @@ Name | Type | Description  | Notes
 **project** | **string** |  | 
 **environment** | **string** |  | 
 **service** | **string** |  | 
+**serviceType** | [**ServiceType**](.md) |  | 
 **podName** | **string** |  | 
 **deploymentId** | **string** |  | 
 **query** | **string** |  | 
@@ -158,6 +160,7 @@ Other parameters are passed through a pointer to a apiHandleServiceLogsRequestRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
 
 

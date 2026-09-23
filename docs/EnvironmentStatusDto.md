@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AgenticWorkflows** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 **Applications** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
-**ArgocdApps** | [**[]ArgoCdAppStatusDto**](ArgoCdAppStatusDto.md) |  | 
+**ArgocdApps** | [**[]ArgocdAppStatusDto**](ArgocdAppStatusDto.md) |  | 
 **Containers** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
 **Databases** | [**[]DatabaseStatusDto**](DatabaseStatusDto.md) |  | 
 **Helms** | [**[]ApplicationStatusDto**](ApplicationStatusDto.md) |  | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewEnvironmentStatusDto
 
-`func NewEnvironmentStatusDto(agenticWorkflows []ApplicationStatusDto, applications []ApplicationStatusDto, argocdApps []ArgoCdAppStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto, ) *EnvironmentStatusDto`
+`func NewEnvironmentStatusDto(agenticWorkflows []ApplicationStatusDto, applications []ApplicationStatusDto, argocdApps []ArgocdAppStatusDto, containers []ApplicationStatusDto, databases []DatabaseStatusDto, helms []ApplicationStatusDto, id string, jobs []ApplicationStatusDto, projectId string, state ServiceStateDto, terraform []TerraformStatusDto, ) *EnvironmentStatusDto`
 
 NewEnvironmentStatusDto instantiates a new EnvironmentStatusDto object
 This constructor will assign default values to properties that have it defined,
@@ -77,20 +77,20 @@ SetApplications sets Applications field to given value.
 
 ### GetArgocdApps
 
-`func (o *EnvironmentStatusDto) GetArgocdApps() []ArgoCdAppStatusDto`
+`func (o *EnvironmentStatusDto) GetArgocdApps() []ArgocdAppStatusDto`
 
 GetArgocdApps returns the ArgocdApps field if non-nil, zero value otherwise.
 
 ### GetArgocdAppsOk
 
-`func (o *EnvironmentStatusDto) GetArgocdAppsOk() (*[]ArgoCdAppStatusDto, bool)`
+`func (o *EnvironmentStatusDto) GetArgocdAppsOk() (*[]ArgocdAppStatusDto, bool)`
 
 GetArgocdAppsOk returns a tuple with the ArgocdApps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetArgocdApps
 
-`func (o *EnvironmentStatusDto) SetArgocdApps(v []ArgoCdAppStatusDto)`
+`func (o *EnvironmentStatusDto) SetArgocdApps(v []ArgocdAppStatusDto)`
 
 SetArgocdApps sets ArgocdApps field to given value.
 

@@ -408,6 +408,13 @@ paths:
         style: simple
       - explode: false
         in: path
+        name: service_type
+        required: true
+        schema:
+          $ref: '#/components/schemas/ServiceType'
+        style: simple
+      - explode: false
+        in: path
         name: pod_name
         required: true
         schema:
@@ -766,6 +773,13 @@ paths:
           minimum: 0
           type: integer
         style: simple
+      - explode: false
+        in: path
+        name: service_type
+        required: true
+        schema:
+          $ref: '#/components/schemas/ServiceType'
+        style: simple
       responses:
         "200":
           content:
@@ -955,7 +969,7 @@ components:
       - id
       - pods
       - state
-    ArgoCdAppStatusDto:
+    ArgocdAppStatusDto:
       example:
         pods:
         - restart_count: 0
@@ -1207,6 +1221,18 @@ components:
               node_pool_name: node_pool_name
             message: message
             type: type
+        quota_warning:
+          detected_at: 0
+          quota_code: quota_code
+          suggested_action: suggested_action
+          provider: provider
+          resource: resource
+          quota_name: quota_name
+          source: source
+          last_seen_at: 0
+          message: message
+          region: region
+          status: status
       properties:
         global_status:
           $ref: '#/components/schemas/ClusterStatusGlobalStatus'
@@ -1226,6 +1252,8 @@ components:
           items:
             $ref: '#/components/schemas/QoveryComponentInFailure'
           type: array
+        quota_warning:
+          $ref: '#/components/schemas/ClusterQuotaWarningDto'
       required:
       - global_status
       - is_max_nodes_size_reached
@@ -1237,7 +1265,9 @@ components:
       example:
         nodes:
         - name: name
+          kubelet_version: kubelet_version
         - name: name
+          kubelet_version: kubelet_version
       properties:
         nodes:
           items:
@@ -1787,6 +1817,58 @@ components:
       - resources_capacity
       - taints
       - unschedulable
+    ClusterQuotaWarningDto:
+      example:
+        detected_at: 0
+        quota_code: quota_code
+        suggested_action: suggested_action
+        provider: provider
+        resource: resource
+        quota_name: quota_name
+        source: source
+        last_seen_at: 0
+        message: message
+        region: region
+        status: status
+      properties:
+        detected_at:
+          format: int64
+          minimum: 0
+          type: integer
+        last_seen_at:
+          format: int64
+          minimum: 0
+          type: integer
+        message:
+          type: string
+        provider:
+          type: string
+        quota_code:
+          type: string
+        quota_name:
+          nullable: true
+          type: string
+        region:
+          nullable: true
+          type: string
+        resource:
+          nullable: true
+          type: string
+        source:
+          type: string
+        status:
+          type: string
+        suggested_action:
+          type: string
+      required:
+      - detected_at
+      - last_seen_at
+      - message
+      - provider
+      - quota_code
+      - source
+      - status
+      - suggested_action
     ClusterStatusDto:
       example:
         computed_status:
@@ -1853,6 +1935,18 @@ components:
                 node_pool_name: node_pool_name
               message: message
               type: type
+          quota_warning:
+            detected_at: 0
+            quota_code: quota_code
+            suggested_action: suggested_action
+            provider: provider
+            resource: resource
+            quota_name: quota_name
+            source: source
+            last_seen_at: 0
+            message: message
+            region: region
+            status: status
         tls_certificate:
           not_after: 0
           dns_names:
@@ -4289,7 +4383,7 @@ components:
           type: array
         argocd_apps:
           items:
-            $ref: '#/components/schemas/ArgoCdAppStatusDto'
+            $ref: '#/components/schemas/ArgocdAppStatusDto'
           type: array
         containers:
           items:
@@ -4500,10 +4594,14 @@ components:
     NodeDto:
       example:
         name: name
+        kubelet_version: kubelet_version
       properties:
+        kubelet_version:
+          type: string
         name:
           type: string
       required:
+      - kubelet_version
       - name
     NodePodErrorStatusDto:
       example:
@@ -5444,6 +5542,7 @@ components:
       - STOPPED
       - COMPLETED
       - WARNING
+      - UNAVAILABLE
       type: string
     ServiceStatusDto:
       example:
@@ -10012,9 +10111,8 @@ components:
       - type
     BlueprintPreviewResult_oneOf_3:
       description: |-
-        The preview did not complete in time. `message` names the step that ran out of time and
-        after how long, when the engine got far enough to report it; it is absent when nothing
-        did — the engine went quiet, or the gateway stopped waiting first.
+        The preview did not complete in time. `message` names the step that ran out, and is absent
+        when nothing reported one — the engine went quiet, or this gateway stopped waiting first.
       properties:
         message:
           nullable: true

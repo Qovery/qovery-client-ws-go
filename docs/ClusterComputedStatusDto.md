@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **NodeWarnings** | [**map[string][]QoveryNodeFailure**](array.md) |  | 
 **QoveryComponents** | [**[]QoveryComponentDto**](QoveryComponentDto.md) |  | 
 **QoveryComponentsInFailure** | [**[]QoveryComponentInFailure**](QoveryComponentInFailure.md) |  | 
+**QuotaWarning** | Pointer to [**NullableClusterQuotaWarningDto**](ClusterQuotaWarningDto.md) |  | [optional] 
 
 ## Methods
 
@@ -150,6 +151,41 @@ and a boolean to check if the value has been set.
 SetQoveryComponentsInFailure sets QoveryComponentsInFailure field to given value.
 
 
+### GetQuotaWarning
+
+`func (o *ClusterComputedStatusDto) GetQuotaWarning() ClusterQuotaWarningDto`
+
+GetQuotaWarning returns the QuotaWarning field if non-nil, zero value otherwise.
+
+### GetQuotaWarningOk
+
+`func (o *ClusterComputedStatusDto) GetQuotaWarningOk() (*ClusterQuotaWarningDto, bool)`
+
+GetQuotaWarningOk returns a tuple with the QuotaWarning field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQuotaWarning
+
+`func (o *ClusterComputedStatusDto) SetQuotaWarning(v ClusterQuotaWarningDto)`
+
+SetQuotaWarning sets QuotaWarning field to given value.
+
+### HasQuotaWarning
+
+`func (o *ClusterComputedStatusDto) HasQuotaWarning() bool`
+
+HasQuotaWarning returns a boolean if a field has been set.
+
+### SetQuotaWarningNil
+
+`func (o *ClusterComputedStatusDto) SetQuotaWarningNil(b bool)`
+
+ SetQuotaWarningNil sets the value for QuotaWarning to be an explicit nil
+
+### UnsetQuotaWarning
+`func (o *ClusterComputedStatusDto) UnsetQuotaWarning()`
+
+UnsetQuotaWarning ensures that no value is present for QuotaWarning, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

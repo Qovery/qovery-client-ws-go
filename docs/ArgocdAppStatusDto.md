@@ -1,4 +1,4 @@
-# ArgoCdAppStatusDto
+# ArgocdAppStatusDto
 
 ## Properties
 
@@ -10,79 +10,79 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewArgoCdAppStatusDto
+### NewArgocdAppStatusDto
 
-`func NewArgoCdAppStatusDto(id string, pods []PodStatusDto, state ServiceStateDto, ) *ArgoCdAppStatusDto`
+`func NewArgocdAppStatusDto(id string, pods []PodStatusDto, state ServiceStateDto, ) *ArgocdAppStatusDto`
 
-NewArgoCdAppStatusDto instantiates a new ArgoCdAppStatusDto object
+NewArgocdAppStatusDto instantiates a new ArgocdAppStatusDto object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewArgoCdAppStatusDtoWithDefaults
+### NewArgocdAppStatusDtoWithDefaults
 
-`func NewArgoCdAppStatusDtoWithDefaults() *ArgoCdAppStatusDto`
+`func NewArgocdAppStatusDtoWithDefaults() *ArgocdAppStatusDto`
 
-NewArgoCdAppStatusDtoWithDefaults instantiates a new ArgoCdAppStatusDto object
+NewArgocdAppStatusDtoWithDefaults instantiates a new ArgocdAppStatusDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *ArgoCdAppStatusDto) GetId() string`
+`func (o *ArgocdAppStatusDto) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *ArgoCdAppStatusDto) GetIdOk() (*string, bool)`
+`func (o *ArgocdAppStatusDto) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *ArgoCdAppStatusDto) SetId(v string)`
+`func (o *ArgocdAppStatusDto) SetId(v string)`
 
 SetId sets Id field to given value.
 
 
 ### GetPods
 
-`func (o *ArgoCdAppStatusDto) GetPods() []PodStatusDto`
+`func (o *ArgocdAppStatusDto) GetPods() []PodStatusDto`
 
 GetPods returns the Pods field if non-nil, zero value otherwise.
 
 ### GetPodsOk
 
-`func (o *ArgoCdAppStatusDto) GetPodsOk() (*[]PodStatusDto, bool)`
+`func (o *ArgocdAppStatusDto) GetPodsOk() (*[]PodStatusDto, bool)`
 
 GetPodsOk returns a tuple with the Pods field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPods
 
-`func (o *ArgoCdAppStatusDto) SetPods(v []PodStatusDto)`
+`func (o *ArgocdAppStatusDto) SetPods(v []PodStatusDto)`
 
 SetPods sets Pods field to given value.
 
 
 ### GetState
 
-`func (o *ArgoCdAppStatusDto) GetState() ServiceStateDto`
+`func (o *ArgocdAppStatusDto) GetState() ServiceStateDto`
 
 GetState returns the State field if non-nil, zero value otherwise.
 
 ### GetStateOk
 
-`func (o *ArgoCdAppStatusDto) GetStateOk() (*ServiceStateDto, bool)`
+`func (o *ArgocdAppStatusDto) GetStateOk() (*ServiceStateDto, bool)`
 
 GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetState
 
-`func (o *ArgoCdAppStatusDto) SetState(v ServiceStateDto)`
+`func (o *ArgocdAppStatusDto) SetState(v ServiceStateDto)`
 
 SetState sets State field to given value.
 

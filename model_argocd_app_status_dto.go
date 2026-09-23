@@ -17,40 +17,40 @@ import (
 	"fmt"
 )
 
-// checks if the ArgoCdAppStatusDto type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ArgoCdAppStatusDto{}
+// checks if the ArgocdAppStatusDto type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ArgocdAppStatusDto{}
 
-// ArgoCdAppStatusDto struct for ArgoCdAppStatusDto
-type ArgoCdAppStatusDto struct {
+// ArgocdAppStatusDto struct for ArgocdAppStatusDto
+type ArgocdAppStatusDto struct {
 	Id string `json:"id"`
 	Pods []PodStatusDto `json:"pods"`
 	State ServiceStateDto `json:"state"`
 }
 
-type _ArgoCdAppStatusDto ArgoCdAppStatusDto
+type _ArgocdAppStatusDto ArgocdAppStatusDto
 
-// NewArgoCdAppStatusDto instantiates a new ArgoCdAppStatusDto object
+// NewArgocdAppStatusDto instantiates a new ArgocdAppStatusDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewArgoCdAppStatusDto(id string, pods []PodStatusDto, state ServiceStateDto) *ArgoCdAppStatusDto {
-	this := ArgoCdAppStatusDto{}
+func NewArgocdAppStatusDto(id string, pods []PodStatusDto, state ServiceStateDto) *ArgocdAppStatusDto {
+	this := ArgocdAppStatusDto{}
 	this.Id = id
 	this.Pods = pods
 	this.State = state
 	return &this
 }
 
-// NewArgoCdAppStatusDtoWithDefaults instantiates a new ArgoCdAppStatusDto object
+// NewArgocdAppStatusDtoWithDefaults instantiates a new ArgocdAppStatusDto object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewArgoCdAppStatusDtoWithDefaults() *ArgoCdAppStatusDto {
-	this := ArgoCdAppStatusDto{}
+func NewArgocdAppStatusDtoWithDefaults() *ArgocdAppStatusDto {
+	this := ArgocdAppStatusDto{}
 	return &this
 }
 
 // GetId returns the Id field value
-func (o *ArgoCdAppStatusDto) GetId() string {
+func (o *ArgocdAppStatusDto) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -61,7 +61,7 @@ func (o *ArgoCdAppStatusDto) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *ArgoCdAppStatusDto) GetIdOk() (*string, bool) {
+func (o *ArgocdAppStatusDto) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -69,12 +69,12 @@ func (o *ArgoCdAppStatusDto) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *ArgoCdAppStatusDto) SetId(v string) {
+func (o *ArgocdAppStatusDto) SetId(v string) {
 	o.Id = v
 }
 
 // GetPods returns the Pods field value
-func (o *ArgoCdAppStatusDto) GetPods() []PodStatusDto {
+func (o *ArgocdAppStatusDto) GetPods() []PodStatusDto {
 	if o == nil {
 		var ret []PodStatusDto
 		return ret
@@ -85,7 +85,7 @@ func (o *ArgoCdAppStatusDto) GetPods() []PodStatusDto {
 
 // GetPodsOk returns a tuple with the Pods field value
 // and a boolean to check if the value has been set.
-func (o *ArgoCdAppStatusDto) GetPodsOk() ([]PodStatusDto, bool) {
+func (o *ArgocdAppStatusDto) GetPodsOk() ([]PodStatusDto, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -93,12 +93,12 @@ func (o *ArgoCdAppStatusDto) GetPodsOk() ([]PodStatusDto, bool) {
 }
 
 // SetPods sets field value
-func (o *ArgoCdAppStatusDto) SetPods(v []PodStatusDto) {
+func (o *ArgocdAppStatusDto) SetPods(v []PodStatusDto) {
 	o.Pods = v
 }
 
 // GetState returns the State field value
-func (o *ArgoCdAppStatusDto) GetState() ServiceStateDto {
+func (o *ArgocdAppStatusDto) GetState() ServiceStateDto {
 	if o == nil {
 		var ret ServiceStateDto
 		return ret
@@ -109,7 +109,7 @@ func (o *ArgoCdAppStatusDto) GetState() ServiceStateDto {
 
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
-func (o *ArgoCdAppStatusDto) GetStateOk() (*ServiceStateDto, bool) {
+func (o *ArgocdAppStatusDto) GetStateOk() (*ServiceStateDto, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -117,11 +117,11 @@ func (o *ArgoCdAppStatusDto) GetStateOk() (*ServiceStateDto, bool) {
 }
 
 // SetState sets field value
-func (o *ArgoCdAppStatusDto) SetState(v ServiceStateDto) {
+func (o *ArgocdAppStatusDto) SetState(v ServiceStateDto) {
 	o.State = v
 }
 
-func (o ArgoCdAppStatusDto) MarshalJSON() ([]byte, error) {
+func (o ArgocdAppStatusDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -129,7 +129,7 @@ func (o ArgoCdAppStatusDto) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ArgoCdAppStatusDto) ToMap() (map[string]interface{}, error) {
+func (o ArgocdAppStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["pods"] = o.Pods
@@ -137,7 +137,7 @@ func (o ArgoCdAppStatusDto) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *ArgoCdAppStatusDto) UnmarshalJSON(data []byte) (err error) {
+func (o *ArgocdAppStatusDto) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -161,53 +161,53 @@ func (o *ArgoCdAppStatusDto) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varArgoCdAppStatusDto := _ArgoCdAppStatusDto{}
+	varArgocdAppStatusDto := _ArgocdAppStatusDto{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varArgoCdAppStatusDto)
+	err = decoder.Decode(&varArgocdAppStatusDto)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ArgoCdAppStatusDto(varArgoCdAppStatusDto)
+	*o = ArgocdAppStatusDto(varArgocdAppStatusDto)
 
 	return err
 }
 
-type NullableArgoCdAppStatusDto struct {
-	value *ArgoCdAppStatusDto
+type NullableArgocdAppStatusDto struct {
+	value *ArgocdAppStatusDto
 	isSet bool
 }
 
-func (v NullableArgoCdAppStatusDto) Get() *ArgoCdAppStatusDto {
+func (v NullableArgocdAppStatusDto) Get() *ArgocdAppStatusDto {
 	return v.value
 }
 
-func (v *NullableArgoCdAppStatusDto) Set(val *ArgoCdAppStatusDto) {
+func (v *NullableArgocdAppStatusDto) Set(val *ArgocdAppStatusDto) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableArgoCdAppStatusDto) IsSet() bool {
+func (v NullableArgocdAppStatusDto) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableArgoCdAppStatusDto) Unset() {
+func (v *NullableArgocdAppStatusDto) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableArgoCdAppStatusDto(val *ArgoCdAppStatusDto) *NullableArgoCdAppStatusDto {
-	return &NullableArgoCdAppStatusDto{value: val, isSet: true}
+func NewNullableArgocdAppStatusDto(val *ArgocdAppStatusDto) *NullableArgocdAppStatusDto {
+	return &NullableArgocdAppStatusDto{value: val, isSet: true}
 }
 
-func (v NullableArgoCdAppStatusDto) MarshalJSON() ([]byte, error) {
+func (v NullableArgocdAppStatusDto) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableArgoCdAppStatusDto) UnmarshalJSON(src []byte) error {
+func (v *NullableArgocdAppStatusDto) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

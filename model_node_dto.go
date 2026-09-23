@@ -22,6 +22,7 @@ var _ MappedNullable = &NodeDto{}
 
 // NodeDto struct for NodeDto
 type NodeDto struct {
+	KubeletVersion string `json:"kubelet_version"`
 	Name string `json:"name"`
 }
 
@@ -31,8 +32,9 @@ type _NodeDto NodeDto
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNodeDto(name string) *NodeDto {
+func NewNodeDto(kubeletVersion string, name string) *NodeDto {
 	this := NodeDto{}
+	this.KubeletVersion = kubeletVersion
 	this.Name = name
 	return &this
 }
@@ -43,6 +45,30 @@ func NewNodeDto(name string) *NodeDto {
 func NewNodeDtoWithDefaults() *NodeDto {
 	this := NodeDto{}
 	return &this
+}
+
+// GetKubeletVersion returns the KubeletVersion field value
+func (o *NodeDto) GetKubeletVersion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.KubeletVersion
+}
+
+// GetKubeletVersionOk returns a tuple with the KubeletVersion field value
+// and a boolean to check if the value has been set.
+func (o *NodeDto) GetKubeletVersionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KubeletVersion, true
+}
+
+// SetKubeletVersion sets field value
+func (o *NodeDto) SetKubeletVersion(v string) {
+	o.KubeletVersion = v
 }
 
 // GetName returns the Name field value
@@ -79,6 +105,7 @@ func (o NodeDto) MarshalJSON() ([]byte, error) {
 
 func (o NodeDto) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["kubelet_version"] = o.KubeletVersion
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
 }
@@ -88,6 +115,7 @@ func (o *NodeDto) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"kubelet_version",
 		"name",
 	}
 

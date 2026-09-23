@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**KubeletVersion** | **string** |  | 
 **Name** | **string** |  | 
 
 ## Methods
 
 ### NewNodeDto
 
-`func NewNodeDto(name string, ) *NodeDto`
+`func NewNodeDto(kubeletVersion string, name string, ) *NodeDto`
 
 NewNodeDto instantiates a new NodeDto object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +25,26 @@ will change when the set of required properties is changed
 NewNodeDtoWithDefaults instantiates a new NodeDto object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetKubeletVersion
+
+`func (o *NodeDto) GetKubeletVersion() string`
+
+GetKubeletVersion returns the KubeletVersion field if non-nil, zero value otherwise.
+
+### GetKubeletVersionOk
+
+`func (o *NodeDto) GetKubeletVersionOk() (*string, bool)`
+
+GetKubeletVersionOk returns a tuple with the KubeletVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKubeletVersion
+
+`func (o *NodeDto) SetKubeletVersion(v string)`
+
+SetKubeletVersion sets KubeletVersion field to given value.
+
 
 ### GetName
 

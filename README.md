@@ -97,7 +97,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [ApplicationStatusDto](docs/ApplicationStatusDto.md)
- - [ArgoCdAppStatusDto](docs/ArgoCdAppStatusDto.md)
+ - [ArgocdAppStatusDto](docs/ArgocdAppStatusDto.md)
  - [BlueprintPreviewResult](docs/BlueprintPreviewResult.md)
  - [BlueprintPreviewResultOneOf](docs/BlueprintPreviewResultOneOf.md)
  - [BlueprintPreviewResultOneOf1](docs/BlueprintPreviewResultOneOf1.md)
@@ -109,6 +109,7 @@ Class | Method | HTTP request | Description
  - [ClusterListNodesResponseDto](docs/ClusterListNodesResponseDto.md)
  - [ClusterMetricsDto](docs/ClusterMetricsDto.md)
  - [ClusterNodeDto](docs/ClusterNodeDto.md)
+ - [ClusterQuotaWarningDto](docs/ClusterQuotaWarningDto.md)
  - [ClusterStatusDto](docs/ClusterStatusDto.md)
  - [ClusterStatusGlobalStatus](docs/ClusterStatusGlobalStatus.md)
  - [ContainerStateDto](docs/ContainerStateDto.md)

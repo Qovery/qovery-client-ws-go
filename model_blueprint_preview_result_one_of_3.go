@@ -20,7 +20,7 @@ import (
 // checks if the BlueprintPreviewResultOneOf3 type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &BlueprintPreviewResultOneOf3{}
 
-// BlueprintPreviewResultOneOf3 The preview did not complete in time. `message` names the step that ran out of time and after how long, when the engine got far enough to report it; it is absent when nothing did — the engine went quiet, or the gateway stopped waiting first.
+// BlueprintPreviewResultOneOf3 The preview did not complete in time. `message` names the step that ran out, and is absent when nothing reported one — the engine went quiet, or this gateway stopped waiting first.
 type BlueprintPreviewResultOneOf3 struct {
 	Message NullableString `json:"message,omitempty"`
 	Type string `json:"type"`

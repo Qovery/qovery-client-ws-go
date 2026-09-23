@@ -28,6 +28,7 @@ type ClusterComputedStatusDto struct {
 	NodeWarnings map[string][]QoveryNodeFailure `json:"node_warnings"`
 	QoveryComponents []QoveryComponentDto `json:"qovery_components"`
 	QoveryComponentsInFailure []QoveryComponentInFailure `json:"qovery_components_in_failure"`
+	QuotaWarning NullableClusterQuotaWarningDto `json:"quota_warning,omitempty"`
 }
 
 type _ClusterComputedStatusDto ClusterComputedStatusDto
@@ -199,6 +200,48 @@ func (o *ClusterComputedStatusDto) SetQoveryComponentsInFailure(v []QoveryCompon
 	o.QoveryComponentsInFailure = v
 }
 
+// GetQuotaWarning returns the QuotaWarning field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ClusterComputedStatusDto) GetQuotaWarning() ClusterQuotaWarningDto {
+	if o == nil || IsNil(o.QuotaWarning.Get()) {
+		var ret ClusterQuotaWarningDto
+		return ret
+	}
+	return *o.QuotaWarning.Get()
+}
+
+// GetQuotaWarningOk returns a tuple with the QuotaWarning field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ClusterComputedStatusDto) GetQuotaWarningOk() (*ClusterQuotaWarningDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.QuotaWarning.Get(), o.QuotaWarning.IsSet()
+}
+
+// HasQuotaWarning returns a boolean if a field has been set.
+func (o *ClusterComputedStatusDto) HasQuotaWarning() bool {
+	if o != nil && o.QuotaWarning.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetQuotaWarning gets a reference to the given NullableClusterQuotaWarningDto and assigns it to the QuotaWarning field.
+func (o *ClusterComputedStatusDto) SetQuotaWarning(v ClusterQuotaWarningDto) {
+	o.QuotaWarning.Set(&v)
+}
+// SetQuotaWarningNil sets the value for QuotaWarning to be an explicit nil
+func (o *ClusterComputedStatusDto) SetQuotaWarningNil() {
+	o.QuotaWarning.Set(nil)
+}
+
+// UnsetQuotaWarning ensures that no value is present for QuotaWarning, not even an explicit nil
+func (o *ClusterComputedStatusDto) UnsetQuotaWarning() {
+	o.QuotaWarning.Unset()
+}
+
 func (o ClusterComputedStatusDto) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -215,6 +258,9 @@ func (o ClusterComputedStatusDto) ToMap() (map[string]interface{}, error) {
 	toSerialize["node_warnings"] = o.NodeWarnings
 	toSerialize["qovery_components"] = o.QoveryComponents
 	toSerialize["qovery_components_in_failure"] = o.QoveryComponentsInFailure
+	if o.QuotaWarning.IsSet() {
+		toSerialize["quota_warning"] = o.QuotaWarning.Get()
+	}
 	return toSerialize, nil
 }
 

@@ -28,6 +28,7 @@ const (
 	SERVICESTATEDTO_STOPPED ServiceStateDto = "STOPPED"
 	SERVICESTATEDTO_COMPLETED ServiceStateDto = "COMPLETED"
 	SERVICESTATEDTO_WARNING ServiceStateDto = "WARNING"
+	SERVICESTATEDTO_UNAVAILABLE ServiceStateDto = "UNAVAILABLE"
 )
 
 // All allowed values of ServiceStateDto enum
@@ -39,6 +40,7 @@ var AllowedServiceStateDtoEnumValues = []ServiceStateDto{
 	"STOPPED",
 	"COMPLETED",
 	"WARNING",
+	"UNAVAILABLE",
 }
 
 func (v *ServiceStateDto) UnmarshalJSON(src []byte) error {
