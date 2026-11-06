@@ -5,6 +5,7 @@ README.md
 api/openapi.yaml
 api_blueprint_preview.go
 api_blueprint_service.go
+api_build_analysis.go
 api_cluster_list_nodes.go
 api_cluster_metrics.go
 api_cluster_status.go
@@ -27,6 +28,9 @@ docs/BlueprintPreviewResultOneOf2.md
 docs/BlueprintPreviewResultOneOf3.md
 docs/BlueprintServiceAPI.md
 docs/BlueprintServiceCreatedEvent.md
+docs/BuildAnalysisAPI.md
+docs/BuildAnalysisEvent.md
+docs/BuildAnalysisStatus.md
 docs/CertificateStatusDto.md
 docs/ClusterComputedStatusDto.md
 docs/ClusterListNodesAPI.md
@@ -110,6 +114,8 @@ model_blueprint_preview_result_one_of_1.go
 model_blueprint_preview_result_one_of_2.go
 model_blueprint_preview_result_one_of_3.go
 model_blueprint_service_created_event.go
+model_build_analysis_event.go
+model_build_analysis_status.go
 model_certificate_status_dto.go
 model_cluster_computed_status_dto.go
 model_cluster_list_nodes_response_dto.go
@@ -175,6 +181,7 @@ model_unit_dto.go
 response.go
 test/api_blueprint_preview_test.go
 test/api_blueprint_service_test.go
+test/api_build_analysis_test.go
 test/api_cluster_list_nodes_test.go
 test/api_cluster_metrics_test.go
 test/api_cluster_status_test.go

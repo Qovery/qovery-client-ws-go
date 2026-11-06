@@ -80,6 +80,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BlueprintPreviewAPI* | [**HandleBlueprintPreviewRequest**](docs/BlueprintPreviewAPI.md#handleblueprintpreviewrequest) | **Get** /blueprint/preview | 
 *BlueprintServiceAPI* | [**HandleBlueprintServiceCreatedRequest**](docs/BlueprintServiceAPI.md#handleblueprintservicecreatedrequest) | **Get** /blueprint/service-created | 
+*BuildAnalysisAPI* | [**HandleBuildAnalysisRequest**](docs/BuildAnalysisAPI.md#handlebuildanalysisrequest) | **Get** /build/analysis | 
 *ClusterListNodesAPI* | [**HandleClusterListNodesRequest**](docs/ClusterListNodesAPI.md#handleclusterlistnodesrequest) | **Get** /cluster/node | 
 *ClusterMetricsAPI* | [**HandleClusterMetricsRequest**](docs/ClusterMetricsAPI.md#handleclustermetricsrequest) | **Get** /cluster/metrics | 
 *ClusterStatusAPI* | [**HandleClusterStatusRequest**](docs/ClusterStatusAPI.md#handleclusterstatusrequest) | **Get** /cluster/status | 
@@ -104,6 +105,8 @@ Class | Method | HTTP request | Description
  - [BlueprintPreviewResultOneOf2](docs/BlueprintPreviewResultOneOf2.md)
  - [BlueprintPreviewResultOneOf3](docs/BlueprintPreviewResultOneOf3.md)
  - [BlueprintServiceCreatedEvent](docs/BlueprintServiceCreatedEvent.md)
+ - [BuildAnalysisEvent](docs/BuildAnalysisEvent.md)
+ - [BuildAnalysisStatus](docs/BuildAnalysisStatus.md)
  - [CertificateStatusDto](docs/CertificateStatusDto.md)
  - [ClusterComputedStatusDto](docs/ClusterComputedStatusDto.md)
  - [ClusterListNodesResponseDto](docs/ClusterListNodesResponseDto.md)
